@@ -460,7 +460,7 @@ body > .navbar-collapse[data-color="purple"]:after {
   width: calc(100% - 260px);
   min-height: 100%;
 }
-.main-panel > .content {
+.main-panel .main-content {
   padding: 30px 15px;
   min-height: calc(100% - 123px);
 }
@@ -1615,6 +1615,9 @@ body > .navbar-collapse[data-color="purple"]:after {
   background-color: transparent;
   border-bottom: 1px solid transparent;
 }
+.navbar-transparent .btn {
+  color: #fff;
+}
 
 .navbar-toggle {
   margin-top: 19px;
@@ -1622,7 +1625,10 @@ body > .navbar-collapse[data-color="purple"]:after {
   border: 0;
 }
 .navbar-toggle .icon-bar {
-  background-color: #FFFFFF;
+  background-color: #444;
+}
+.navbar-transparent .navbar-toggle .icon-bar {
+  background-color: #fff;
 }
 .navbar-toggle .navbar-collapse,
 .navbar-toggle .navbar-form {
@@ -2933,7 +2939,6 @@ body > .navbar-collapse[data-color="purple"]:after {
   .navbar-toggle .icon-bar {
     display: block;
     position: relative;
-    background: #fff;
     width: 24px;
     height: 2px;
     border-radius: 1px;
@@ -3391,3 +3396,5 @@ body > .navbar-collapse[data-color="purple"]:after {
     -webkit-overflow-scrolling: touch;
   }
 }
+
+/*# sourceMappingURL=light-bootstrap-dashboard.css.map */
