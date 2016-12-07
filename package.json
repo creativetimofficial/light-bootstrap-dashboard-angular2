@@ -13,6 +13,9 @@
       "url": "https://github.com/angular/angular.io/blob/master/LICENSE"
     }
   ],
+  "engines": {
+    "node": "5.9.1"
+  },
   "dependencies": {
     "@angular/common": "~2.2.2",
     "@angular/compiler": "~2.2.2",
