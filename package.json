@@ -4,6 +4,7 @@
   "scripts": {
     "start": "node app/main.js"
   },
+  "main": "app/main.js",
   "licenses": [
     {
       "type": "MIT",
