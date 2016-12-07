@@ -1,5 +1,12 @@
 
-
+.nav-mobile-menu button,
+.nav-mobile-menu button:hover,
+.nav-mobile-menu button:focus{
+    color: #fff;
+}
+.nav-mobile-menu .navbar-title{
+    display: none;
+}
 .navbar-title{
     height: 100%;
 }
