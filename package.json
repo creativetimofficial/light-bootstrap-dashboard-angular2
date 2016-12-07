@@ -2,11 +2,9 @@
   "name": "Angular2",
   "version": "1.0.0",
   "scripts": {
-    "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
-    "lite": "lite-server",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w"
+      "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "main": "web.js",
   "licenses": [
     {
       "type": "MIT",
@@ -31,6 +29,7 @@
     "angular2-google-maps": "~0.16.0",
     "chartist": "~0.9.8",
     "core-js": "~2.4.1",
+    "express": "^4.14.0",
     "jquery": "~3.1.1",
     "ng2-bootstrap": "~1.1.16",
     "reflect-metadata": "~0.1.8",
