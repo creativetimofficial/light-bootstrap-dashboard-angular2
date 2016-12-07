@@ -177,15 +177,6 @@ input:focus {
   transition: all 300ms linear;
 }
 
-.sidebar .nav a,
-.table > tbody > tr .td-actions .btn {
-  -webkit-transition: all 150ms ease-in;
-  -moz-transition: all 150ms ease-in;
-  -o-transition: all 150ms ease-in;
-  -ms-transition: all 150ms ease-in;
-  transition: all 150ms ease-in;
-}
-
 .btn {
   -webkit-transition: all 100ms ease-in;
   -moz-transition: all 100ms ease-in;

@@ -62,7 +62,6 @@ $(window).resize(function(){
 
 function scrollTo(){
     var href = $(this).attr('href');
-    console.log(href);
     $('html,body').animate({
         'scrollTop': $($(this).attr('href')).offset().top - 350
     }, 200);

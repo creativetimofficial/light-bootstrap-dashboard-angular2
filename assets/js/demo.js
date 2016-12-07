@@ -1,106 +1,108 @@
-background_image = true;
+if ('undefined' !== typeof module) {
 
-$().ready(function(){
-    $sidebar = $('.sidebar');
-    $sidebar_img_container = $sidebar.find('.sidebar-background');
+    background_image = true;
 
-    $sidebar_responsive = $('body > .navbar-collapse');
+    module.exports = function initFixedPlugin(){
+        $sidebar = $('.sidebar');
+        $sidebar_img_container = $sidebar.find('.sidebar-background');
 
-    window_width = $(window).width();
+        $sidebar_responsive = $('body > .navbar-collapse');
 
-    if(window_width > 767){
-        if($('.fixed-plugin .dropdown').hasClass('show-dropdown')){
-            $('.fixed-plugin .dropdown').addClass('open');
-        }
-    }
+        window_width = $(window).width();
 
-    $('.fixed-plugin a').click(function(event){
-        console.log('am intrat');
-      // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
-        if($(this).hasClass('switch-trigger')){
-            if(event.stopPropagation){
-                event.stopPropagation();
-            }
-            else if(window.event){
-               window.event.cancelBubble = true;
+        if(window_width > 767){
+            if(window.location.pathname == '/dashboard'){
+                if($('.fixed-plugin .dropdown').hasClass('show-dropdown')){
+                    $('.fixed-plugin .dropdown').addClass('open');
+                }
             }
         }
-    });
 
-    $('.fixed-plugin .badge').click(function(){
-
-        $(this).siblings().removeClass('active');
-        $(this).addClass('active');
-
-        var new_color = $(this).data('color');
-
-        $sidebar.attr('data-color',new_color);
-
-        if($sidebar_responsive.length != 0){
-            $sidebar_responsive.attr('data-color',new_color);
-        }
-    });
-
-    $('.fixed-plugin .img-holder').click(function(){
-
-        $(this).parent('li').siblings().removeClass('active');
-        $(this).parent('li').addClass('active');
-
-
-        var new_image = $(this).find("img").attr('src');
-
-        $sidebar_img_container.fadeOut('fast', function(){
-           $sidebar_img_container.css('background-image','url("' + new_image + '")');
-           $sidebar_img_container.fadeIn('fast');
+        $('.fixed-plugin a').click(function(event){
+            // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+            if($(this).hasClass('switch-trigger')){
+                if(event.stopPropagation){
+                    event.stopPropagation();
+                }
+                else if(window.event){
+                    window.event.cancelBubble = true;
+                }
+            }
         });
 
-        if($sidebar_responsive.length != 0){
-            $sidebar_responsive.css('background-image','url("' + new_image + '")');
-        }
-    });
+        $('.fixed-plugin .badge').click(function(){
 
-    $('.switch input').change(function(){
-        $input = $(this);
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
 
-        if($input.is(':checked')){
-            $sidebar_img_container.fadeIn('fast');
-            $sidebar.attr('data-image','#')
-            background_image = true;
-        } else {
-            $sidebar.removeAttr('data-image');
-            $sidebar_img_container.fadeOut('fast');
-            background_image = false;
-        }
-    });
+            var new_color = $(this).data('color');
 
-    $('#twitter').sharrre({
-      share: {
-        twitter: true
-      },
-      enableHover: false,
-      enableTracking: false,
-      buttons: { twitter: {via: 'CreativeTim'}},
-      click: function(api, options){
-        api.simulateClick();
-        api.openPopup('twitter');
-      },
-      template: '<i class="fa fa-twitter"></i> &middot; 256',
-      url: 'http://demos.creative-tim.com/light-bootstrap-dashboard'
-    });
+            $sidebar.attr('data-color',new_color);
 
-    $('#facebook').sharrre({
-      share: {
-        facebook: true
-      },
-      enableHover: false,
-      enableTracking: false,
-      click: function(api, options){
-        api.simulateClick();
-        api.openPopup('facebook');
-      },
-      template: '<i class="fa fa-facebook-square"></i> &middot; 426',
-      url: 'http://demos.creative-tim.com/light-bootstrap-dashboard'
-    });
+            if($sidebar_responsive.length != 0){
+                $sidebar_responsive.attr('data-color',new_color);
+            }
+        });
+
+        $('.fixed-plugin .img-holder').click(function(){
+
+            $(this).parent('li').siblings().removeClass('active');
+            $(this).parent('li').addClass('active');
 
 
-});
+            var new_image = $(this).find("img").attr('src');
+
+            $sidebar_img_container.fadeOut('fast', function(){
+                $sidebar_img_container.css('background-image','url("' + new_image + '")');
+                $sidebar_img_container.fadeIn('fast');
+            });
+
+            if($sidebar_responsive.length != 0){
+                $sidebar_responsive.css('background-image','url("' + new_image + '")');
+            }
+        });
+
+        $('.switch input').change(function(){
+            $input = $(this);
+
+            if($input.is(':checked')){
+                $sidebar_img_container.fadeIn('fast');
+                $sidebar.attr('data-image','#')
+                background_image = true;
+            } else {
+                $sidebar.removeAttr('data-image');
+                $sidebar_img_container.fadeOut('fast');
+                background_image = false;
+            }
+        });
+
+        $('#twitter').sharrre({
+            share: {
+                twitter: true
+            },
+            enableHover: false,
+            enableTracking: false,
+            buttons: { twitter: {via: 'CreativeTim'}},
+            click: function(api, options){
+                api.simulateClick();
+                api.openPopup('twitter');
+            },
+            template: '<i class="fa fa-twitter"></i> &middot; 256',
+            url: 'http://demos.creative-tim.com/light-bootstrap-dashboard-angular2'
+        });
+
+        $('#facebook').sharrre({
+            share: {
+                facebook: true
+            },
+            enableHover: false,
+            enableTracking: false,
+            click: function(api, options){
+                api.simulateClick();
+                api.openPopup('facebook');
+            },
+            template: '<i class="fa fa-facebook-square"></i> &middot; 426',
+            url: 'http://demos.creative-tim.com/light-bootstrap-dashboard-angular2'
+        });
+    }
+}

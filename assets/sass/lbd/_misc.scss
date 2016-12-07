@@ -6,14 +6,14 @@ body,
 }
 a{
   color: $info-color;
-    
+
   &:hover, &:focus{
-     color: $info-states-color; 
-     text-decoration: none; 
+     color: $info-states-color;
+     text-decoration: none;
   }
 }
 
-a:focus, a:active, 
+a:focus, a:active,
 button::-moz-focus-inner,
 input::-moz-focus-inner,
 input[type="reset"]::-moz-focus-inner,
@@ -30,18 +30,18 @@ input:focus {
 }
 
 /*           Animations              */
-.form-control, 
-.input-group-addon, 
+.form-control,
+.input-group-addon,
 .tagsinput,
 .navbar,
 .navbar .alert{
     @include transition($general-transition-time, $transition-linear);
 }
 
-.sidebar .nav a,
-.table > tbody > tr .td-actions .btn{
-    @include transition($fast-transition-time, $transition-ease-in);
-}
+// .sidebar .nav a,
+// .table > tbody > tr .td-actions .btn{
+//     @include transition($fast-transition-time, $transition-ease-in);
+// }
 
 .btn{
     @include transition($ultra-fast-transition-time, $transition-ease-in);
@@ -59,4 +59,3 @@ input:focus {
     top: 0;
     height: 100vh;
 }
-
