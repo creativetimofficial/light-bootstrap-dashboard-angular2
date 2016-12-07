@@ -4,3 +4,4 @@ import {enableProdMode} from '@angular/core';
 enableProdMode();
 const platform = platformBrowserDynamic();
 platform.bootstrapModule(AppModule);
+// var reflect = require('../node_modules/reflect-metadata');
