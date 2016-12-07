@@ -40,7 +40,10 @@
     width:100%;
     height: calc(100% - 60px);
 }
+.map{
+    height: 280px !important;
 
+}
 .places-buttons .btn{
     margin-bottom: 30px
 }
