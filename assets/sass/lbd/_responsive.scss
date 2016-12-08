@@ -71,6 +71,9 @@
             }
         }
     }
+    .navbar-cmp-fixed .navbar{
+        width: calc(100% - 260px);
+    }
 }
 
 /*          Changes for small display      */
@@ -169,6 +172,9 @@
     .nav-open .wrapper{
         left: 0;
         @include transform-translate-x(-250px);
+    }
+    .nav-open .navbar-cmp-fixed .navbar > div{
+        @include transform-translate-x(-260px);
     }
     .navbar-toggle .icon-bar {
           display: block;

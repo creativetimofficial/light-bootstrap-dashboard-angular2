@@ -7,6 +7,24 @@
     }
 }
 
+.navbar-cmp-fixed .navbar{
+    position: fixed;
+    width: 100%;
+    right: 0;
+    z-index: 1031;
+
+
+}
+.navbar-cmp-fixed ~ .main-panel{
+     .main-content{
+        padding-top: 95px;
+        min-height: calc(100% - 71px);
+    }
+    #map{
+        padding-top: 60px;
+    }
+}
+
 .navbar{
     border: $none;
     font-size: $font-size-navbar;
