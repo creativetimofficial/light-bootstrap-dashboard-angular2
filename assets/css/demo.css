@@ -30,7 +30,7 @@
 #map{
     position:relative;
     width:100%;
-    height: calc(100% - 60px);
+    height: 100%;
 }
 
 .places-buttons .btn{

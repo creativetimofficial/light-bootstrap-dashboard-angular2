@@ -2,6 +2,14 @@
 //
 //## For each of Bootstrap's buttons, define text, background and border color.
 
+$color-azure:           #23CCEF;
+$color-purple:          #9368E9;
+$color-red:             #FB404B;
+$color-green:           #87CB16;
+$color-orange:          #FFA534;
+$color-blue:            #447DF7;
+$color-black:           #5e5e5e;
+
 $none:                       0   !default;
 $border-thin:                1px !default;
 $border-thick:               2px !default;
@@ -25,40 +33,45 @@ $transparent-bg:             transparent !default;
 
 $default-color:              #888888 !default;
 $default-bg:                 #888888 !default;
-$default-states-color:       #777777 !default; 
+$default-states-color:       #777777 !default;
 
-$primary-color:              #3472F7 !default;
-$primary-bg:                 #3472F7 !default;
-$primary-states-color:       #1D62F0 !default;
+$default-bg:                 $default-color !default;
+$default-states-color:       darken($default-color, 6%) !default;
 
-$success-color:              #87CB16 !default;
-$success-bg:                 #87CB16 !default;
-$success-states-color:       #049F0C !default; 
+$primary-color:              $color-blue !default;
+$primary-bg:                 $color-blue !default;
+$primary-states-color:       darken($color-blue, 5%) !default;
 
-$info-color:                 #1DC7EA !default;
-$info-bg:                    #1DC7EA !default;
-$info-states-color:          lighten($info-color, 8%) !default;
+$info-color:                 $color-azure !default;
+$info-bg:                    $color-azure !default;
+$info-states-color:          darken($color-azure, 6%) !default;
 
-$warning-color:              #FF9500 !default;
-$warning-bg:                 #FF9500 !default;
-$warning-states-color:       #ED8D00 !default;
+$success-color:              $color-green !default;
+$success-bg:                 $color-green !default;
+$success-states-color:       darken($color-green, 5%) !default;
+
+$warning-color:              $color-orange !default;
+$warning-bg:                 $color-orange !default;
+$warning-states-color:       darken($color-orange, 7%) !default;
 
 
-$danger-color:               #FF4A55 !default;
-$danger-bg:                  #FF4A55 !default;
-$danger-states-color:        #EE2D20 !default;
+$danger-color:               $color-red !default;
+$danger-bg:                  $color-red !default;
+$danger-states-color:        darken($color-red, 8%) !default;
+
+$link-disabled-color:        #666666 !default;
 
 
 
 $link-disabled-color:        #666666 !default;
 
 
-/*      light colors         */
+//==      light colors
 $light-blue:                 rgba($primary-color, .2);
 $light-azure:                rgba($info-color, .2);
 $light-green:                rgba($success-color, .2);
 $light-orange:               rgba($warning-color, .2);
-$light-red:                  rgba($danger-color, .2); 
+$light-red:                  rgba($danger-color, .2);
 
 
 //== Components
@@ -105,7 +118,7 @@ $height-base:                  40px !default;
 
 $font-size-base:               14px !default;
 $font-size-small:              12px !default;
-$font-size-medium:             16px !default; 
+$font-size-medium:             16px !default;
 $font-size-large:              18px !default;
 $font-size-large-navbar:       20px !default;
 
@@ -119,7 +132,7 @@ $font-paragraph:               16px !default;
 $font-size-navbar:             16px !default;
 $font-size-small:              12px !default;
 
-$font-weight-light:          300 !default; 
+$font-weight-light:          300 !default;
 $font-weight-normal:         400 !default;
 $font-weight-semi:           500 !default;
 $font-weight-bold:           600 !default;
@@ -138,7 +151,7 @@ $dropdown-shadow:          1px 2px 3px rgba(0, 0, 0, 0.125);
 
 $general-transition-time:  300ms !default;
 
-$slow-transition-time:           370ms !default; 
+$slow-transition-time:           370ms !default;
 $dropdown-coordinates:      29px -50px !default;
 
 $fast-transition-time:           150ms !default;
@@ -237,7 +250,7 @@ $filter-blue:         darken($primary-color, 10%);
 $filter-azure:        darken($info-color, 10%);
 $filter-green:        darken($success-color, 10%);
 $filter-orange:       darken($warning-color, 10%);
-$filter-red:          darken($danger-color, 10%);  
+$filter-red:          darken($danger-color, 10%);
 
 
 $new-blue:            #1DC7EA;
@@ -261,5 +274,3 @@ $azure-navbar:              lighten($new-blue, 15%);
 $green-navbar:              lighten($new-green, 10%);
 $orange-navbar:             lighten($new-orange, 10%);
 $red-navbar:                lighten($new-red, 10%);
-
-

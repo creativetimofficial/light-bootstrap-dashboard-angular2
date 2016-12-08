@@ -1,16 +1,22 @@
-
-.nav-mobile-menu button,
-.nav-mobile-menu button:hover,
-.nav-mobile-menu button:focus{
+.nav-mobile-menu .btn-simple,
+.nav-mobile-menu .btn-simple:hover,
+.nav-mobile-menu .btn-simple:focus{
     color: #fff;
 }
 .nav-mobile-menu .navbar-title{
     display: none;
 }
+.navbar{
+    -webkit-transition: all 150ms linear;
+    -moz-transition: all 150ms linear;
+    -o-transition: all 150ms linear;
+    -ms-transition: all 150ms linear;
+    transition: all 150ms linear;
+}
+
 .navbar-title{
     height: 100%;
 }
-
 .navbar-title h4{
     line-height: 12px;
     margin-top: 16px;
@@ -33,14 +39,19 @@
     float: none;
     display: inline-block;
 }
-.image-container{
+.navbar-title .image-container{
     height: 40px;
     width: 40px;
     display: inline-block;
+    top: -3px;
+    position: relative;
 }
 
 .tim-row{
     margin-bottom: 40px;
+}
+.tim-row h2{
+    margin-top: 90px
 }
 
 pre.prettyprint{
@@ -48,8 +59,9 @@ pre.prettyprint{
     border: 0px;
     margin-bottom: 0;
     margin-top: 20px;
-    padding: 20px;
+    padding: 20px !important;
     text-align: left;
+    border: 1px solid #ccc !important;
 }
 .tim-row:last-child pre{
     position: relative;
@@ -107,14 +119,7 @@ pre.prettyprint{
     height: 500px;
 }
 
-/*.`header-wrapper .navbar` {
-border-radius: 0;
-position: absolute;
-width: 100%;
-z-index: 3;
-}*/
 .header-wrapper .header {
-    background-color: #9368e9;
     background-position: center center;
     background-size: cover;
     height: 450px;
@@ -222,6 +227,10 @@ z-index: 3;
 
 .table-bigboy .td-name{
     min-width: 170px;
+}
+
+.navbar .navbar-nav > li > a.btn{
+    padding: 8px 8px;
 }
 
 @media (max-width: 991px) {

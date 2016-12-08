@@ -230,15 +230,21 @@ body > .navbar-collapse{
 }
 
 .sidebar,
+.main-panel,
+.sidebar-wrapper,
+.navbar-cmp-fixed .navbar{
+    -webkit-transition-property: top,bottom,width;
+    transition-property: top,bottom, width;
+    -webkit-transition-duration: .2s,.2s, .35s;
+    transition-duration: .2s,.2s, .35s;
+    -webkit-transition-timing-function: linear,linear,ease;
+    transition-timing-function: linear,linear,ease;
+    -webkit-overflow-scrolling: touch;
+}
+
+.sidebar,
 .main-panel{
-    overflow: auto;
     max-height: 100%;
     height: 100%;
-    -webkit-transition-property: top,bottom;
-    transition-property: top,bottom;
-    -webkit-transition-duration: .2s,.2s;
-    transition-duration: .2s,.2s;
-    -webkit-transition-timing-function: linear,linear;
-    transition-timing-function: linear,linear;
-    -webkit-overflow-scrolling: touch;
+    overflow: auto;
 }
