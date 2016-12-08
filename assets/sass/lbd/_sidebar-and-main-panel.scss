@@ -51,9 +51,21 @@
             display: block;
             font-size: $font-size-large;
             color: $white-color;
-            text-align: center;
+            text-align: left;
             font-weight: $font-weight-normal;
             line-height: 30px;
+        }
+    }
+    .logo-img{
+        width: 30px;
+        display: inline-block;
+        max-height: 30px;
+        margin-right: 10px;
+
+        img{
+            width: 35px;
+            top: 11px;
+            position: absolute;
         }
     }
 
@@ -133,11 +145,11 @@ body > .navbar-collapse{
 
         .simple-text{
             text-transform: uppercase;
-            padding: $padding-small-vertical $padding-zero;
+            padding: 5px 0px 5px 15px;
             display: block;
             font-size: $font-size-large;
             color: $white-color;
-            text-align: center;
+            text-align: left;
             font-weight: $font-weight-normal;
             line-height: 30px;
         }

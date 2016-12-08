@@ -27,7 +27,7 @@ var mobile_menu_visible = 0;
 
 $(document).ready(function(){
     window_width = $(window).width();
-    $('#test a').click(function(){
+    $('#menuresize a').click(function(){
         var href = $(this).attr('href');
         console.log(href);
         $('html,body').animate({
@@ -94,14 +94,12 @@ lbd = {
                     transparent = false;
                     $('.navbar-color-on-scroll').removeClass('navbar-transparent');
                     $('.navbar-title').removeClass('hidden');
-                    $('.header-wrapper .navbar').addClass('navbar-moving');
                 }
             } else {
                 if( !transparent ) {
                     transparent = true;
                     $('.navbar-color-on-scroll').addClass('navbar-transparent');
                     $('.navbar-title').addClass('hidden');
-                    $('.header-wrapper .navbar').removeClass('navbar-moving');
                 }
             }
     }, 17),
