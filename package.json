@@ -1,10 +1,11 @@
 {
   "name": "Angular2",
   "version": "1.0.0",
-  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+    "lite": "lite-server",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w"
   },
   "licenses": [
     {
@@ -31,8 +32,6 @@
     "chartist": "~0.9.8",
     "core-js": "~2.4.1",
     "express": "^4.14.0",
-    "body-parser": "^1.13.3",
-    "mongodb": "^2.1.6",
     "jquery": "~3.1.1",
     "ng2-bootstrap": "~1.1.16",
     "reflect-metadata": "~0.1.8",
