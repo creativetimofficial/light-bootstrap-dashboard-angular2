@@ -90,7 +90,7 @@
 				<div class="row">
 					<div class="col-md-3">
 						<div class="fixed-section affix-top" data-spy="affix" data-offset-top="390">
-							<ul id="test">
+							<ul id="menuresize">
 								<li><a href="#buttons-row">Buttons</a></li>
 								<li><a href="#checkbox-row">Checkbox/Radio/Switch</a></li>
 								<li><a href="#dropdown-row">Dropdown</a></li>
@@ -103,7 +103,7 @@
 								<li><a href="#notification-row">Notification</a></li>
 								<li><a href="#charts-row">Charts</a></li>
 								<li><a href="#google-row">Google Maps</a></li>
-
+								<li><a href="#cards-row">Cards</a></li>
 							</ul>
 						</div>
 					</div>
@@ -844,29 +844,27 @@ $(':radio').on('toggle', function() {
 								<p class="space-top">
 									<b>Fixed Navbar: </b> If you want to have a "Fixed Navbar" on Desktop and Mobile please add the class "navbar-fixed" on the tag "nav" and move the entire "nav" structure outside of the div with class "main-panel". Check the example implementation for more details:
 								</p>
-
-								<div id="navbar">
-
 									<pre class="prettyprint">
-&lt;div class=&quot;sidebar&quot; data-color=&quot;orange&quot; data-image=&quot;../assets/img/full-screen-image-3.jpg&quot;&gt;
-	....
-&lt;/div&gt;
+&#x3C;div class=&#x22;sidebar&#x22; data-color=&#x27;red&#x27; data-image=&#x22;&#x22;&#x3E;
+        &#x3C;sidebar-cmp&#x3E;&#x3C;/sidebar-cmp&#x3E;
+        &#x3C;div class=&#x22;sidebar-background&#x22; style=&#x22;background-image: url(/assets/img/sidebar-5.jpg)&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x3C;/div&#x3E;
 
-&lt;nav class=&quot;navbar navbar-default navbar-fixed&quot;&gt;
-	&lt;div class=&quot;container-fluid&quot;&gt;
-		....
-	&lt;/div&gt;
-&lt;/nav&gt;
+&#x3C;navbar-cmp  class=&#x22;navbar-cmp-fixed&#x22;&#x3E;
+...
+&#x3C;/navbar-cmp&#x3E;
 
 &lt;div class=&quot;main-panel&quot;&gt;
-	&lt;-- .navbar used to be here, but was moved outside of this div --&gt;
-	....
+    &lt;-- &lt;navbar-cmp&gt; used to be here, but was moved outside of this div --&gt;
+    &#x3C;dashboard-cmp&#x3E;&#x3C;/dashboard-cmp&#x3E;
+    &#x3C;div *ngIf=&#x22;isMaps(&#x27;/maps&#x27;)&#x22;&#x3E;
+        &#x3C;footer-cmp&#x3E;&#x3C;/footer-cmp&#x3E;
+    &#x3C;/div&#x3E;
 &lt;/div&gt;</pre>
 
 									<p class="space-top">
 										Besides the default navbar, we added 5 new colors: blue, azure, green, orange, red. If you want to use one of them, you have to replace the 'navbar-default' with the class for the chosen color 'navbar-ct-{color}'.
 									</p>
-								</div>
 
 								<div id="navbar-blue">
 									<nav class="navbar navbar-ct-blue navbar-fixed">

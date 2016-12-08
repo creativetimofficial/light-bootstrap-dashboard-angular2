@@ -472,17 +472,23 @@ body > .navbar-collapse[data-color="purple"]:after {
 }
 
 .sidebar,
+.main-panel,
+.sidebar-wrapper,
+.navbar-cmp-fixed .navbar {
+  -webkit-transition-property: top,bottom,width;
+  transition-property: top,bottom, width;
+  -webkit-transition-duration: .2s,.2s, .35s;
+  transition-duration: .2s,.2s, .35s;
+  -webkit-transition-timing-function: linear,linear,ease;
+  transition-timing-function: linear,linear,ease;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sidebar,
 .main-panel {
-  overflow: auto;
   max-height: 100%;
   height: 100%;
-  -webkit-transition-property: top,bottom;
-  transition-property: top,bottom;
-  -webkit-transition-duration: .2s,.2s;
-  transition-duration: .2s,.2s;
-  -webkit-transition-timing-function: linear,linear;
-  transition-timing-function: linear,linear;
-  -webkit-overflow-scrolling: touch;
+  overflow: auto;
 }
 
 .btn {
@@ -1362,6 +1368,21 @@ body > .navbar-collapse[data-color="purple"]:after {
 .nav > li > a:hover,
 .nav > li > a:focus {
   background-color: transparent;
+}
+
+.navbar-cmp-fixed .navbar {
+  position: fixed;
+  width: 100%;
+  right: 0;
+  z-index: 1031;
+}
+
+.navbar-cmp-fixed ~ .main-panel .main-content {
+  padding-top: 95px;
+  min-height: calc(100% - 71px);
+}
+.navbar-cmp-fixed ~ .main-panel #map {
+  padding-top: 60px;
 }
 
 .navbar {
@@ -2806,6 +2827,10 @@ body > .navbar-collapse[data-color="purple"]:after {
   .card form [class*="col-"]:last-child {
     padding-right: 15px;
   }
+
+  .navbar-cmp-fixed .navbar {
+    width: calc(100% - 260px);
+  }
 }
 /*          Changes for small display      */
 @media (max-width: 991px) {
@@ -2934,6 +2959,14 @@ body > .navbar-collapse[data-color="purple"]:after {
     -o-transform: translate3d(-250px, 0, 0);
     -ms-transform: translate3d(-250px, 0, 0);
     transform: translate3d(-250px, 0, 0);
+  }
+
+  .nav-open .navbar-cmp-fixed .navbar > div {
+    -webkit-transform: translate3d(-260px, 0, 0);
+    -moz-transform: translate3d(-260px, 0, 0);
+    -o-transform: translate3d(-260px, 0, 0);
+    -ms-transform: translate3d(-260px, 0, 0);
+    transform: translate3d(-260px, 0, 0);
   }
 
   .navbar-toggle .icon-bar {
