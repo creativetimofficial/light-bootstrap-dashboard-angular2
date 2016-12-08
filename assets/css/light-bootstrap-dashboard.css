@@ -1141,6 +1141,10 @@ body > .navbar-collapse[data-color="purple"]:after {
   filter: alpha(opacity=100);
 }
 
+.checkbox .icons .first-icon.fa-square-o {
+  margin-left: -1px;
+}
+
 .checkbox .icons .second-icon,
 .radio .icons .second-icon {
   opacity: 0;

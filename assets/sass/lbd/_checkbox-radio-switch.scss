@@ -46,6 +46,9 @@
   margin: 0;
   @include opacity(1);
 }
+.checkbox .icons .first-icon.fa-square-o{
+    margin-left: -1px;
+}
 .checkbox .icons .second-icon,
 .radio .icons .second-icon {
   @include opacity(0);
@@ -132,14 +135,14 @@
     overflow: hidden;
     position: relative;
     text-align: left;
-    width: 60px;    
- 
-   -webkit-user-select: none;  
+    width: 60px;
+
+   -webkit-user-select: none;
    -moz-user-select: none;
    -ms-user-select: none;
    -o-user-select: none;
    user-select: none;
-     
+
     /*   this code is for fixing safari bug with hidden overflow for border-radius   */
     -webkit-mask: url('../img/mask.png') 0 0 no-repeat;
     -webkit-mask-size: 60px 24px;
@@ -173,7 +176,7 @@
 .has-switch > div label {
   background-color: #FFFFFF;
   @include icon-gradient (rgba(255,255,255,1), rgba(241,241,242,1));
-  
+
   box-shadow: 0 1px 1px #FFFFFF inset, 0 1px 1px rgba(0, 0, 0, 0.25);
   cursor: pointer;
 }
@@ -243,4 +246,3 @@
     margin: 1px -13px;
     width: 26px;
 }
-
