@@ -78,7 +78,9 @@ $('body').on('touchstart.dropdown', '.dropdown-menu', function (e) { e.stopPropa
 
 // activate collapse right menu when the windows is resized
 $(window).resize(function(){
-    lbd.initSidebarsCheck();
+    if(window_width <= 991){
+        lbd.initRightMenu();
+    }
     // we simulate the window Resize so the charts will get updated in realtime.
     var simulateWindowResize = setInterval(function(){
         window.dispatchEvent(new Event('resize'));
