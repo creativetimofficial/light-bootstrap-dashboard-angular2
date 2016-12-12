@@ -32,7 +32,18 @@ var MapsComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'maps-cmp',
-            templateUrl: 'maps.component.html'
+            templateUrl: 'maps.component.html',
+            animations: [
+                core_1.trigger('maps', [
+                    core_1.state('*', core_1.style({
+                        opacity: 1 })),
+                    core_1.transition('void => *', [
+                        core_1.style({ opacity: 0,
+                        }),
+                        core_1.animate('1s 0s ease-out')
+                    ])
+                ])
+            ]
         }), 
         __metadata('design:paramtypes', [])
     ], MapsComponent);
