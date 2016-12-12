@@ -1,5 +1,4 @@
-.sidebar,
-body > .navbar-collapse{
+.sidebar{
     position: absolute;
     top: 0;
     bottom: 0;
@@ -20,7 +19,11 @@ body > .navbar-collapse{
         width: 260px;
         z-index: 4;
 
-        padding-bottom: 100px;
+        padding-bottom: 75px;
+
+        .dropdown .dropdown-backdrop{
+            display: none !important;
+        }
     }
 
     .sidebar-background{
@@ -110,6 +113,11 @@ body > .navbar-collapse{
                 opacity: 1;
                 background: rgba(255,255,255,0.23);
 
+            }
+
+            a.dropdown-toggle{
+                background-color: transparent;
+                outline: none;
             }
 
             &.separator{
