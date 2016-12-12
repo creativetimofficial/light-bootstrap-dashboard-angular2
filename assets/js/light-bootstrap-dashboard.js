@@ -69,6 +69,8 @@ $(document).ready(function(){
         $(this).parent(".input-group").removeClass("input-group-focus");
     });
 
+    // Fixes sub-nav not working as expected on IOS
+$('body').on('touchstart.dropdown', '.dropdown-menu', function (e) { e.stopPropagation(); });
 });
 
 // activate collapse right menu when the windows is resized
@@ -78,7 +80,6 @@ $(window).resize(function(){
 
 function scrollTo(){
     var href = $(this).attr('href');
-    console.log(href);
     $('html,body').animate({
         'scrollTop': $($(this).attr('href')).offset().top - 350
     }, 200);
@@ -138,9 +139,6 @@ lbd = {
 
             $navbar.attr('data-color',sidebar_color);
 
-            // add the content from the sidebar to the right menu
-            content_buff = $sidebar.find('.nav').html();
-            ul_content = ul_content + content_buff;
 
             //add the content from the regular header to the right menu
             $navbar.children('ul').each(function(){
@@ -148,7 +146,15 @@ lbd = {
                 ul_content = ul_content + content_buff;
             });
 
-            ul_content = '<ul class="nav navbar-nav">' + ul_content + '</ul>';
+            // add the content from the sidebar to the right menu
+            content_buff = $sidebar.find('.nav').html();
+            ul_content = ul_content + content_buff;
+
+            ul_content = '<div class="sidebar-wrapper">' +
+                            '<ul class="nav navbar-nav">' +
+                                ul_content +
+                            '</ul>' +
+                          '</div>';
 
             navbar_content = logo_content + ul_content;
 

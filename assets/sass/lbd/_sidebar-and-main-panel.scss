@@ -1,4 +1,5 @@
-.sidebar{
+.sidebar,
+body > .navbar-collapse{
     position: absolute;
     top: 0;
     bottom: 0;
@@ -13,11 +14,13 @@
 
     .sidebar-wrapper{
         position: relative;
-        max-height: none;
+        max-height: calc(100vh - 75px);
         min-height: 100%;
-        overflow: hidden;
+        overflow: auto;
         width: 260px;
         z-index: 4;
+
+        padding-bottom: 100px;
     }
 
     .sidebar-background{
@@ -86,6 +89,7 @@
 
     .nav{
         margin-top: 20px;
+        float: none;
 
         li{
             > a{
@@ -93,6 +97,7 @@
                 margin: 5px 15px;
                 opacity: .86;
                 border-radius: 4px;
+                display: block;
             }
 
             &:hover > a{
@@ -106,6 +111,15 @@
                 background: rgba(255,255,255,0.23);
 
             }
+
+            &.separator{
+                margin: 15px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+                & + li {
+                    margin-top: 31px;
+                }
+            }
         }
 
         p{
@@ -114,6 +128,7 @@
             font-size: 12px;
             font-weight: 600;
             text-transform: uppercase;
+            margin-left: 45px;
         }
 
         i{
@@ -124,12 +139,14 @@
             width: 30px;
             text-align: center;
         }
+
+        .caret{
+            margin-top: 13px;
+            position: absolute;
+            right: 30px;
+        }
     }
-}
 
-
-.sidebar,
-body > .navbar-collapse{
     .logo{
         padding: $navbar-padding-a;
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
