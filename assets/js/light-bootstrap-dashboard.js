@@ -29,12 +29,19 @@ $(document).ready(function(){
     window_width = $(window).width();
     $('#menuresize a').click(function(){
         var href = $(this).attr('href');
-        console.log(href);
         $('html,body').animate({
             'scrollTop': $($(this).attr('href')).offset().top - 100
         }, 200);
     })
+    // we simulate the window Resize so the charts will get updated in realtime.
+                var simulateWindowResize = setInterval(function(){
+                    window.dispatchEvent(new Event('resize'));
+                },180);
 
+                // we stop the simulation of Window Resize after the animations are completed
+                setTimeout(function(){
+                    clearInterval(simulateWindowResize);
+                },1000);
     // check if there is an image set for the sidebar's background
     lbd.checkSidebarImage();
 
@@ -75,9 +82,21 @@ $('body').on('touchstart.dropdown', '.dropdown-menu', function (e) { e.stopPropa
 
 // activate collapse right menu when the windows is resized
 $(window).resize(function(){
-    lbd.initSidebarsCheck()
+    lbd.initSidebarsCheck();
+
 });
 
+$(window).on("resize", function(){
+    // we simulate the window Resize so the charts will get updated in realtime.
+            var simulateWindowResize = setInterval(function(){
+                window.dispatchEvent(new Event('resize'));
+            },100);
+
+            // we stop the simulation of Window Resize after the animations are completed
+            setTimeout(function(){
+                clearInterval(simulateWindowResize);
+            },120);
+});
 function scrollTo(){
     var href = $(this).attr('href');
     $('html,body').animate({
