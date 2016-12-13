@@ -505,6 +505,7 @@ input:focus {
   float: right;
   width: calc(100% - 260px);
   min-height: 100%;
+  overflow: auto;
 }
 .main-panel .main-content {
   padding: 30px 15px;
@@ -533,7 +534,6 @@ input:focus {
 .main-panel {
   max-height: 100%;
   height: 100%;
-  overflow: auto;
 }
 
 .btn {
@@ -2816,6 +2816,10 @@ input:focus {
     display: none;
   }
 
+  #bodyClick {
+    display: none;
+  }
+
   .navbar-nav > li > .dropdown-menu, .dropdown .dropdown-menu {
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
@@ -2912,7 +2916,7 @@ input:focus {
     overflow-x: hidden;
   }
 
-  .wrapper {
+  .main-panel {
     -webkit-transform: translate3d(0px, 0, 0);
     -moz-transform: translate3d(0px, 0, 0);
     -o-transform: translate3d(0px, 0, 0);
@@ -2924,7 +2928,6 @@ input:focus {
     -ms-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
     transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
     left: 0;
-    background-color: white;
   }
 
   .navbar .container {
@@ -3016,6 +3019,9 @@ input:focus {
   .sidebar .nav-mobile-menu .open .dropdown-menu li > a {
     padding-left: 60px;
   }
+  .sidebar .sidebar-wrapper .nav-mobile-menu ~ .nav {
+    margin-top: 0;
+  }
 
   .nav-open .navbar-collapse {
     -webkit-transform: translate3d(0px, 0, 0);
@@ -3029,13 +3035,21 @@ input:focus {
     left: -250px;
   }
 
-  .nav-open .wrapper {
+  .nav-open .main-panel {
     left: 0;
     -webkit-transform: translate3d(-260px, 0, 0);
     -moz-transform: translate3d(-260px, 0, 0);
     -o-transform: translate3d(-260px, 0, 0);
     -ms-transform: translate3d(-260px, 0, 0);
     transform: translate3d(-260px, 0, 0);
+  }
+
+  .nav-open .sidebar {
+    -webkit-transform: translate3d(0px, 0, 0);
+    -moz-transform: translate3d(0px, 0, 0);
+    -o-transform: translate3d(0px, 0, 0);
+    -ms-transform: translate3d(0px, 0, 0);
+    transform: translate3d(0px, 0, 0);
   }
 
   .nav-open .navbar-cmp-fixed .navbar > div {
@@ -3504,3 +3518,5 @@ input:focus {
     -webkit-overflow-scrolling: touch;
   }
 }
+
+/*# sourceMappingURL=light-bootstrap-dashboard.css.map */
