@@ -97,6 +97,7 @@
     }
     body {
          position: relative;
+         overflow-x: hidden;
     }
     .wrapper{
        @include transform-translate-x(0px);
