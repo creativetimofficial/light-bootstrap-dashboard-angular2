@@ -157,7 +157,7 @@ lbd = {
                 if(mobile_menu_visible == 1) {
                     $('html').removeClass('nav-open');
 
-                    $('.close-layer').remove();
+                    $('#bodyClick').remove();
                     setTimeout(function(){
                         $toggle.removeClass('toggled');
                     }, 400);

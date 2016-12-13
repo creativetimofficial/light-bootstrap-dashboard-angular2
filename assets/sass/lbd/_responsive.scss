@@ -6,10 +6,6 @@
         padding-right: 5px;
     }
 
-    #bodyClick{
-        display: none;
-    }
-
     .sidebar .nav-mobile-menu {
         display: none;
     }
@@ -354,9 +350,6 @@
     }
     .footer nav.pull-left{
         float: none !important;
-    }
-    .footer:not(.footer-big) nav > ul li{
-        float: none;
     }
     .social-area.pull-right{
         float: none !important;
