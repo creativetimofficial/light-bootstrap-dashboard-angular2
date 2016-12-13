@@ -10,6 +10,10 @@
         display: none;
     }
 
+    #bodyClick{
+        display: none;
+    }
+
     .navbar-nav > li > .dropdown-menu, .dropdown .dropdown-menu{
         @include transform-scale(0);
         @include transition($slow-transition-time, $transition-bezier);
@@ -163,7 +167,6 @@
         .nav{
             li > a{
                 padding: 10px 15px;
-
             }
 
             i{
@@ -183,6 +186,12 @@
 
             li > a{
                 padding-left: 60px;
+            }
+        }
+
+        .sidebar-wrapper{
+            .nav-mobile-menu ~ .nav{
+                margin-top: 0;
             }
         }
     }
