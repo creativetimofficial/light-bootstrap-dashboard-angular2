@@ -505,6 +505,7 @@ input:focus {
   float: right;
   width: calc(100% - 260px);
   min-height: 100%;
+  overflow: auto;
 }
 .main-panel .main-content {
   padding: 30px 15px;
@@ -533,7 +534,6 @@ input:focus {
 .main-panel {
   max-height: 100%;
   height: 100%;
-  overflow: auto;
 }
 
 .btn {
@@ -2816,6 +2816,10 @@ input:focus {
     display: none;
   }
 
+  #bodyClick {
+    display: none;
+  }
+
   .navbar-nav > li > .dropdown-menu, .dropdown .dropdown-menu {
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
@@ -3015,6 +3019,9 @@ input:focus {
   }
   .sidebar .nav-mobile-menu .open .dropdown-menu li > a {
     padding-left: 60px;
+  }
+  .sidebar .sidebar-wrapper .nav-mobile-menu ~ .nav {
+    margin-top: 0;
   }
 
   .nav-open .navbar-collapse {
@@ -3504,3 +3511,5 @@ input:focus {
     -webkit-overflow-scrolling: touch;
   }
 }
+
+/*# sourceMappingURL=light-bootstrap-dashboard.css.map */

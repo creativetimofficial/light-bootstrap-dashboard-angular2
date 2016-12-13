@@ -1,18 +1,24 @@
 {
-  "name": "Angular2",
-  "version": "1.0.0",
-  "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
-    "lite": "lite-server",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/angular/angular.io/blob/master/LICENSE"
-    }
-  ],
+    "name": "Angular2",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+      "start": "concurrently \"tsc -w\" \"nodemon ./bin/www\" ",
+      "tsc": "tsc",
+      "tsc:w": "tsc -w",
+      "prod": "NODE_ENV=production ./bin/www",
+      "build:prod": "node bin/bundler.js --prod",
+      "postinstall": "npm run build:prod"
+    },
+    "licenses": [
+      {
+        "type": "MIT",
+        "url": "https://github.com/angular/angular.io/blob/master/LICENSE"
+      }
+    ],
+    "engines": {
+      "node": "5.9.1"
+    },
   "dependencies": {
     "@angular/common": "~2.2.2",
     "@angular/compiler": "~2.2.2",
