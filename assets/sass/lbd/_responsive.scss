@@ -10,10 +10,6 @@
         display: none;
     }
 
-    #bodyClick{
-        display: none;
-    }
-
     .navbar-nav > li > .dropdown-menu, .dropdown .dropdown-menu{
         @include transform-scale(0);
         @include transition($slow-transition-time, $transition-bezier);
@@ -337,6 +333,7 @@
     .navbar-fixed-top {
         -webkit-backface-visibility: hidden;
     }
+<<<<<<< HEAD
     #bodyClick {
         height: 100%;
         width: 100%;
@@ -349,6 +346,8 @@
         z-index: 5000;
         overflow-x: hidden;
     }
+=======
+>>>>>>> master
 
     .social-line .btn{
         margin: $margin-bottom;
