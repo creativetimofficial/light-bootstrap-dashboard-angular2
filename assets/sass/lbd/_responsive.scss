@@ -163,8 +163,15 @@
             z-index: 4;
         }
 
-        .nav li > a{
-            padding: 10px 15px;
+        .nav{
+            li > a{
+                padding: 10px 15px;
+
+            }
+
+            i{
+                font-size: 22px;
+            }
         }
 
         .nav-mobile-menu .open .dropdown-menu{

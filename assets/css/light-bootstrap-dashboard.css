@@ -2987,6 +2987,9 @@ input:focus {
   .sidebar .nav li > a {
     padding: 10px 15px;
   }
+  .sidebar .nav i {
+    font-size: 22px;
+  }
   .sidebar .nav-mobile-menu .open .dropdown-menu {
     position: static;
     float: none;
