@@ -10,10 +10,6 @@
         display: none;
     }
 
-    #bodyClick{
-        display: none;
-    }
-
     .navbar-nav > li > .dropdown-menu, .dropdown .dropdown-menu{
         @include transform-scale(0);
         @include transition($slow-transition-time, $transition-bezier);
@@ -336,18 +332,6 @@
     }
     .navbar-fixed-top {
         -webkit-backface-visibility: hidden;
-    }
-    #bodyClick {
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        opacity: 0;
-        top: 0;
-        left: auto;
-        right:0px;
-        content: "";
-        z-index: 9999;
-        overflow-x: hidden;
     }
 
     .social-line .btn{

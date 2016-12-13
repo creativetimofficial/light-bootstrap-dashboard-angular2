@@ -151,11 +151,13 @@ lbd = {
 
         if(!toggle_initialized){
             $toggle = $('.navbar-toggle');
+            $layer = $('.main-panel .content');
 
             $toggle.click(function (){
 
                 if(mobile_menu_visible == 1) {
                     $('html').removeClass('nav-open');
+                    $layer.removeClass('visible');
 
                     $('#bodyClick').remove();
                     setTimeout(function(){
@@ -168,31 +170,24 @@ lbd = {
                         $toggle.addClass('toggled');
                     }, 430);
 
-
-                    $layer = $('<div id="bodyClick"></div>');
-                    $layer.appendTo(".main-panel");
-
                     setTimeout(function(){
                         $layer.addClass('visible');
                     }, 100);
-
-                    $layer.click(function() {
-                        $('html').removeClass('nav-open');
-                        mobile_menu_visible = 0;
-
-                        $layer.removeClass('visible');
-
-                         setTimeout(function(){
-                            $layer.remove();
-                            $toggle.removeClass('toggled');
-
-                         }, 400);
-                    });
 
                     $('html').addClass('nav-open');
                     mobile_menu_visible = 1;
 
                 }
+
+            });
+            $layer.click(function(){
+                $toggle = $('.navbar-toggle');
+                $('html').removeClass('nav-open');
+                $layer.removeClass('visible');
+                setTimeout(function(){
+                $toggle.removeClass('toggled');
+                }, 400);
+                mobile_menu_visible = 0;
             });
 
             toggle_initialized = true;
