@@ -1,3 +1,11 @@
+.nav-mobile-menu .btn-simple,
+.nav-mobile-menu .btn-simple:hover,
+.nav-mobile-menu .btn-simple:focus{
+    color: #fff;
+}
+.nav-mobile-menu .navbar-title{
+    display: none;
+}
 .navbar{
     -webkit-transition: all 150ms linear;
     -moz-transition: all 150ms linear;
@@ -5,6 +13,7 @@
     -ms-transition: all 150ms linear;
     transition: all 150ms linear;
 }
+
 .navbar-title{
     height: 100%;
 }
