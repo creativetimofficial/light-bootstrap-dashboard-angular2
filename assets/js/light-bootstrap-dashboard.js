@@ -159,7 +159,6 @@ lbd = {
                     $('html').removeClass('nav-open');
                     $layer.removeClass('visible');
 
-                    $('#bodyClick').remove();
                     setTimeout(function(){
                         $toggle.removeClass('toggled');
                     }, 400);
