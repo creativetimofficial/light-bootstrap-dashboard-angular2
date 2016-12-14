@@ -15,7 +15,7 @@ var IconsComponent = (function () {
     IconsComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'icons',
+            selector: 'icons-cmp',
             templateUrl: 'icons.component.html',
             animations: [
                 core_1.trigger('cardicons', [

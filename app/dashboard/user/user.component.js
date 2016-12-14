@@ -15,7 +15,7 @@ var UserComponent = (function () {
     UserComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'user',
+            selector: 'user-cmp',
             templateUrl: 'user.component.html',
             animations: [
                 core_1.trigger('carduserprofile', [
