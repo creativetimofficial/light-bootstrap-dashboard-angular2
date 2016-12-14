@@ -1,12 +1,10 @@
-# [Light-Bootstrap-Dashboard-Angular2](#link catre pagina de demos)
+# [Light-Bootstrap-Dashboard-Angular2](http://lbd-angular2.creative-tim.com/)
 
 ![alt text](assets/img/opt_lbd_angular_thumbnail.jpg)
 
-**Light-Bootstrap-Dashboard-Angular2** is a beautiful resource built over Bootstrap to allow you to create powerful and beautiful dashboards. We have redesigned all the usual components in Bootstrap to make it look flat, minimalist and easy to use.
+**[Light-Bootstrap-Dashboard-Angular2](http://lbd-angular2.creative-tim.com/)** is an admin dashboard template designed to be beautiful and simple. It is built on top of Bootstrap 3, using [Light Bootstrap Dashboard](http://www.creative-tim.com/product/light-bootstrap-dashboard) and it is fully responsive. It comes with a big collections of elements that will offer you multiple possibilities to create the app that best fits your needs. It can be used to create admin panels, project management systems, web applications backend, CMS or CRM.
 
-Using the dashboard is very simple, but it does require you to understand basic JavaScript functions. To get the desired effect you will need to integrate JS plugins that take a little bit more effort. Down below we list all the files you need to include inside the application to get going.
-
-The product represents a big suite of front-end developer tools that can help you jump start your project. We have created it thinking about things you actually need in a dashboard. Light Bootstrap Dashboard contains multiple handpicked and optimised plugins. Everything is designed to fit with one another. As you will be able to see, the dashboard you can access on Creative Tim is a customisation of this product.
+The product represents a big suite of front-end developer tools that can help you jump start your project. We have created it thinking about things you actually need in a dashboard. Light Bootstrap Dashboard Angular 2 contains multiple handpicked and optimized plugins. Everything is designed to fit with one another. As you will be able to see, the dashboard you can access on Creative Tim is a customization of this product.
 
 It comes with 6 filter colors for the sidebar (“black”, “azure”,”green”,”orange”,”red”,”purple”) and an option to have a background image.
 
@@ -14,15 +12,15 @@ Special thanks go to: Robert McIntosh for the notification system Chartist for t
 
 ## Links:
 
-+ [Live Preview](#link catre pagina din demos)
-+ [Light-Bootstrap-Dashboard-Angular2-Pro](#link catre Light-Bootstrap-Dashboard-Angular2-Pro)
++ [Live Preview](http://lbd-angular2.creative-tim.com/)
++ Light Bootstrap Dashboard Angular2 Pro (coming soon from $59)
 
 ## Quick Start:
 
 Quick start options:
 
-+ [Download from Github](#link release din github Lbd-angular2).
-+ [Download from Creative Tim](#link catre pagina de preview din tim a produsului).
++ [Download from Github](https://github.com/creativetimofficial/light-bootstrap-dashboard-angular/archive/master.zip).
++ [Download from Creative Tim](http://www.creative-tim.com/product/light-bootstrap-dashboard-angular2).
 + Clone the repo: `git clone https://github.com/creativetimofficial/light-bootstrap-dashboard-angular.git`.
 
 ### What's included
@@ -30,8 +28,7 @@ Quick start options:
 Within the download you'll find the following directories and files:
 
 ```
-└── lbd-angular22
-	├── Creative\ Tim\ License.pdf
+└── lbd-angular2
 	├── app
 	│   ├── app.component.html
 	│   ├── app.component.js
@@ -135,7 +132,6 @@ Within the download you'll find the following directories and files:
 	│   ├── fonts
 	│   ├── img
 	│   ├── js
-	│   │   ├── animations.js
 	│   │   ├── bootstrap-checkbox-radio-switch.js
 	│   │   ├── bootstrap-notify.js
 	│   │   ├── bootstrap-select.js
@@ -164,7 +160,8 @@ Within the download you'll find the following directories and files:
 
 ### Version logs
 
-v1.0, 29 Nov '16 [initial release]
+14 Dec '16 [initial Release]
+v1.3.0.0 (v1.3.0 Light Bootstrap Dashboard HTML)
 
 ## Useful Links
 
