@@ -229,30 +229,30 @@
         width: 40px;
         height: 40px;
     }
-    .bar1,
-    .bar2,
-    .bar3 {
+    .icon-bar:nth-child(2),
+    .icon-bar:nth-child(3),
+    .icon-bar:nth-child(4){
       outline: 1px solid transparent;
     }
-    .bar1 {
+    .icon-bar:nth-child(2){
       top: 0px;
       @include bar-animation($topbar-back);
     }
-    .bar2 {
+    .icon-bar:nth-child(3) {
       opacity: 1;
     }
-    .bar3 {
+    .icon-bar:nth-child(4) {
       bottom: 0px;
       @include bar-animation($bottombar-back);
     }
-    .toggled .bar1 {
+    .toggled .icon-bar:nth-child(2) {
       top: 6px;
       @include bar-animation($topbar-x);
     }
-    .toggled .bar2 {
+    .toggled .icon-bar:nth-child(3) {
       opacity: 0;
     }
-    .toggled .bar3 {
+    .toggled .icon-bar:nth-child(4) {
       bottom: 6px;
       @include bar-animation($bottombar-x);
     }
@@ -423,6 +423,25 @@
             float: left;
             font-size: 20px;
             margin-right: 10px;
+        }
+    }
+
+    .close-layer{
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        opacity: 0;
+        display: block;
+        top: 0;
+        right: 0px;
+        content: "";
+        z-index: 1030;
+        overflow-x: hidden;
+        background: transparent;
+        
+        @include transition($slow-transition-time, $transition-ease-in);
+        &.visible{
+            opacity: 1;
         }
     }
 }

@@ -151,7 +151,7 @@ lbd = {
 
         if(!toggle_initialized){
             $toggle = $('.navbar-toggle');
-            $layer = $('.main-panel .main-content');
+            $layer = $('.close-layer');
 
             $toggle.click(function (){
 
@@ -163,15 +163,36 @@ lbd = {
                         $toggle.removeClass('toggled');
                     }, 400);
 
+                    setTimeout(function(){
+                        $('.close-layer').remove();
+                    }, 100);
+
                     mobile_menu_visible = 0;
                 } else {
                     setTimeout(function(){
                         $toggle.addClass('toggled');
                     }, 430);
 
+                    $layer = $('<div class="close-layer"/>');
+                    $layer.appendTo(".wrapper");
+
                     setTimeout(function(){
                         $layer.addClass('visible');
                     }, 100);
+
+                    $('.close-layer').on("click", function(){
+                        $toggle = $('.navbar-toggle');
+                        $('html').removeClass('nav-open');
+
+                        $layer.removeClass('visible');
+
+                        setTimeout(function(){
+                            $('.close-layer').remove();
+                            $toggle.removeClass('toggled');
+                        }, 370);
+
+                        mobile_menu_visible = 0;
+                    });
 
                     $('html').addClass('nav-open');
                     mobile_menu_visible = 1;
@@ -179,15 +200,8 @@ lbd = {
                 }
 
             });
-            $layer.on("click", function(){
-                $toggle = $('.navbar-toggle');
-                $('html').removeClass('nav-open');
-                $layer.removeClass('visible');
-                setTimeout(function(){
-                $toggle.removeClass('toggled');
-                }, 400);
-                mobile_menu_visible = 0;
-            });
+
+
 
             toggle_initialized = true;
         }
