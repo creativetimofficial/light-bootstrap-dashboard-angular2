@@ -1,6 +1,6 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {LocationStrategy, PlatformLocation, Location} from '@angular/common';
+import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import initFixedPlugin = require('../assets/js/initFixedPlugin.js');
 
 @Component({
@@ -15,10 +15,10 @@ export class AppComponent implements OnInit{
     }
     public isMaps(path){
         if(path == window.location.pathname){
-            return false;
+            return true;
         }
         else {
-            return true;
+            return false;
         }
     }
 }

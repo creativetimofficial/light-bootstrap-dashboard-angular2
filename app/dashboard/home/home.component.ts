@@ -7,7 +7,7 @@ declare var $:any;
 
 @Component({
     moduleId: module.id,
-    selector: 'home',
+    selector: 'home-cmp',
     templateUrl: 'home.component.html',
     animations: [
         trigger('cardemail', [
