@@ -1,13 +1,94 @@
 <div class="wrapper">
-    <div class="sidebar" data-color='red' data-image="">
+    <div class="sidebar" data-color="red" data-image="">
         <sidebar-cmp></sidebar-cmp>
         <div class="sidebar-background" style="background-image: url(/assets/img/sidebar-5.jpg)"></div>
     </div>
+
     <div class="main-panel">
         <navbar-cmp></navbar-cmp>
-        <dashboard-cmp></dashboard-cmp>
-        <div *ngIf="isMaps('/maps')">
-            <footer-cmp></footer-cmp>
+        <div class="bodyClick">
+            <dashboard-cmp></dashboard-cmp>
+            <div *ngIf="isMaps('/maps')">
+                <footer-cmp></footer-cmp>
+            </div>
+        </div>
+        <div class="fixed-plugin">
+            <div class="dropdown show-dropdown open">
+                <a href="#" data-toggle="dropdown">
+                    <i class="fa fa-cog fa-2x"> </i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="header-title">Sidebar Style</li>
+                    <li class="adjustments-line">
+                        <a href="javascript:void(0)" class="switch-trigger">
+                            <p>Background Image</p>
+                            <div class="switch" data-on-label="ON" data-off-label="OFF">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="clearfix"></div>
+                        </a>
+                    </li>
+                    <li class="adjustments-line">
+                        <a href="javascript:void(0)" class="switch-trigger">
+                            <p>Filters</p>
+                            <div class="pull-right">
+                                <span class="badge filter" data-color="black"></span>
+                                <span class="badge filter badge-azure" data-color="azure"></span>
+                                <span class="badge filter badge-green" data-color="green"></span>
+                                <span class="badge filter badge-orange" data-color="orange"></span>
+                                <span class="badge filter badge-red active" data-color="red"></span>
+                                <span class="badge filter badge-purple" data-color="purple"></span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </a>
+                    </li>
+                    <li class="header-title">Sidebar Images</li>
+                    <li>
+                        <a class="img-holder switch-trigger" href="javascript:void(0)">
+                            <img src="../assets/img/sidebar-1.jpg">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="img-holder switch-trigger" href="javascript:void(0)">
+                            <img src="../assets/img/sidebar-3.jpg">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="img-holder switch-trigger" href="javascript:void(0)">
+                            <img src="../assets/img/sidebar-4.jpg">
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a class="img-holder switch-trigger" href="javascript:void(0)">
+                            <img src="../assets/img/sidebar-5.jpg">
+                        </a>
+                    </li>
+                    <li class="button-container">
+                        <div>
+                            <a href="https://github.com/creativetimofficial/light-bootstrap-dashboard-angular" target="_blank" class="btn btn-danger btn-block btn-fill">
+                                <div class="img-container">
+                                    <img src="/assets/img/angular2-logo-white.png"/>
+                                </div>
+                                Download Angular
+                            </a>
+                        </div>
+                    </li>
+                    <li class="button-container">
+                        <div>
+                            <a href="http://www.creative-tim.com/product/light-bootstrap-dashboard" target="_blank" class="btn btn-info btn-block btn-fill">
+                                <i class="fa fa-html5" aria-hidden="true"></i>
+                                Download HTML
+                            </a>
+                        </div>
+                    </li>
+                    <li class="header-title" id="sharrreTitle">Thank you for sharing!</li>
+
+                    <li class="button-container">
+                        <button id="twitter" class="btn btn-social btn-twitter btn-round"><i class="fa fa-twitter"></i> &middot; 256</button>
+                        <button id="facebook" class="btn btn-social btn-facebook btn-round"><i class="fa fa-facebook-square"> &middot; 426</i></button>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="fixed-plugin">

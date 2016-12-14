@@ -1,11 +1,21 @@
-import { Component,OnInit } from '@angular/core';
-
 declare var google: any;
+import {Component, OnInit,AfterViewInit,trigger,state,style,transition,animate,keyframes} from '@angular/core';
 
 @Component({
     moduleId: module.id,
     selector: 'maps-cmp',
-    templateUrl: 'maps.component.html'
+    templateUrl: 'maps.component.html',
+    animations: [
+        trigger('maps', [
+            state('*', style({
+                opacity: 1})),
+                transition('void => *', [
+                    style({opacity: 0,
+                    }),
+                    animate('1s 0s ease-out')
+                ])
+        ])
+    ]
 })
 
 export class MapsComponent implements OnInit {

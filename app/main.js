@@ -5,5 +5,5 @@ var core_1 = require('@angular/core');
 core_1.enableProdMode();
 var platform = platform_browser_dynamic_1.platformBrowserDynamic();
 platform.bootstrapModule(app_module_1.AppModule);
-// var reflect = require('../node_modules/reflect-metadata');
+// ceva
 //# sourceMappingURL=main.js.map

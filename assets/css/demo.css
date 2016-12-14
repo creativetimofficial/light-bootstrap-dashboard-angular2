@@ -1,8 +1,16 @@
-.fixed-plugin li > a,
-.fixed-plugin .badge{
-    transition: all .34s;
-    -webkit-transition: all .34s;
-    -moz-transition: all .34s;
+@media (min-width: 992px){
+    .typo-line{
+        padding-left: 140px;
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    .typo-line .category{
+        transform: translateY(-50%);
+        top: 50%;
+        left: 0px;
+        position: absolute;
+    }
 }
 
 .all-icons [class*="pe-"]{
@@ -32,7 +40,10 @@
     width:100%;
     height: 100%;
 }
+.map{
+    height: 280px !important;
 
+}
 .places-buttons .btn{
     margin-bottom: 30px
 }
@@ -51,14 +62,19 @@
 .table-upgrade td:nth-child(3){
     text-align: center;
 }
-
+.fixed-plugin li > a,
+.fixed-plugin .badge{
+    transition: all .34s;
+    -webkit-transition: all .34s;
+    -moz-transition: all .34s;
+}
 .fixed-plugin{
-    position: absolute;
+    position: fixed;;
     top: 180px;
     right: 0;
     width: 64px;
     background: rgba(0,0,0,.3);
-    z-index: 1031;
+    z-index: 9999;
     border-radius: 8px 0 0 8px;
     text-align: center;
 }
@@ -101,7 +117,22 @@
     color: #777777;
     text-align: center;
 }
-
+.fixed-plugin .img-container{
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    position: relative;
+    top: -1px;
+}
+.fixed-plugin .img-container img{
+    width: 100%;
+    height: auto;
+}
+.fixed-plugin .button-container i{
+    font-size: 17px;
+    position: relative;
+    right: 0;
+}
 .fixed-plugin img{
     border-radius: 0;
     width: 100%;

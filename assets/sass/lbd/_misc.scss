@@ -38,10 +38,10 @@ input:focus {
     @include transition($general-transition-time, $transition-linear);
 }
 
-// .sidebar .nav a,
-// .table > tbody > tr .td-actions .btn{
-//     @include transition($fast-transition-time, $transition-ease-in);
-// }
+.sidebar .nav a,
+.table > tbody > tr .td-actions .btn{
+    @include transition($fast-transition-time, $transition-ease-in);
+}
 
 .btn{
     @include transition($ultra-fast-transition-time, $transition-ease-in);
@@ -58,4 +58,20 @@ input:focus {
     position: relative;
     top: 0;
     height: 100vh;
+}
+
+#loader{
+    position: absolute;
+    display: block;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+    @include transform-translate-y(-50%);
+    text-align: center;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    top: 50%;
 }

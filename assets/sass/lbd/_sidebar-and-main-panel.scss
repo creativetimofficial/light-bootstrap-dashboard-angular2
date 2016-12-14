@@ -13,11 +13,17 @@
 
     .sidebar-wrapper{
         position: relative;
-        max-height: none;
+        max-height: calc(100vh - 75px);
         min-height: 100%;
-        overflow: hidden;
+        overflow: auto;
         width: 260px;
         z-index: 4;
+
+        padding-bottom: 75px;
+
+        .dropdown .dropdown-backdrop{
+            display: none !important;
+        }
     }
 
     .sidebar-background{
@@ -51,9 +57,21 @@
             display: block;
             font-size: $font-size-large;
             color: $white-color;
-            text-align: center;
+            text-align: left;
             font-weight: $font-weight-normal;
             line-height: 30px;
+        }
+    }
+    .logo-img{
+        width: 30px;
+        display: inline-block;
+        max-height: 30px;
+        margin-right: 10px;
+
+        img{
+            width: 35px;
+            top: 11px;
+            position: absolute;
         }
     }
 
@@ -74,6 +92,7 @@
 
     .nav{
         margin-top: 20px;
+        float: none;
 
         li{
             > a{
@@ -81,6 +100,7 @@
                 margin: 5px 15px;
                 opacity: .86;
                 border-radius: 4px;
+                display: block;
             }
 
             &:hover > a{
@@ -94,6 +114,20 @@
                 background: rgba(255,255,255,0.23);
 
             }
+
+            a.dropdown-toggle{
+                background-color: transparent;
+                outline: none;
+            }
+
+            &.separator{
+                margin: 15px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+                & + li {
+                    margin-top: 31px;
+                }
+            }
         }
 
         p{
@@ -102,6 +136,7 @@
             font-size: 12px;
             font-weight: 600;
             text-transform: uppercase;
+            margin-left: 45px;
         }
 
         i{
@@ -112,12 +147,14 @@
             width: 30px;
             text-align: center;
         }
+
+        .caret{
+            margin-top: 13px;
+            position: absolute;
+            right: 30px;
+        }
     }
-}
 
-
-.sidebar,
-body > .navbar-collapse{
     .logo{
         padding: $navbar-padding-a;
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -133,11 +170,11 @@ body > .navbar-collapse{
 
         .simple-text{
             text-transform: uppercase;
-            padding: $padding-small-vertical $padding-zero;
+            padding: 5px 0px 5px 15px;
             display: block;
             font-size: $font-size-large;
             color: $white-color;
-            text-align: center;
+            text-align: left;
             font-weight: $font-weight-normal;
             line-height: 30px;
         }
@@ -214,6 +251,7 @@ body > .navbar-collapse{
     float: right;
     width: $sidebar-width;
     min-height: 100%;
+    overflow: auto;
 
     .main-content{
         padding: 30px 15px;
@@ -242,9 +280,7 @@ body > .navbar-collapse{
     -webkit-overflow-scrolling: touch;
 }
 
-.sidebar,
 .main-panel{
     max-height: 100%;
     height: 100%;
-    overflow: auto;
 }
