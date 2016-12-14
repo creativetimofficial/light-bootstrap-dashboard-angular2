@@ -2819,10 +2819,6 @@ input:focus {
     display: none;
   }
 
-  #bodyClick {
-    display: none;
-  }
-
   .navbar-nav > li > .dropdown-menu, .dropdown .dropdown-menu {
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
@@ -3404,19 +3400,6 @@ input:focus {
 
   .navbar-fixed-top {
     -webkit-backface-visibility: hidden;
-  }
-
-  #bodyClick {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    left: auto;
-    right: 0px;
-    content: "";
-    z-index: 5000;
-    overflow-x: hidden;
   }
 
   .social-line .btn {
