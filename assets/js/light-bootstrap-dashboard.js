@@ -179,7 +179,7 @@ lbd = {
                 }
 
             });
-            $layer.click(function(){
+            $layer.on("click", function(){
                 $toggle = $('.navbar-toggle');
                 $('html').removeClass('nav-open');
                 $layer.removeClass('visible');

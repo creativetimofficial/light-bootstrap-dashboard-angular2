@@ -29,6 +29,8 @@ Within the download you'll find the following directories and files:
 
 ```
 └── lbd-angular2
+	├── License.rtf
+	├── README.md
 	├── app
 	│   ├── app.component.html
 	│   ├── app.component.js
@@ -78,11 +80,6 @@ Within the download you'll find the following directories and files:
 	│   │   │   ├── typography.component.js
 	│   │   │   ├── typography.component.js.map
 	│   │   │   └── typography.component.ts
-	│   │   ├── upgrade
-	│   │   │   ├── upgrade.component.html
-	│   │   │   ├── upgrade.component.js
-	│   │   │   ├── upgrade.component.js.map
-	│   │   │   └── upgrade.component.ts
 	│   │   └── user
 	│   │       ├── user.component.html
 	│   │       ├── user.component.js
@@ -128,6 +125,7 @@ Within the download you'll find the following directories and files:
 	│   │   ├── bootstrap.min.css
 	│   │   ├── demo.css
 	│   │   ├── light-bootstrap-dashboard.css
+	│   │   ├── light-bootstrap-dashboard.css.map
 	│   │   └── pe-icon-7-stroke.css
 	│   ├── fonts
 	│   ├── img
@@ -146,7 +144,8 @@ Within the download you'll find the following directories and files:
 	│   │   ├── notify.d.ts
 	│   │   └── notify.js
 	│   └── sass
-	│       └── lbd
+	│       ├── lbd
+	│       └── light-bootstrap-dashboard.scss
 	├── documentation
 	│   ├── css
 	│   │   └── documentation.css
