@@ -151,7 +151,7 @@ lbd = {
 
         if(!toggle_initialized){
             $toggle = $('.navbar-toggle');
-            $layer = $('.main-panel .main-content');
+            $layer = $('.main-panel .bodyClick');
 
             $toggle.click(function (){
 
