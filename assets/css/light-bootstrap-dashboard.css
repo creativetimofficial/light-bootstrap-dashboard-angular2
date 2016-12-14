@@ -1437,6 +1437,15 @@ input:focus {
   padding-top: 60px;
 }
 
+.main-panel .bodyClick {
+  width: 100%;
+  height: 100%;
+}
+.main-panel .bodyClick #map {
+  width: 100%;
+  height: calc(100% - 60px);
+}
+
 .navbar {
   border: 0;
   font-size: 16px;
