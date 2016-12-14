@@ -341,6 +341,21 @@
     .navbar-fixed-top {
         -webkit-backface-visibility: hidden;
     }
+<<<<<<< HEAD
+    #bodyClick {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        left: auto;
+        right:0px;
+        content: "";
+        z-index: 5000;
+        overflow-x: hidden;
+    }
+=======
+>>>>>>> master
 
     .social-line .btn{
         margin: $margin-bottom;
