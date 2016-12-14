@@ -159,11 +159,19 @@
             z-index: 4;
         }
 
-        .nav{
+
+        .nav.nav-mobile-menu{
             li > a{
                 padding: 10px 15px;
             }
 
+            .fa{
+                font-size: 18px;
+            }
+
+        }
+
+        .nav{
             i{
                 font-size: 22px;
             }

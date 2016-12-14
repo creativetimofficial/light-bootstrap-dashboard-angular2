@@ -1437,13 +1437,13 @@ input:focus {
   padding-top: 60px;
 }
 
-.main-panel .bodyClick {
+.main-panel .content-click {
   width: 100%;
   height: 100%;
 }
-.main-panel .bodyClick #map {
+.main-panel .content-click #map {
   width: 100%;
-  height: calc(100% - 60px);
+  height: 100%;
 }
 
 .navbar {
@@ -3012,8 +3012,11 @@ input:focus {
     position: relative;
     z-index: 4;
   }
-  .sidebar .nav li > a {
+  .sidebar .nav.nav-mobile-menu li > a {
     padding: 10px 15px;
+  }
+  .sidebar .nav.nav-mobile-menu .fa {
+    font-size: 18px;
   }
   .sidebar .nav i {
     font-size: 22px;
