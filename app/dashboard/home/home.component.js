@@ -29,7 +29,7 @@ var HomeComponent = (function () {
     HomeComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'home',
+            selector: 'home-cmp',
             templateUrl: 'home.component.html',
             animations: [
                 core_1.trigger('cardemail', [

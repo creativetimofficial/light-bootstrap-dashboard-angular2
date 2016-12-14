@@ -2,7 +2,7 @@ import { Component,state,style,animate,transition, trigger, keyframes } from '@a
 
 @Component({
     moduleId: module.id,
-    selector: 'user',
+    selector: 'user-cmp',
     templateUrl: 'user.component.html',
     animations: [
         trigger('carduserprofile', [
