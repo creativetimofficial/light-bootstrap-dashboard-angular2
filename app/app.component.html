@@ -6,11 +6,9 @@
 
     <div class="main-panel">
         <navbar-cmp></navbar-cmp>
-        <div class="content-click">
-            <dashboard-cmp></dashboard-cmp>
-            <div *ngIf="isMaps('/maps')">
-                <footer-cmp></footer-cmp>
-            </div>
+        <dashboard-cmp></dashboard-cmp>
+        <div *ngIf="isMaps('/maps')">
+            <footer-cmp></footer-cmp>
         </div>
     </div>
 </div>
