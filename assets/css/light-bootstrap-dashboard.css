@@ -230,8 +230,11 @@ input:focus {
   margin-left: auto;
   margin-right: auto;
   z-index: 1;
-  transform: translateY(-50%);
-  width: 100%;
+  -webkit-transform: translate3d(0, -50%, 0);
+  -moz-transform: translate3d(0, -50%, 0);
+  -o-transform: translate3d(0, -50%, 0);
+  -ms-transform: translate3d(0, -50%, 0);
+  transform: translate3d(0, -50%, 0);
   text-align: center;
   border-radius: 50%;
   width: 80px;
