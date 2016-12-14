@@ -19,10 +19,10 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.isMaps = function (path) {
         if (path == window.location.pathname) {
-            return false;
+            return true;
         }
         else {
-            return true;
+            return false;
         }
     };
     AppComponent = __decorate([
