@@ -2,7 +2,7 @@ import { Component, trigger,transition,style,animate,group,state } from '@angula
 
 @Component({
     moduleId: module.id,
-    selector: 'icons',
+    selector: 'icons-cmp',
     templateUrl: 'icons.component.html',
     animations: [
         trigger('cardicons', [
