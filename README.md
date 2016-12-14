@@ -1,4 +1,4 @@
-# [Light-Bootstrap-Dashboard-Angular2](http://lbd-angular2.creative-tim.com/)
+# [Light Bootstrap Dashboard Angular 2](http://lbd-angular2.creative-tim.com/)
 
 ![alt text](assets/img/opt_lbd_angular_thumbnail.jpg)
 
@@ -23,12 +23,22 @@ Quick start options:
 + [Download from Creative Tim](http://www.creative-tim.com/product/light-bootstrap-dashboard-angular2).
 + Clone the repo: `git clone https://github.com/creativetimofficial/light-bootstrap-dashboard-angular.git`.
 
+## Terminal Commands
+
+1. Install NodeJs from [NodeJs Official Page](https://nodejs.org/en).
+2. Open Terminal
+3. Go to your file project
+4. Run in terminal: ```npm install```
+5. And: ```npm start```
+
 ### What's included
 
 Within the download you'll find the following directories and files:
 
 ```
 └── lbd-angular2
+	├── License.rtf
+	├── README.md
 	├── app
 	│   ├── app.component.html
 	│   ├── app.component.js
@@ -78,11 +88,6 @@ Within the download you'll find the following directories and files:
 	│   │   │   ├── typography.component.js
 	│   │   │   ├── typography.component.js.map
 	│   │   │   └── typography.component.ts
-	│   │   ├── upgrade
-	│   │   │   ├── upgrade.component.html
-	│   │   │   ├── upgrade.component.js
-	│   │   │   ├── upgrade.component.js.map
-	│   │   │   └── upgrade.component.ts
 	│   │   └── user
 	│   │       ├── user.component.html
 	│   │       ├── user.component.js
@@ -128,6 +133,7 @@ Within the download you'll find the following directories and files:
 	│   │   ├── bootstrap.min.css
 	│   │   ├── demo.css
 	│   │   ├── light-bootstrap-dashboard.css
+	│   │   ├── light-bootstrap-dashboard.css.map
 	│   │   └── pe-icon-7-stroke.css
 	│   ├── fonts
 	│   ├── img
@@ -146,7 +152,8 @@ Within the download you'll find the following directories and files:
 	│   │   ├── notify.d.ts
 	│   │   └── notify.js
 	│   └── sass
-	│       └── lbd
+	│       ├── lbd
+	│       └── light-bootstrap-dashboard.scss
 	├── documentation
 	│   ├── css
 	│   │   └── documentation.css
@@ -161,6 +168,7 @@ Within the download you'll find the following directories and files:
 ### Version logs
 
 14 Dec '16 [initial Release]
+
 v1.3.0.0 (v1.3.0 Light Bootstrap Dashboard HTML)
 
 ## Useful Links
