@@ -362,6 +362,7 @@ input:focus {
   font-weight: 600;
   text-transform: uppercase;
   margin-left: 45px;
+  color: #FFFFFF;
 }
 .sidebar .nav i {
   font-size: 28px;
@@ -3529,3 +3530,5 @@ input:focus {
     -webkit-overflow-scrolling: touch;
   }
 }
+
+/*# sourceMappingURL=light-bootstrap-dashboard.css.map */
