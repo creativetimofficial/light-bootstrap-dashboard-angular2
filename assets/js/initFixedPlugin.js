@@ -88,7 +88,7 @@ if ('undefined' !== typeof module) {
                 api.openPopup('twitter');
             },
             template: '<i class="fa fa-twitter"></i> &middot; 256',
-            url: 'http://demos.creative-tim.com/light-bootstrap-dashboard-angular2'
+            url: 'http://lbd-angular2.creative-tim.com/'
         });
 
         $('#facebook').sharrre({
@@ -102,7 +102,7 @@ if ('undefined' !== typeof module) {
                 api.openPopup('facebook');
             },
             template: '<i class="fa fa-facebook-square"></i> &middot; 426',
-            url: 'http://demos.creative-tim.com/light-bootstrap-dashboard-angular2'
+            url: 'http://lbd-angular2.creative-tim.com/'
         });
     }
 }
