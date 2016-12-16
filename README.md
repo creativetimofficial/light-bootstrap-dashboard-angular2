@@ -175,7 +175,7 @@ v1.3.0.0 (v1.3.0 Light Bootstrap Dashboard HTML)
 
 More products from Creative Tim: <http://www.creative-tim.com/bootstrap-themes>
 
-Tutorials: <https://www.youtube.com/channel/UCVyTG4sCw-r0vB9oHkzZD1w>
+Tutorials: <https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w>
 
 Freebies: <http://www.creative-tim.com/products>
 
