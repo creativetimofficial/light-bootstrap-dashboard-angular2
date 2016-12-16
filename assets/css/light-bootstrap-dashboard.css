@@ -242,7 +242,8 @@ input:focus {
   top: 50%;
 }
 
-.sidebar {
+.sidebar,
+.bootstrap-navbar {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -255,7 +256,8 @@ input:focus {
   background-size: cover;
   background-position: center center;
 }
-.sidebar .sidebar-wrapper {
+.sidebar .sidebar-wrapper,
+.bootstrap-navbar .sidebar-wrapper {
   position: relative;
   max-height: calc(100vh - 75px);
   min-height: 100%;
@@ -264,10 +266,12 @@ input:focus {
   z-index: 4;
   padding-bottom: 75px;
 }
-.sidebar .sidebar-wrapper .dropdown .dropdown-backdrop {
+.sidebar .sidebar-wrapper .dropdown .dropdown-backdrop,
+.bootstrap-navbar .sidebar-wrapper .dropdown .dropdown-backdrop {
   display: none !important;
 }
-.sidebar .sidebar-background {
+.sidebar .sidebar-background,
+.bootstrap-navbar .sidebar-background {
   position: absolute;
   z-index: 1;
   height: 100%;
@@ -278,11 +282,13 @@ input:focus {
   background-size: cover;
   background-position: center center;
 }
-.sidebar .logo {
+.sidebar .logo,
+.bootstrap-navbar .logo {
   padding: 10px 15px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
-.sidebar .logo p {
+.sidebar .logo p,
+.bootstrap-navbar .logo p {
   float: left;
   font-size: 20px;
   margin: 10px 10px;
@@ -290,7 +296,8 @@ input:focus {
   line-height: 20px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-.sidebar .logo .simple-text {
+.sidebar .logo .simple-text,
+.bootstrap-navbar .logo .simple-text {
   text-transform: uppercase;
   padding: 5px 0px;
   display: block;
@@ -300,18 +307,21 @@ input:focus {
   font-weight: 400;
   line-height: 30px;
 }
-.sidebar .logo-img {
+.sidebar .logo-img,
+.bootstrap-navbar .logo-img {
   width: 30px;
   display: inline-block;
   max-height: 30px;
   margin-right: 10px;
 }
-.sidebar .logo-img img {
+.sidebar .logo-img img,
+.bootstrap-navbar .logo-img img {
   width: 35px;
   top: 11px;
   position: absolute;
 }
-.sidebar .logo-tim {
+.sidebar .logo-tim,
+.bootstrap-navbar .logo-tim {
   border-radius: 50%;
   border: 1px solid #333;
   display: block;
@@ -320,42 +330,51 @@ input:focus {
   float: left;
   overflow: hidden;
 }
-.sidebar .logo-tim img {
+.sidebar .logo-tim img,
+.bootstrap-navbar .logo-tim img {
   width: 60px;
   height: 60px;
 }
-.sidebar .nav {
+.sidebar .nav,
+.bootstrap-navbar .nav {
   margin-top: 20px;
   float: none;
 }
-.sidebar .nav li > a {
+.sidebar .nav li > a,
+.bootstrap-navbar .nav li > a {
   color: #FFFFFF;
   margin: 5px 15px;
   opacity: .86;
   border-radius: 4px;
   display: block;
 }
-.sidebar .nav li:hover > a {
+.sidebar .nav li:hover > a,
+.bootstrap-navbar .nav li:hover > a {
   background: rgba(255, 255, 255, 0.13);
   opacity: 1;
 }
-.sidebar .nav li.active > a {
+.sidebar .nav li.active > a,
+.bootstrap-navbar .nav li.active > a {
   color: #FFFFFF;
   opacity: 1;
   background: rgba(255, 255, 255, 0.23);
 }
-.sidebar .nav li a.dropdown-toggle {
+.sidebar .nav li a.dropdown-toggle,
+.bootstrap-navbar .nav li a.dropdown-toggle {
   background-color: transparent;
   outline: none;
 }
-.sidebar .nav li.separator {
+.sidebar .nav li.separator,
+.bootstrap-navbar .nav li.separator {
   margin: 15px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
-.sidebar .nav li.separator + li {
+.sidebar .nav li.separator + li,
+.bootstrap-navbar .nav li.separator + li {
   margin-top: 31px;
 }
-.sidebar .nav p {
+.sidebar .nav p,
+.bootstrap-navbar .nav p {
   margin: 0;
   line-height: 30px;
   font-size: 12px;
@@ -364,7 +383,8 @@ input:focus {
   margin-left: 45px;
   color: #FFFFFF;
 }
-.sidebar .nav i {
+.sidebar .nav i,
+.bootstrap-navbar .nav i {
   font-size: 28px;
   float: left;
   margin-right: 15px;
@@ -372,16 +392,19 @@ input:focus {
   width: 30px;
   text-align: center;
 }
-.sidebar .nav .caret {
+.sidebar .nav .caret,
+.bootstrap-navbar .nav .caret {
   margin-top: 13px;
   position: absolute;
   right: 30px;
 }
-.sidebar .logo {
+.sidebar .logo,
+.bootstrap-navbar .logo {
   padding: 10px 15px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
-.sidebar .logo p {
+.sidebar .logo p,
+.bootstrap-navbar .logo p {
   float: left;
   font-size: 20px;
   margin: 10px 10px;
@@ -389,7 +412,8 @@ input:focus {
   line-height: 20px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-.sidebar .logo .simple-text {
+.sidebar .logo .simple-text,
+.bootstrap-navbar .logo .simple-text {
   text-transform: uppercase;
   padding: 5px 0px 5px 15px;
   display: block;
@@ -399,7 +423,8 @@ input:focus {
   font-weight: 400;
   line-height: 30px;
 }
-.sidebar .logo-tim {
+.sidebar .logo-tim,
+.bootstrap-navbar .logo-tim {
   border-radius: 50%;
   border: 1px solid #333;
   display: block;
@@ -408,11 +433,14 @@ input:focus {
   float: left;
   overflow: hidden;
 }
-.sidebar .logo-tim img {
+.sidebar .logo-tim img,
+.bootstrap-navbar .logo-tim img {
   width: 60px;
   height: 60px;
 }
-.sidebar:after, .sidebar:before {
+.sidebar:after, .sidebar:before,
+.bootstrap-navbar:after,
+.bootstrap-navbar:before {
   display: block;
   content: "";
   position: absolute;
@@ -422,11 +450,13 @@ input:focus {
   left: 0;
   z-index: 2;
 }
-.sidebar:before {
+.sidebar:before,
+.bootstrap-navbar:before {
   opacity: .33;
   background: #000000;
 }
-.sidebar:after {
+.sidebar:after,
+.bootstrap-navbar:after {
   background: #787878;
   background: -moz-linear-gradient(top, #787878 0%, #343434 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #787878), color-stop(100%, #343434));
@@ -438,10 +468,13 @@ input:focus {
   z-index: 3;
   opacity: 1;
 }
-.sidebar[data-image]:after, .sidebar.has-image:after {
+.sidebar[data-image]:after, .sidebar.has-image:after,
+.bootstrap-navbar[data-image]:after,
+.bootstrap-navbar.has-image:after {
   opacity: .77;
 }
-.sidebar[data-color="blue"]:after {
+.sidebar[data-color="blue"]:after,
+.bootstrap-navbar[data-color="blue"]:after {
   background: #1F77D0;
   background: -moz-linear-gradient(top, #1F77D0 0%, #533ce1 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1F77D0), color-stop(100%, #533ce1));
@@ -451,7 +484,8 @@ input:focus {
   background: linear-gradient(to bottom, #1F77D0 0%, #533ce1 100%);
   background-size: 150% 150%;
 }
-.sidebar[data-color="azure"]:after {
+.sidebar[data-color="azure"]:after,
+.bootstrap-navbar[data-color="azure"]:after {
   background: #1DC7EA;
   background: -moz-linear-gradient(top, #1DC7EA 0%, #4091ff 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1DC7EA), color-stop(100%, #4091ff));
@@ -461,7 +495,8 @@ input:focus {
   background: linear-gradient(to bottom, #1DC7EA 0%, #4091ff 100%);
   background-size: 150% 150%;
 }
-.sidebar[data-color="green"]:after {
+.sidebar[data-color="green"]:after,
+.bootstrap-navbar[data-color="green"]:after {
   background: #87CB16;
   background: -moz-linear-gradient(top, #87CB16 0%, #6dc030 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #87CB16), color-stop(100%, #6dc030));
@@ -471,7 +506,8 @@ input:focus {
   background: linear-gradient(to bottom, #87CB16 0%, #6dc030 100%);
   background-size: 150% 150%;
 }
-.sidebar[data-color="orange"]:after {
+.sidebar[data-color="orange"]:after,
+.bootstrap-navbar[data-color="orange"]:after {
   background: #FFA534;
   background: -moz-linear-gradient(top, #FFA534 0%, #ff5221 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFA534), color-stop(100%, #ff5221));
@@ -481,7 +517,8 @@ input:focus {
   background: linear-gradient(to bottom, #FFA534 0%, #ff5221 100%);
   background-size: 150% 150%;
 }
-.sidebar[data-color="red"]:after {
+.sidebar[data-color="red"]:after,
+.bootstrap-navbar[data-color="red"]:after {
   background: #FB404B;
   background: -moz-linear-gradient(top, #FB404B 0%, #bb0502 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FB404B), color-stop(100%, #bb0502));
@@ -491,7 +528,8 @@ input:focus {
   background: linear-gradient(to bottom, #FB404B 0%, #bb0502 100%);
   background-size: 150% 150%;
 }
-.sidebar[data-color="purple"]:after {
+.sidebar[data-color="purple"]:after,
+.bootstrap-navbar[data-color="purple"]:after {
   background: #9368E9;
   background: -moz-linear-gradient(top, #9368E9 0%, #943bea 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9368E9), color-stop(100%, #943bea));
@@ -1465,6 +1503,7 @@ input:focus {
   font-size: 19px;
   position: relative;
   line-height: 16px;
+  display: inline-block;
   top: 1px;
 }
 .navbar .navbar-nav .notification {
@@ -2953,7 +2992,8 @@ input:focus {
     display: block;
   }
 
-  .sidebar {
+  .sidebar,
+  .bootstrap-navbar {
     position: fixed;
     display: block;
     top: 0;
@@ -2978,14 +3018,16 @@ input:focus {
     -ms-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
     transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
   }
-  .sidebar > ul {
+  .sidebar > ul,
+  .bootstrap-navbar > ul {
     position: relative;
     z-index: 4;
     overflow-y: scroll;
     height: calc(100vh - 61px);
     width: 100%;
   }
-  .sidebar::before {
+  .sidebar::before,
+  .bootstrap-navbar::before {
     top: 0;
     left: 0;
     height: 100%;
@@ -2996,20 +3038,25 @@ input:focus {
     content: "";
     z-index: 1;
   }
-  .sidebar .logo {
+  .sidebar .logo,
+  .bootstrap-navbar .logo {
     position: relative;
     z-index: 4;
   }
-  .sidebar .nav.nav-mobile-menu li > a {
+  .sidebar .nav.nav-mobile-menu li > a,
+  .bootstrap-navbar .nav.nav-mobile-menu li > a {
     padding: 10px 15px;
   }
-  .sidebar .nav.nav-mobile-menu .fa {
+  .sidebar .nav.nav-mobile-menu .fa,
+  .bootstrap-navbar .nav.nav-mobile-menu .fa {
     font-size: 18px;
   }
-  .sidebar .nav i {
+  .sidebar .nav i,
+  .bootstrap-navbar .nav i {
     font-size: 22px;
   }
-  .sidebar .nav-mobile-menu .open .dropdown-menu {
+  .sidebar .nav-mobile-menu .open .dropdown-menu,
+  .bootstrap-navbar .nav-mobile-menu .open .dropdown-menu {
     position: static;
     float: none;
     width: auto;
@@ -3019,10 +3066,12 @@ input:focus {
     -webkit-box-shadow: none;
     box-shadow: none;
   }
-  .sidebar .nav-mobile-menu .open .dropdown-menu li > a {
+  .sidebar .nav-mobile-menu .open .dropdown-menu li > a,
+  .bootstrap-navbar .nav-mobile-menu .open .dropdown-menu li > a {
     padding-left: 60px;
   }
-  .sidebar .sidebar-wrapper .nav-mobile-menu ~ .nav {
+  .sidebar .sidebar-wrapper .nav-mobile-menu ~ .nav,
+  .bootstrap-navbar .sidebar-wrapper .nav-mobile-menu ~ .nav {
     margin-top: 0;
   }
 
@@ -3474,7 +3523,6 @@ input:focus {
   }
 
   .navbar-collapse .nav p {
-    font-size: 14px;
     margin: 0;
   }
   .navbar-collapse [class^="pe-7s-"] {
@@ -3517,6 +3565,7 @@ input:focus {
 
   .navbar-nav p {
     line-height: normal;
+    display: inline-block;
     margin: 0;
   }
 }
