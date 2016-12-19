@@ -248,6 +248,10 @@ pre.prettyprint{
         margin-bottom: 25px;
     }
 
+    .nav-mobile-menu .navbar-title{
+        display: none;
+    }
+
 }
 
 @media (max-width: 1199px) {

@@ -227,7 +227,6 @@ lbd = {
                 nav_content = nav_content + content_buff;
             });
 
-            console.log('construiesc nav-mobile-menu');
             nav_content = '<ul class="nav nav-mobile-menu">' + nav_content + '</ul>';
             $navbar.html(nav_content);
             $navbar.addClass('bootstrap-navbar');
