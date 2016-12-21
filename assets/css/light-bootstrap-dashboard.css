@@ -391,6 +391,7 @@ input:focus {
   line-height: 30px;
   width: 30px;
   text-align: center;
+  color: #FFFFFF;
 }
 .sidebar .nav .caret,
 .bootstrap-navbar .nav .caret {
