@@ -7,7 +7,7 @@ var notifications_component_1 = require('./notifications/notifications.component
 var typography_component_1 = require('./typography/typography.component');
 var maps_component_1 = require('./maps/maps.component');
 exports.MODULE_ROUTES = [
-    { path: '', pathMatch: 'full', component: home_component_1.HomeComponent },
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: home_component_1.HomeComponent },
     { path: 'user', component: user_component_1.UserComponent },
     { path: 'table', component: table_component_1.TableComponent },
