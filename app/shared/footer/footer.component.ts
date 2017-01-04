@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
     templateUrl: 'footer.component.html'
 })
 
-export class FooterComponent{}
+export class FooterComponent{
+    test : Date = new Date();
+}
