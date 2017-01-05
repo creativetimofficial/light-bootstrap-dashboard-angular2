@@ -413,12 +413,12 @@
 
     .close-layer{
         height: 100%;
-        width: 100%;
+        width: calc(100% - 260px);
         position: fixed;
         opacity: 0;
         display: block;
         top: 0;
-        right: 0px;
+        left: 0px;
         content: "";
         z-index: 1030;
         overflow-x: hidden;
