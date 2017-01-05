@@ -250,7 +250,7 @@ input:focus {
   left: 0;
   width: 260px;
   display: block;
-  z-index: 1;
+  z-index: 5;
   color: #fff;
   font-weight: 200;
   background-size: cover;
@@ -3534,12 +3534,12 @@ input:focus {
 
   .close-layer {
     height: 100%;
-    width: 100%;
+    width: calc(100% - 260px);
     position: fixed;
     opacity: 0;
     display: block;
     top: 0;
-    right: 0px;
+    left: 0px;
     content: "";
     z-index: 1030;
     overflow-x: hidden;
