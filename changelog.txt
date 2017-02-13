@@ -1,0 +1,6 @@
+v1.3.0.0 - 14 Dec 2016 (v1.3.0 Light Bootstrap Dashboard HTML)
+v1.3.0.1 - 13 Feb 2017 (v1.3.0 Light Bootstrap Dashboard HTML)
+- changes in routes(redirect '' to 'dashboard' + added HashLocationStrategy)
+- changes in documentation
+- changes in sidebar(cleaned li tags + changed z-index)
+- changes in footer(added current date)
