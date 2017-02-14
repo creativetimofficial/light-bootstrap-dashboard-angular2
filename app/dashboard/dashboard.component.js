@@ -8,19 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var DashboardComponent = (function () {
     function DashboardComponent() {
     }
-    DashboardComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'dashboard-cmp',
-            templateUrl: 'dashboard.component.html'
-        }), 
-        __metadata('design:paramtypes', [])
-    ], DashboardComponent);
     return DashboardComponent;
 }());
+DashboardComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'dashboard-cmp',
+        templateUrl: 'dashboard.component.html'
+    }),
+    __metadata("design:paramtypes", [])
+], DashboardComponent);
 exports.DashboardComponent = DashboardComponent;
 //# sourceMappingURL=dashboard.component.js.map
