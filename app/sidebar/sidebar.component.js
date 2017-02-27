@@ -8,9 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var sidebar_routes_config_1 = require('./sidebar-routes.config');
-var sidebar_metadata_1 = require('./sidebar.metadata');
+var core_1 = require("@angular/core");
+var sidebar_routes_config_1 = require("./sidebar-routes.config");
+var sidebar_metadata_1 = require("./sidebar.metadata");
 var SidebarComponent = (function () {
     function SidebarComponent() {
         this.isCollapsed = true;
@@ -30,15 +30,15 @@ var SidebarComponent = (function () {
             'pull-xs-right': this.isCollapsed && menuItem.menuType === sidebar_metadata_1.MenuType.RIGHT
         };
     };
-    SidebarComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'sidebar-cmp',
-            templateUrl: 'sidebar.component.html',
-        }), 
-        __metadata('design:paramtypes', [])
-    ], SidebarComponent);
     return SidebarComponent;
 }());
+SidebarComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'sidebar-cmp',
+        templateUrl: 'sidebar.component.html',
+    }),
+    __metadata("design:paramtypes", [])
+], SidebarComponent);
 exports.SidebarComponent = SidebarComponent;
 //# sourceMappingURL=sidebar.component.js.map
