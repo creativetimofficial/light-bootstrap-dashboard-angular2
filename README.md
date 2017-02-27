@@ -13,7 +13,7 @@ Special thanks go to: Robert McIntosh for the notification system Chartist for t
 ## Links:
 
 + [Live Preview](http://lbd-angular2.creative-tim.com/)
-+ Light Bootstrap Dashboard Angular2 Pro (coming soon from $59)
++ [Light Bootstrap Dashboard PRO Angular2](https://www.creative-tim.com/product/light-bootstrap-dashboard-pro-angular2/?ref=lbd-angular2-free) ($49)
 
 ## Quick Start:
 
@@ -88,6 +88,11 @@ Within the download you'll find the following directories and files:
 	│   │   │   ├── typography.component.js
 	│   │   │   ├── typography.component.js.map
 	│   │   │   └── typography.component.ts
+	│   │   ├── upgrade
+	│   │   │   ├── upgrade.component.html
+	│   │   │   ├── upgrade.component.js
+	│   │   │   ├── upgrade.component.js.map
+	│   │   │   └── upgrade.component.ts
 	│   │   └── user
 	│   │       ├── user.component.html
 	│   │       ├── user.component.js
