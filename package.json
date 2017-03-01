@@ -1,18 +1,17 @@
 {
-  "name": "Angular2",
-  "version": "1.0.0",
+  "name": "light-bootstrap-dashboard-angular2",
+  "version": "1.0.1",
   "scripts": {
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "lite": "lite-server",
     "tsc": "tsc",
     "tsc:w": "tsc -w"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/angular/angular.io/blob/master/LICENSE"
-    }
-  ],
+  "license" : "MIT",
+  "repository" :
+  { "type" : "git",
+    "url" : "https://github.com/creativetimofficial/light-bootstrap-dashboard-angular.git"
+  },
   "dependencies": {
     "@angular/common": "~2.2.2",
     "@angular/compiler": "~2.2.2",

@@ -1,12 +1,12 @@
 "use strict";
-var home_component_1 = require("./home/home.component");
-var user_component_1 = require("./user/user.component");
-var icons_component_1 = require("./icons/icons.component");
-var table_component_1 = require("./table/table.component");
-var notifications_component_1 = require("./notifications/notifications.component");
-var typography_component_1 = require("./typography/typography.component");
-var maps_component_1 = require("./maps/maps.component");
-var upgrade_component_1 = require("./upgrade/upgrade.component");
+var home_component_1 = require('./home/home.component');
+var user_component_1 = require('./user/user.component');
+var icons_component_1 = require('./icons/icons.component');
+var table_component_1 = require('./table/table.component');
+var notifications_component_1 = require('./notifications/notifications.component');
+var typography_component_1 = require('./typography/typography.component');
+var maps_component_1 = require('./maps/maps.component');
+var upgrade_component_1 = require('./upgrade/upgrade.component');
 exports.MODULE_ROUTES = [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: home_component_1.HomeComponent },
