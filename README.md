@@ -172,9 +172,20 @@ Within the download you'll find the following directories and files:
 
 ### Version logs
 
-14 Dec '16 [initial Release]
+v1.3.0.0 - 14 Dec 2016 (v1.3.0 Light Bootstrap Dashboard HTML)
+v1.3.0.1 - 13 Feb 2017 (v1.3.0 Light Bootstrap Dashboard HTML)
+- changes in routes(redirect '' to 'dashboard' + added HashLocationStrategy)
+- changes in documentation
+- changes in sidebar(cleaned li tags + changed z-index)
+- changes in footer(added current date)
+v1.3.0.2 - 27 Feb 2017 (v1.3.0 Light Bootstrap Dashboard HTML)
+- added upgrade to pro page
+- fixed navbar title
+- changed http://www.creative-tim.com/ with https://www.creative-tim.com/
 
-v1.3.0.0 (v1.3.0 Light Bootstrap Dashboard HTML)
+!IMPORTANT: Version system reset to match the npm system x.x.x, before was x.x.x.x and it was confusing for the users
+V1.1.0 - 1 March 2017 (v1.3.0 LBD HTML)
+- fix version numbers in package.json and CSS and JS
 
 ## Useful Links
 
