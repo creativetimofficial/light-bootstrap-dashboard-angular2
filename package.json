@@ -1,6 +1,6 @@
 {
-  "name": "Angular2",
-  "version": "1.0.0",
+  "name": "light-bootstrap-dashboard-angular2",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "start": "concurrently \"tsc -w\" \"nodemon ./bin/www\" ",
@@ -10,14 +10,13 @@
     "build:prod": "node bin/bundler.js --prod",
     "postinstall": "npm run build:prod"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/angular/angular.io/blob/master/LICENSE"
-    }
-  ],
   "engines": {
     "node": "5.9.1"
+  },
+  "license" : "MIT",
+  "repository" :
+  { "type" : "git",
+    "url" : "https://github.com/creativetimofficial/light-bootstrap-dashboard-angular.git"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
