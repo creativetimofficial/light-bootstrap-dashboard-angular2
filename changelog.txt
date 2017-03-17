@@ -1,10 +1,10 @@
-v1.3.0.0 - 14 Dec 2016 (v1.3.0 Light Bootstrap Dashboard HTML)
-v1.3.0.1 - 13 Feb 2017 (v1.3.0 Light Bootstrap Dashboard HTML)
+V1.3.0.0 - 14 Dec 2016 (v1.3.0 Light Bootstrap Dashboard HTML)
+V1.3.0.1 - 13 Feb 2017 (v1.3.0 Light Bootstrap Dashboard HTML)
 - changes in routes(redirect '' to 'dashboard' + added HashLocationStrategy)
 - changes in documentation
 - changes in sidebar(cleaned li tags + changed z-index)
 - changes in footer(added current date)
-v1.3.0.2 - 27 Feb 2017 (v1.3.0 Light Bootstrap Dashboard HTML)
+V1.3.0.2 - 27 Feb 2017 (v1.3.0 Light Bootstrap Dashboard HTML)
 - added upgrade to pro page
 - fixed navbar title
 - changed http://www.creative-tim.com/ with https://www.creative-tim.com/
