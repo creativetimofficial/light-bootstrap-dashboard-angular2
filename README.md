@@ -182,6 +182,9 @@ v1.3.0.2 - 27 Feb 2017 (v1.3.0 Light Bootstrap Dashboard HTML)
 - added upgrade to pro page
 - fixed navbar title
 - changed http://www.creative-tim.com/ with https://www.creative-tim.com/
+v1.3.0.3 - 17 March 2017 (v1.3.0 Light Bootstrap Dashboard HTML)
+- added "@types/core-js": "0.9.35" in package
+
 
 !IMPORTANT: Version system reset to match the npm system x.x.x, before was x.x.x.x and it was confusing for the users
 V1.1.0 - 1 March 2017 (v1.3.0 LBD HTML)
