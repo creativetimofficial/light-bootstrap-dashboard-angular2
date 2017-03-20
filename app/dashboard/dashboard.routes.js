@@ -1,12 +1,13 @@
 "use strict";
-var home_component_1 = require('./home/home.component');
-var user_component_1 = require('./user/user.component');
-var icons_component_1 = require('./icons/icons.component');
-var table_component_1 = require('./table/table.component');
-var notifications_component_1 = require('./notifications/notifications.component');
-var typography_component_1 = require('./typography/typography.component');
-var maps_component_1 = require('./maps/maps.component');
-var upgrade_component_1 = require('./upgrade/upgrade.component');
+Object.defineProperty(exports, "__esModule", { value: true });
+const home_component_1 = require("./home/home.component");
+const user_component_1 = require("./user/user.component");
+const icons_component_1 = require("./icons/icons.component");
+const table_component_1 = require("./table/table.component");
+const notifications_component_1 = require("./notifications/notifications.component");
+const typography_component_1 = require("./typography/typography.component");
+const maps_component_1 = require("./maps/maps.component");
+const upgrade_component_1 = require("./upgrade/upgrade.component");
 exports.MODULE_ROUTES = [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: home_component_1.HomeComponent },
