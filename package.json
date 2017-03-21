@@ -16,6 +16,9 @@
   { "type" : "git",
     "url" : "https://github.com/creativetimofficial/light-bootstrap-dashboard-angular.git"
   },
+  "bugs":{
+      "url": "https://github.com/creativetimofficial/light-bootstrap-dashboard-angular/issues"
+  },
   "dependencies": {
     "@angular/common": "~2.2.2",
     "@angular/compiler": "~2.2.2",
@@ -37,7 +40,6 @@
     "rxjs": "5.0.0-rc.5",
     "systemjs": "~0.19.41",
     "zone.js": "0.7.2",
-    "@types/core-js": "^0.9.34",
     "@types/node": "^6.0.45",
     "systemjs-builder": "^0.15.17",
     "typescript": "^2.0.3",
