@@ -1,7 +1,7 @@
 /*!
 
  =========================================================
- * Light Bootstrap Dashboard Free Angular2 - v1.1.0
+ * Light Bootstrap Dashboard Free Angular2 - v1.1.1
  =========================================================
 
  * Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard-angular2
