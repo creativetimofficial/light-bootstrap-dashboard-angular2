@@ -186,7 +186,7 @@ V1.3.0.2 - 27 Feb 2017 (v1.3.0 Light Bootstrap Dashboard HTML)
 Version system reset to match the npm system x.x.x, before was x.x.x.x
 V1.1.0 - 1 March 2017 (v1.3.0 LBD HTML)
 - fix version numbers in package.json and CSS and JS
-V1.1.1 - 17 March 2017 (v1.3.0 LBD HTML)
+V1.1.1 - 21 March 2017 (v1.3.0 LBD HTML)
 - added "@types/core-js": "0.9.35" in package
 
 
