@@ -3,12 +3,10 @@
   "private": true,
   "version": "1.1.1",
   "scripts": {
-    "start": "concurrently \"tsc -w\" \"nodemon ./bin/www\" ",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "prod": "NODE_ENV=production ./bin/www",
-    "build:prod": "node bin/bundler.js --prod",
-    "postinstall": "npm run build:prod"
+      "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+      "lite": "lite-server",
+      "tsc": "tsc",
+      "tsc:w": "tsc -w"
   },
   "engines": {
     "node": "5.9.1"
