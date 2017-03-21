@@ -9,16 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
 var initFixedPlugin = require('../assets/js/initFixedPlugin.js');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(location) {
+        this.location = location;
     }
     AppComponent.prototype.ngOnInit = function () {
         $.getScript('../assets/js/light-bootstrap-dashboard.js');
         initFixedPlugin();
     };
     AppComponent.prototype.isMaps = function (path) {
-        if (path == window.location.pathname) {
+        var titlee = this.location.prepareExternalUrl(this.location.path());
+        titlee = titlee.slice(1);
+        if (path === titlee) {
             return true;
         }
         else {
@@ -30,7 +34,7 @@ var AppComponent = (function () {
             selector: 'my-app',
             templateUrl: 'app/app.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [common_1.Location])
     ], AppComponent);
     return AppComponent;
 }());
