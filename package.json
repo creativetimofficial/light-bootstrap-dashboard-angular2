@@ -1,16 +1,23 @@
 {
   "name": "light-bootstrap-dashboard-angular2",
-  "version": "1.1.0",
+  "private": true,
+  "version": "1.1.1",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
-    "lite": "lite-server",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w"
+      "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+      "lite": "lite-server",
+      "tsc": "tsc",
+      "tsc:w": "tsc -w"
   },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/creativetimofficial/light-bootstrap-dashboard-angular.git"
+  "engines": {
+    "node": "5.9.1"
+  },
+  "license" : "MIT",
+  "repository" :
+  { "type" : "git",
+    "url" : "https://github.com/creativetimofficial/light-bootstrap-dashboard-angular.git"
+  },
+  "bugs":{
+      "url": "https://github.com/creativetimofficial/light-bootstrap-dashboard-angular/issues"
   },
   "dependencies": {
     "@angular/common": "~2.4.9",
@@ -22,25 +29,31 @@
     "@angular/platform-browser-dynamic": "~2.4.9",
     "@angular/router": "~3.4.9",
     "@angular/upgrade": "~2.4.9",
+    "@types/core-js": "0.9.35",
+    "@types/node": "^6.0.45",
     "angular-in-memory-web-api": "~0.3.1",
     "angular2-chartist": "~0.12",
     "angular2-google-maps": "~0.17",
     "chartist": "~0.10.1",
+    "compression": "^1.6.2",
     "core-js": "~2.4.1",
     "jquery": "~3.2",
     "ng2-bootstrap": "~1.4",
-    "reflect-metadata": "~0.1.10",
+    "reflect-metadata": "~0.1.8",
     "rxjs": "~5.2",
     "systemjs": "~0.20.10",
+    "systemjs-builder": "^0.15.17",
+    "typescript": "~2.2.1",
+    "yargs": "^4.7.1",
     "zone.js": "^0.7.2"
   },
   "devDependencies": {
     "@types/chartist": "~0.9.33",
-    "@types/core-js": "~0.9.37",
     "@types/jquery": "~2.0.41",
-    "@types/node": "~7.0.8",
     "concurrently": "~3.4",
+    "ejs":">=0.0.1",
+    "express": "~4.9.8",
     "lite-server": "~2.3",
-    "typescript": "~2.2.1"
+    "nodemon": "^1.11.0"
   }
-}
+} 
