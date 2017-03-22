@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
@@ -8,8 +8,12 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": false
-},
-"compileOnSave": false,
-"typeRoots": ["node_modules"],
-"types": ["system"]
+  },
+  "compileOnSave": false,
+  "typeRoots": [
+    "node_modules"
+  ],
+  "types": [
+    "system"
+  ]
 }
