@@ -10,25 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var sidebar_routes_config_1 = require('./sidebar-routes.config');
-var sidebar_metadata_1 = require('./sidebar.metadata');
 var SidebarComponent = (function () {
     function SidebarComponent() {
-        this.isCollapsed = true;
     }
     SidebarComponent.prototype.ngOnInit = function () {
-        this.menuItems = sidebar_routes_config_1.ROUTES.filter(function (menuItem) { return menuItem.menuType !== sidebar_metadata_1.MenuType.BRAND; });
-    };
-    Object.defineProperty(SidebarComponent.prototype, "menuIcon", {
-        get: function () {
-            return this.isCollapsed ? '☰' : '✖';
-        },
-        enumerable: true,
-        configurable: true
-    });
-    SidebarComponent.prototype.getMenuItemClasses = function (menuItem) {
-        return {
-            'pull-xs-right': this.isCollapsed && menuItem.menuType === sidebar_metadata_1.MenuType.RIGHT
-        };
+        this.menuItems = sidebar_routes_config_1.ROUTES.filter(function (menuItem) { return menuItem; });
     };
     SidebarComponent = __decorate([
         core_1.Component({
