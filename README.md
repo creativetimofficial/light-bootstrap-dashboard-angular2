@@ -193,6 +193,10 @@ V1.1.0 - 1 March 2017 (v1.3.0 LBD HTML)
 V1.1.1 - 21 March 2017 (v1.3.0 LBD HTML)
 - added "@types/core-js": "0.9.35" in package
 
+V1.2.0 - 11 April 2017 (v1.3.0 LBD HTML)
+- update package.json with the latest versions
+- made sidebar dynamic
+
 
 ## Useful Links
 
