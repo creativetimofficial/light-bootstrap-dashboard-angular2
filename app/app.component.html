@@ -7,7 +7,7 @@
     <div class="main-panel">
         <navbar-cmp></navbar-cmp>
         <dashboard-cmp></dashboard-cmp>
-        <div *ngIf!="isMaps('/maps')">
+        <div *ngIf="!isMaps('/maps')">
             <footer-cmp></footer-cmp>
         </div>
         <div class="fixed-plugin">
