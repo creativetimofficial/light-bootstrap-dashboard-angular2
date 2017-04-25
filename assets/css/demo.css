@@ -62,3 +62,10 @@
 .table-upgrade td:nth-child(3){
     text-align: center;
 }
+@media (max-width: 991px){
+    .sidebar .nav > li.active-pro {
+        position: relative;
+        width: 100%;
+        bottom: 0px;
+    }
+}
