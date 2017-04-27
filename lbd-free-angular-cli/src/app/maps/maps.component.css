@@ -1,0 +1,14 @@
+:host {
+  height: 100%;
+}
+
+.maps-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: calc(100% - 61px);
+}
+
+.sebm-google-map-container {
+  height: 100%;
+}

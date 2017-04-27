@@ -1,0 +1,15 @@
+<ul *ngIf="navItems" class="nav navbar-nav {{ navbarClass }}">
+  <li *ngFor="let item of navItems">
+    <a [routerLink]="item.routerLink || []" [class.dropdown-toggle]="item.dropdownItems" [attr.data-toggle]="item.dropdownItems ? 'dropdown' : null">
+      <i [ngClass]="item.iconClass"></i>
+      <span *ngIf="showTitles">{{ item.title }}</span>
+      <b *ngIf="item.dropdownItems" class="caret"></b>
+      <span *ngIf="item.numNotifications !== undefined && item.numNotifications !== null" class="notification">{{ item.numNotifications }}</span>
+    </a>
+    <ul *ngIf="item.dropdownItems" class="dropdown-menu">
+      <li *ngFor="let dropdownItem of item.dropdownItems" [class.divider]="dropdownItem === 'separator'">
+        <a *ngIf="dropdownItem.title" [routerLink]="dropdownItem.routerLink || []">{{ dropdownItem.title }}</a>
+      </li>
+    </ul>
+  </li>
+</ul>

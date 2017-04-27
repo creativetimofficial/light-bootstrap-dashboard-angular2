@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="header">
+    <h4 class="title">{{ title }}</h4>
+    <p class="category">{{ subtitle }}</p>
+  </div>
+  <div class="content">
+    <div class="table-full-width">
+      <table class="table">
+        <tbody>
+        <tr *ngFor="let task of tasks; let i = index;">
+          <td>
+            <lbd-checkbox [checked]="task.checked"></lbd-checkbox>
+          </td>
+          <td>{{ task.title }}</td>
+          <td class="td-actions text-right">
+            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
+              <i class="fa fa-edit"></i>
+            </button>
+            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+              <i class="fa fa-times"></i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="footer">
+      <hr>
+      <div class="stats">
+        <i [ngClass]="footerIconClass"></i> {{ footerText }}
+      </div>
+    </div>
+  </div>
+</div>
