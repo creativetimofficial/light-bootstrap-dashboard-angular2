@@ -1,3 +1,4 @@
-/node_modules
+/lbd-free-angular2/node_modules
+/lbd-free-angular-cli/node_modules
 /npm-debug.log
 /assets/css/light-bootstrap-dashboard.css.map
