@@ -1,8 +1,4 @@
 .modal.modal-angular{
-    .modal-dialog{
-        width: 570px;
-    }
-
     .modal-header{
         border-bottom: none;
         position: relative;
@@ -17,15 +13,14 @@
             border-bottom: 1px solid rgba(220,220,220, .2);
             width: 100%;
             display: block;
-            margin: 12px 0;
+            margin: 11px 0;
         }
 
         .image-container{
-            width: 28px;
-            height: 28px;
+            width: 35px;
             overflow: hidden;
             margin: 0px auto;
-            margin-bottom: 6px;
+            margin-bottom: 17px;
 
             img{
                 width: 100%;
@@ -33,45 +28,31 @@
             }
 
             &.image-angular-cli{
-                width: 54px;
+                width: 44px;
                 position: relative;
                 top: 4px;
+                margin-top: -9px;
             }
         }
 
         h4{
-            text-transform: uppercase;
-            text-align: left;
-            padding-left: 19px;
-            font-size: 15px;
+            padding-left: 0px;
+            font-size: 16px;
             font-weight: 400;
+
+            &.margin-top{
+                margin-top: 15px;
+            }
 
             i{
                 color: #c5a47e;
             }
         }
 
-        .free-version-card{
-            a.modal-button{
-                height: 170px;
-                max-height: 170px;
-
-            }
-
-            .image-container{
-                margin-bottom: 17px;
-            }
-
-            .separator{
-                margin: 20px 0;
-            }
-        }
-
         a.modal-button{
             display: inline-block;
-            padding: 15px;
+            padding: 20px 15px;
             background-color: #fdfdfd;
-            box-shadow: 0px 3px 25px 0px rgba(0, 0, 0, 0.1);
             font-size: 14px;
             text-align: center;
             color: inherit;
@@ -79,8 +60,7 @@
             transition: box-shadow 150ms ease-in;
             width: 130px;
             max-width: 130px;
-            height: 209px;
-            max-height: 209px;
+            margin-bottom: 10px;
             font-weight: 100;
             border: 1px solid rgba(220,220,220, .4);
 
@@ -88,7 +68,7 @@
                 margin-left: 10px;
                 margin-right: 10px;
             }
-            
+
             &.disabled{
                 opacity: .5;
                 pointer-events: none;
@@ -102,14 +82,6 @@
             .product-type{
                 font-size: 12px;
                 font-weight: 600;
-
-                // i{
-                //     color: #d8d8d8;
-                //     position: absolute;
-                //     font-size: 8px;
-                //     right: 32px;
-                //     top: -1px;
-                // }
             }
 
             .price{
@@ -134,9 +106,15 @@
 
             .wrapper-card{
                 position: relative;
-                top: 50%;
-                transform: translateY(-50%);
             }
+        }
+    }
+}
+
+@media (min-width: 768px){
+    .modal.modal-angular{
+        .modal-dialog{
+            width: 570px;
         }
     }
 }
