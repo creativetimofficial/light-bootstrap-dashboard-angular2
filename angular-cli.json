@@ -24,7 +24,8 @@
           "../node_modules/jquery/dist/jquery.js",
           "../node_modules/bootstrap/dist/js/bootstrap.js",
           "../node_modules/bootstrap-notify/bootstrap-notify.js",
-          "../node_modules/chartist/dist/chartist.js"
+          "../node_modules/chartist/dist/chartist.js",
+          "../src/assets/js/jquery.sharrre.js"
       ],
         "environmentSource": "environments/environment.ts",
         "environments": {
