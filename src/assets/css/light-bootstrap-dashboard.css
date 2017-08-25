@@ -3,6 +3,7 @@
  =========================================================
 
  * Light Bootstrap Dashboard Free Angular - v1.3.0
+
  =========================================================
 
  * Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard-angular2
@@ -2931,7 +2932,6 @@ input:focus {
     overflow-y: hidden;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     -webkit-overflow-scrolling: touch; } }
-<<<<<<< HEAD
 .modal.modal-angular .modal-dialog {
   width: 570px; }
 .modal.modal-angular .modal-header {
@@ -3019,5 +3019,3 @@ input:focus {
     transform: translateY(-50%); }
 
 /*# sourceMappingURL=light-bootstrap-dashboard.css.map */
-=======
->>>>>>> master
