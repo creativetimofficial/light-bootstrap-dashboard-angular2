@@ -1,4 +1,24 @@
 /*     General overwrite     */
+#loader{
+    position: absolute;
+    display: block;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+    -webkit-transform:  translate3d(0, -50%, 0);
+   -moz-transform: translate3d(0, -50%, 0);
+   -o-transform: translate3d(0, -50%, 0);
+   -ms-transform: translate3d(0, -50%, 0);
+   transform: translate3d(0, -50%, 0);
+    text-align: center;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    top: 50%;
+}
+
 body,
 .wrapper{
     min-height: 100vh;

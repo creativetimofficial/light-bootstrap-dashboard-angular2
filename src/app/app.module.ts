@@ -9,6 +9,7 @@ import { NavbarModule } from './shared/navbar/navbar.module';
 import { FooterModule } from './shared/footer/footer.module';
 import { SidebarModule } from './sidebar/sidebar.module';
 import { LbdModule } from './lbd/lbd.module';
+import { JWBootstrapSwitchModule } from 'jw-bootstrap-switch-ng2';
 
 import { AppComponent } from './app.component';
 
@@ -43,7 +44,8 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
     SidebarModule,
     RouterModule,
     AppRoutingModule,
-    LbdModule
+    LbdModule,
+    JWBootstrapSwitchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

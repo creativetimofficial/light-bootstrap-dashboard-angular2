@@ -21,6 +21,12 @@
             <li class="adjustments-line">
                 <a href="javascript:void(0)" class="switch-trigger">
                     <p>Background Image</p>
+                    <bSwitch
+                      [switch-on-color]="'primary'"
+                      [(ngModel)]="background_image"
+                      [ngClass]="['switch','switch-sidebar-image']"
+                      (onChangeState)="onChange($event)">
+                    </bSwitch>
                     <div class="clearfix"></div>
                 </a>
             </li>

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
+import { Router, NavigationEnd } from '@angular/router';
 
 declare const $: any;
+declare let _gaq: Function;
 
 @Component({
   selector: 'app-root',
@@ -9,8 +11,27 @@ declare const $: any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+    background_image: boolean = true;
+    location: Location;
+    private currentRoute:string;
 
-     constructor(public location: Location) {}
+    constructor(_router:Router,
+                _location:Location) {
+        this.location = _location;
+        _router.events.subscribe((event:any) => {
+            // Send GA tracking on NavigationEnd event. You may wish to add other
+            // logic here too or change which event to work with
+            if (event instanceof NavigationEnd) {
+                // When the route is '/', location.path actually returns ''.
+                let newRoute = _location.path() || '/';
+                // If the route has changed, send the new route to analytics.
+                if (this.currentRoute != newRoute) {
+                    _gaq('send', 'pageview', newRoute);
+                    this.currentRoute = newRoute;
+                }
+            }
+        });
+    }
 
     ngOnInit(){
         let $sidebar = $('.sidebar');
@@ -112,6 +133,39 @@ export class AppComponent implements OnInit {
           template: '<i class="fa fa-facebook-square"></i> &middot; 426',
           url: 'http://demos.creative-tim.com/light-bootstrap-dashboard'
         });
+    }
+    onChange($event){
+        var $sidebar = $('.sidebar');
+        var $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+        var $full_page = $('.full-page');
+        var $full_page_background = $('.full-page-background');
+        var $sidebar_responsive = $('body > .navbar-collapse');
+        if ($event.currentValue) {
+            if($sidebar_img_container.length != 0){
+                $sidebar_img_container.fadeIn('fast');
+                $sidebar.attr('data-image','#');
+            }
+
+            if($full_page_background.length != 0){
+                $full_page_background.fadeIn('fast');
+                $full_page.attr('data-image','#');
+            }
+
+            this.background_image = true;
+        }else{
+            if($sidebar_img_container.length != 0){
+                $sidebar.removeAttr('data-image');
+                $sidebar_img_container.fadeOut('fast');
+            }
+
+            if($full_page_background.length != 0){
+                $full_page.removeAttr('data-image','#');
+                $full_page_background.fadeOut('fast');
+            }
+
+            this.background_image = false;
+        }
     }
 
     isMap(path){
