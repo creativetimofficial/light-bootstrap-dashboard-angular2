@@ -2,26 +2,26 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<link rel="icon" type="image/png" href="../assets/img/favicon.ico">
+	<link rel="icon" type="image/png" href="../src/assets/img/favicon.ico">
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Tutorial - Light Bootstrap Dashboard Free with Angular2 by Creative Tim</title>
+	<title>Tutorial - Light Bootstrap Dashboard Free with Angular CLI by Creative Tim</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
-    <link href="../assets/css/demo.css" rel="stylesheet" />
-	<link href="../assets/css/animate.min.css" rel="stylesheet" />
+    <link href="../src/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../src/assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
+    <link href="../src/assets/css/demo.css" rel="stylesheet" />
+	<link href="../src/assets/css/animate.min.css" rel="stylesheet" />
 
     <link href="css/documentation.css" rel="stylesheet" />
 
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-    <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="../src/assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
 	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 
@@ -39,10 +39,10 @@
 					<span class="icon-bar bar2"></span>
 					<span class="icon-bar bar3"></span>
 				</button>
-				<a href="http://www.creative-tim.com">
+				<a href="http://www.creative-tim.com" target="_blank">
 					<div class="logo-container">
 						<div class="logo">
-							<img src="../assets/img/new_logo.png" alt="Creative Tim Logo">
+							<img src="../src/assets/img/new_logo.png" alt="Creative Tim Logo">
 						</div>
 						<div class="brand">
 							Creative Tim
@@ -57,21 +57,21 @@
 						<div class="navbar-title hidden text-center">
 							<h4>
 								<div class="image-container">
-									<img src="../assets/img/angular2-logo.png" alt="Angular2 Logo">
+									<img src="../src/assets/img/angular-red.png" alt="Angular Logo">
 								</div>
-								LBD Free with Angular 2
+								LBD Angular CLI Free
 							</h4>
 						</div>
 					</li>
 				</ul>
 				<ul  class="nav navbar-nav navbar-right">
 					<li>
-						<a href="https://github.com/creativetimofficial/light-bootstrap-dashboard-angular/issues" target="_blank" class="btn btn-simple btn-default">
+						<a href="https://github.com/creativetimofficial/light-bootstrap-dashboard-angular-cli/issues" target="_blank" class="btn btn-simple btn-default">
 							<p>Report issue</p>
 						</a>
 					</li>
 					<li>
-						<a href="https://github.com/creativetimofficial/light-bootstrap-dashboard-angular/" target="_blank" class="btn btn-default btn-simple">
+						<a href="https://github.com/creativetimofficial/light-bootstrap-dashboard-angular-cli" target="_blank" class="btn btn-default btn-simple">
 							<i class="fa fa-github"></i> <p>Contribute</p>
 						</a>
 					</li>
@@ -81,11 +81,11 @@
 		</div>
 	</nav>
 
-	<div class="header" style="background-image: url('../assets/img/full-screen-image-3.jpg');">
+	<div class="header" style="background-image: url('../src/assets/img/full-screen-image-3.jpg');">
 		<div class="filter"></div>
 		<div class="title-container text-center">
-			<img src="../assets/img/angular2-logo.png" alt="Angular2 Logo">
-			<h1>Light Bootstrap Dashboard Angular2</h1>
+			<img src="../src/assets/img/angular-red.png" alt="Angular Logo">
+			<h1>Light Bootstrap Dashboard Angular CLI</h1>
 			<h3>Elements description</h3>
 		</div>
 	</div>
@@ -145,7 +145,7 @@
 								<h2 class="text-center">Short Description and Usage</h2>
 								<legend></legend>
 								<p>
-									<b>Light Bootstrap Dashboard Free with Angular2</b> is a beautiful resource built over <a href="https://www.creative-tim.com/product/light-bootstrap-dashboard?ref=lbd-free-angular2-doc"target="_blank">Light Bootstrap Dashboard</a> which allows you to create powerful and beautiful dashboards. We have redesigned all the usual components in Bootstrap to make it look flat, minimalist and easy to use.
+									<b>Light Bootstrap Dashboard Free with Angular CLI</b> is a beautiful resource built over <a href="https://www.creative-tim.com/product/light-bootstrap-dashboard?ref=lbd-free-angular2-doc"target="_blank">Light Bootstrap Dashboard</a> which allows you to create powerful and beautiful dashboards. We have redesigned all the usual components in Bootstrap to make it look flat, minimalist and easy to use.
 								</p>
 							</div>
 
@@ -153,14 +153,16 @@
 								<h2 class="text-center">Getting Started</h2>
 								<legend></legend>
 								<p>
-									<b>The Light Bootstrap Dashboard with Angular 2</b> is built on top of Bootstrap 3, so you can safely use it on your existing or new Bootstrap project. No line of code from Bootstrap 3 was changed, so you don't have to worry about undesired effects in your work.
+									<b>The Light Bootstrap Dashboard with Angular CLI</b> is built on top of Bootstrap 3, so you can safely use it on your existing or new Bootstrap project. No line of code from Bootstrap 3 was changed, so you don't have to worry about undesired effects in your work.
 								</p>
 								<ul>
 									<li><p>Install NodeJs from <a href="https://nodejs.org/en" target="_blank">NodeJs Official Page</a></p></li>
 									<li><p>Open Terminal</p></li>
 									<li><p>Go to your file project</p></li>
-									<li><p>Run in terminal:<pre>npm install</pre></p></li>
-									<li><p>And: <pre>npm start</pre></p></li>
+									<li><p>Run in terminal:<pre>npm install -g @angular/cli</pre></p></li>
+									<li><p>Then:<pre>npm install</pre></p></li>
+									<li><p>And: <pre>ng serve</pre></p></li>
+									<li><p>Navigate to: <a href="http://localhost:4200/" target="_blank">http://localhost:4200/</a></p></li>
 								</ul>
 							</div>
 
@@ -174,145 +176,107 @@
 									Let's take it one by one:
 								</p>
 								<pre>
-└── lbd-angular2
-	├── License.rtf
-	├── README.md
-	├── app
-	│   ├── app.component.html
-	│   ├── app.component.js
-	│   ├── app.component.js.map
-	│   ├── app.component.ts
-	│   ├── app.module.js
-	│   ├── app.module.js.map
-	│   ├── app.module.ts
-	│   ├── dashboard
-	│   │   ├── dashboard.component.html
-	│   │   ├── dashboard.component.js
-	│   │   ├── dashboard.component.js.map
-	│   │   ├── dashboard.component.ts
-	│   │   ├── dashboard.module.js
-	│   │   ├── dashboard.module.js.map
-	│   │   ├── dashboard.module.ts
-	│   │   ├── dashboard.routes.js
-	│   │   ├── dashboard.routes.js.map
-	│   │   ├── dashboard.routes.ts
-	│   │   ├── home
-	│   │   │   ├── home.component.html
-	│   │   │   ├── home.component.js
-	│   │   │   ├── home.component.js.map
-	│   │   │   └── home.component.ts
-	│   │   ├── icons
-	│   │   │   ├── icons.component.html
-	│   │   │   ├── icons.component.js
-	│   │   │   ├── icons.component.js.map
-	│   │   │   └── icons.component.ts
-	│   │   ├── maps
-	│   │   │   ├── maps.component.html
-	│   │   │   ├── maps.component.js
-	│   │   │   ├── maps.component.js.map
-	│   │   │   └── maps.component.ts
-	│   │   ├── notifications
-	│   │   │   ├── notifications.component.html
-	│   │   │   ├── notifications.component.js
-	│   │   │   ├── notifications.component.js.map
-	│   │   │   └── notifications.component.ts
-	│   │   ├── table
-	│   │   │   ├── table.component.html
-	│   │   │   ├── table.component.js
-	│   │   │   ├── table.component.js.map
-	│   │   │   └── table.component.ts
-	│   │   ├── typography
-	│   │   │   ├── typography.component.html
-	│   │   │   ├── typography.component.js
-	│   │   │   ├── typography.component.js.map
-	│   │   │   └── typography.component.ts
-	│   │   ├── upgrade
-	│   │   │   ├── upgrade.component.html
-	│   │   │   ├── upgrade.component.js
-	│   │   │   ├── upgrade.component.js.map
-	│   │   │   └── upgrade.component.ts
-	│   │   └── user
-	│   │       ├── user.component.html
-	│   │       ├── user.component.js
-	│   │       ├── user.component.js.map
-	│   │       └── user.component.ts
-	│   ├── main.js
-	│   ├── main.js.map
-	│   ├── main.ts
-	│   ├── shared
-	│   │   ├── footer
-	│   │   │   ├── footer.component.html
-	│   │   │   ├── footer.component.js
-	│   │   │   ├── footer.component.js.map
-	│   │   │   ├── footer.component.ts
-	│   │   │   ├── footer.module.js
-	│   │   │   ├── footer.module.js.map
-	│   │   │   └── footer.module.ts
-	│   │   └── navbar
-	│   │       ├── navbar.component.html
-	│   │       ├── navbar.component.js
-	│   │       ├── navbar.component.js.map
-	│   │       ├── navbar.component.ts
-	│   │       ├── navbar.module.js
-	│   │       ├── navbar.module.js.map
-	│   │       └── navbar.module.ts
-	│   └── sidebar
-	│       ├── sidebar-routes.config.js
-	│       ├── sidebar-routes.config.js.map
-	│       ├── sidebar-routes.config.ts
-	│       ├── sidebar.component.html
-	│       ├── sidebar.component.js
-	│       ├── sidebar.component.js.map
-	│       ├── sidebar.component.ts
-	│       ├── sidebar.metadata.js
-	│       ├── sidebar.metadata.js.map
-	│       ├── sidebar.metadata.ts
-	│       ├── sidebar.module.js
-	│       ├── sidebar.module.js.map
-	│       └── sidebar.module.ts
-	├── assets
-	│   ├── css
-	│   │   ├── animate.min.css
-	│   │   ├── bootstrap.min.css
-	│   │   ├── demo.css
-	│   │   ├── light-bootstrap-dashboard.css
-	│   │   ├── light-bootstrap-dashboard.css.map
-	│   │   └── pe-icon-7-stroke.css
-	│   ├── fonts
-	│   ├── img
-	│   ├── js
-	│   │   ├── bootstrap-checkbox-radio-switch.js
-	│   │   ├── bootstrap-notify.js
-	│   │   ├── bootstrap-select.js
-	│   │   ├── bootstrap.min.js
-	│   │   ├── chartist.js
-	│   │   ├── chartist.min.js
-	│   │   ├── charts.d.ts
-	│   │   ├── charts.js
-	│   │   ├── demo.js
-	│   │   ├── jquery-3.1.1.js
-	│   │   ├── light-bootstrap-dashboard.js
-	│   │   ├── notify.d.ts
-	│   │   └── notify.js
-	│   └── sass
-	│       ├── lbd
-	│       └── light-bootstrap-dashboard.scss
-	├── documentation
-	│   ├── css
-	│   │   └── documentation.css
-	│   └── tutorial-lbd-angular2.html
-	├── index.html
-	├── npm-debug.log
-	├── package.json
-	├── systemjs.config.js
-	└── tsconfig.json</pre>
+light-bootstrap-dashboard-angular-cli
+├── README.md
+├── angular-cli.json
+├── documentation
+│   ├── css
+│   ├── js
+│   └── tutorial-lbd-angular2.html
+├── e2e
+├── karma.conf.js
+├── package.json
+├── protractor.conf.js
+├── src
+│   ├── app
+│   │   ├── app.component.css
+│   │   ├── app.component.html
+│   │   ├── app.component.spec.ts
+│   │   ├── app.component.ts
+│   │   ├── app.module.ts
+│   │   ├── app.routing.ts
+│   │   ├── home
+│   │   │   ├── home.component.css
+│   │   │   ├── home.component.html
+│   │   │   ├── home.component.spec.ts
+│   │   │   └── home.component.ts
+│   │   ├── icons
+│   │   │   ├── icons.component.css
+│   │   │   ├── icons.component.html
+│   │   │   ├── icons.component.spec.ts
+│   │   │   └── icons.component.ts
+│   │   ├── lbd
+│   │   │   ├── lbd-chart
+│   │   │   │   ├── lbd-chart.component.html
+│   │   │   │   └── lbd-chart.component.ts
+│   │   │   └── lbd.module.ts
+│   │   ├── maps
+│   │   │   ├── maps.component.css
+│   │   │   ├── maps.component.html
+│   │   │   ├── maps.component.spec.ts
+│   │   │   └── maps.component.ts
+│   │   ├── notifications
+│   │   │   ├── notifications.component.css
+│   │   │   ├── notifications.component.html
+│   │   │   ├── notifications.component.spec.ts
+│   │   │   └── notifications.component.ts
+│   │   ├── shared
+│   │   │   ├── footer
+│   │   │   │   ├── footer.component.html
+│   │   │   │   ├── footer.component.ts
+│   │   │   │   └── footer.module.ts
+│   │   │   └── navbar
+│   │   │       ├── navbar.component.html
+│   │   │       ├── navbar.component.ts
+│   │   │       └── navbar.module.ts
+│   │   ├── sidebar
+│   │   │   ├── sidebar.component.html
+│   │   │   ├── sidebar.component.ts
+│   │   │   └── sidebar.module.ts
+│   │   ├── tables
+│   │   │   ├── tables.component.css
+│   │   │   ├── tables.component.html
+│   │   │   ├── tables.component.spec.ts
+│   │   │   └── tables.component.ts
+│   │   ├── typography
+│   │   │   ├── typography.component.css
+│   │   │   ├── typography.component.html
+│   │   │   ├── typography.component.spec.ts
+│   │   │   └── typography.component.ts
+│   │   ├── upgrade
+│   │   │   ├── upgrade.component.css
+│   │   │   ├── upgrade.component.html
+│   │   │   ├── upgrade.component.spec.ts
+│   │   │   └── upgrade.component.ts
+│   │   └── user
+│   │       ├── user.component.css
+│   │       ├── user.component.html
+│   │       ├── user.component.spec.ts
+│   │       └── user.component.ts
+│   ├── assets
+│   │   ├── css
+│   │   ├── fonts
+│   │   ├── img
+│   │   └── sass
+│   │       ├── lbd
+│   │       └── light-bootstrap-dashboard.scss
+│   ├── environments
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── main.ts
+│   ├── polyfills.ts
+│   ├── styles.css
+│   ├── test.ts
+│   └── tsconfig.json
+├── tslint.json
+└── typings.json</pre>
 							</div>
 
 							<div class="tim-row">
 								<h2 class="text-left">Restyled Components</h2>
 								<legend></legend>
 								<p>
-									Here is the list of Bootstrap 3 components that were restyled in <b>Light Bootstrap Dashboard Angular2</b>:
+									Here is the list of Bootstrap 3 components that were restyled in <b>Light Bootstrap Dashboard Angular CLI</b>:
 									<ul>
 										<li> Buttons </li>
 										<li> Inputs</li>
@@ -424,9 +388,6 @@
 								<h2> Checkboxes            </h2>
 								<legend></legend>
 								<p>
-									To use the custom checkboxes, you need to import a separate Javascript file called <code>bootstrap-checkbox-radio-switch.js</code>.
-								</p>
-								<p>
 									<label class="checkbox" for="checkbox1">
 										<input type="checkbox" value="" id="checkbox1" data-toggle="checkbox">
 										Unchecked
@@ -462,46 +423,6 @@ Disabled unchecked
 &lt;input type=&quot;checkbox&quot; value=&quot;&quot; id=&quot;checkbox4&quot; data-toggle=&quot;checkbox&quot; disabled checked&gt;
 Disabled checked
 &lt;/label&gt;</pre>
-								<p>Or can be called via Javascript:</p>
-									<pre class="prettyprint">
-$(':checkbox').checkbox();</pre>
-								<p>
-									<h4>Methods</h4>
-									<ul class="list-unstyled">
-										<li>
-											<b>.checkbox('toggle')</b>
-											is used to toggle the states between checked and unchecked.
-										</li>
-										<li>
-											<b>.checkbox('check') </b>
-											sets the checkbox state to checked.
-										</li>
-										<li>
-											<b>.checkbox('uncheck') </b>
-											sets the state to unchecked.
-										</li>
-									</ul>
-								</p>
-								<pre class="prettyprint">
-$(':checkbox').checkbox('check');</pre>
-								<p>
-									<h4>Events</h4>
-									<ul class="list-unstyled">
-										<li>
-											<b>.on('toggle') </b>
-											gets activated when the checkbox state changes between checked and unchecked.
-										</li>
-										<li>
-											<b>.on('change') </b>
-											the same as toggle.
-										</li>
-									</ul>
-								</p>
-
-								<pre class="prettyprint">
-$(':checkbox').on('toggle', function() {
-	// Do something
-});</pre>
 
 							</div>
 							<!-- end row -->
@@ -509,9 +430,6 @@ $(':checkbox').on('toggle', function() {
 							<div class="tim-row" id="radio-row">
 								<h2> Radio Buttons</h2>
 								<legend></legend>
-								<p>
-									To use the custom radio buttons, you need to import a separate Javascript file called 'radio.js'.
-								</p>
 								<p>
 									<label class="radio">
 										<input type="radio" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="option1">
@@ -551,46 +469,6 @@ $(':checkbox').on('toggle', function() {
 	&lt;i&gt;&lt;/i&gt;Disabled radio is on
 &lt;/label&gt;</pre>
 								</div>
-								<p>Or can be called via Javascript:</p>
-								<div id="radioJavascript">
-									<pre class="prettyprint">
-$(':radio').radio();</pre>
-								</div>
-								<p>
-									<h4>Methods</h4>
-									<ul class="list-unstyled">
-
-										<li>
-											<b>.radio('check') </b>
-											sets the checkbox state to checked.
-										</li>
-										<li>
-											<b>.radio('uncheck') </b>
-											sets the state to unchecked.
-										</li>
-									</ul>
-								</p>
-								<pre class="prettyprint">
-$(':radio').radio('check');</pre>
-								<p>
-									<h4>Events</h4>
-									<ul class="list-unstyled">
-										<li>
-											<b>.on('toggle') </b>
-											gets activated when the checkbox state changes between checked and unchecked.
-										</li>
-										<li>
-											<b>.on('change') </b>
-											the behaviour as the toggle, with the difference that the event is fired for each radio button that gets a state change.
-										</li>
-									</ul>
-								</p>
-
-								<pre class="prettyprint">
-$(':radio').on('toggle', function() {
-	// Do something
-});</pre>
-
 							</div>
 							<!-- end row -->
 
@@ -871,8 +749,8 @@ $(':radio').on('toggle', function() {
 
 &lt;div class=&quot;main-panel&quot;&gt;
     &lt;-- &lt;navbar-cmp&gt; used to be here, but was moved outside of this div --&gt;
-    &#x3C;dashboard-cmp&#x3E;&#x3C;/dashboard-cmp&#x3E;
-    &#x3C;div *ngIf=&#x22;isMaps(&#x27;/maps&#x27;)&#x22;&#x3E;
+    &#x3C;router-outlet&#x3E;&#x3C;/router-outlet&#x3E;
+    &#x3C;div *ngIf=&#x22;isMap(&#x27;/maps&#x27;)&#x22;&#x3E;
         &#x3C;footer-cmp&#x3E;&#x3C;/footer-cmp&#x3E;
     &#x3C;/div&#x3E;
 &lt;/div&gt;</pre>
@@ -1283,7 +1161,7 @@ $(':radio').on('toggle', function() {
 											</ul>
 										</nav>
 										<p class="copyright pull-right">
-											&copy; 2016 <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+											&copy; 2017 <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
 										</p>
 									</div>
 								</footer>
@@ -1315,10 +1193,13 @@ $(':radio').on('toggle', function() {
 			&#x3C;/ul&#x3E;
 		&#x3C;/nav&#x3E;
 		&#x3C;p class=&#x22;copyright pull-right&#x22;&#x3E;
-			&#x26;copy; 2016 &#x3C;a href=&#x22;http://www.creative-tim.com&#x22;&#x3E;Creative Tim&#x3C;/a&#x3E;, made with love for a better web
+			&#x26;copy; {{test | date: &#x27;yyyy&#x27;}}  &#x3C;a href=&#x22;http://www.creative-tim.com&#x22;&#x3E;Creative Tim&#x3C;/a&#x3E;, made with love for a better web
 		&#x3C;/p&#x3E;
 	&#x3C;/div&#x3E;
-&#x3C;/footer&#x3E;</pre>
+&#x3C;/footer&#x3E;
+TYPESCRIPT:
+test : Date = new Date();
+</pre>
 							</div>
 							<!-- end row -->
 
@@ -1570,113 +1451,64 @@ $(':radio').on('toggle', function() {
 										</tbody>
 									</table>
 								</div>
-								<pre class="prettyprint">
-&lt;div class=&quot;table-responsive&quot;&gt;
-	&lt;table class=&quot;table&quot;&gt;
-		&lt;thead&gt;
-			&lt;tr&gt;
-				&lt;th class=&quot;text-center&quot;&gt;#&lt;/th&gt;
-				&lt;th&gt;Name&lt;/th&gt;
-				&lt;th&gt;Job Position&lt;/th&gt;
-				&lt;th&gt;Since&lt;/th&gt;
-				&lt;th class=&quot;text-right&quot;&gt;Salary&lt;/th&gt;
-				&lt;th class=&quot;text-right&quot;&gt;Actions&lt;/th&gt;
-			&lt;/tr&gt;
-		&lt;/thead&gt;
-		&lt;tbody&gt;
-			&lt;tr&gt;
-				&lt;td class=&quot;text-center&quot;&gt;1&lt;/td&gt;
-				&lt;td&gt;Andrew Mike&lt;/td&gt;
-				&lt;td&gt;Develop&lt;/td&gt;
-				&lt;td&gt;2013&lt;/td&gt;
-				&lt;td class=&quot;text-right&quot;&gt;&amp;euro; 99,225&lt;/td&gt;
-				&lt;td class=&quot;td-actions text-right&quot;&gt;
-					&lt;button type=&quot;button&quot; rel=&quot;tooltip&quot; title=&quot;View Profile&quot; class=&quot;btn btn-info btn-simple btn-xs&quot;&gt;
-						&lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt;
-					&lt;/button&gt;
-					&lt;button type=&quot;button&quot; rel=&quot;tooltip&quot; title=&quot;Edit Profile&quot; class=&quot;btn btn-success btn-simple btn-xs&quot;&gt;
-						&lt;i class=&quot;fa fa-edit&quot;&gt;&lt;/i&gt;
-					&lt;/button&gt;
-					&lt;button type=&quot;button&quot; rel=&quot;tooltip&quot; title=&quot;Remove&quot; class=&quot;btn btn-danger btn-simple btn-xs&quot;&gt;
-						&lt;i class=&quot;fa fa-times&quot;&gt;&lt;/i&gt;
-					&lt;/button&gt;
-				&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-				&lt;td class=&quot;text-center&quot;&gt;2&lt;/td&gt;
-				&lt;td&gt;John Doe&lt;/td&gt;
-				&lt;td&gt;Design&lt;/td&gt;
-				&lt;td&gt;2012&lt;/td&gt;
-				&lt;td class=&quot;text-right&quot;&gt;&amp;euro; 89,241&lt;/td&gt;
-				&lt;td class=&quot;td-actions text-right&quot;&gt;
-					&lt;button type=&quot;button&quot; rel=&quot;tooltip&quot; title=&quot;View Profile&quot; class=&quot;btn btn-info btn-simple btn-xs&quot;&gt;
-						&lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt;
-					&lt;/button&gt;
-					&lt;button type=&quot;button&quot; rel=&quot;tooltip&quot; title=&quot;Edit Profile&quot; class=&quot;btn btn-success btn-simple btn-xs&quot;&gt;
-						&lt;i class=&quot;fa fa-edit&quot;&gt;&lt;/i&gt;
-					&lt;/button&gt;
-					&lt;button type=&quot;button&quot; rel=&quot;tooltip&quot; title=&quot;Remove&quot; class=&quot;btn btn-danger btn-simple btn-xs&quot;&gt;
-						&lt;i class=&quot;fa fa-times&quot;&gt;&lt;/i&gt;
-					&lt;/button&gt;
-				&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-				&lt;td class=&quot;text-center&quot;&gt;3&lt;/td&gt;
-				&lt;td&gt;Alex Mike&lt;/td&gt;
-				&lt;td&gt;Design&lt;/td&gt;
-				&lt;td&gt;2010&lt;/td&gt;
-				&lt;td class=&quot;text-right&quot;&gt;&amp;euro; 92,144&lt;/td&gt;
-				&lt;td class=&quot;td-actions text-right&quot;&gt;
-					&lt;button type=&quot;button&quot; rel=&quot;tooltip&quot; title=&quot;View Profile&quot; class=&quot;btn btn-info btn-simple btn-xs&quot;&gt;
-						&lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt;
-					&lt;/button&gt;
-					&lt;button type=&quot;button&quot; rel=&quot;tooltip&quot; title=&quot;Edit Profile&quot; class=&quot;btn btn-success btn-simple btn-xs&quot;&gt;
-						&lt;i class=&quot;fa fa-edit&quot;&gt;&lt;/i&gt;
-					&lt;/button&gt;
-					&lt;button type=&quot;button&quot; rel=&quot;tooltip&quot; title=&quot;Remove&quot; class=&quot;btn btn-danger btn-simple btn-xs&quot;&gt;
-						&lt;i class=&quot;fa fa-times&quot;&gt;&lt;/i&gt;
-					&lt;/button&gt;
-				&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-				&lt;td class=&quot;text-center&quot;&gt;4&lt;/td&gt;
-				&lt;td&gt;Mike Monday&lt;/td&gt;
-				&lt;td&gt;Marketing&lt;/td&gt;
-				&lt;td&gt;2013&lt;/td&gt;
-				&lt;td class=&quot;text-right&quot;&gt;&amp;euro; 49,990&lt;/td&gt;
-				&lt;td class=&quot;td-actions text-right&quot;&gt;
-					&lt;button type=&quot;button&quot; rel=&quot;tooltip&quot; title=&quot;View Profile&quot; class=&quot;btn btn-info btn-simple btn-xs&quot;&gt;
-						&lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt;
-					&lt;/button&gt;
-					&lt;button type=&quot;button&quot; rel=&quot;tooltip&quot; title=&quot;Edit Profile&quot; class=&quot;btn btn-success btn-simple btn-xs&quot;&gt;
-						&lt;i class=&quot;fa fa-edit&quot;&gt;&lt;/i&gt;
-					&lt;/button&gt;
-					&lt;button type=&quot;button&quot; rel=&quot;tooltip&quot; title=&quot;Remove&quot; class=&quot;btn btn-danger btn-simple btn-xs&quot;&gt;
-						&lt;i class=&quot;fa fa-times&quot;&gt;&lt;/i&gt;
-					&lt;/button&gt;
-				&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-				&lt;td class=&quot;text-center&quot;&gt;5&lt;/td&gt;
-				&lt;td&gt;Paul Dickens&lt;/td&gt;
-				&lt;td&gt;Communication&lt;/td&gt;
-				&lt;td&gt;2014&lt;/td&gt;
-				&lt;td class=&quot;text-right&quot;&gt;&amp;euro; 69,201&lt;/td&gt;
-				&lt;td class=&quot;td-actions text-right&quot;&gt;
-					&lt;button type=&quot;button&quot; rel=&quot;tooltip&quot; title=&quot;View Profile&quot; class=&quot;btn btn-info btn-simple btn-xs&quot;&gt;
-						&lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt;
-					&lt;/button&gt;
-					&lt;button type=&quot;button&quot; rel=&quot;tooltip&quot; title=&quot;Edit Profile&quot; class=&quot;btn btn-success btn-simple btn-xs&quot;&gt;
-						&lt;i class=&quot;fa fa-edit&quot;&gt;&lt;/i&gt;
-					&lt;/button&gt;
-					&lt;button type=&quot;button&quot; rel=&quot;tooltip&quot; title=&quot;Remove&quot; class=&quot;btn btn-danger btn-simple btn-xs&quot;&gt;
-						&lt;i class=&quot;fa fa-times&quot;&gt;&lt;/i&gt;
-					&lt;/button&gt;
-				&lt;/td&gt;
-			&lt;/tr&gt;
-		&lt;/tbody&gt;
-	&lt;/table&gt;
-&lt;/div&gt;</pre>
+<pre class="prettyprint">
+    HTML:
+    &#x3C;div class=&#x22;content table-responsive table-full-width&#x22;&#x3E;
+        &#x3C;table class=&#x22;table&#x22;&#x3E;
+                &#x3C;thead&#x3E;
+                    &#x3C;tr&#x3E;
+                      &#x3C;th class=&#x22;text-center&#x22;&#x3E;{{ tableData1.headerRow[0] }}&#x3C;/th&#x3E;
+                      &#x3C;th&#x3E;{{  tableData1.headerRow[1]  }}&#x3C;/th&#x3E;
+                      &#x3C;th&#x3E;{{  tableData1.headerRow[2] }}&#x3C;/th&#x3E;
+                      &#x3C;th class=&#x22;text-right&#x22;&#x3E;{{  tableData1.headerRow[4]  }}&#x3C;/th&#x3E;
+                      &#x3C;th class=&#x22;text-right&#x22;&#x3E;{{ tableData1.headerRow[5]  }}&#x3C;/th&#x3E;
+                    &#x3C;/tr&#x3E;
+                &#x3C;/thead&#x3E;
+              &#x3C;tbody&#x3E;
+                  &#x3C;tr *ngFor=&#x22;let row of tableData1.dataRows&#x22;&#x3E;
+                      &#x3C;td class=&#x22;text-center&#x22;&#x3E;{{ row[0] }}&#x3C;/td&#x3E;
+                      &#x3C;td&#x3E;{{ row[1] }}&#x3C;/td&#x3E;
+                      &#x3C;td&#x3E;{{ row[2] }}&#x3C;/td&#x3E;
+                      &#x3C;td class=&#x22;text-right&#x22;&#x3E;&#x26;euro; {{ row[4] }}&#x3C;/td&#x3E;
+                      &#x3C;td class=&#x22;td-actions text-right&#x22;&#x3E;
+                          &#x3C;a rel=&#x22;tooltip&#x22; title=&#x22;View Profile&#x22; class=&#x22;btn btn-info btn-simple btn-xs&#x22;&#x3E;
+                              &#x3C;i class=&#x22;fa fa-user&#x22;&#x3E;&#x3C;/i&#x3E;
+                          &#x3C;/a&#x3E;
+                          &#x3C;a rel=&#x22;tooltip&#x22; title=&#x22;Edit Profile&#x22; class=&#x22;btn btn-success btn-simple btn-xs&#x22;&#x3E;
+                              &#x3C;i class=&#x22;fa fa-edit&#x22;&#x3E;&#x3C;/i&#x3E;
+                          &#x3C;/a&#x3E;
+                          &#x3C;a rel=&#x22;tooltip&#x22; title=&#x22;Remove&#x22; class=&#x22;btn btn-danger btn-simple btn-xs&#x22;&#x3E;
+                              &#x3C;i class=&#x22;fa fa-times&#x22;&#x3E;&#x3C;/i&#x3E;
+                          &#x3C;/a&#x3E;
+                      &#x3C;/td&#x3E;
+                  &#x3C;/tr&#x3E;
+              &#x3C;/tbody&#x3E;
+        &#x3C;/table&#x3E;
+    &#x3C;/div&#x3E;
+
+    TYPESCRIPT:
+declare interface TableData {
+    headerRow: string[];
+    dataRows: string[][];
+}
+export class TablesComponent implements OnInit {
+    public tableData1: TableData;
+
+  ngOnInit() {
+      this.tableData1 = {
+          headerRow: [ &#x27;#&#x27;, &#x27;Name&#x27;, &#x27;Job Position&#x27;, &#x27;Since&#x27;, &#x27;Salary&#x27;, &#x27;Actions&#x27;],
+          dataRows: [
+              [&#x27;1&#x27;, &#x27;Andrew Mike&#x27;, &#x27;Develop&#x27;, &#x27;2013&#x27;, &#x27;99,225&#x27;,&#x27;&#x27;],
+              [&#x27;2&#x27;, &#x27;John Doe&#x27;, &#x27;Design&#x27;, &#x27;2012&#x27;, &#x27;89,241&#x27;, &#x27;&#x27;],
+              [&#x27;3&#x27;, &#x27;Alex Mike&#x27;, &#x27;Design&#x27;, &#x27;2010&#x27;, &#x27;92,144&#x27;, &#x27;&#x27;],
+              [&#x27;4&#x27;,&#x27;Mike Monday&#x27;, &#x27;Marketing&#x27;, &#x27;2013&#x27;, &#x27;49,990&#x27;, &#x27;&#x27;],
+              [&#x27;5&#x27;, &#x27;Paul Dickens&#x27;, &#x27;Communication&#x27;, &#x27;2015&#x27;, &#x27;69,201&#x27;, &#x27;&#x27;]
+          ]
+     };
+ }
+}
+
+</pre>
 								<div class="card card-plain">
 									<div class="header">
 										<h4 class="title">Table on Plain Background</h4>
@@ -1739,68 +1571,47 @@ $(':radio').on('toggle', function() {
 									</div>
 								</div>
 
-								<pre class="prettyprint">
-&#x3C;div class=&#x22;card card-plain&#x22;&#x3E;
-	&#x3C;div class=&#x22;header&#x22;&#x3E;
-		&#x3C;h4 class=&#x22;title&#x22;&#x3E;Table on Plain Background&#x3C;/h4&#x3E;
-		&#x3C;p class=&#x22;category&#x22;&#x3E;Here is a subtitle for this table&#x3C;/p&#x3E;
-	&#x3C;/div&#x3E;
-	&#x3C;div class=&#x22;content table-responsive table-full-width&#x22;&#x3E;
-		&#x3C;table class=&#x22;table table-hover&#x22;&#x3E;
-			&#x3C;thead&#x3E;
-				&#x3C;th&#x3E;ID&#x3C;/th&#x3E;
-				&#x3C;th&#x3E;Name&#x3C;/th&#x3E;
-				&#x3C;th&#x3E;Salary&#x3C;/th&#x3E;
-				&#x3C;th&#x3E;Country&#x3C;/th&#x3E;
-				&#x3C;th&#x3E;City&#x3C;/th&#x3E;
-			&#x3C;/thead&#x3E;
-			&#x3C;tbody&#x3E;
-				&#x3C;tr&#x3E;
-					&#x3C;td&#x3E;1&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;Dakota Rice&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;$36,738&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;Niger&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;Oud-Turnhout&#x3C;/td&#x3E;
-				&#x3C;/tr&#x3E;
-				&#x3C;tr&#x3E;
-					&#x3C;td&#x3E;2&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;Minerva Hooper&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;$23,789&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;Cura&#xE7;ao&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;Sinaai-Waas&#x3C;/td&#x3E;
-				&#x3C;/tr&#x3E;
-				&#x3C;tr&#x3E;
-					&#x3C;td&#x3E;3&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;Sage Rodriguez&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;$56,142&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;Netherlands&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;Baileux&#x3C;/td&#x3E;
-				&#x3C;/tr&#x3E;
-				&#x3C;tr&#x3E;
-					&#x3C;td&#x3E;4&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;Philip Chaney&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;$38,735&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;Korea, South&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;Overland Park&#x3C;/td&#x3E;
-				&#x3C;/tr&#x3E;
-				&#x3C;tr&#x3E;
-					&#x3C;td&#x3E;5&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;Doris Greene&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;$63,542&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;Malawi&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;Feldkirchen in K&#xE4;rnten&#x3C;/td&#x3E;
-				&#x3C;/tr&#x3E;
-				&#x3C;tr&#x3E;
-					&#x3C;td&#x3E;6&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;Mason Porter&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;$78,615&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;Chile&#x3C;/td&#x3E;
-					&#x3C;td&#x3E;Gloucester&#x3C;/td&#x3E;
-				&#x3C;/tr&#x3E;
-			&#x3C;/tbody&#x3E;
-		&#x3C;/table&#x3E;
-	&#x3C;/div&#x3E;
-&#x3C;/div&#x3E;</pre>
+<pre class="prettyprint">
+    HTML:
+&#x3C;div class=&#x22;content table-responsive table-full-width&#x22;&#x3E;
+    &#x3C;table class=&#x22;table table-hover&#x22;&#x3E;
+        &#x3C;thead&#x3E;
+            &#x3C;tr&#x3E;
+                &#x3C;th *ngFor=&#x22;let cell of tableData2.headerRow&#x22;&#x3E;{{ cell }}&#x3C;/th&#x3E;
+            &#x3C;/tr&#x3E;
+        &#x3C;/thead&#x3E;
+        &#x3C;tbody&#x3E;
+            &#x3C;tr *ngFor=&#x22;let row of tableData2.dataRows&#x22;&#x3E;
+                &#x3C;td *ngFor=&#x22;let cell of row&#x22;&#x3E;{{cell}}&#x3C;/td&#x3E;
+            &#x3C;/tr&#x3E;
+        &#x3C;/tbody&#x3E;
+    &#x3C;/table&#x3E;
+&#x3C;/div&#x3E;
+
+    TYPESCRIPT:
+declare interface TableData {
+    headerRow: string[];
+    dataRows: string[][];
+}
+export class TablesComponent implements OnInit {
+	public tableData2: TableData;
+
+  ngOnInit() {
+	  this.tableData2 = {
+	       headerRow: [ &#x27;ID&#x27;, &#x27;Name&#x27;,  &#x27;Salary&#x27;, &#x27;Country&#x27;, &#x27;City&#x27; ],
+	       dataRows: [
+	           [&#x27;1&#x27;, &#x27;Dakota Rice&#x27;,&#x27;$36,738&#x27;, &#x27;Niger&#x27;, &#x27;Oud-Turnhout&#x27; ],
+	           [&#x27;2&#x27;, &#x27;Minerva Hooper&#x27;, &#x27;$23,789&#x27;, &#x27;Cura&#xE7;ao&#x27;, &#x27;Sinaai-Waas&#x27;],
+	           [&#x27;3&#x27;, &#x27;Sage Rodriguez&#x27;, &#x27;$56,142&#x27;, &#x27;Netherlands&#x27;, &#x27;Baileux&#x27; ],
+	           [&#x27;4&#x27;, &#x27;Philip Chaney&#x27;, &#x27;$38,735&#x27;, &#x27;Korea, South&#x27;, &#x27;Overland Park&#x27; ],
+	           [&#x27;5&#x27;, &#x27;Doris Greene&#x27;, &#x27;$63,542&#x27;, &#x27;Malawi&#x27;, &#x27;Feldkirchen in K&#xE4;rnten&#x27;, ],
+	           [&#x27;6&#x27;, &#x27;Mason Porter&#x27;, &#x27;$78,615&#x27;, &#x27;Chile&#x27;, &#x27;Gloucester&#x27; ]
+	       ]
+	   };
+ }
+}
+
+</pre>
 
 							</div>
 							<!-- end row -->
@@ -1872,55 +1683,68 @@ demo = {
 										</div>
 									</div>
 									<pre class="prettyprint">
-&#x3C;div class=&#x22;card&#x22; &#x3E;
-	&#x3C;div class=&#x22;header&#x22;&#x3E;
-		&#x3C;h4 class=&#x22;title&#x22;&#x3E;2014 Sales&#x3C;/h4&#x3E;
-		&#x3C;p class=&#x22;category&#x22;&#x3E;All products including Taxes&#x3C;/p&#x3E;
-	&#x3C;/div&#x3E;
-	&#x3C;div class=&#x22;content&#x22;&#x3E;
-		&#x3C;div id=&#x22;chartActivity&#x22; class=&#x22;ct-chart&#x22;&#x3E;&#x3C;/div&#x3E;
-		&#x3C;div class=&#x22;footer&#x22;&#x3E;
-			&#x3C;div class=&#x22;legend&#x22;&#x3E;
-				&#x3C;i class=&#x22;fa fa-circle text-info&#x22;&#x3E;&#x3C;/i&#x3E; Tesla Model S
-				&#x3C;i class=&#x22;fa fa-circle text-danger&#x22;&#x3E;&#x3C;/i&#x3E; BMW 5 Series
-			&#x3C;/div&#x3E;
-			&#x3C;hr&#x3E;
-			&#x3C;div class=&#x22;stats&#x22;&#x3E;
-				&#x3C;i class=&#x22;fa fa-check&#x22;&#x3E;&#x3C;/i&#x3E; Data information certified
-			&#x3C;/div&#x3E;
-		&#x3C;/div&#x3E;
-	&#x3C;/div&#x3E;
-&#x3C;/div&#x3E;
-&lt;!-- javascript --&gt;
+&#x3C;lbd-chart
+  [title]=&#x22;&#x27;2014 Sales&#x27;&#x22;
+  [subtitle]=&#x22;&#x27;All products including Taxes&#x27;&#x22;
+  [chartType]=&#x22;activityChartType&#x22;
+  [chartData]=&#x22;activityChartData&#x22;
+  [chartOptions]=&#x22;activityChartOptions&#x22;
+  [chartResponsive]=&#x22;activityChartResponsive&#x22;
+  [legendItems]=&#x22;activityChartLegendItems&#x22;
+  [withHr]=&#x22;true&#x22;
+  [footerIconClass]=&#x22;&#x27;fa fa-check&#x27;&#x22;
+  [footerText]=&#x22;&#x27;Data information certified&#x27;&#x22;&#x3E;
+&#x3C;/lbd-chart&#x3E;
+&lt;!-- typescript --&gt;
+declare interface LegendItem {
+  title: string;
+  imageClass: string;
+}
 
-var dataActivity = {
-	labels: ["Jan", "Feb", "Mar", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-	series: [
-		[542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895],
-		[412, 243, 280, 580, 453, 353, 300, 364, 368, 410, 636, 695]
-	]
-};
+declare enum ChartType {
+  Pie,
+  Line,
+  Bar
+}
 
-var optionsActivity = {
-	seriesBarDistance: 10,
-	axisX: {
-		showGrid: false
-	},
-	height: "245px"
-};
+public activityChartType: ChartType;
+public activityChartData: any;
+public activityChartOptions: any;
+public activityChartResponsive: any[];
+public activityChartLegendItems: LegendItem[];
 
-var responsiveOptions = [
-	["screen and (max-width: 640px)", {
-		seriesBarDistance: 5,
-		axisX: {
-			labelInterpolationFnc: function (value) {
-				return value[0];
-			}
-		}
-	}]
-];
-
-Chartist.Bar("#chartActivity", dataActivity, optionsActivity, responsiveOptions);</pre>
+ngOnInit() {
+	this.activityChartType = ChartType.Bar;
+&#x9;this.activityChartData = {
+&#x9;  labels: [&#x27;Jan&#x27;, &#x27;Feb&#x27;, &#x27;Mar&#x27;, &#x27;Apr&#x27;, &#x27;Mai&#x27;, &#x27;Jun&#x27;, &#x27;Jul&#x27;, &#x27;Aug&#x27;, &#x27;Sep&#x27;, &#x27;Oct&#x27;, &#x27;Nov&#x27;, &#x27;Dec&#x27;],
+&#x9;  series: [
+&#x9;&#x9;[542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895],
+&#x9;&#x9;[412, 243, 280, 580, 453, 353, 300, 364, 368, 410, 636, 695]
+&#x9;  ]
+&#x9;};
+&#x9;this.activityChartOptions = {
+&#x9;  seriesBarDistance: 10,
+&#x9;  axisX: {
+&#x9;&#x9;showGrid: false
+&#x9;  },
+&#x9;  height: &#x27;245px&#x27;
+&#x9;};
+&#x9;this.activityChartResponsive = [
+&#x9;  [&#x27;screen and (max-width: 640px)&#x27;, {
+&#x9;&#x9;seriesBarDistance: 5,
+&#x9;&#x9;axisX: {
+&#x9;&#x9;  labelInterpolationFnc: function (value) {
+&#x9;&#x9;&#x9;return value[0];
+&#x9;&#x9;  }
+&#x9;&#x9;}
+&#x9;  }]
+&#x9;];
+&#x9;this.activityChartLegendItems = [
+&#x9;  { title: &#x27;Tesla Model S&#x27;, imageClass: &#x27;fa fa-circle text-info&#x27; },
+&#x9;  { title: &#x27;BMW 5 Series&#x27;, imageClass: &#x27;fa fa-circle text-danger&#x27; }
+&#x9;];
+}
+</pre>
 									<!-- end row -->
 								</div>
 								<!-- google maps row -->
@@ -1990,53 +1814,46 @@ marker.setMap(map);</pre>
 										</div>
 									</div>
 								</div>
-								<pre class="prettyprint">
-&#x3C;div class=&#x22;card&#x22;&#x3E;
-	&#x3C;div class=&#x22;header&#x22;&#x3E;
-		&#x3C;h4 class=&#x22;title&#x22;&#x3E;Email Statistics&#x3C;/h4&#x3E;
-		&#x3C;p class=&#x22;category&#x22;&#x3E;Last Campaign Performance&#x3C;/p&#x3E;
-	&#x3C;/div&#x3E;
-	&#x3C;div class=&#x22;content&#x22;&#x3E;
-		&#x3C;div id=&#x22;chartPreferences&#x22; class=&#x22;ct-chart ct-perfect-fourth&#x22;&#x3E;&#x3C;/div&#x3E;
-		&#x3C;div class=&#x22;footer&#x22;&#x3E;
-			&#x3C;div class=&#x22;legend&#x22;&#x3E;
-				&#x3C;i class=&#x22;fa fa-circle text-info&#x22;&#x3E;&#x3C;/i&#x3E; Open
-				&#x3C;i class=&#x22;fa fa-circle text-danger&#x22;&#x3E;&#x3C;/i&#x3E; Bounce
-				&#x3C;i class=&#x22;fa fa-circle text-warning&#x22;&#x3E;&#x3C;/i&#x3E; Unsubscribe
-			&#x3C;/div&#x3E;
-			&#x3C;hr&#x3E;
-			&#x3C;div class=&#x22;stats&#x22;&#x3E;
-				&#x3C;i class=&#x22;fa fa-clock-o&#x22;&#x3E;&#x3C;/i&#x3E; Campaign sent 2 days ago
-			&#x3C;/div&#x3E;
-		&#x3C;/div&#x3E;
-	&#x3C;/div&#x3E;
-&#x3C;/div&#x3E;
-
-&lt;!-- javascript for init --&gt;
-
-var dataPreferences = {
-	series: [
-	[25, 30, 20, 25]
-	]
-};
-
-var optionsPreferences = {
-	donut: true,
-	donutWidth: 40,
-	startAngle: 0,
-	total: 100,
-	showLabel: false,
-	axisX: {
-		showGrid: false
+<pre class="prettyprint">
+	&#x3C;lbd-chart
+	  [title]=&#x22;&#x27;Email Statistics&#x27;&#x22;
+	  [subtitle]=&#x22;&#x27;Last Campaign Performance&#x27;&#x22;
+	  [chartClass]=&#x22;&#x27;ct-perfect-fourth&#x27;&#x22;
+	  [chartType]=&#x22;emailChartType&#x22;
+	  [chartData]=&#x22;emailChartData&#x22;
+	  [legendItems]=&#x22;emailChartLegendItems&#x22;
+	  [withHr]=&#x22;true&#x22;
+	  [footerIconClass]=&#x22;&#x27;fa fa-clock-o&#x27;&#x22;
+	  [footerText]=&#x22;&#x27;Campaign sent 2 days ago&#x27;&#x22;&#x3E;
+	&#x3C;/lbd-chart&#x3E;
+	&lt;!-- typescript --&gt;
+	declare interface LegendItem {
+	  title: string;
+	  imageClass: string;
 	}
-};
 
-Chartist.Pie(&#x27;#chartPreferences&#x27;, dataPreferences, optionsPreferences);
+	declare enum ChartType {
+	  Pie,
+	  Line,
+	  Bar
+	}
 
-Chartist.Pie(&#x27;#chartPreferences&#x27;, {
-	labels: [&#x27;62%&#x27;,&#x27;32%&#x27;,&#x27;6%&#x27;],
-	series: [62, 32, 6]
-});</pre>
+	public emailChartType: ChartType;
+	public emailChartData: any;
+	public emailChartLegendItems: LegendItem[];
+
+	ngOnInit() {
+		this.emailChartType = ChartType.Pie;
+		this.emailChartData = {
+		  labels: ['62%', '32%', '6%'],
+		  series: [62, 32, 6]
+		};
+		this.emailChartLegendItems = [
+		  { title: 'Open', imageClass: 'fa fa-circle text-info' },
+		  { title: 'Bounce', imageClass: 'fa fa-circle text-danger' },
+		  { title: 'Unsubscribe', imageClass: 'fa fa-circle text-warning' }
+		];
+	}</pre>
 
 								<!-- end row -->
 							</div>
@@ -2053,7 +1870,7 @@ Chartist.Pie(&#x27;#chartPreferences&#x27;, {
                 <ul>
                     <li>
                         <a href="https://www.creative-tim.com/product/light-bootstrap-dashboard-angular2">
-                            Light Bootstrap Dashboard Angular2
+                            Light Bootstrap Dashboard Angular CLI
                         </a>
                     </li>
                     <li>
@@ -2088,20 +1905,20 @@ Chartist.Pie(&#x27;#chartPreferences&#x27;, {
 
 </body>
     <!--   Core JS Files and PerfectScrollbar library inside jquery.ui   -->
-    <script src="../assets/js/jquery-3.1.1.js" type="text/javascript" ></script>
+    <script src="./js/jquery-3.1.1.js" type="text/javascript" ></script>
 
     <!--   Core JS Files   -->
-    <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="./js/bootstrap.min.js" type="text/javascript"></script>
 
     <!--  Checkbox, Radio & Switch Plugins -->
-    <script src="../assets/js/bootstrap-checkbox-radio-switch.js" type="text/javascript" ></script>
+    <script src="./js/bootstrap-checkbox-radio-switch.js" type="text/javascript" ></script>
 
 
     <!--  Charts Plugin -->
-    <script src="../assets/js/chartist.min.js" type="text/javascript" ></script>
+    <script src="./js/chartist.min.js" type="text/javascript" ></script>
 
     <!--  Notifications Plugin    -->
-    <script src="../assets/js/bootstrap-notify.js" type="text/javascript" ></script>
+    <script src="./js/bootstrap-notify.js" type="text/javascript" ></script>
 
     <!--  Google Maps Plugin    -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
@@ -2109,13 +1926,9 @@ Chartist.Pie(&#x27;#chartPreferences&#x27;, {
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 
     <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-    <script src="../assets/js/charts.js" type="text/javascript" ></script>
+    <script src="./js/demo.js" type="text/javascript" ></script>
 
-    <script src="../assets/js/demo.js" type="text/javascript" ></script>
-
-    <script src="../assets/js/notify.js" type="text/javascript" ></script>
-
-	<script src="../assets/js/light-bootstrap-dashboard.js" type="text/javascript" ></script>
+	<script src="./js/light-bootstrap-dashboard.js" type="text/javascript" ></script>
 
 
     <script>

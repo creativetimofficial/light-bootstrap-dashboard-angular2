@@ -1,0 +1,142 @@
+.modal.modal-angular{
+    .modal-dialog{
+        width: 570px;
+    }
+
+    .modal-header{
+        border-bottom: none;
+        position: relative;
+    }
+
+    .modal-footer{
+        border-top: none;
+    }
+
+    .modal-body{
+        .separator{
+            border-bottom: 1px solid rgba(220,220,220, .2);
+            width: 100%;
+            display: block;
+            margin: 12px 0;
+        }
+
+        .image-container{
+            width: 28px;
+            height: 28px;
+            overflow: hidden;
+            margin: 0px auto;
+            margin-bottom: 6px;
+
+            img{
+                width: 100%;
+                vertical-align: top;
+            }
+
+            &.image-angular-cli{
+                width: 54px;
+                position: relative;
+                top: 4px;
+            }
+        }
+
+        h4{
+            text-transform: uppercase;
+            text-align: left;
+            padding-left: 19px;
+            font-size: 15px;
+            font-weight: 400;
+
+            i{
+                color: #c5a47e;
+            }
+        }
+
+        .free-version-card{
+            a.modal-button{
+                height: 170px;
+                max-height: 170px;
+
+            }
+
+            .image-container{
+                margin-bottom: 17px;
+            }
+
+            .separator{
+                margin: 20px 0;
+            }
+        }
+
+        a.modal-button{
+            display: inline-block;
+            padding: 15px;
+            background-color: #fdfdfd;
+            box-shadow: 0px 3px 25px 0px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            text-align: center;
+            color: inherit;
+            border-radius: 6px;
+            transition: box-shadow 150ms ease-in;
+            width: 130px;
+            max-width: 130px;
+            height: 209px;
+            max-height: 209px;
+            font-weight: 100;
+            border: 1px solid rgba(220,220,220, .4);
+
+            &:nth-child(2n+1){
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            
+            &.disabled{
+                opacity: .5;
+                pointer-events: none;
+            }
+
+            &:hover,
+            &:focus{
+                box-shadow: 0px 3px 25px 0px rgba(0, 0, 0, 0.2);
+            }
+
+            .product-type{
+                font-size: 12px;
+                font-weight: 600;
+
+                // i{
+                //     color: #d8d8d8;
+                //     position: absolute;
+                //     font-size: 8px;
+                //     right: 32px;
+                //     top: -1px;
+                // }
+            }
+
+            .price{
+                font-size: 11px;
+                font-weight: 100;
+
+                span{
+                    display: block;
+                    font-size: 27px;
+                    position: relative;
+                    font-weight: 500;
+                    margin-top: 3px;
+
+                    i{
+                        font-size: 10px;
+                        position: absolute;
+                        width: 8px;
+                        top: 4px;
+                    }
+                }
+            }
+
+            .wrapper-card{
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}

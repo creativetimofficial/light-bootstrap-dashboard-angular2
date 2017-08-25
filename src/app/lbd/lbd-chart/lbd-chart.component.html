@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="header">
+    <h4 class="title">{{ title }}</h4>
+    <p class="category">{{ subtitle }}</p>
+  </div>
+  <div class="content">
+    <div [attr.id]="chartId" class="ct-chart {{ chartClass }}"></div>
+
+    <div class="footer">
+      <div class="legend">
+        <span *ngFor="let item of legendItems">
+          <i [ngClass]="item.imageClass"></i> {{ item.title }}
+        </span>
+      </div>
+      <hr *ngIf="withHr">
+      <div class="stats">
+        <i [ngClass]="footerIconClass"></i> {{ footerText }}
+      </div>
+    </div>
+  </div>
+</div>
