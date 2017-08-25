@@ -44,9 +44,7 @@
 .tim-row h2{
     margin-top: 90px
 }
-.tab-content{
-    margin-top: 10px;
-}
+
 pre.prettyprint{
     background-color: #eee;
     border: 0px;
@@ -57,11 +55,9 @@ pre.prettyprint{
     border: 1px solid #ccc !important;
 }
 .tim-row:last-child pre{
-    width: 96%;
-    margin-left: 18px;
-}
-.tim-row:last-child ul{
-    height: 42px;
+    position: relative;
+    top: -45px;
+    width: 100%;
 }
 .atv, .str{
     color: #05AE0E;
