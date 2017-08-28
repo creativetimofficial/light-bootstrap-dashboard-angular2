@@ -1,5 +1,5 @@
 # [Light Bootstrap Dashboard Angular CLI](http://lbd-angular2.creative-tim.com/)
-[![version][version-badge]][CHANGELOG]
+[![version][version-badge]][CHANGELOG] [![license][license-badge]][LICENSE]
 
 ![alt text](src/assets/img/opt_lbd_angular_thumbnail.jpg)
 
@@ -159,5 +159,5 @@ Instagram: <https://instagram.com/creativetimofficial>
 [CHANGELOG]: ./CHANGELOG.md
 
 [LICENSE]: ./LICENSE
-
-[version-badge]: https://img.shields.io/badge/version-1.4.0-blue.svg
+[version-badge]: https://img.shields.io/badge/version-1.0.1-blue.svg
+[license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
