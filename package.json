@@ -1,8 +1,7 @@
 {
-  "name": "lbd-free-angularcli",
-  "version": "0.0.0",
+  "name": "lbd-free-angular-cli",
+  "version": "1.4.0",
   "license": "MIT",
-  "angular-cli": {},
   "scripts": {
       "ng": "ng",
       "start": "ng serve",

@@ -1,7 +1,7 @@
 {
   "project": {
     "version": "1.4.0",
-    "name": "lbd-free-angularcli"
+    "name": "lbd-free-angular-cli"
   },
   "apps": [
     {
