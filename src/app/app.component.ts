@@ -117,7 +117,7 @@ export class AppComponent implements OnInit {
             api.openPopup('twitter');
           },
           template: '<i class="fa fa-twitter"></i> &middot; 256',
-          url: 'http://demos.creative-tim.com/light-bootstrap-dashboard'
+          url: 'http://lbd-angular2.creative-tim.com'
         });
 
         $('#facebook').sharrre({
@@ -131,7 +131,7 @@ export class AppComponent implements OnInit {
             api.openPopup('facebook');
           },
           template: '<i class="fa fa-facebook-square"></i> &middot; 426',
-          url: 'http://demos.creative-tim.com/light-bootstrap-dashboard'
+          url: 'http://lbd-angular2.creative-tim.com'
         });
     }
     onChange($event){
