@@ -85,7 +85,8 @@
             "assets": [
               "src/assets",
               "src/favicon.ico"
-            ]
+            ],
+            "tsConfig": "src/tsconfig.json"
           }
         },
         "lint": {
