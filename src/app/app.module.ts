@@ -8,17 +8,12 @@ import { AppRoutingModule } from './app.routing';
 import { NavbarModule } from './shared/navbar/navbar.module';
 import { FooterModule } from './shared/footer/footer.module';
 import { SidebarModule } from './sidebar/sidebar.module';
-import { LbdModule } from './lbd/lbd.module';
 
 import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AdminLayoutComponent
-  ],
   imports: [
     BrowserAnimationsModule,
     FormsModule,
@@ -28,6 +23,10 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     FooterModule,
     SidebarModule,
     AppRoutingModule
+  ],
+  declarations: [
+    AppComponent,
+    AdminLayoutComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
