@@ -32,6 +32,7 @@
         "core-js": "2.5.7",
         "googleapis": "33.0.0",
         "jquery": "3.3.1",
+        "perfect-scrollbar": "^1.4.0",
         "rxjs": "6.3.2",
         "rxjs-compat": "6.3.2",
         "zone.js": "0.8.26"
