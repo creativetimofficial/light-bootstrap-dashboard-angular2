@@ -24,6 +24,7 @@
         "@angular/router": "6.1.7",
         "@ngui/map": "0.30.3",
         "@types/googlemaps": "3.30.13",
+        "animate.css": "^3.7.0",
         "arrive": "2.4.1",
         "bootstrap": "3.3.7",
         "bootstrap-notify": "3.1.3",

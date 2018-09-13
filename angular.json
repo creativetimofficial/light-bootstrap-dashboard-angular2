@@ -21,7 +21,10 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "src/assets/sass/light-bootstrap-dashboard.scss"
+              "node_modules/animate.css/animate.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/assets/sass/light-bootstrap-dashboard.scss",
+              "src/assets/css/demo.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
@@ -80,7 +83,10 @@
               "node_modules/chartist/dist/chartist.js"
             ],
             "styles": [
-              "src/assets/sass/light-bootstrap-dashboard.scss"
+              "node_modules/animate.css/animate.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/assets/sass/light-bootstrap-dashboard.scss",
+              "src/assets/css/demo.css"
             ],
             "assets": [
               "src/assets",
