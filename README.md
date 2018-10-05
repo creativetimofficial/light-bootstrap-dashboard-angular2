@@ -1,9 +1,9 @@
-# [Light Bootstrap Dashboard Angular CLI](http://lbd-angular2.creative-tim.com/)
-[![version][version-badge]][CHANGELOG] [![license][license-badge]][LICENSE]
+# [Light Bootstrap Dashboard Angular](https://demos.creative-tim.com/light-bootstrap-dashboard-angular2/dashboard)
+[![version][version-badge]][CHANGELOG] ![license][license-badge]
 
 ![alt text](src/assets/img/opt_lbd_angular_thumbnail.jpg)
 
-**[Light-Bootstrap-Dashboard-Angular-CLI](http://lbd-angular2.creative-tim.com/)** is an admin dashboard template designed to be beautiful and simple. It is built on top of Bootstrap 3, using [Light Bootstrap Dashboard](https://www.creative-tim.com/product/light-bootstrap-dashboard2) and it is fully responsive. It comes with a big collections of elements that will offer you multiple possibilities to create the app that best fits your needs. It can be used to create admin panels, project management systems, web applications backend, CMS or CRM.
+**[Light Bootstrap Dashboard Angular](https://demos.creative-tim.com/light-bootstrap-dashboard-angular2/dashboard)** is an admin dashboard template designed to be beautiful and simple. It is built on top of Bootstrap 3, using [Light Bootstrap Dashboard](https://www.creative-tim.com/product/light-bootstrap-dashboard) and it is fully responsive. It comes with a big collections of elements that will offer you multiple possibilities to create the app that best fits your needs. It can be used to create admin panels, project management systems, web applications backend, CMS or CRM.
 
 The product represents a big suite of front-end developer tools that can help you jump start your project. We have created it thinking about things you actually need in a dashboard. Light Bootstrap Dashboard Angular 2 contains multiple handpicked and optimized plugins. Everything is designed to fit with one another. As you will be able to see, the dashboard you can access on Creative Tim is a customization of this product.
 
@@ -13,16 +13,16 @@ Special thanks go to: Robert McIntosh for the notification system Chartist for t
 
 ## Links:
 
-+ [Live Preview](http://lbd-angular2.creative-tim.com/)
-+ [Light Bootstrap Dashboard PRO Angular CLI](https://www.creative-tim.com/product/light-bootstrap-dashboard-pro-angular2/?ref=lbd-angular-cli-free-github) ($49)
++ [Live Preview](https://demos.creative-tim.com/light-bootstrap-dashboard-angular2/dashboard)
++ [Light Bootstrap Dashboard PRO Angular](https://www.creative-tim.com/product/light-bootstrap-dashboard-pro-angular2/?ref=lbd-angular-github) ($49)
 
 ## Quick Start:
 
 Quick start options:
 
-+ [Download from Github](https://github.com/creativetimofficial/light-bootstrap-dashboard-angular/archive/master.zip).
++ [Download from Github](https://github.com/creativetimofficial/light-bootstrap-dashboard-angular2/archive/master.zip).
 + [Download from Creative Tim](https://www.creative-tim.com/product/light-bootstrap-dashboard-angular2).
-+ Clone the repo: `git clone https://github.com/creativetimofficial/light-bootstrap-dashboard-angular.git`.
++ Clone the repo: `git clone https://github.com/creativetimofficial/light-bootstrap-dashboard-angular2.git`.
 
 ## Terminal Commands
 
@@ -38,15 +38,17 @@ Quick start options:
 
 Within the download you'll find the following directories and files:
 ```
-light-bootstrap-dashboard-angular-cli
+light-bootstrap-dashboard-angular
+├── CHANGELOG.md
+├── LICENSE.md
 ├── README.md
-├── angular-cli.json
+├── angular.json
 ├── documentation
 │   ├── css
-│   ├── js
 │   └── tutorial-lbd-angular2.html
 ├── e2e
 ├── karma.conf.js
+├── package-lock.json
 ├── package.json
 ├── protractor.conf.js
 ├── src
@@ -67,6 +69,14 @@ light-bootstrap-dashboard-angular-cli
 │   │   │   ├── icons.component.html
 │   │   │   ├── icons.component.spec.ts
 │   │   │   └── icons.component.ts
+│   │   ├── layouts
+│   │   │   └── admin-layout
+│   │   │       ├── admin-layout.component.html
+│   │   │       ├── admin-layout.component.scss
+│   │   │       ├── admin-layout.component.spec.ts
+│   │   │       ├── admin-layout.component.ts
+│   │   │       ├── admin-layout.module.ts
+│   │   │       └── admin-layout.routing.ts
 │   │   ├── lbd
 │   │   │   ├── lbd-chart
 │   │   │   │   ├── lbd-chart.component.html
@@ -158,6 +168,5 @@ Instagram: <https://instagram.com/creativetimofficial>
 
 [CHANGELOG]: ./CHANGELOG.md
 
-[LICENSE]: ./LICENSE
-[version-badge]: https://img.shields.io/badge/version-1.0.1-blue.svg
+[version-badge]: https://img.shields.io/badge/version-1.5.0-blue.svg
 [license-badge]: https://img.shields.io/badge/license-MIT-blue.svg

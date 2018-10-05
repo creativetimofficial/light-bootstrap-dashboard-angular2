@@ -5,6 +5,9 @@
     -ms-transition: all 150ms linear;
     transition: all 150ms linear;
 }
+.header-wrapper .header, .header-wrapper .header .filter:after {
+    height: 100vh !important;
+}
 .navbar-title{
     height: 100%;
 }
@@ -113,7 +116,7 @@ pre.prettyprint{
 .header-wrapper .header {
     background-position: center center;
     background-size: cover;
-    height: 450px;
+    height: 100vh;
     overflow: hidden;
     position: absolute;
     width: 100%;
@@ -137,10 +140,12 @@ pre.prettyprint{
 }
 .header-wrapper .title-container{
     color: #fff;
-    position: relative;
-    top: 85px;
     z-index: 3;
-
+    position: absolute;
+    top: 50%;
+    margin-top: -180px;
+    left: 0;
+    width: 100%;
 }
 
 .title-container img{
