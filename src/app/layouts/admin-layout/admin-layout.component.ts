@@ -23,7 +23,7 @@ export class AdminLayoutComponent implements OnInit {
     console.log(this.router)
       const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
-      if (isWindows && !document.getElementsByTagName('body')[0].classList.contains('sidebar-mini')) {
+      if (isWindows) {
           // if we are on windows OS we activate the perfectScrollbar function
 
           document.getElementsByTagName('body')[0].classList.add('perfect-scrollbar-on');
