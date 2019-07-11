@@ -1,3 +1,18 @@
+/*!
+
+ =========================================================
+ * Light Bootstrap Dashboard Angular - v1.5.1
+ =========================================================
+
+ * Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard-angular2
+ * Copyright 2016 Creative Tim (http://www.creative-tim.com)
+ * Licensed under MIT
+
+ =========================================================
+
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+ */
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
