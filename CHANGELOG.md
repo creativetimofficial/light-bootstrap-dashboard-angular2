@@ -1,7 +1,12 @@
+## [1.6.0] - 2020-03-12
+### Updates
+- update to Angular 9
+- update all dependencies to match Angular 9 version
+
 ## [1.5.0] - 2018-10-04
 ### Changes
 - update to Angular 6
-- added online documentation 
+- added online documentation
 
 ## [1.4.0] - 2017-08-28
 ### Changes for Angular 4
