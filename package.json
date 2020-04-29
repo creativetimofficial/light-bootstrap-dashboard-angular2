@@ -30,7 +30,7 @@
         "chartist": "0.11.0",
         "core-js": "2.6.9",
         "googleapis": "33.0.0",
-        "jquery": "3.4.1",
+        "jquery": "3.5.0",
         "perfect-scrollbar": "1.4.0",
         "rxjs": "6.5.4",
         "rxjs-compat": "6.5.4",
