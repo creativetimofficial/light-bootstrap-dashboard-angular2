@@ -1,11 +1,11 @@
 /*!
 
  =========================================================
- * Light Bootstrap Dashboard Angular - v1.6.0
+ * Light Bootstrap Dashboard Angular - v1.7.0
  =========================================================
 
  * Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard-angular2
- * Copyright 2016 Creative Tim (http://www.creative-tim.com)
+ * Copyright 2020 Creative Tim (http://www.creative-tim.com)
  * Licensed under MIT
 
  =========================================================
