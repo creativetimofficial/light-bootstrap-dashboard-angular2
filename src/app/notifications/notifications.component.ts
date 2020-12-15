@@ -22,7 +22,7 @@ export class NotificationsComponent implements OnInit {
           message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
       },{
           type: type[color],
-          timer: 100000,
+          timer: 1000,
           placement: {
               from: from,
               align: align
