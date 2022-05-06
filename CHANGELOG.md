@@ -1,3 +1,9 @@
+## [1.8.0] - 2022-05-06
+### Updates
+- update to Angular 13
+- update all dependencies to match the Angular 13 version
+- routing, build and configuration issues fixed
+
 ## [1.7.0] - 2020-12-15
 ### Updates
 - update to Angular 11

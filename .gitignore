@@ -32,6 +32,7 @@ node_modules
 npm-debug.log
 testem.log
 /typings
+/.angular
 
 # e2e
 /e2e/*.js
@@ -40,3 +41,4 @@ testem.log
 #System Files
 .DS_Store
 Thumbs.db
+package-lock.json
