@@ -1,4 +1,4 @@
-## [1.8.0] - 2022-05-02
+## [1.8.0] - 2022-05-06
 ### Updates
 - update to Angular 13
 - update all dependencies to match the Angular 13 version
