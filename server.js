@@ -9,7 +9,7 @@ app.use(express.static(__dirname+ '/dist/encuentros-matrimoniales/'));
 
 app.get('/*', function(req,res) {
 console.log("Fetching from __dirname.." + __dirname);     
-const fpath = path.join(__dirname+ 'dist/encuentros-matrimoniales/main.js');
+const fpath = path.join(__dirname+ '/dist/encuentros-matrimoniales/main.js');
 console.log("Fetching from.." + fpath);
 res.sendFile(fpath);
 });
