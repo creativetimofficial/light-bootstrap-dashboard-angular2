@@ -11,7 +11,7 @@ app.get('/*', function(req,res) {
 console.log("Fetching from __dirname.." + __dirname);     
 const fpath = path.join(__dirname+ '/dist/encuentros-matrimoniales/index.html');
 console.log("Fetching from.." + fpath);
-res.sendFile();
+res.sendFile(fpath);
 });
 
 // Start the app by listening on the default Heroku port
