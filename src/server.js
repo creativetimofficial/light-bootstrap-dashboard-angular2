@@ -8,7 +8,7 @@ const app = express();
 app.use(express.static(__dirname+ 'dist/encuentros-matrimoniales'));
 
 app.get('/*', function(req,res) {
-console.log("Fetching from __dirname.." + __dirname);     
+console.log("Fetching from __dirname desde src cam.." + __dirname);     
 cons fpath = path.join(__dirname+ '/dist/encuentros-matrimoniales/index.html');
 console.log("Fetching from.." + fpath);
 res.sendFile();
