@@ -4,11 +4,12 @@
     "license": "MIT",
     "scripts": {
         "ng": "ng",
-        "start": "node server.js",
-        "build": "ng build",
+        "start": "node build/index.js",
+        "build": "tsc",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
+        "postinstall": "npm run build",
         "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install -g npm@latest && npm start"
     },
     "private": true,
