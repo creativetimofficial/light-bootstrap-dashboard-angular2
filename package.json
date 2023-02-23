@@ -5,12 +5,17 @@
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
-        "build": "ng build",
+        "build": "ng build --prod",
+        "postinstall": "ng build --prod",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
         "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
     },
+  "engines": {
+    "node": "8.11.3",
+    "npm": "6.1.0"
+  }
     "private": true,
     "dependencies": {
         "@angular/animations": "^13.2.6",
