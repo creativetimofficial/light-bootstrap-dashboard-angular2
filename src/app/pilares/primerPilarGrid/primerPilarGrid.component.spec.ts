@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { IconsComponent } from './iconss.component';
+import { CuartoPilarGridComponent } from './cuartoPilarGrid.component';
 
-describe('IconsComponent', () => {
-  let component: IconsComponent;
-  let fixture: ComponentFixture<IconsComponent>;
+describe('CuartoPilarGridComponent', () => {
+  let component: CuartoPilarGridComponent;
+  let fixture: ComponentFixture<CuartoPilarGridComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IconsComponent ]
+      declarations: [ CuartoPilarGridComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IconsComponent);
+    fixture = TestBed.createComponent(CuartoPilarGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

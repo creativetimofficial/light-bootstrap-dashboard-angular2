@@ -76,6 +76,19 @@
                 <i class="{{menuItem.icon}}"></i>
                 <p>{{menuItem.title}}</p>
             </a>
+            <ul class="dropdown-menu">
+                <li routerLinkActive="active" *ngFor="let childmenu of menuItems.children"
+                    class="{{menuItem.class}}">
+                    <a class="nav-link" [routerLink]="[childmenu.path]">
+                        <p>{{childmenu.title}}</p>
+                    </a>
+                </li>
+            </ul>
+            <ul *ngIf="menuItems && menuItems.length > 0">
+               
+            </ul>
         </li>
+       
+      
     </ul>
 </div>

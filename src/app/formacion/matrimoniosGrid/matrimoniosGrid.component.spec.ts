@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { IconsComponent } from './iconss.component';
+import { MatrimoniosGridComponent } from './matrimoniosGrid.component';
 
-describe('IconsComponent', () => {
-  let component: IconsComponent;
-  let fixture: ComponentFixture<IconsComponent>;
+describe('MatrimoniosGridComponent', () => {
+  let component: MatrimoniosGridComponent;
+  let fixture: ComponentFixture<MatrimoniosGridComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IconsComponent ]
+      declarations: [ MatrimoniosGridComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IconsComponent);
+    fixture = TestBed.createComponent(MatrimoniosGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

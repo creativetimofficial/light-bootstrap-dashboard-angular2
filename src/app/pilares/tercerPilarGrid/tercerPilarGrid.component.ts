@@ -6,11 +6,12 @@ declare interface TableData {
 }
 
 @Component({
-  selector: 'app-tables',
-  templateUrl: './tables.component.html',
-  styleUrls: ['./tables.component.css']
+  selector: 'app-tercerPilarGrid',
+  templateUrl: './tercerPilarGrid.component.html',
+  styleUrls: ['./tercerPilarGrid.component.css']
 })
-export class TablesComponent implements OnInit {
+
+export class TercerPilarGridComponent implements OnInit {
     public tableData1: TableData;
     public tableData2: TableData;
 

@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { TypographyComponent } from './typography.component';
+import { SegundoPilarGridComponent } from './segundoPilarGrid.component';
 
-describe('TypographyComponent', () => {
-  let component: TypographyComponent;
-  let fixture: ComponentFixture<TypographyComponent>;
+describe('PrimerPilarGridComponent', () => {
+  let component: SegundoPilarGridComponent;
+  let fixture: ComponentFixture<SegundoPilarGridComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TypographyComponent ]
+      declarations: [ SegundoPilarGridComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TypographyComponent);
+    fixture = TestBed.createComponent(SegundoPilarGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

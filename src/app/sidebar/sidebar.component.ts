@@ -6,15 +6,33 @@ declare interface RouteInfo {
     title: string;
     icon: string;
     class: string;
+    children?: RouteInfo[];
+    type: string;
 }
+
 export const ROUTES: RouteInfo[] = [
-    { path: '/user', title: 'Usuarios',  icon:'pe-7s-add-user', class: '' },
+    { path: '/user', title: 'Usuarios',  icon:'pe-7s-add-user', class: '', type:'link' },
     // { path: '/UserTable', title: 'Listado Usuario',  icon:'pe-7s-user', class: '' },
-    { path: '/table', title: 'Pilares',  icon:'pe-7s-network', class: '' },
-    { path: '/typography', title: 'Formación',  icon:'pe-7s-news-paper', class: '' },
-    { path: '/icons', title: 'Reportes',  icon:'pe-7s-note2', class: '' },
-    { path: '/maps', title: 'Cerrar sesión',  icon:'pe-7s-power', class: '' },
+    { path: '#', title: 'PILARES',  icon:'', class: '', type:'link' },
+    { path: '/primerPilarGrid', title: 'Primer pilar',  icon:'pe-7s-plugin', class: '', type:'link' },
+    { path: '/segundoPilarGrid', title: 'Segundo pilar',  icon:'pe-7s-plugin', class: '', type:'link' },
+    { path: '/tercerPilarGrid', title: 'Tercer pilar',  icon:'pe-7s-plugin', class: '', type:'link' },
+    { path: '/cuartoPilarGrid', title: 'Cuarto pilar',  icon:'pe-7s-plugin', class: '', type:'link' },
+    { 
+      path: '/formation',
+      title: 'formation',
+      icon:'', 
+      class: '', 
+      type:'sub',      
+    },    
+    { path: '/matrimoniosGrid', title: 'Matrimonios',  icon:'pe-7s-leaf', class: '', type:'link' },
+    { path: '/sacerdotesGrid', title: 'Sacerdotes',  icon:'pe-7s-id', class: '', type:'link' },
+
+    { path: '/icons', title: 'Reportes',  icon:'pe-7s-note2', class: '', type:'link' },
+    { path: '/register', title: 'Registro',  icon:'pe-7s-note', class: '', type:'link' },
+    { path: '/maps', title: 'Cerrar sesión',  icon:'pe-7s-power', class: '', type:'link' },
 ];
+
 
 @Component({
   selector: 'app-sidebar',
