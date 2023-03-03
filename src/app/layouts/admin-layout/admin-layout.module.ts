@@ -16,13 +16,13 @@ import { TercerPilarGridComponent } from '../../pilares/tercerPilarGrid/tercerPi
 import { CuartoPilarGridComponent } from '../../pilares/cuartoPilarGrid/cuartoPilarGrid.component';
 import { MatrimoniosGridComponent } from '../../formacion/matrimoniosGrid/matrimoniosGrid.component';
 import { SacerdotesGridComponent } from '../../formacion/sacerdotesGrid/sacerdotesGrid.component';
-
 import { FormationComponent } from '../../formation/formation.component';
 import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { RegisterComponent } from '../../register/register.component';
 
+import { NuevoPrimerPilarComponent } from '../../nuevoPrimerPilar/nuevoPrimerPilar.component';
 
 
 @NgModule({
@@ -46,7 +46,8 @@ import { RegisterComponent } from '../../register/register.component';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    RegisterComponent
+    RegisterComponent,
+    NuevoPrimerPilarComponent
   ]
 })
 

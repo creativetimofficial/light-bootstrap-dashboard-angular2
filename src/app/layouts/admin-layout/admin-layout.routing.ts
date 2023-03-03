@@ -9,13 +9,13 @@ import { CuartoPilarGridComponent } from '../../pilares/cuartoPilarGrid/cuartoPi
 import { MatrimoniosGridComponent } from '../../formacion/matrimoniosGrid/matrimoniosGrid.component';
 import { SacerdotesGridComponent } from '../../formacion/sacerdotesGrid/sacerdotesGrid.component';
 
-SacerdotesGridComponent
 import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { RegisterComponent } from '../../register/register.component';
 import { FormationComponent } from '../../formation/formation.component';
+import { NuevoPrimerPilarComponent } from '../../nuevoPrimerPilar/nuevoPrimerPilar.component';
 
 
 
@@ -34,4 +34,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'register',       component: RegisterComponent },
     { path: 'formation',      component: FormationComponent },
+    { path: 'nuevoPrimerPilar',      component: NuevoPrimerPilarComponent },
 ];

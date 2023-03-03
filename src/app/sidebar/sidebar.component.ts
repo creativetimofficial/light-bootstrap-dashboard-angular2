@@ -32,6 +32,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/icons', title: 'Reportes',  icon:'pe-7s-note2', class: '', type:'link' },
     { path: '/register', title: 'Registro',  icon:'pe-7s-note', class: '', type:'link' },
     { path: '/maps', title: 'Cerrar sesión',  icon:'pe-7s-power', class: '', type:'link' },
+
   ]
 
 
