@@ -20,7 +20,7 @@ import { FormationComponent } from '../../formation/formation.component';
 import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
-import { RegisterComponent } from '../../register/register.component';
+// import { RegisterComponent } from '../../register/register.component';
 
 import { NuevoPrimerPilarComponent } from '../../nuevoPrimerPilar/nuevoPrimerPilar.component';
 
@@ -45,8 +45,7 @@ import { NuevoPrimerPilarComponent } from '../../nuevoPrimerPilar/nuevoPrimerPil
     FormationComponent,
     IconsComponent,
     MapsComponent,
-    NotificationsComponent,
-    RegisterComponent,
+    NotificationsComponent,    
     NuevoPrimerPilarComponent
   ]
 })
