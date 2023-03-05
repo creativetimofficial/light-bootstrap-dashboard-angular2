@@ -16,6 +16,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { RegisterComponent } from '../../register/register.component';
 import { FormationComponent } from '../../formation/formation.component';
 import { NuevoPrimerPilarComponent } from '../../nuevoPrimerPilar/nuevoPrimerPilar.component';
+import { LoginComponent } from '../../login/login.component';
 
 
 
@@ -35,4 +36,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'register',       component: RegisterComponent },
     { path: 'formation',      component: FormationComponent },
     { path: 'nuevoPrimerPilar',      component: NuevoPrimerPilarComponent },
+    { path: 'login',      component: LoginComponent },
+
 ];

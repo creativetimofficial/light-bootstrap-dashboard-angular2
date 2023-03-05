@@ -11,7 +11,10 @@ const appRoutes: Routes =[
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
-  }, {
+  }, 
+  { path: "login", component: LoginComponent, pathMatch: "full" },
+  { path: "register", component: RegisterComponent, pathMatch: "full" },
+  {
     path: '',
     component: AdminLayoutComponent,
     children: [
@@ -23,8 +26,6 @@ const appRoutes: Routes =[
     path: '**',
     redirectTo: 'dashboard'
   },
-  { path: "login", component: LoginComponent, pathMatch: "full" },
-  { path: "register", component: RegisterComponent, pathMatch: "full" }
 ];
 
 @NgModule({
