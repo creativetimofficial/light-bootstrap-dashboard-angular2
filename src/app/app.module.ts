@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { CookieService } from 'ngx-cookie-service';
+
 
 @NgModule({
   imports: [
