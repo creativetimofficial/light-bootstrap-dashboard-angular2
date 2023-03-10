@@ -47,17 +47,13 @@ import { NuevoCuartoPilarComponent } from '../../pilares/cuartoPilarGrid/nuevoCu
     FormationComponent,
     IconsComponent,
     MapsComponent,
-<<<<<<< Updated upstream
     NotificationsComponent,    
-    NuevoPrimerPilarComponent
-=======
+    NuevoPrimerPilarComponent,
     NotificationsComponent,
-    RegisterComponent,
     NuevoPrimerPilarComponent,
     NuevoSegundoPilarComponent,
     NuevoTercerPilarComponent,
     NuevoCuartoPilarComponent
->>>>>>> Stashed changes
   ]
 })
 
