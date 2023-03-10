@@ -15,8 +15,15 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { RegisterComponent } from '../../register/register.component';
 import { FormationComponent } from '../../formation/formation.component';
+<<<<<<< Updated upstream
 import { NuevoPrimerPilarComponent } from '../../nuevoPrimerPilar/nuevoPrimerPilar.component';
 import { LoginComponent } from '../../login/login.component';
+=======
+import { NuevoPrimerPilarComponent } from '../../pilares/primerPilarGrid/nuevoPrimerPilar/nuevoPrimerPilar.component';
+import { NuevoSegundoPilarComponent } from '../../pilares/segundoPilarGrid/nuevoSegundoPilar/nuevoSegundoPilar.component';
+import { NuevoTercerPilarComponent } from '../../pilares/tercerPilarGrid/nuevoTercerPilar/nuevoTercerPilar.component';
+import { NuevoCuartoPilarComponent } from '../../pilares/cuartoPilarGrid/nuevoCuartoPilar/nuevoCuartoPilar.component';
+>>>>>>> Stashed changes
 
 
 
@@ -36,6 +43,12 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'register',       component: RegisterComponent },
     { path: 'formation',      component: FormationComponent },
     { path: 'nuevoPrimerPilar',      component: NuevoPrimerPilarComponent },
+<<<<<<< Updated upstream
     { path: 'login',      component: LoginComponent },
 
+=======
+    { path: 'nuevoSegundoPilar',      component: NuevoSegundoPilarComponent },
+    { path: 'nuevoSegundoPilar',      component: NuevoTercerPilarComponent },
+    { path: 'nuevoSegundoPilar',      component: NuevoCuartoPilarComponent },
+>>>>>>> Stashed changes
 ];

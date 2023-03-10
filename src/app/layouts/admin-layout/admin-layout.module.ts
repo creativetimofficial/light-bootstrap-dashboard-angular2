@@ -22,8 +22,10 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 // import { RegisterComponent } from '../../register/register.component';
 
-import { NuevoPrimerPilarComponent } from '../../nuevoPrimerPilar/nuevoPrimerPilar.component';
-
+import { NuevoPrimerPilarComponent } from '../../pilares/primerPilarGrid/nuevoPrimerPilar/nuevoPrimerPilar.component';
+import { NuevoSegundoPilarComponent } from '../../pilares/segundoPilarGrid/nuevoSegundoPilar/nuevoSegundoPilar.component';
+import { NuevoTercerPilarComponent } from '../../pilares/tercerPilarGrid/nuevoTercerPilar/nuevoTercerPilar.component';
+import { NuevoCuartoPilarComponent } from '../../pilares/cuartoPilarGrid/nuevoCuartoPilar/nuevoCuartoPilar.component';
 
 @NgModule({
   imports: [
@@ -45,8 +47,17 @@ import { NuevoPrimerPilarComponent } from '../../nuevoPrimerPilar/nuevoPrimerPil
     FormationComponent,
     IconsComponent,
     MapsComponent,
+<<<<<<< Updated upstream
     NotificationsComponent,    
     NuevoPrimerPilarComponent
+=======
+    NotificationsComponent,
+    RegisterComponent,
+    NuevoPrimerPilarComponent,
+    NuevoSegundoPilarComponent,
+    NuevoTercerPilarComponent,
+    NuevoCuartoPilarComponent
+>>>>>>> Stashed changes
   ]
 })
 

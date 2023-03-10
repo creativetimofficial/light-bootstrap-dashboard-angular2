@@ -1,23 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {Router} from '@angular/router';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { PrimerPilarGridComponent } from './primerPilarGrid.component';
+import { NuevoTercerPilarComponent } from './nuevoTercerPilar.component';
 
-describe('PrimerPilarGridComponent', () => {
-  let component: PrimerPilarGridComponent;
-  let fixture: ComponentFixture<PrimerPilarGridComponent>;
+describe('NuevoTercerPilarComponent', () => {
+  let component: NuevoTercerPilarComponent;
+  let fixture: ComponentFixture<NuevoTercerPilarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PrimerPilarGridComponent ]
+      declarations: [ NuevoTercerPilarComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PrimerPilarGridComponent);
+    fixture = TestBed.createComponent(NuevoTercerPilarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
