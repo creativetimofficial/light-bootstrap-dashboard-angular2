@@ -1,0 +1,57 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <h4 class="title"><b>Tercer pilar: El fin de semana</b></h4>
+                            </div>
+                            <div class="col-sm-4">
+                                <button type="submit" href="" class="boton-rojo">Descargar base</button>
+                            </div>
+                        </div>                   
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Filtrar por fecha</label>
+                                    <input type="date" class="form-control" placeholder="Filtrar por fecha" value="Mike">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Buscar</label>
+                                    <input type="text" class="form-control" placeholder="" value="">                        
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <br>
+                                    <button type="submit" class="boton-rojo pull-right">Crear nuevo</button>                                
+                                </div>
+                            </div>
+                    </div>             
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                          <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let row of tableData1.dataRows">
+                                        <td *ngFor="let cell of row">{{cell}}</td>
+                                    </tr>
+                                </tbody>
+                          </table>
+
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

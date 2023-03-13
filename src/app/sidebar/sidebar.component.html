@@ -1,5 +1,6 @@
 
 <div class="sidebar-wrapper">
+<<<<<<< Updated upstream
     <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text">
             <div class="logo-img">
@@ -7,6 +8,17 @@
             </div>
             Creative Tim
         </a>
+=======
+        <div class="logo">
+            <a href="https://encuentromatrimonial.com/" class="simple-text">
+                <div>
+                    <img src="/assets/img/encuentro_logo3.png" width="200" height="90"/>
+                </div>
+            </a>
+        <!-- <img src="/assets/img/encuentro_logo.png" />        
+
+        <a href="https://encuentromatrimonial.com/" class="simple-text">Encuentro matrimonial</a> -->
+>>>>>>> Stashed changes
     </div>
     <ul class="nav responsive-nav">
         <li *ngIf="isMobileMenu()">
@@ -14,7 +26,11 @@
                 <i class="fa fa-dashboard"></i>
 				<p class="hidden-lg hidden-md">Dashboard</p>
             </a>
+<<<<<<< Updated upstream
         </li>
+=======
+        </li> 
+>>>>>>> Stashed changes
         <li class="dropdown" *ngIf="isMobileMenu()">
               <a class="dropdown-toggle" data-toggle="dropdown">
                     <i class="fa fa-globe"></i>
@@ -66,7 +82,7 @@
             <a>
                 <p>Log out</p>
             </a>
-        </li>
+        </li>-->
         <li class="separator hidden-lg hidden-md" *ngIf="isMobileMenu()"></li>
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
             <a  [routerLink]="[menuItem.path]">
