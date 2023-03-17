@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { IconsComponent } from './icons.component';
+import { IconsComponent } from './iconss.component';
 
 describe('IconsComponent', () => {
   let component: IconsComponent;

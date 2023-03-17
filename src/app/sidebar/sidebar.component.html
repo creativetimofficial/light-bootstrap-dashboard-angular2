@@ -1,6 +1,6 @@
 
 <div class="sidebar-wrapper">
-<<<<<<< Updated upstream
+
     <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text">
             <div class="logo-img">
@@ -8,7 +8,7 @@
             </div>
             Creative Tim
         </a>
-=======
+
         <div class="logo">
             <a href="https://encuentromatrimonial.com/" class="simple-text">
                 <div>
@@ -18,19 +18,18 @@
         <!-- <img src="/assets/img/encuentro_logo.png" />        
 
         <a href="https://encuentromatrimonial.com/" class="simple-text">Encuentro matrimonial</a> -->
->>>>>>> Stashed changes
+
     </div>
     <ul class="nav responsive-nav">
-        <li *ngIf="isMobileMenu()">
+        <!-- <li *ngIf="isMobileMenu()">
             <a class="dropdown-toggle" data-toggle="dropdown">
                 <i class="fa fa-dashboard"></i>
 				<p class="hidden-lg hidden-md">Dashboard</p>
             </a>
-<<<<<<< Updated upstream
-        </li>
-=======
+        </li> -->
+
         </li> 
->>>>>>> Stashed changes
+
         <li class="dropdown" *ngIf="isMobileMenu()">
               <a class="dropdown-toggle" data-toggle="dropdown">
                     <i class="fa fa-globe"></i>
@@ -42,11 +41,11 @@
 					</p>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="#">Notification 1</a></li>
-                <li><a href="#">Notification 2</a></li>
-                <li><a href="#">Notification 3</a></li>
-                <li><a href="#">Notification 4</a></li>
-                <li><a href="#">Another notification</a></li>
+                <li><a href="">Notification 1</a></li>
+                <li><a href="">Notification 2</a></li>
+                <li><a href="">Notification 3</a></li>
+                <li><a href="">Notification 4</a></li>
+                <li><a href="">Another notification</a></li>
               </ul>
         </li>
         <li *ngIf="isMobileMenu()">
@@ -69,13 +68,13 @@
 
               </a>
               <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something</a></li>
+                <li><a href="">Action</a></li>
+                <li><a href="">Another action</a></li>
+                <li><a href="">Something</a></li>
+                <li><a href="">Another action</a></li>
+                <li><a href="">Something</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
+                <li><a href="">Separated link</a></li>
               </ul>
         </li>
         <li *ngIf="isMobileMenu()">
@@ -89,6 +88,16 @@
                 <i class="{{menuItem.icon}}"></i>
                 <p>{{menuItem.title}}</p>
             </a>
+            <ul class="dropdown-menu">
+                <li routerLinkActive="active" *ngFor="let childmenu of menuItems.children"
+                    class="{{menuItem.class}}">
+                    <a class="nav-link" [routerLink]="[childmenu.path]">
+                        <p>{{childmenu.title}}</p>
+                    </a>
+                </li>
+            </ul>
+            <ul *ngIf="menuItems && menuItems.length > 0">        
+            </ul>
         </li>
     </ul>
 </div>
