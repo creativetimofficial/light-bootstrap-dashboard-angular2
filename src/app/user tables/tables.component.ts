@@ -6,15 +6,10 @@ declare interface TableData {
 }
 
 @Component({
-<<<<<<< Updated upstream:src/app/tables/tables.component.ts
   selector: 'app-tables',
   templateUrl: './tables.component.html',
-  styleUrls: ['./tables.component.css']
-=======
-  selector: 'app-primerPilarGrid',
-  templateUrl: './primerPilarGrid.component.html',
-  styleUrls: ['./primerPilarGrid.component.css']
->>>>>>> Stashed changes:src/app/pilares/primerPilarGrid/primerPilarGrid.component.ts
+  styleUrls: ['./tables.component.css']  
+
 })
 export class TablesComponent implements OnInit {
     public tableData1: TableData;

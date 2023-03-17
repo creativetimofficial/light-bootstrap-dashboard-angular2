@@ -8,6 +8,7 @@ declare interface TableData {
 @Component({
   selector: 'app-primerPilarGrid',
   templateUrl: './primerPilarGrid.component.html',
+  styleUrls: ['./primerPilarGrid.component.css']
 })
 
 export class PrimerPilarGridComponent implements OnInit {

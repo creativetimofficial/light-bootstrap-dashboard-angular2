@@ -38,37 +38,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/icons', title: 'Reportes',  icon:'pe-7s-note2', class: '', type:'link' },
     { path: '/register', title: 'Registro',  icon:'pe-7s-note', class: '', type:'link' },
     { path: '/maps', title: 'Cerrar sesión',  icon:'pe-7s-power', class: '', type:'link' },
-
-interface IChildItem {
-  path?: string;
-  title: string;
-  icon?: string;
-  class: string;
-  type?: string;
-  sub?: IChildItem[];
-}
-
-export const ROUTES: RouteInfo[] = [
-    
-    { path: '/user', title: 'Usuarios',  icon:'pe-7s-add-user', class: '', type:'link' },
-    // { path: '/UserTable', title: 'Listado Usuario',  icon:'pe-7s-user', class: '' },
-    { title: 'Pilares', class: '', type:'dropDown', tooltip:'Pages', icon:'pe-7s-plugin', sub:[
-        
-      ] },
-    { path: '/primerPilarGrid', title: 'Primer pilar', class: '', type:'link' },
-    { path: '/segundoPilarGrid', title: 'Segundo pilar',  icon:'', class: '', type:'link' },
-    { path: '/tercerPilarGrid', title: 'Tercer pilar',  icon:'', class: '', type:'link' },
-    { path: '/cuartoPilarGrid', title: 'Cuarto pilar',  icon:'', class: '', type:'link' },
-    { path: '/formation', title: 'formation', icon:'pe-7s-check', class: '', type:'link', },    
-    { path: '/matrimoniosGrid', title: 'Matrimonios',  icon:'', class: '', type:'link' },
-    { path: '/sacerdotesGrid', title: 'Sacerdotes',  icon:'', class: '', type:'link' },
-    { path: '/icons', title: 'Reportes',  icon:'pe-7s-note2', class: '', type:'link' },
-    { path: '/register', title: 'Registro',  icon:'pe-7s-note', class: '', type:'link' },
-    { path: '/maps', title: 'Cerrar sesión',  icon:'pe-7s-power', class: '', type:'link' },
-
-  ]
-
-
+    ]
 
 @Component({
   selector: 'app-sidebar',
