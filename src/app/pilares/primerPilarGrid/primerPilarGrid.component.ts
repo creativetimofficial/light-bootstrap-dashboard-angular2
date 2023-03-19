@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 declare interface TableData {
     headerRow: string[];
@@ -8,7 +9,7 @@ declare interface TableData {
 @Component({
   selector: 'app-primerPilarGrid',
   templateUrl: './primerPilarGrid.component.html',
-  styleUrls: ['./primerPilarGrid.component.css']
+  styleUrls: ['./primerPilarGrid.component.css'],
 })
 
 export class PrimerPilarGridComponent implements OnInit {
@@ -33,6 +34,7 @@ export class PrimerPilarGridComponent implements OnInit {
 
           ]
       };
+
       this.tableData2 = {
           headerRow: [ 'ID', 'Name',  'Salary', 'Country', 'City' ],
           dataRows: [

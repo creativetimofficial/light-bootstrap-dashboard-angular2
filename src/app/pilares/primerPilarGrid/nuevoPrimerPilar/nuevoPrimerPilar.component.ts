@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-nuevoPrimerPilar',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NuevoPrimerPilarComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() { 
+    const routes: Routes = [
+      { path: 'nuevoPrimerPilar', component: NuevoPrimerPilarComponent }
+    ];
   }
 
+ 
+  ngOnInit() {
+  }
+  
 }
