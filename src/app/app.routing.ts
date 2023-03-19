@@ -5,7 +5,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
-import { NuevoPrimerPilarComponent } from './pilares/primerPilarGrid/nuevoPrimerPilar/nuevoPrimerPilar.component';
+// import { NuevoPrimerPilarComponent } from './pilares/primerPilarGrid/nuevoPrimerPilar/nuevoPrimerPilar.component';
+// import { PrimerPilarGridComponent } from './pilares/primerPilarGrid/primerPilarGrid.component';
+// import { NuevoSegundoPilarComponent } from './pilares/segundoPilarGrid/nuevoSegundoPilar/nuevoSegundoPilar.component';
 
 const appRoutes: Routes =[
   {
@@ -15,7 +17,6 @@ const appRoutes: Routes =[
   }, 
   { path: "login", component: LoginComponent, pathMatch: "full" },
   { path: "register", component: RegisterComponent, pathMatch: "full" },
-  { path: "nuevoPrimerPilar", component: NuevoPrimerPilarComponent, pathMatch: "full" },
   {
     path: '',
     component: AdminLayoutComponent,

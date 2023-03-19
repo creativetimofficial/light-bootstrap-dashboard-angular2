@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 
 declare interface TableData {
     headerRow: string[];
