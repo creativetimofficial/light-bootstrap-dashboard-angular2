@@ -20,26 +20,23 @@ import { NuevoPrimerPilarComponent } from '../../pilares/primerPilarGrid/nuevoPr
 import { NuevoSegundoPilarComponent } from '../../pilares/segundoPilarGrid/nuevoSegundoPilar/nuevoSegundoPilar.component';
 import { NuevoTercerPilarComponent } from '../../pilares/tercerPilarGrid/nuevoTercerPilar/nuevoTercerPilar.component';
 import { NuevoCuartoPilarComponent } from '../../pilares/cuartoPilarGrid/nuevoCuartoPilar/nuevoCuartoPilar.component';
-
-
-
+import { AuthGuard } from '../../auth.guard';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard',component: HomeComponent },
-    { path: 'user',component: UserComponent },
-    { path: 'primerPilarGrid',component: PrimerPilarGridComponent },
-    { path: 'segundoPilarGrid',component: SegundoPilarGridComponent },
-    { path: 'tercerPilarGrid',component: TercerPilarGridComponent },
-    { path: 'cuartoPilarGrid',component: CuartoPilarGridComponent },
-    { path: 'matrimoniosGrid',component: MatrimoniosGridComponent },
-    { path: 'sacerdotesGrid',component: SacerdotesGridComponent },
+    { path: 'dashboard',component: HomeComponent, canActivate: [AuthGuard]  },
+    { path: 'user',component: UserComponent, canActivate: [AuthGuard]  },
+    { path: 'primerPilarGrid',component: PrimerPilarGridComponent, canActivate: [AuthGuard] },
+    { path: 'segundoPilarGrid',component: SegundoPilarGridComponent, canActivate: [AuthGuard]  },
+    { path: 'tercerPilarGrid',component: TercerPilarGridComponent, canActivate: [AuthGuard]  },
+    { path: 'cuartoPilarGrid',component: CuartoPilarGridComponent, canActivate: [AuthGuard] },
+    { path: 'matrimoniosGrid',component: MatrimoniosGridComponent, canActivate: [AuthGuard] },
+    { path: 'sacerdotesGrid',component: SacerdotesGridComponent, canActivate: [AuthGuard]  },
     { path: 'icons',component: IconsComponent },
     { path: 'maps',component: MapsComponent },
     { path: 'notifications',component: NotificationsComponent },
     { path: 'upgrade',component: UpgradeComponent },
     { path: 'register',component: RegisterComponent },
     { path: 'formation',component: FormationComponent },
-    { path: 'login',component: LoginComponent },
     { path: 'nuevoPrimerPilar',component: NuevoPrimerPilarComponent },
     { path: 'nuevoSegundoPilar',component: NuevoSegundoPilarComponent },
     { path: 'nuevoTercerPilar',component: NuevoTercerPilarComponent },
