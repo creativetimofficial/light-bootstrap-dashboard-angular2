@@ -26,7 +26,9 @@ export class NuevoPrimerPilarComponent implements OnInit {
   }
 
   newPilar() {
-    const fechaCreacion = new Date().toISOString();
+    const fecha = (document.getElementById("fecha") as HTMLInputElement).value;
+    const fechaObjeto = new Date(fecha);
+    const fechaCreacion = fechaObjeto.toISOString();
     const numFDS = (<HTMLInputElement>document.getElementById('FinSemana')).value;
     const numMatrinoniosVivieron = (<HTMLInputElement>document.getElementById('MatrimoniosVividos')).value;
     const numSacerdotesVivieron = (<HTMLInputElement>document.getElementById('SacerdotesVividos')).value;
@@ -48,13 +50,13 @@ export class NuevoPrimerPilarComponent implements OnInit {
       this.http.post('https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/create', jsonPrimerPilar, this.httpOptions)
       .subscribe(data => {
         console.log(data);
-        alert('Registro creado exitosamente');
+        alert('Primel pilar creado exitosamente');
         this.router.navigate(['/primerPilarGrid']);
       }, error => {
         console.error(error);
       });
     } else {      
-      console.log('httpOptions no está definido');
+      alert('httpOptions no está definido, intente iniciar sesion nuevamente');
     }
   }
 }

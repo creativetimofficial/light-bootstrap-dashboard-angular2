@@ -8,33 +8,18 @@
                     </div>
                     
                     <div class="content">
-                        <form>
+                        <form #formularioSegundoPilar="ngForm" (ngSubmit)="newPilar()">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Mes</label>
-                                        <br>
-                                        <select name="Meses" id="lang" class="form-control" value=" ">
-                                            <option value="Enero">Enero</option>
-                                            <option value="Febrero">Febrero</option>
-                                            <option value="Marzo">Marzo</option>
-                                            <option value="Abril">Abril</option>
-                                            <option value="Mayo">Mayo</option>
-                                            <option value="Junio">Junio</option>
-                                            <option value="Julio">Julio</option>
-                                            <option value="Agosto">Agosto</option>
-                                            <option value="Septiembre">Septiembre</option>
-                                            <option value="Octubre">Octubre</option>
-                                            <option value="Noviembre">Noviembre</option>
-                                            <option value="Diciembre">Diciembre</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Año</label>
-                                        <br>
-                                        <input type="text" id="Años" name="Años" pattern="^[0-9]+$"class="form-control" maxlength="4">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Fecha</label>
+                                            <div class="input-group date" data-provide="datepicker">
+                                              <input type="date" class="form-control" id ="fecha" name="fecha">
+                                              <div class="input-group-addon">
+                                              </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div> 
                             </div>
