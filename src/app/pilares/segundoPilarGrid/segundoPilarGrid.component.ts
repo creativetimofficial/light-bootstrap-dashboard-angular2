@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 declare interface TableData {
     headerRow: string[];
@@ -18,9 +19,11 @@ export class SegundoPilarGridComponent implements OnInit {
     data: any; // variable para almacenar los datos obtenidos de la llamada
     httpOptions: any;
 
-    constructor(private http: HttpClient) { 
-        this.tableData1 = { headerRow: [], dataRows: [] };
-    }
+      
+    constructor(private http: HttpClient,  private router: Router) { 
+      this.tableData1 = { headerRow: [], dataRows: [] };
+  }
+
   ngOnInit() {
     let token = localStorage.getItem('jwt');
     console.log(token);
@@ -42,5 +45,13 @@ export class SegundoPilarGridComponent implements OnInit {
       this.data = responseData; // almacenar los datos en la variable 'data'
     });
   }
+  editRow(index: number) {
+    // Obtener el ID del elemento que se está editando desde el arreglo de datos
+    const elementId = this.tableData1.dataRows[index][0];
+    console.log(elementId);
+    // Navegar a la página de edición del primer pilar, pasando el ID como parámetro
+    this.router.navigate(['/editarSegundoPilar', elementId]);
+  }
+  
 
 }

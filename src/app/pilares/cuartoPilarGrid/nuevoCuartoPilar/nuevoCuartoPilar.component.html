@@ -7,57 +7,43 @@
                         <h4 class="title">Nuevo cuarto pilar</h4>
                     </div>                    
                     <div class="content">
-                        <form>
+                        <form #formularioCuartoPilar="ngForm" (ngSubmit)="newPilar()">
 
                             <div class="row">
                                 <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Mes</label>
-                                        <br>
-                                        <select name="Meses" id="lang" class="form-control" value=" ">
-                                            <option value="Enero">Enero</option>
-                                            <option value="Febrero">Febrero</option>
-                                            <option value="Marzo">Marzo</option>
-                                            <option value="Abril">Abril</option>
-                                            <option value="Mayo">Mayo</option>
-                                            <option value="Junio">Junio</option>
-                                            <option value="Julio">Julio</option>
-                                            <option value="Agosto">Agosto</option>
-                                            <option value="Septiembre">Septiembre</option>
-                                            <option value="Octubre">Octubre</option>
-                                            <option value="Noviembre">Noviembre</option>
-                                            <option value="Diciembre">Diciembre</option>
-                                        </select>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Fecha</label>
+                                            <div class="input-group date" data-provide="datepicker">
+                                              <input type="date" class="form-control" id ="fecha" name="fecha">
+                                              <div class="input-group-addon">
+                                              </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Año</label>
-                                        <br>
-                                        <input type="text" id="Años" name="Años" pattern="^[0-9]+$"class="form-control" maxlength="4">
-                                    </div>
-                                </div>
+                                </div> 
                             </div>
+
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>N° Servidores de Post-Encuentro activos</label>
                                         <br>
-                                        <input type="text" id="ServidoresPostEnc" name="ServidoresPostEnc" pattern="^[0-9]+$"class="form-control">
+                                        <input type="text" id="numServidoresPostActivos" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>N° FdS Servidores Post-Encuentro en el periodo</label>
                                         <br>
-                                        <input type="text" id="FdsServidoresPostEnc" name="DiocesisTercerPilar" pattern="^[0-9]+$"class="form-control">
+                                        <input type="text" id="numFdsPostPeriodo" name="numFdsPostPeriodo" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>N° Matrimonios que vivieron Servidores Post-Encuentro</label>
                                         <br>
-                                        <input type="text" id="MatrimoniosServidoresPostEnc" name="MatrimoniosServidoresPostEnc" pattern="^[0-9]+$"class="form-control">
+                                        <input type="text" id="numMatrimonioVivieron" name="numMatrimonioVivieron" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -66,21 +52,21 @@
                                     <div class="form-group">
                                         <label>N° de Comunidades de apoyo</label>
                                         <br>
-                                        <input type="text" id="ComunidadesDeApoyo" name="ComunidadesDeApoyo" pattern="^[0-9]+$"class="form-control">
+                                        <input type="text" id="numComunidadApoyo" name="numComunidadApoyo" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>N° de Servidores de comunidad</label>
                                         <br>
-                                        <input type="text" id="ServidoresDeComunidad" name="ServidoresDeComunidad" pattern="^[0-9]+$"class="form-control">
+                                        <input type="text" id="numServiciosComunidad" name="numServiciosComunidad" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>N° de Matrimonios Asistentes por Comunidad</label>
                                         <br>
-                                        <input type="text" id="MatrimoniosAsistentesComunidad" name="MatrimoniosAsistentesComunidad" pattern="^[0-9]+$"class="form-control">
+                                        <input type="text" id="numMatrimoiosComunidad" name="numMatrimoiosComunidad" class="form-control">
                                     </div>
                                 </div>
                             </div>

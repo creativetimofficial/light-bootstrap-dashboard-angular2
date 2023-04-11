@@ -2,21 +2,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { NuevoSegundoPilarComponent } from './nuevoSegundoPilar.component';
+import { EditarPrimerPilarComponent } from './editarPrimerPilar.component';
 
-describe('NuevoPrimerPilarComponent', () => {
-  let component: NuevoSegundoPilarComponent;
-  let fixture: ComponentFixture<NuevoSegundoPilarComponent>;
+describe('EditarPrimerPilarComponent', () => {
+  let component: EditarPrimerPilarComponent;
+  let fixture: ComponentFixture<EditarPrimerPilarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NuevoSegundoPilarComponent ]
+      declarations: [ EditarPrimerPilarComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NuevoSegundoPilarComponent);
+    fixture = TestBed.createComponent(EditarPrimerPilarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 declare interface TableData {
     headerRow: string[];
@@ -14,36 +15,32 @@ declare interface TableData {
 export class TercerPilarGridComponent implements OnInit {
     public tableData1: TableData;
     public tableData2: TableData;
+    data: any; // variable para almacenar los datos obtenidos de la llamada
+    httpOptions: any;
 
-  constructor() { }
-
+    constructor(private http: HttpClient) { 
+        this.tableData1 = { headerRow: [], dataRows: [] };
+    }
   ngOnInit() {
-      this.tableData1 = {
-          headerRow: [ 'Fecha', '#Regiones', '#Diócesis Establecidas', '#Diócesis de Contacto', '#Diócesis de Expansion'],
-          dataRows: [
-              ['00/0000', '1', '1', '1', '2'],
-              ['00/0000', '2', '2', '3', '3'],
-              ['00/0000', '3', '3', '4', '4'],
-              ['00/0000', '4', '5', '2', '5'],
-              ['00/0000', '1', '3', '1', '3'],
-              ['00/0000', '3', '1', '3', '4'],
-              ['00/0000', '4', '1', '1', '5'],
-              ['00/0000', '5', '3', '2', '1']
+    let token = localStorage.getItem('jwt');
+    console.log(token);
+
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
+      })
+    };
 
 
-          ]
-      };
-      this.tableData2 = {
-          headerRow: [ 'ID', 'Name',  'Salary', 'Country', 'City' ],
-          dataRows: [
-              ['1', 'Dakota Rice','$36,738', 'Niger', 'Oud-Turnhout' ],
-              ['2', 'Minerva Hooper', '$23,789', 'Curaçao', 'Sinaai-Waas'],
-              ['3', 'Sage Rodriguez', '$56,142', 'Netherlands', 'Baileux' ],
-              ['4', 'Philip Chaney', '$38,735', 'Korea, South', 'Overland Park' ],
-              ['5', 'Doris Greene', '$63,542', 'Malawi', 'Feldkirchen in Kärnten', ],
-              ['6', 'Mason Porter', '$78,615', 'Chile', 'Gloucester' ]
-          ]
-      };
+
+    this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/pilar/tercerPilar/getAll', this.httpOptions)
+    .subscribe(response => {
+      console.log(response); // ver los datos obtenidos en la consola
+      const responseData = response['response']; // acceder al array 'response' dentro de la respuesta
+      this.tableData1.dataRows = responseData.map(item => Object.values(item)); // almacenar los datos en la variable 'tableData1'
+      this.data = responseData; // almacenar los datos en la variable 'data'
+    });
   }
 
 }

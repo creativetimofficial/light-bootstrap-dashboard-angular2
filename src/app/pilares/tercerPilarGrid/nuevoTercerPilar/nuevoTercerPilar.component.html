@@ -8,53 +8,28 @@
                     </div>
                     
                     <div class="content">
-                        <form>
+                        <form #formularioTercerPilar="ngForm" (ngSubmit)="newPilar()">
 
                             <div class="row">
                                 <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Mes</label>
-                                        <br>
-                                        <select name="Meses" id="lang" class="form-control">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="1">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                        </select>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Fecha</label>
+                                            <div class="input-group date" data-provide="datepicker">
+                                              <input type="date" class="form-control" id ="fecha" name="fecha">
+                                              <div class="input-group-addon">
+                                              </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Año</label>
-                                        <br>
-                                        <select name="Años" id="lang" class="form-control">
-                                            <option value="2022">2022</option>
-                                            <option value="2023">2023</option>
-                                            <option value="2024">2024</option>
-                                            <option value="2025">2025</option>
-                                            <option value="2026">2026</option>
-                                            <option value="2027">2027</option>
-                                            <option value="2028">2028</option>
-                                            <option value="2029">2029</option>
-                                            <option value="2030">2030</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                </div> 
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>N° de Regiones</label>
                                         <br>
-                                        <select name="RegionesTercerPilar" id="lang" class="form-control">
+                                        <select name="numRegiones" id="numRegiones" class="form-control">
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -74,7 +49,7 @@
                                     <div class="form-group">
                                         <label>N° de Diócesis Establecidas</label>
                                         <br>
-                                        <select name="DiocesisTercerPilar" id="lang" class="form-control">
+                                        <select name="numDiocesisEstablecidas" id="numDiocesisEstablecidas" class="form-control">
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -94,7 +69,7 @@
                                     <div class="form-group">
                                         <label>N° de Diócesis Contacto</label>
                                         <br>
-                                        <select name="DiocesisContactoTercerPilar" id="lang" class="form-control">
+                                        <select name="DiocesisContactoTercerPilar" id="numDiocesisContacto" class="form-control">
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -116,7 +91,7 @@
                                     <div class="form-group">
                                         <label>N° de Diócesis en Expansión</label>
                                         <br>
-                                        <select name="DiocesisExpansionTercerPilar" id="lang" class="form-control">
+                                        <select  id="numDiocesisExpansion" class="form-control">
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>

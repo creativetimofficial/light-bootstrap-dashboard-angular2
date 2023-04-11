@@ -36,11 +36,16 @@
                     </div>
                     <div class="content table-responsive table-full-width">
                           <table class="table table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
-                                    </tr>
-                                </thead>
+                            <thead>
+                                <tr>
+                                  <th></th>
+                                  <th>Fecha</th>
+                                  <th>#Regiones</th>
+                                  <th>#Diócesis Establecidas</th>
+                                  <th>#Diócesis de Contacto</th>
+                                  <th>#Diócesis de Expansion</th>                                  
+                                </tr>
+                            </thead>
                                 <tbody>
                                     <tr *ngFor="let row of tableData1.dataRows">
                                         <td *ngFor="let cell of row">{{cell}}</td>
