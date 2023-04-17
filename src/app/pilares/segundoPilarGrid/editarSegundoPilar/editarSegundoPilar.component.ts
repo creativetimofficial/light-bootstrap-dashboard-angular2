@@ -56,7 +56,9 @@ export class EditarSegundoPilarComponent implements OnInit {
     this.obtenerDatosDelPilar(elementId).subscribe(data => {
       // Asignar los datos del elemento al formulario utilizando setValue()
    
-      this.editarSegundoPilarForm.controls['fechaCreacion'].setValue(data.response.fechaCreacion);
+      let fecha = new Date(data.response.fechaCreacion);
+      let fechaFormateada = fecha.toISOString().substring(0, 10);
+      this.editarSegundoPilarForm.controls['fechaCreacion'].setValue(fechaFormateada);
       this.editarSegundoPilarForm.controls['numMatrimosServidoresActivos'].setValue(data.response.numMatrimosServidoresActivos);
       this.editarSegundoPilarForm.controls['numSacerdotesServidoresActivos'].setValue(data.response.numSacerdotesServidoresActivos);
       this.editarSegundoPilarForm.controls['numMatrimosServidoresProfundoActivos'].setValue(data.response.numMatrimosServidoresProfundoActivos);
@@ -85,6 +87,50 @@ export class EditarSegundoPilarComponent implements OnInit {
     return response  
   }
   editarPilar() {
-    
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    const fecha = (document.getElementById("fechaCreacion") as HTMLInputElement).value;
+    const fechaObjeto = new Date(fecha);
+    const fechaCreacion = fechaObjeto.toISOString();
+    const numMatrimosServidoresActivos = (<HTMLInputElement>document.getElementById('numMatrimosServidoresActivos')).value;
+    const numSacerdotesServidoresActivos = (<HTMLInputElement>document.getElementById('numSacerdotesServidoresActivos')).value;
+    const numMatrimosServidoresProfundoActivos = (<HTMLInputElement>document.getElementById('numMatrimosServidoresProfundoActivos')).value;
+    const numSacerdotesServidoresprofundoActivos = (<HTMLInputElement>document.getElementById('numSacerdotesServidoresprofundoActivos')).value;
+    const numFdsProfundosPeriodo = (<HTMLInputElement>document.getElementById('numFdsProfundosPeriodo')).value;
+    const numMatrimosVivieronProfundo = (<HTMLInputElement>document.getElementById('numMatrimosVivieronProfundo')).value;
+    const numSacerdotesVivieronProfundo = (<HTMLInputElement>document.getElementById('numSacerdotesVivieronProfundo')).value;
+    const numMatrimosDebutaronProfundo = (<HTMLInputElement>document.getElementById('numMatrimosDebutaronProfundo')).value;
+    const numSacerdotesDebutaronProfundo = (<HTMLInputElement>document.getElementById('numSacerdotesDebutaronProfundo')).value;
+
+
+    const newSegundoPilar = {
+      id,
+      fechaCreacion,
+      numMatrimosServidoresActivos,
+      numSacerdotesServidoresActivos,
+      numMatrimosServidoresProfundoActivos,
+      numSacerdotesServidoresprofundoActivos,
+      numFdsProfundosPeriodo,
+      numMatrimosVivieronProfundo,
+      numSacerdotesVivieronProfundo,
+      numMatrimosDebutaronProfundo,
+      numSacerdotesDebutaronProfundo
+    };
+
+    const jsonSegundoPilar = JSON.stringify(newSegundoPilar); // Convertir el objeto en una cadena JSON
+    console.log(jsonSegundoPilar);
+
+    if (this.httpOptions) {
+      this.http.post('https://encuentro-matrimonial-backend.herokuapp.com/pilar/segundoPilar/create', jsonSegundoPilar, this.httpOptions)
+      .subscribe(data => {
+        console.log(data);
+        alert('Pilar Actualizado');
+        this.router.navigate(['/segundoPilarGrid']);
+      }, error => {
+        console.error(error);
+      });
+    } else {
+      alert('httpOptions no está definido, intente iniciar sesion nuevamente');
+      console.log('httpOptions no está definido');
+    }
   }
 }

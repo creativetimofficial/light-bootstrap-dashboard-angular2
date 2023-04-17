@@ -27,17 +27,10 @@ export class EditarTercerPilarComponent implements OnInit {
     this.editarTercerPilarForm = this.formBuilder.group({
       id: [null],
       fechaCreacion: [null, Validators.required],
-      numMatrimosServidoresActivos: [null, Validators.required],
-      numSacerdotesServidoresActivos: [null, Validators.required],
-      numMatrimosServidoresProfundoActivos: [null, Validators.required],
-      numSacerdotesServidoresprofundoActivos: [null, Validators.required],
-      numFdsProfundosPeriodo: [null, Validators.required],
-      numReligiosasVivieron: [null, Validators.required],
-      numMatrimosVivieronProfundo: [null, Validators.required],
-      numSacerdotesVivieronProfundo: [null, Validators.required],
-      numMatrimosDebutaronProfundo: [null, Validators.required],
-      numSacerdotesDebutaronProfundo: [null, Validators.required],
-
+      numRegiones: [null, Validators.required],
+      numDiocesisEstablecidas: [null, Validators.required],
+      numDiocesisContacto: [null, Validators.required],
+      numDiocesisExpansion: [null, Validators.required],
     });
   }
   ngOnInit() {
@@ -56,17 +49,13 @@ export class EditarTercerPilarComponent implements OnInit {
     this.obtenerDatosDelPilar(elementId).subscribe(data => {
       // Asignar los datos del elemento al formulario utilizando setValue()
    
-      this.editarTercerPilarForm.controls['fechaCreacion'].setValue(data.response.fechaCreacion);
-      this.editarTercerPilarForm.controls['numMatrimosServidoresActivos'].setValue(data.response.numMatrimosServidoresActivos);
-      this.editarTercerPilarForm.controls['numSacerdotesServidoresActivos'].setValue(data.response.numSacerdotesServidoresActivos);
-      this.editarTercerPilarForm.controls['numMatrimosServidoresProfundoActivos'].setValue(data.response.numMatrimosServidoresProfundoActivos);
-      this.editarTercerPilarForm.controls['numSacerdotesServidoresprofundoActivos'].setValue(data.response.numSacerdotesServidoresprofundoActivos);
-      this.editarTercerPilarForm.controls['numFdsProfundosPeriodo'].setValue(data.response.numFdsProfundosPeriodo);
-      this.editarTercerPilarForm.controls['numMatrimosVivieronProfundo'].setValue(data.response.numMatrimosVivieronProfundo);
-      this.editarTercerPilarForm.controls['numSacerdotesVivieronProfundo'].setValue(data.response.numSacerdotesVivieronProfundo);
-      this.editarTercerPilarForm.controls['numMatrimosDebutaronProfundo'].setValue(data.response.numMatrimosDebutaronProfundo);
-      this.editarTercerPilarForm.controls['numSacerdotesDebutaronProfundo'].setValue(data.response.numSacerdotesDebutaronProfundo);
-
+      let fecha = new Date(data.response.fechaCreacion);
+      let fechaFormateada = fecha.toISOString().substring(0, 10);
+      this.editarTercerPilarForm.controls['fechaCreacion'].setValue(fechaFormateada);
+      this.editarTercerPilarForm.controls['numRegiones'].setValue(data.response.numRegiones);
+      this.editarTercerPilarForm.controls['numDiocesisEstablecidas'].setValue(data.response.numDiocesisEstablecidas);
+      this.editarTercerPilarForm.controls['numDiocesisContacto'].setValue(data.response.numDiocesisContacto);
+      this.editarTercerPilarForm.controls['numDiocesisExpansion'].setValue(data.response.numDiocesisExpansion);
 
       console.log(data.response);
 
@@ -85,6 +74,37 @@ export class EditarTercerPilarComponent implements OnInit {
     return response  
   }
   editarPilar() {
-    
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    const fecha = (document.getElementById("fechaCreacion") as HTMLInputElement).value;
+    const fechaObjeto = new Date(fecha);
+    const fechaCreacion = fechaObjeto.toISOString();
+    const numRegiones = (<HTMLInputElement>document.getElementById('numRegiones')).value;
+    const numDiocesisEstablecidas = (<HTMLInputElement>document.getElementById('numDiocesisEstablecidas')).value;
+    const numDiocesisContacto = (<HTMLInputElement>document.getElementById('numDiocesisContacto')).value;
+    const numDiocesisExpansion = (<HTMLInputElement>document.getElementById('numDiocesisExpansion')).value;
+    const editPrimerPilar = {
+      id,
+      fechaCreacion,
+      numRegiones,
+      numDiocesisEstablecidas,
+      numDiocesisContacto,
+      numDiocesisExpansion   
+    };
+    const jsonTrecerPilar = JSON.stringify(editPrimerPilar); // Convertir el objeto en una cadena JSON
+    console.log(jsonTrecerPilar);
+    console.log(this.httpOptions);
+
+    if (this.httpOptions) {
+      this.http.post('https://encuentro-matrimonial-backend.herokuapp.com/pilar/tercerPilar/update', jsonTrecerPilar, this.httpOptions)
+      .subscribe(data => {
+        console.log(data);
+        alert('Pilar Actualizado');
+        this.router.navigate(['/tercerPilarGrid']);
+      }, error => {
+        console.error(error);
+      });
+    } else {      
+      alert('httpOptions no está definido, intente iniciar sesion nuevamente');
+    }
   }
 }

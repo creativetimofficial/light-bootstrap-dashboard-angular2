@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from '../../home/home.component';
-import { UserComponent } from '../../user/user.component';
+import { UsuariosComponent } from '../../usuarios/usuariosCrear/usuarios.component';
+import { UsuariosGridComponent } from '../../usuarios/usuariosGrid.component';
 import { PrimerPilarGridComponent } from '../../pilares/primerPilarGrid/primerPilarGrid.component';
 import { SegundoPilarGridComponent } from '../../pilares/segundoPilarGrid/segundoPilarGrid.component';
 import { TercerPilarGridComponent } from '../../pilares/tercerPilarGrid/tercerPilarGrid.component';
@@ -21,10 +22,12 @@ import { AuthGuard } from '../../auth.guard';
 import { EditarPrimerPilarComponent } from 'app/pilares/primerPilarGrid/editarPrimerPilar/editarPrimerPilar.component';
 import { EditarSegundoPilarComponent } from 'app/pilares/segundoPilarGrid/editarSegundoPilar/editarSegundoPilar.component';
 import { EditarTercerPilarComponent } from 'app/pilares/tercerPilarGrid/editarTercerPilar/editarTercerPilar.component';
+import { EditarCuartoPilarComponent } from 'app/pilares/cuartoPilarGrid/editarCuartoPilar/editarCuartoPilar.component';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard',component: HomeComponent, canActivate: [AuthGuard]  },
-    { path: 'user',component: UserComponent, canActivate: [AuthGuard]  },
+    { path: 'dashboard',component: HomeComponent },
+    { path: 'usuariosGrid',component: UsuariosGridComponent, canActivate: [AuthGuard]  },
+    { path: 'usuarios',component: UsuariosComponent, canActivate: [AuthGuard]  },
     { path: 'primerPilarGrid',component: PrimerPilarGridComponent, canActivate: [AuthGuard] },
     { path: 'segundoPilarGrid',component: SegundoPilarGridComponent, canActivate: [AuthGuard]  },
     { path: 'tercerPilarGrid',component: TercerPilarGridComponent, canActivate: [AuthGuard]  },
@@ -44,5 +47,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'editarPrimerPilar/:id', component: EditarPrimerPilarComponent },
     { path: 'editarSegundoPilar/:id', component: EditarSegundoPilarComponent },
     { path: 'editarTercerPilar/:id', component: EditarTercerPilarComponent  },
+    { path: 'editarCuartoPilar/:id', component: EditarCuartoPilarComponent  },
+
 
 ];

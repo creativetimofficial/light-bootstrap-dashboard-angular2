@@ -43,12 +43,22 @@
                                   <th>#Regiones</th>
                                   <th>#Diócesis Establecidas</th>
                                   <th>#Diócesis de Contacto</th>
-                                  <th>#Diócesis de Expansion</th>                                  
+                                  <th>#Diócesis de Expansion</th>  
+                                  <th>Acciones</th>
+                                
                                 </tr>
                             </thead>
                                 <tbody>
-                                    <tr *ngFor="let row of tableData1.dataRows">
+                                    <tr *ngFor="let row of tableData1.dataRows; let i=index">
                                         <td *ngFor="let cell of row">{{cell}}</td>
+                                        <td>
+                                            <button (click)="editRow(i)">
+                                                <i class="fas fa-edit"></i>
+                                            </button>    
+                                            <button (click)="deleteRow(i)">
+                                                <i class="fas fa-trash"></i>
+                                            </button>                                     
+                                        </td>   
                                     </tr>
                                 </tbody>
                           </table>

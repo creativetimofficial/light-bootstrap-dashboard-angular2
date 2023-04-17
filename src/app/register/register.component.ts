@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from "../user/user.service";
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,13 +12,10 @@ export class RegisterComponent implements OnInit {
   password: string;
   confirmPassword: string;
 
-  constructor(public userService: UsersService, public router: Router) {}
+  constructor() {}
 
   register() {
-    const user = { email: this.email, password: this.password };
-    this.userService.register(user).subscribe(data => {
-      //this.userService.setToken(data.token);
-    });
+   
   }
   ngOnInit() {
   }

@@ -26,14 +26,14 @@ export class NuevoPrimerPilarComponent implements OnInit {
   }
 
   newPilar() {
-    const fecha = (document.getElementById("fecha") as HTMLInputElement).value;
+    const fecha = (document.getElementById("fechaCreacion") as HTMLInputElement).value;
     const fechaObjeto = new Date(fecha);
     const fechaCreacion = fechaObjeto.toISOString();
-    const numFDS = (<HTMLInputElement>document.getElementById('FinSemana')).value;
-    const numMatrinoniosVivieron = (<HTMLInputElement>document.getElementById('MatrimoniosVividos')).value;
-    const numSacerdotesVivieron = (<HTMLInputElement>document.getElementById('SacerdotesVividos')).value;
-    const numReligiososVivieron = (<HTMLInputElement>document.getElementById('ReligiososVividos')).value;
-    const numReligiosasVivieron = (<HTMLInputElement>document.getElementById('ReligiosasVividos')).value;
+    const numFDS = (<HTMLInputElement>document.getElementById('numFDS')).value;
+    const numMatrinoniosVivieron = (<HTMLInputElement>document.getElementById('numMatrinoniosVivieron')).value;
+    const numSacerdotesVivieron = (<HTMLInputElement>document.getElementById('numSacerdotesVivieron')).value;
+    const numReligiososVivieron = (<HTMLInputElement>document.getElementById('numReligiososVivieron')).value;
+    const numReligiosasVivieron = (<HTMLInputElement>document.getElementById('numReligiosasVivieron')).value;
     const newPrimerPilar = {
       fechaCreacion,
       numFDS,

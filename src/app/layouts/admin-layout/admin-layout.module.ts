@@ -6,7 +6,7 @@ import { LbdModule } from '../../lbd/lbd.module';
 import { NguiMapModule} from '@ngui/map';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { HomeComponent } from '../../home/home.component';
-import { UserComponent } from '../../user/user.component';
+import { UsuariosGridComponent } from '../../usuarios/usuariosGrid.component';
 import { PrimerPilarGridComponent } from '../../pilares/primerPilarGrid/primerPilarGrid.component';
 import { SegundoPilarGridComponent } from '../../pilares/segundoPilarGrid/segundoPilarGrid.component';
 import { TercerPilarGridComponent } from '../../pilares/tercerPilarGrid/tercerPilarGrid.component';
@@ -24,6 +24,7 @@ import { NuevoCuartoPilarComponent } from '../../pilares/cuartoPilarGrid/nuevoCu
 import { EditarPrimerPilarComponent } from 'app/pilares/primerPilarGrid/editarPrimerPilar/editarPrimerPilar.component';
 import { EditarSegundoPilarComponent } from 'app/pilares/segundoPilarGrid/editarSegundoPilar/editarSegundoPilar.component';
 import { EditarTercerPilarComponent } from 'app/pilares/tercerPilarGrid/editarTercerPilar/editarTercerPilar.component';
+import { EditarCuartoPilarComponent } from 'app/pilares/cuartoPilarGrid/editarCuartoPilar/editarCuartoPilar.component';
 
 @NgModule({
   imports: [
@@ -32,11 +33,10 @@ import { EditarTercerPilarComponent } from 'app/pilares/tercerPilarGrid/editarTe
     FormsModule,
     LbdModule,
     ReactiveFormsModule,
-    NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE'})
   ],
   declarations: [
     HomeComponent,
-    UserComponent,
+    UsuariosGridComponent,
     PrimerPilarGridComponent,
     SegundoPilarGridComponent,
     TercerPilarGridComponent,
@@ -55,7 +55,8 @@ import { EditarTercerPilarComponent } from 'app/pilares/tercerPilarGrid/editarTe
     NuevoCuartoPilarComponent,
     EditarPrimerPilarComponent,
     EditarSegundoPilarComponent,
-    EditarTercerPilarComponent
+    EditarTercerPilarComponent,
+    EditarCuartoPilarComponent
   ]
 })
 

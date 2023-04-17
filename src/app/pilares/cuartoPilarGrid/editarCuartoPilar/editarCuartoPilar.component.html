@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <script>
+        $( function() {
+            $( "#fechaCreacion" ).datepicker();
+        } );
+        </script>
+    </head>
+<body>
+    <div class="main-content" >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Editar Cuarto pilar</h4>
+                        </div>                        
+                        <div class="content">
+                            <form [formGroup]="editarCuartoPilarForm" (ngSubmit)="editarPilar()">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Fecha</label>
+                                                <div class="input-group date" data-provide="datepicker">
+                                                    <input type="date" class="form-control" id="fechaCreacion" formControlName="fechaCreacion">
+                                                    <div class="input-group-addon">
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+    
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>N° Servidores de Post-Encuentro activos</label>
+                                            <br>
+                                            <input type="text" id="numServidoresPostActivos" formControlName="numServidoresPostActivos" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>N° FdS Servidores Post-Encuentro en el periodo</label>
+                                            <br>
+                                            <input type="text" id="numFdsPostPeriodo" formControlName="numFdsPostPeriodo" name="numFdsPostPeriodo" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>N° Matrimonios que vivieron Servidores Post-Encuentro</label>
+                                            <br>
+                                            <input type="text" id="numMatrimonioVivieron" formControlName="numMatrimonioVivieron" name="numMatrimonioVivieron" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>N° de Comunidades de apoyo</label>
+                                            <br>
+                                            <input type="text" id="numComunidadApoyo" formControlName="numComunidadApoyo" name="numComunidadApoyo" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>N° de Servidores de comunidad</label>
+                                            <br>
+                                            <input type="text" id="numServiciosComunidad" formControlName="numServiciosComunidad" name="numServiciosComunidad" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>N° de Matrimonios Asistentes por Comunidad</label>
+                                            <br>
+                                            <input type="text" id="numMatrimoiosComunidad" formControlName="numMatrimoiosComunidad" name="numMatrimoiosComunidad" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <button type="submit" class="boton-rojo">Guardar</button>
+                                        <a routerLink="/cuartoPilarGrid" class="boton-gris">Cancelar</a>                                
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>           
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+</body>
+</html>
