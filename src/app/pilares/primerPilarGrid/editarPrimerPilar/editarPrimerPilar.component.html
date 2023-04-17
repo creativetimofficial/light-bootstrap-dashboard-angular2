@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <script>
+        $( function() {
+            $( "#fechaCreacion" ).datepicker();
+        } );
+        </script>
+    </head>
+<body>
+    <div class="main-content" >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Editar primer pilar</h4>
+                        </div>
+                        
+                        <div class="content">
+                            <form [formGroup]="editarPrimerPilarForm" (ngSubmit)="editarPilar()">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Fecha</label>
+                                            <div class="input-group date" data-provide="datepicker">
+                                                <input type="date" class="form-control" id="fechaCreacion" formControlName="fechaCreacion">
+                                                <div class="input-group-addon">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                  
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>N° de Fin de semana</label>
+                                            <br>                                            
+                                            <input type="text" id="numFDS" formControlName="numFDS"  pattern="^[0-9]+$" class="form-control">
+                                        </div>
+                                    </div>  
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>N° de Religiosas que lo vivieron</label>
+                                                <br>
+                                                <input type="text" id="numReligiosasVivieron" formControlName="numReligiosasVivieron" name="numReligiosasVivieron" pattern="^[0-9]+$"class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>N° de Matrimonios que lo vivieron</label>
+                                            <br>
+                                            <input type="text" id="numMatrinoniosVivieron" formControlName="numMatrinoniosVivieron" name="numMatrinoniosVivieron" pattern="^[0-9]+$"class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>N° de Sacerdotes que lo vivieron</label>
+                                            <br>
+                                            <input type="text" id="numSacerdotesVivieron" formControlName="numSacerdotesVivieron" name="numSacerdotesVivieron" pattern="^[0-9]+$"class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>N° de Religiosos que lo vivieron</label>
+                                            <br>
+                                            <input type="text" id="numReligiososVivieron" formControlName="numReligiososVivieron" name="numReligiososVivieron" pattern="^[0-9]+$"class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                             
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <button type="submit" class="boton-rojo">Guardar</button>
+                                        <a routerLink="/primerPilarGrid" class="boton-gris">Cancelar</a>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>           
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+</body>
+</html>

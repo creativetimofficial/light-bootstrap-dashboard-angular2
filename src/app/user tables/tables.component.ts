@@ -8,7 +8,8 @@ declare interface TableData {
 @Component({
   selector: 'app-tables',
   templateUrl: './tables.component.html',
-  styleUrls: ['./tables.component.css']
+  styleUrls: ['./tables.component.css']  
+
 })
 export class TablesComponent implements OnInit {
     public tableData1: TableData;

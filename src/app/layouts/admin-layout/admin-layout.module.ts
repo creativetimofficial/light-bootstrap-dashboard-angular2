@@ -2,14 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { LbdModule } from '../../lbd/lbd.module';
 import { NguiMapModule} from '@ngui/map';
-
 import { AdminLayoutRoutes } from './admin-layout.routing';
-
 import { HomeComponent } from '../../home/home.component';
-import { UserComponent } from '../../user/user.component';
+import { UsuariosGridComponent } from '../../usuarios/usuariosGrid.component';
 import { PrimerPilarGridComponent } from '../../pilares/primerPilarGrid/primerPilarGrid.component';
 import { SegundoPilarGridComponent } from '../../pilares/segundoPilarGrid/segundoPilarGrid.component';
 import { TercerPilarGridComponent } from '../../pilares/tercerPilarGrid/tercerPilarGrid.component';
@@ -20,12 +17,14 @@ import { FormationComponent } from '../../formation/formation.component';
 import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
-// import { RegisterComponent } from '../../register/register.component';
-
 import { NuevoPrimerPilarComponent } from '../../pilares/primerPilarGrid/nuevoPrimerPilar/nuevoPrimerPilar.component';
 import { NuevoSegundoPilarComponent } from '../../pilares/segundoPilarGrid/nuevoSegundoPilar/nuevoSegundoPilar.component';
 import { NuevoTercerPilarComponent } from '../../pilares/tercerPilarGrid/nuevoTercerPilar/nuevoTercerPilar.component';
 import { NuevoCuartoPilarComponent } from '../../pilares/cuartoPilarGrid/nuevoCuartoPilar/nuevoCuartoPilar.component';
+import { EditarPrimerPilarComponent } from 'app/pilares/primerPilarGrid/editarPrimerPilar/editarPrimerPilar.component';
+import { EditarSegundoPilarComponent } from 'app/pilares/segundoPilarGrid/editarSegundoPilar/editarSegundoPilar.component';
+import { EditarTercerPilarComponent } from 'app/pilares/tercerPilarGrid/editarTercerPilar/editarTercerPilar.component';
+import { EditarCuartoPilarComponent } from 'app/pilares/cuartoPilarGrid/editarCuartoPilar/editarCuartoPilar.component';
 
 @NgModule({
   imports: [
@@ -33,11 +32,11 @@ import { NuevoCuartoPilarComponent } from '../../pilares/cuartoPilarGrid/nuevoCu
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
     LbdModule,
-    NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE'})
+    ReactiveFormsModule,
   ],
   declarations: [
     HomeComponent,
-    UserComponent,
+    UsuariosGridComponent,
     PrimerPilarGridComponent,
     SegundoPilarGridComponent,
     TercerPilarGridComponent,
@@ -53,7 +52,11 @@ import { NuevoCuartoPilarComponent } from '../../pilares/cuartoPilarGrid/nuevoCu
     NuevoPrimerPilarComponent,
     NuevoSegundoPilarComponent,
     NuevoTercerPilarComponent,
-    NuevoCuartoPilarComponent
+    NuevoCuartoPilarComponent,
+    EditarPrimerPilarComponent,
+    EditarSegundoPilarComponent,
+    EditarTercerPilarComponent,
+    EditarCuartoPilarComponent
   ]
 })
 

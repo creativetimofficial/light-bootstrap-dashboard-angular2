@@ -5,7 +5,7 @@ declare const $: any;
 declare interface RouteInfo {
     path?: string;
     title: string;
-    icon: string;
+    icon?: string;
     class: string;
     tooltip?: string; // Tooltip text
     type?: 'link' | 'dropDown' | 'icon' | 'separator' | 'extLink';
@@ -22,12 +22,8 @@ interface IChildItem {
 }
 
 export const ROUTES: RouteInfo[] = [
-    
-    { path: '/user', title: 'Usuarios',  icon:'pe-7s-add-user', class: '', type:'link' },
-    // { path: '/UserTable', title: 'Listado Usuario',  icon:'pe-7s-user', class: '' },
-    { title: 'Pilares',  icon:'', class: '', type:'dropDown', tooltip:'Pages', sub:[
-        
-      ] },
+    { path: '/usuariosGrid', title: 'Lista usuarios',  icon:'pe-7s-add-user', class: '', type:'link' },
+    { title: 'Pilares',  icon:'', class: '', type:'dropDown', tooltip:'Pages', sub:[] },
     { path: '/primerPilarGrid', title: 'Primer pilar',  icon:'pe-7s-plugin', class: '', type:'link' },
     { path: '/segundoPilarGrid', title: 'Segundo pilar',  icon:'pe-7s-plugin', class: '', type:'link' },
     { path: '/tercerPilarGrid', title: 'Tercer pilar',  icon:'pe-7s-plugin', class: '', type:'link' },
@@ -38,9 +34,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/icons', title: 'Reportes',  icon:'pe-7s-note2', class: '', type:'link' },
     { path: '/register', title: 'Registro',  icon:'pe-7s-note', class: '', type:'link' },
     { path: '/maps', title: 'Cerrar sesión',  icon:'pe-7s-power', class: '', type:'link' },
-
-  ]
-
+    ]
 
 @Component({
   selector: 'app-sidebar',

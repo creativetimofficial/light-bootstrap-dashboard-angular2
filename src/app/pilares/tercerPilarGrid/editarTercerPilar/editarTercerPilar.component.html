@@ -1,0 +1,140 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <script>
+        $( function() {
+            $( "#fechaCreacion" ).datepicker();
+        } );
+        </script>
+    </head>
+<body>
+    <div class="main-content" >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Editar Tercer pilar</h4>
+                        </div>
+                        
+                        <div class="content">
+                            <form [formGroup]="editarTercerPilarForm" (ngSubmit)="editarPilar()">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Fecha</label>
+                                                <div class="input-group date" data-provide="datepicker">
+                                                    <input type="date" class="form-control" id="fechaCreacion" formControlName="fechaCreacion">
+                                                    <div class="input-group-addon">
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>N° de Regiones</label>
+                                            <br>
+                                            <select name="numRegiones" id="numRegiones" formControlName="numRegiones" class="form-control">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="1">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>N° de Diócesis Establecidas</label>
+                                            <br>
+                                            <select name="numDiocesisEstablecidas" id="numDiocesisEstablecidas" formControlName="numDiocesisEstablecidas" class="form-control">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="1">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>N° de Diócesis Contacto</label>
+                                            <br>
+                                            <select name="numDiocesisContacto"  id="numDiocesisContacto" formControlName="numDiocesisContacto" class="form-control">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="1">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>N° de Diócesis en Expansión</label>
+                                            <br>
+                                            <select  id="numDiocesisExpansion" formControlName="numDiocesisExpansion" class="form-control">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="1">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <button type="submit" class="boton-rojo">Guardar</button>
+                                        <a routerLink="/tercerPilarGrid" class="boton-gris">Cancelar</a>                                
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>           
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+</body>
+</html>

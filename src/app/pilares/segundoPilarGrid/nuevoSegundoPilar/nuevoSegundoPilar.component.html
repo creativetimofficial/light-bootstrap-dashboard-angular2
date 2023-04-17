@@ -8,43 +8,18 @@
                     </div>
                     
                     <div class="content">
-                        <form>
+                        <form #formularioSegundoPilar="ngForm" (ngSubmit)="newPilar()">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Mes</label>
-                                        <br>
-                                        <select name="Meses" id="lang" class="form-control">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="1">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Año</label>
-                                        <br>
-                                        <select name="Años" id="lang" class="form-control">
-                                            <option value="2022">2022</option>
-                                            <option value="2023">2023</option>
-                                            <option value="2024">2024</option>
-                                            <option value="2025">2025</option>
-                                            <option value="2026">2026</option>
-                                            <option value="2027">2027</option>
-                                            <option value="2028">2028</option>
-                                            <option value="2029">2029</option>
-                                            <option value="2030">2030</option>
-                                        </select>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Fecha</label>
+                                            <div class="input-group date" data-provide="datepicker">
+                                              <input type="date" class="form-control" id ="fecha" name="fecha">
+                                              <div class="input-group-addon">
+                                              </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div> 
                             </div>
@@ -54,60 +29,21 @@
                                     <div class="form-group">
                                         <label>N° de Matrimonios Servidores de FdS activos</label>
                                         <br>
-                                        <select name="MatrimoniosServidores" id="lang" class="form-control">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="1">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                        </select>
+                                        <input type="text" id="MatrimoniosServidores" name="MatrimoniosServidores" pattern="^[0-9]+$"class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>N° de Sacerdotes Servidores de FdS activos</label>
                                         <br>
-                                        <select name="SacerdotesServidores" id="lang" class="form-control">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="1">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                        </select>
+                                        <input type="text" id="SacerdotesServidores" name="SacerdotesServidores" pattern="^[0-9]+$"class="form-control">
                                     </div>
                                 </div> 
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>N° de Matrimonios Servidores de FdS profundos activos</label>
                                         <br>
-                                        <select name="MatrimoniosProfundosServidores" id="lang" class="form-control">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="1">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                        </select>
+                                        <input type="text" id="MatrimoniosProfundosServidores" name="MatrimoniosProfundosServidores" pattern="^[0-9]+$"class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -117,60 +53,21 @@
                                     <div class="form-group">
                                         <label>N° de Sacerdotes Servidores de FdS profundos activos</label>
                                         <br>
-                                        <select name="SacerdotesProfundosServidores" id="lang" class="form-control">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="1">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                        </select>
+                                        <input type="text" id="SacerdotesProfundosServidores" name="SacerdotesProfundosServidores" pattern="^[0-9]+$"class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>N° de fines de semana Profundos en el periodo</label>
                                         <br>
-                                        <select name="FdSProfundosPeriodo" id="lang" class="form-control">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="1">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                        </select>
+                                        <input type="text" id="FdSProfundosPeriodo" name="FdSProfundosPeriodo" pattern="^[0-9]+$"class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>N° de Matrimonios que vivieron FdS Profundo</label>
                                         <br>
-                                        <select name="MatrimoniosProfundosVividos" id="lang" class="form-control">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="1">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                        </select>
+                                        <input type="text" id="MatrimoniosProfundosVividos" name="MatrimoniosProfundosVividos" pattern="^[0-9]+$"class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -180,68 +77,29 @@
                                     <div class="form-group">
                                         <label>N° de Sacerdotes que vivieron FdS profundo</label>
                                         <br>
-                                        <select name="SacerdotesProfundosVividos" id="lang" class="form-control">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="1">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                        </select>
+                                        <input type="text" id="SacerdotesProfundosVividos" name="SacerdotesProfundosVividos" pattern="^[0-9]+$" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>N° de Matrimonios que debutaron después de FdS Profundo</label>
                                         <br>
-                                        <select name="MatrimoniosProfundosDebutados" id="lang" class="form-control">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="1">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                        </select>
+                                        <input type="text" id="MatrimoniosProfundosDebutados" name="MatrimoniosProfundosDebutados" pattern="^[0-9]+$" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>N° de Sacerdotes que debutaron después de FdS Profundo</label>
                                         <br>
-                                        <select name="SacerdotesProfundosDebutados" id="lang" class="form-control">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="1">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                        </select>
+                                        <input type="text" id="SacerdotesProfundosDebutados" name="SacerdotesProfundosDebutados" pattern="^[0-9]+$" class="form-control">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-3">
-                                    <button type="submit" class="btn btn-info btn-fill pull-right">Crear nuevo</button>
-                                    <button type="submit" class="btn btn-info btn-fill pull-right">Cancelar</button>
+                                    <button type="submit" class="boton-rojo">Crear nuevo</button>
+                                    <a routerLink="/segundoPilarGrid" class="boton-gris">Cancelar</a>
                                 </div>
                             </div>
                             

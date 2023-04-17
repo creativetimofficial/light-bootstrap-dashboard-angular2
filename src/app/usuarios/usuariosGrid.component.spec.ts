@@ -1,23 +1,23 @@
-/* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {Router} from '@angular/router';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { UserComponent } from './user.component';
+import { UsuariosGridComponent } from './usuariosGrid.component';
 
-describe('UserComponent', () => {
-  let component: UserComponent;
-  let fixture: ComponentFixture<UserComponent>;
+describe('UsuariosGridComponent', () => {
+  let component: UsuariosGridComponent;
+  let fixture: ComponentFixture<UsuariosGridComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserComponent ]
+      declarations: [ UsuariosGridComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserComponent);
+    fixture = TestBed.createComponent(UsuariosGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

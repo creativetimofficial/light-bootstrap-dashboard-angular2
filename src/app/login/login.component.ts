@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from "../user/user.service";
+import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-
 
 @Component({
   selector: 'app-login',
@@ -13,34 +11,26 @@ export class LoginComponent implements OnInit {
 
   email: string;
   password: string;
+  username: string;
 
-  constructor(public userService: UsersService, public router: Router, public http: HttpClient) {}
+  constructor(public authService: AuthService, public router: Router) {}
 
-  login() {
-    debugger
-    const url = 'https://encuentro-matrimonial-backend.herokuapp.com/login';
-    const body = {
-      username: 'admin',
-      password: 'admin'
-    };
-    return this.http.post(url, body);
+  async login(username: string, password: string) {
+    try {
+      await this.authService.login(username, password).toPromise();
+      // navegar al componente de la página principal si la respuesta es exitosa
+      this.router.navigate(['/dashboard']);
+    } catch (error) {
+      console.error(error);
+      // manejar el error aquí
+    }
   }
 
-  // login() {
-  //   const user = { email: this.email, password: this.password };
-  //   this.userService.login(user).subscribe(
-  //     data => {
-  //       //this.userService.setToken(data.token);
-  //       this.router.navigateByUrl('/');
-  //     },
-  //     error => {
-  //       console.log(error);
-  //     });
-  // }
   register() {
     const user = { email: this.email, password: this.password };
     this.router.navigateByUrl('/register');
   }
+
   ngOnInit() {
   }
 
