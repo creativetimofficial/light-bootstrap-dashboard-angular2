@@ -21,21 +21,36 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-danger btn-fill pull-right">Crear nuevo</button>                                
+                                    <a  routerLink="/nuevoMatrimonio" type="submit" class="boton-rojo pull-right">Crear nuevo</a>                                
                                 </div>
                             </div>
                     </div>             
                     </div>
                     <div class="content table-responsive table-full-width">
                           <table class="table table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
-                                    </tr>
-                                </thead>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Fecha</th>
+                                    <th>#FDS</th>
+                                    <th>#Matrimonios</th>
+                                    <th>#Sacerdotes</th>
+                                    <th>#Religiosos</th>   
+                                    <th>#Religiosas</th>   
+                                    <th>Acciones</th>                                    
+                                </tr>
+                            </thead>
                                 <tbody>
-                                    <tr *ngFor="let row of tableData1.dataRows">
+                                    <tr *ngFor="let row of tableData1.dataRows; let i=index">
                                         <td *ngFor="let cell of row">{{cell}}</td>
+                                        <td>
+                                            <button (click)="editRow(i)">
+                                                <i class="fas fa-edit"></i>
+                                            </button>    
+                                            <button (click)="deleteRow(i)">
+                                                <i class="fas fa-trash"></i>
+                                            </button>                                     
+                                        </td>   
                                     </tr>
                                 </tbody>
                           </table>

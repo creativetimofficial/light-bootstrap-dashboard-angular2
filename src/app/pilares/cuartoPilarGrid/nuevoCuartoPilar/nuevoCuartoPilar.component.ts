@@ -36,8 +36,8 @@ export class NuevoCuartoPilarComponent implements OnInit {
     const numComunidadApoyo = (<HTMLInputElement>document.getElementById('numComunidadApoyo')).value;
     const numServiciosComunidad = (<HTMLInputElement>document.getElementById('numServiciosComunidad')).value;
     const numMatrimoiosComunidad = (<HTMLInputElement>document.getElementById('numMatrimoiosComunidad')).value;
-
-
+    const numSacerdotesComunidad = (<HTMLInputElement>document.getElementById('numSacerdotesComunidad')).value;
+    const numReligiososComunidad = (<HTMLInputElement>document.getElementById('numReligiososComunidad')).value;
 
     const jsonCuartoPilar = {
       fechaCreacion,
@@ -46,7 +46,9 @@ export class NuevoCuartoPilarComponent implements OnInit {
       numMatrimonioVivieron,
       numComunidadApoyo, 
       numServiciosComunidad,     
-      numMatrimoiosComunidad,     
+      numMatrimoiosComunidad,
+      numSacerdotesComunidad,
+      numReligiososComunidad
     };
 
     const jsonSegundoPilar = JSON.stringify(jsonCuartoPilar); // Convertir el objeto en una cadena JSON

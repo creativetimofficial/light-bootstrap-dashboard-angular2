@@ -24,6 +24,12 @@ import { EditarSegundoPilarComponent } from 'app/pilares/segundoPilarGrid/editar
 import { EditarTercerPilarComponent } from 'app/pilares/tercerPilarGrid/editarTercerPilar/editarTercerPilar.component';
 import { EditarCuartoPilarComponent } from 'app/pilares/cuartoPilarGrid/editarCuartoPilar/editarCuartoPilar.component';
 
+import { NuevoSacerdoteComponent } from 'app/formacion/sacerdotesGrid/nuevoSacerdote/nuevoSacerdote.component';
+import { EditarSacerdoteComponent } from 'app/formacion/sacerdotesGrid/editarSacerdote/editarSacerdote.component';
+import { NuevoMatrimonioComponent } from 'app/formacion/matrimoniosGrid/nuevoMatrimonio/nuevoMatrimonio.component';
+import { EditarMatrimonioComponent } from 'app/formacion/matrimoniosGrid/editarMatrimonio/editarMatrimonio.component';
+
+
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',component: HomeComponent },
     { path: 'usuariosGrid',component: UsuariosGridComponent, canActivate: [AuthGuard]  },
@@ -48,6 +54,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'editarSegundoPilar/:id', component: EditarSegundoPilarComponent },
     { path: 'editarTercerPilar/:id', component: EditarTercerPilarComponent  },
     { path: 'editarCuartoPilar/:id', component: EditarCuartoPilarComponent  },
-
-
+    { path: 'nuevoMatrimonio',component: NuevoMatrimonioComponent },
+    { path: 'editarMatrimonio/:id',component: EditarMatrimonioComponent },
+    { path: 'nuevoSacerdote',component: NuevoSacerdoteComponent },
+    { path: 'editarSacerdote/:id',component: EditarSacerdoteComponent },
 ];

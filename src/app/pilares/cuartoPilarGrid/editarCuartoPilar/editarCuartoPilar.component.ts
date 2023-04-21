@@ -33,6 +33,8 @@ export class EditarCuartoPilarComponent implements OnInit {
       numComunidadApoyo: [null, Validators.required],
       numServiciosComunidad: [null, Validators.required],
       numMatrimoiosComunidad: [null, Validators.required],
+      numSacerdotesComunidad: [null, Validators.required],
+      numReligiososComunidad: [null, Validators.required],
 
 
     });
@@ -62,6 +64,8 @@ export class EditarCuartoPilarComponent implements OnInit {
       this.editarCuartoPilarForm.controls['numComunidadApoyo'].setValue(data.response.numComunidadApoyo);
       this.editarCuartoPilarForm.controls['numServiciosComunidad'].setValue(data.response.numServiciosComunidad);
       this.editarCuartoPilarForm.controls['numMatrimoiosComunidad'].setValue(data.response.numMatrimoiosComunidad);
+      this.editarCuartoPilarForm.controls['numSacerdotesComunidad'].setValue(data.response.numSacerdotesComunidad);
+      this.editarCuartoPilarForm.controls['numReligiososComunidad'].setValue(data.response.numReligiososComunidad);
 
       console.log(data.response);
 
@@ -91,6 +95,8 @@ export class EditarCuartoPilarComponent implements OnInit {
     const numComunidadApoyo = (<HTMLInputElement>document.getElementById('numComunidadApoyo')).value;
     const numServiciosComunidad = (<HTMLInputElement>document.getElementById('numServiciosComunidad')).value;
     const numMatrimoiosComunidad = (<HTMLInputElement>document.getElementById('numMatrimoiosComunidad')).value;
+    const numSacerdotesComunidad = (<HTMLInputElement>document.getElementById('numSacerdotesComunidad')).value;
+    const numReligiososComunidad = (<HTMLInputElement>document.getElementById('numReligiososComunidad')).value;
 
     const editCuartoPilar = {
       id,
@@ -100,7 +106,9 @@ export class EditarCuartoPilarComponent implements OnInit {
       numMatrimonioVivieron,
       numComunidadApoyo,
       numServiciosComunidad,
-      numMatrimoiosComunidad
+      numMatrimoiosComunidad,
+      numSacerdotesComunidad,
+      numReligiososComunidad
     };
     const jsonCuartoPilar = JSON.stringify(editCuartoPilar); // Convertir el objeto en una cadena JSON
     console.log(jsonCuartoPilar);

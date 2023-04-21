@@ -22,7 +22,7 @@ interface IChildItem {
 }
 
 export const ROUTES: RouteInfo[] = [
-    { path: '/usuariosGrid', title: 'Lista usuarios',  icon:'pe-7s-add-user', class: '', type:'link' },
+    { path: '/usuariosGrid', title: 'Lista usuarios', icon:'pe-7s-add-user', class: '', type:'link' },
     { title: 'Pilares',  icon:'', class: '', type:'dropDown', tooltip:'Pages', sub:[] },
     { path: '/primerPilarGrid', title: 'Primer pilar',  icon:'pe-7s-plugin', class: '', type:'link' },
     { path: '/segundoPilarGrid', title: 'Segundo pilar',  icon:'pe-7s-plugin', class: '', type:'link' },
