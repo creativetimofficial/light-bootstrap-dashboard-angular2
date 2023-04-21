@@ -33,14 +33,12 @@ export class NuevoPrimerPilarComponent implements OnInit {
     const numMatrinoniosVivieron = (<HTMLInputElement>document.getElementById('numMatrinoniosVivieron')).value;
     const numSacerdotesVivieron = (<HTMLInputElement>document.getElementById('numSacerdotesVivieron')).value;
     const numReligiososVivieron = (<HTMLInputElement>document.getElementById('numReligiososVivieron')).value;
-    const numReligiosasVivieron = (<HTMLInputElement>document.getElementById('numReligiosasVivieron')).value;
     const newPrimerPilar = {
       fechaCreacion,
       numFDS,
       numMatrinoniosVivieron,
       numSacerdotesVivieron,
-      numReligiososVivieron,
-      numReligiosasVivieron
+      numReligiososVivieron      
     };
     const jsonPrimerPilar = JSON.stringify(newPrimerPilar); // Convertir el objeto en una cadena JSON
     console.log(jsonPrimerPilar);

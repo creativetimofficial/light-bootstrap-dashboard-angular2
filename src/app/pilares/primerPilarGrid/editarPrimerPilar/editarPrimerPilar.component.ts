@@ -56,7 +56,6 @@ export class EditarPrimerPilarComponent implements OnInit {
       this.editarPrimerPilarForm.controls['numMatrinoniosVivieron'].setValue(data.response.numMatrinoniosVivieron);
       this.editarPrimerPilarForm.controls['numSacerdotesVivieron'].setValue(data.response.numSacerdotesVivieron);
       this.editarPrimerPilarForm.controls['numReligiososVivieron'].setValue(data.response.numReligiososVivieron);
-      this.editarPrimerPilarForm.controls['numReligiosasVivieron'].setValue(data.response.numReligiosasVivieron);
       
 
       console.log(data.response);
@@ -84,7 +83,6 @@ export class EditarPrimerPilarComponent implements OnInit {
     const numMatrinoniosVivieron = (<HTMLInputElement>document.getElementById('numMatrinoniosVivieron')).value;
     const numSacerdotesVivieron = (<HTMLInputElement>document.getElementById('numSacerdotesVivieron')).value;
     const numReligiososVivieron = (<HTMLInputElement>document.getElementById('numReligiososVivieron')).value;
-    const numReligiosasVivieron = (<HTMLInputElement>document.getElementById('numReligiosasVivieron')).value;
     const editPrimerPilar = {
       id,
       fechaCreacion,
@@ -92,7 +90,6 @@ export class EditarPrimerPilarComponent implements OnInit {
       numMatrinoniosVivieron,
       numSacerdotesVivieron,
       numReligiososVivieron,
-      numReligiosasVivieron
     };
     const jsonPrimerPilar = JSON.stringify(editPrimerPilar); // Convertir el objeto en una cadena JSON
     console.log(jsonPrimerPilar);

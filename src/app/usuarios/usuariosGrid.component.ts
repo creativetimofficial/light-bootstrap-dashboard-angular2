@@ -34,8 +34,8 @@ export class UsuariosGridComponent implements OnInit {
       })
     };
 
-    this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/getAll', this.httpOptions)
-    .subscribe(response => {
+    this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/user/getUsuarios', this.httpOptions)
+    .subscribe(response => {  
       console.log(response); // ver los datos obtenidos en la consola
       const responseData = response['response']; // acceder al array 'response' dentro de la respuesta
       this.tableData1.dataRows = responseData.map(item => Object.values(item)); // almacenar los datos en la variable 'tableData1'
@@ -48,7 +48,7 @@ export class UsuariosGridComponent implements OnInit {
     const elementId = this.tableData1.dataRows[index][0];
     console.log(elementId);
     // Navegar a la página de edición del primer pilar, pasando el ID como parámetro
-    this.router.navigate(['/editarPrimerPilar', elementId]);
+    this.router.navigate(['/usuariosGrid', elementId]);
   }
   
 }

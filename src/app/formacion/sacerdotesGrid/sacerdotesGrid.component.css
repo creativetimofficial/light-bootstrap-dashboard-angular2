@@ -1,0 +1,15 @@
+
+.boton-rojo {
+    background-color: #ff0000; /* color rojo */
+    color: #ffffff; /* color de texto blanco */
+    border-radius: 18px; /* bordes redondeados */
+    padding: 10px 30px; /* espaciado interno del botón */
+    border: none; /* sin borde */
+  }
+  .boton-gris {
+      background-color: #cccccc; /* color gris */
+      color: #020202; /* color de texto blanco */
+      border-radius: 18px; /* bordes redondeados */
+      padding: 10px 30px; /* espaciado interno del botón */
+      border: none; /* sin borde */
+    }

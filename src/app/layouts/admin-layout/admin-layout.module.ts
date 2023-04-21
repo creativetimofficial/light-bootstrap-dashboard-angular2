@@ -25,6 +25,10 @@ import { EditarPrimerPilarComponent } from 'app/pilares/primerPilarGrid/editarPr
 import { EditarSegundoPilarComponent } from 'app/pilares/segundoPilarGrid/editarSegundoPilar/editarSegundoPilar.component';
 import { EditarTercerPilarComponent } from 'app/pilares/tercerPilarGrid/editarTercerPilar/editarTercerPilar.component';
 import { EditarCuartoPilarComponent } from 'app/pilares/cuartoPilarGrid/editarCuartoPilar/editarCuartoPilar.component';
+import { NuevoSacerdoteComponent } from 'app/formacion/sacerdotesGrid/nuevoSacerdote/nuevoSacerdote.component';
+import { EditarSacerdoteComponent } from 'app/formacion/sacerdotesGrid/editarSacerdote/editarSacerdote.component';
+import { NuevoMatrimonioComponent } from 'app/formacion/matrimoniosGrid/nuevoMatrimonio/nuevoMatrimonio.component';
+import { EditarMatrimonioComponent } from 'app/formacion/matrimoniosGrid/editarMatrimonio/editarMatrimonio.component';
 
 @NgModule({
   imports: [
@@ -56,7 +60,11 @@ import { EditarCuartoPilarComponent } from 'app/pilares/cuartoPilarGrid/editarCu
     EditarPrimerPilarComponent,
     EditarSegundoPilarComponent,
     EditarTercerPilarComponent,
-    EditarCuartoPilarComponent
+    EditarCuartoPilarComponent,
+    NuevoSacerdoteComponent,
+    EditarSacerdoteComponent,
+    NuevoMatrimonioComponent,
+    EditarMatrimonioComponent
   ]
 })
 
