@@ -4,7 +4,14 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title"><b>Formación Sacerdotes</b> <a href="" class="link-warning">  Descargar base</a></h4>                                    
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <h4 class="title"><b>Formación Sacerdotes</b></h4>
+                            </div>
+                            <div class="col-sm-4">
+                                <button type="submit" href="" class="boton-rojo">Descargar Base</button>
+                            </div>
+                        </div>                       
                         <br>
                         <div class="row">
                             <div class="col-sm-4">
@@ -32,27 +39,32 @@
                                 <tr>
                                     <th></th>
                                     <th>Fecha</th>
-                                    <th>#FDS</th>
-                                    <th>#Matrimonios</th>
-                                    <th>#Sacerdotes</th>
-                                    <th>#Religiosos</th>   
-                                    <th>#Religiosas</th>   
+                                    <th>Jornada de dialogo</th>
+                                    <th>Lenguaje de amor</th>
+                                    <th>Sacramento</th>   
+                                    <th>Patrones de comportamiento</th>   
                                     <th>Acciones</th>                                    
                                 </tr>
                             </thead>
-                                <tbody>
-                                    <tr *ngFor="let row of tableData1.dataRows; let i=index">
-                                        <td *ngFor="let cell of row">{{cell}}</td>
-                                        <td>
-                                            <button (click)="editRow(i)">
-                                                <i class="fas fa-edit"></i>
-                                            </button>    
-                                            <button (click)="deleteRow(i)">
-                                                <i class="fas fa-trash"></i>
-                                            </button>                                     
-                                        </td>   
-                                    </tr>
-                                </tbody>
+                            <tbody>
+                                <tr *ngFor="let row of tableData1.dataRows; let i=index" >
+                                  <th>{{row.id}}</th>
+                                  <th>{{row.fechaCreacion}}</th>
+                                  <td>{{row.jornadaDialogo}}</td>
+                                  <td>{{row.lenguajeAmor}}</td>
+                                  <td>{{row.sacramento}}</td>
+                                  <td>{{row.patronesComportamiento}}</td>
+                               
+                                  <td>
+                                    <button (click)="editRow(row)">
+                                      <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button (click)="deleteRow(i)">
+                                      <i class="fas fa-trash"></i>
+                                    </button>
+                                  </td>                                                
+                                </tr>
+                              </tbody>
                           </table>
                     </div>
                 </div>

@@ -38,8 +38,18 @@ export class UsuariosGridComponent implements OnInit {
     .subscribe(response => {  
       console.log(response); // ver los datos obtenidos en la consola
       const responseData = response['response']; // acceder al array 'response' dentro de la respuesta
-      this.tableData1.dataRows = responseData.map(item => Object.values(item)); // almacenar los datos en la variable 'tableData1'
-      this.data = responseData; // almacenar los datos en la variable 'data'
+  
+      this.tableData1.dataRows = responseData.map(item => {
+        return {
+          name : item.name,
+          lastname : item.lastname,
+          creationDate: item.creationDate.slice(0, 10),
+          document: item.document,
+          username: item.username        
+        }
+      });
+
+      this.data = responseData;
     });
   }
 

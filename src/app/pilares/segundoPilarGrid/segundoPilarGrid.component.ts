@@ -41,8 +41,12 @@ export class SegundoPilarGridComponent implements OnInit {
     .subscribe(response => {
       console.log(response); // ver los datos obtenidos en la consola
       const responseData = response['response']; // acceder al array 'response' dentro de la respuesta
-      this.tableData1.dataRows = responseData.map(item => Object.values(item)); // almacenar los datos en la variable 'tableData1'
-      this.data = responseData; // almacenar los datos en la variable 'data'
+      this.tableData1.dataRows = responseData.map(item => {
+        const formattedDate = new Date(item.fechaCreacion).toLocaleDateString('es-ES');
+        const rowValues = Object.values(item);
+        rowValues[1] = formattedDate;
+        return rowValues;
+      });
     });
   }
   editRow(index: number) {

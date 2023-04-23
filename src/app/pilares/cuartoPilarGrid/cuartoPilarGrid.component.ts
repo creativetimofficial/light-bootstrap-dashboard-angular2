@@ -38,19 +38,32 @@ export class CuartoPilarGridComponent implements OnInit {
         this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/pilar/cuartoPilar/getAll', this.httpOptions)
         .subscribe(response => {
           console.log(response); // ver los datos obtenidos en la consola
-          const responseData = response['response']; // acceder al array 'response' dentro de la respuesta
-          this.tableData1.dataRows = responseData.map(item => Object.values(item)); // almacenar los datos en la variable 'tableData1'
-          this.data = responseData; // almacenar los datos en la variable 'data'
+        const responseData = response['response']; // acceder al array 'response' dentro de la respuesta
+        this.tableData1.dataRows = responseData.map(item => {
+          return {
+            id: item.id,
+            numComunidadApoyo : item.numComunidadApoyo,
+            numFdsPostPeriodo : item.numFdsPostPeriodo,
+            fechaCreacion:  new Date(item.fechaCreacion).toLocaleDateString('es-ES'),
+            numMatrimoiosComunidad: item.numMatrimoiosComunidad,
+            numMatrimonioVivieron: item.numMatrimonioVivieron,
+            numSacerdotesComunidad: item.numSacerdotesComunidad,       
+            numServiciosComunidad: item.numServiciosComunidad,
+            numServidoresPostActivos: item.numServidoresPostActivos,       
+
+          }
+        });
+  
+        this.data = responseData;
         });
 
     }
 
-    editRow(index: number) {
-      // Obtener el ID del elemento que se está editando desde el arreglo de datos
-      const elementId = this.tableData1.dataRows[index][0];
+    editRow(row) {
+      const elementId = row.id;
       console.log(elementId);
-      // Navegar a la página de edición del primer pilar, pasando el ID como parámetro
       this.router.navigate(['/editarCuartoPilar', elementId]);
+      
     }
   } 
 

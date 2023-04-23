@@ -1,5 +1,5 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +11,15 @@ export class UsuariosComponent implements OnInit {
 
   httpOptions: any;
   token: any;
-  
+
+  roles = {
+    9: { name: "ROLE_ADMIN", detalle: "ROLE_ADMIN" },
+    10: { name: "ROLE_USUARIO", detalle: "ROLE_USUARIO" },
+    11: { name: "ROLE_DIOSESANO", detalle: "ROLE_DIOSESANO" },
+    12: { name: "ROLE_REGIONAL", detalle: "ROLE_REGIONAL" },
+    13: { name: "ROLE_ZONAL", detalle: "ROLE_ZONAL" },
+    14: { name: "ROLE_LATAM", detalle: "ROLE_LATAM" },
+  }
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
@@ -26,37 +34,42 @@ export class UsuariosComponent implements OnInit {
     };
   }
 
-  newPilar() {
-    const fecha = (document.getElementById("fecha") as HTMLInputElement).value;
-    const fechaObjeto = new Date(fecha);
-    const fechaCreacion = fechaObjeto.toISOString();
-    const numServidoresPostActivos = (<HTMLInputElement>document.getElementById('numServidoresPostActivos')).value;
-    const numFdsPostPeriodo = (<HTMLInputElement>document.getElementById('numFdsPostPeriodo')).value;
-    const numMatrimonioVivieron = (<HTMLInputElement>document.getElementById('numMatrimonioVivieron')).value;
-    const numComunidadApoyo = (<HTMLInputElement>document.getElementById('numComunidadApoyo')).value;
-    const numServiciosComunidad = (<HTMLInputElement>document.getElementById('numServiciosComunidad')).value;
-    const numMatrimoiosComunidad = (<HTMLInputElement>document.getElementById('numMatrimoiosComunidad')).value;
+  newUsuario() {
+    const currentDate = new Date();
 
+    const name = (<HTMLInputElement>document.getElementById('name')).value;
+    const lastname = (<HTMLInputElement>document.getElementById('lastname')).value;
+    const username = (<HTMLInputElement>document.getElementById('username')).value;
+    const password = (<HTMLInputElement>document.getElementById('password')).value;
+    const data = { document: (<HTMLInputElement>document.getElementById('document')).value };
+    const creationDate = currentDate.toISOString();
+    const state = true;
+    const rolSelecionado = (<HTMLInputElement>document.getElementById('rol')).value;
+    const selectedRole = this.roles[rolSelecionado];
 
-
-    const jsonCuartoPilar = {
-      fechaCreacion,
-      numServidoresPostActivos,
-      numFdsPostPeriodo,
-      numMatrimonioVivieron,
-      numComunidadApoyo, 
-      numServiciosComunidad,     
-      numMatrimoiosComunidad,     
+    const jsonUsuario = {
+      name,
+      lastname,
+      username,
+      password,
+      data,
+      creationDate,
+      state,
+      roles: [{
+        id: rolSelecionado,
+        name: selectedRole.name,
+        detalle: selectedRole.detalle
+      }]
     };
 
-    const jsonSegundoPilar = JSON.stringify(jsonCuartoPilar); // Convertir el objeto en una cadena JSON
-    console.log(jsonSegundoPilar);
+    const nuevoUsuario = JSON.stringify(jsonUsuario); // Convertir el objeto en una cadena JSON
+    console.log(nuevoUsuario);
 
     if (this.httpOptions) {
-      this.http.post('https://encuentro-matrimonial-backend.herokuapp.com/pilar/cuartoPilar/create', jsonSegundoPilar, this.httpOptions)
+      this.http.post('https://encuentro-matrimonial-backend.herokuapp.com/user/createUsuario', nuevoUsuario, this.httpOptions)
       .subscribe(data => {
         console.log(data);
-        alert('Cuarto pilar creado exitosamente');
+        alert('Usuario creado exitosamente');
         this.router.navigate(['/usuariosGrid']);
       }, error => {
         console.error(error);
