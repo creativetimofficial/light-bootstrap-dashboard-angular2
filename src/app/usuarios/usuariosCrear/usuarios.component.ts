@@ -41,7 +41,7 @@ export class UsuariosComponent implements OnInit {
     const lastname = (<HTMLInputElement>document.getElementById('lastname')).value;
     const username = (<HTMLInputElement>document.getElementById('username')).value;
     const password = (<HTMLInputElement>document.getElementById('password')).value;
-    const data = { document: (<HTMLInputElement>document.getElementById('document')).value };
+    const doc = (<HTMLInputElement>document.getElementById('document')).value;
     const creationDate = currentDate.toISOString();
     const state = true;
     const rolSelecionado = (<HTMLInputElement>document.getElementById('rol')).value;
@@ -52,7 +52,7 @@ export class UsuariosComponent implements OnInit {
       lastname,
       username,
       password,
-      data,
+      document: doc,
       creationDate,
       state,
       roles: [{

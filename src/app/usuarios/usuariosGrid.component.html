@@ -54,17 +54,17 @@
                                     </thead>
                                     <tbody>
                                         <tr *ngFor="let row of tableData1.dataRows; let i=index">
-                                          <th></th>
+                                          <th>{{row.id}}</th>
                                           <td>{{row.name}}</td>
                                           <td>{{row.lastname}}</td>
                                           <td>{{row.username}}</td>
                                           <td>{{row.creationDate}}</td>
                                           <td>{{row.document}}</td>
                                           <td>
-                                            <button (click)="editRow(i)">
+                                            <button (click)="editRow(row)">
                                               <i class="fas fa-edit"></i>
                                             </button>    
-                                            <button (click)="deleteRow(i)">
+                                            <button (click)="deleteRow(row)">
                                               <i class="fas fa-trash"></i>
                                             </button>                                     
                                           </td>                                                

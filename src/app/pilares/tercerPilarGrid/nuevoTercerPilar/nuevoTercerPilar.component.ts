@@ -32,7 +32,8 @@ export class NuevoTercerPilarComponent implements OnInit {
     const numDiocesisEstablecidas = (<HTMLInputElement>document.getElementById('numDiocesisEstablecidas')).value;
     const numDiocesisContacto = (<HTMLInputElement>document.getElementById('numDiocesisContacto')).value;
     const numDiocesisExpansion = (<HTMLInputElement>document.getElementById('numDiocesisExpansion')).value;
-    
+    const numDiocesisEclisiastica = (<HTMLInputElement>document.getElementById('numDiocesisEclisiastica')).value;
+
 
 
     const newTercerPilar = {
@@ -40,7 +41,8 @@ export class NuevoTercerPilarComponent implements OnInit {
       numRegiones,
       numDiocesisEstablecidas,
       numDiocesisContacto,
-      numDiocesisExpansion,     
+      numDiocesisExpansion,
+      numDiocesisEclisiastica     
     };
 
     const jsonSegundoPilar = JSON.stringify(newTercerPilar); // Convertir el objeto en una cadena JSON

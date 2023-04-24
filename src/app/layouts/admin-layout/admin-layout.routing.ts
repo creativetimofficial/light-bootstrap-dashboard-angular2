@@ -28,12 +28,14 @@ import { NuevoSacerdoteComponent } from 'app/formacion/sacerdotesGrid/nuevoSacer
 import { EditarSacerdoteComponent } from 'app/formacion/sacerdotesGrid/editarSacerdote/editarSacerdote.component';
 import { NuevoMatrimonioComponent } from 'app/formacion/matrimoniosGrid/nuevoMatrimonio/nuevoMatrimonio.component';
 import { EditarMatrimonioComponent } from 'app/formacion/matrimoniosGrid/editarMatrimonio/editarMatrimonio.component';
+import { UsuariosEditarComponent } from 'app/usuarios/usuariosEditar/usuariosEditar.component';
 
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',component: HomeComponent },
     { path: 'usuariosGrid',component: UsuariosGridComponent, canActivate: [AuthGuard]  },
     { path: 'usuarios',component: UsuariosComponent, canActivate: [AuthGuard]  },
+    { path: 'usuariosEditar/:id',component: UsuariosEditarComponent },
     { path: 'primerPilarGrid',component: PrimerPilarGridComponent, canActivate: [AuthGuard] },
     { path: 'segundoPilarGrid',component: SegundoPilarGridComponent, canActivate: [AuthGuard]  },
     { path: 'tercerPilarGrid',component: TercerPilarGridComponent, canActivate: [AuthGuard]  },
@@ -58,4 +60,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'editarMatrimonio/:id',component: EditarMatrimonioComponent },
     { path: 'nuevoSacerdote',component: NuevoSacerdoteComponent },
     { path: 'editarSacerdote/:id',component: EditarSacerdoteComponent },
+
 ];

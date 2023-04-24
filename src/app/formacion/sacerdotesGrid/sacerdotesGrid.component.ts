@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import * as XLSX from 'xlsx';
 
 declare interface TableData {
     headerRow: string[];
@@ -61,4 +62,79 @@ export class SacerdotesGridComponent implements OnInit {
       this.router.navigate(['/editarSacerdote', elementId]);
       
     }
+    generateExcel(){
+      // Realizar la consulta y obtener los datos en un arreglo
+      this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/formacion/sacerdote/getAll', this.httpOptions)
+      .subscribe(data => {
+        const rows = [];
+    
+        // Agregar los encabezados como primera fila
+        const headers = [
+          'ID',
+          'Fecha de Creación',
+          'Jornada de Diálogo',
+          'Retorno Espiritual',
+          'Lenguaje del Amor',
+          'Guía de Relación', 
+          'Sacramento',     
+          'Dios en el Sacramento',     
+          'Dios en la Vida',     
+          'Patrones de Comportamiento',     
+          'Diálogo Profundo',     
+          'Servidores Post Encuentro',     
+          'Formación de Acompañantes', 
+          'Padre Nuestro',
+          'Transmisión Nacional'
+        ];
+    
+        rows.push(headers);
+        console.log(data)
+        const responseData = data['response']; // acceder al array 'response' dentro de la respuesta
+    
+        responseData.forEach(item => {
+          const row = [
+            item.id,
+            new Date(item.fechaCreacion).toLocaleDateString('es-ES'),
+            item.jornadaDialogo,
+            item.retornoEspiritual,
+            item.lenguajeAmor,
+            item.guiaDeRelacion, 
+            item.sacramento,     
+            item.diosEnSacramento,     
+            item.diosEnVida,     
+            item.patronesComportamiento,     
+            item.dialogoProfundo,     
+            item.servidoresPostEncuentro,     
+            item.formacionAcompanantes, 
+            item.padreNuestro, 
+            item.transmisionNacional 
+          ];
+          rows.push(row);
+        });
+        // Crear una nueva hoja de cálculo de Excel
+        const worksheet = XLSX.utils.aoa_to_sheet(rows);
+    
+        // Crear un libro de Excel y agregar la hoja de cálculo
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+    
+        // Convertir el libro de Excel a un archivo binario y descargarlo
+        const file = XLSX.write(workbook, { type: 'binary', bookType: 'xlsx' });
+        const blob = new Blob([this.s2ab(file)], { type: 'application/octet-stream' });
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'Sacerdotes.xlsx';
+        link.click();
+      })
+      }
+      // Función para convertir una cadena a un arreglo de bytes
+      s2ab(s: string) {
+        const buf = new ArrayBuffer(s.length);
+        const view = new Uint8Array(buf);
+        for (let i = 0; i < s.length; i++) {
+          view[i] = s.charCodeAt(i) & 0xff;
+        }
+        return buf;
+      }
   }
