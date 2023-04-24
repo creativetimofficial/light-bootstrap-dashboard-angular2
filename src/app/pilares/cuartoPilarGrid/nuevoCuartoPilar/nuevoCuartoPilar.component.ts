@@ -68,5 +68,5 @@ export class NuevoCuartoPilarComponent implements OnInit {
       console.log('httpOptions no está definido');
     }
   }
-
+ 
 }

@@ -9,7 +9,7 @@
                                 <h4 class="title"><b>Tercer pilar: El fin de semana</b></h4>
                             </div>
                             <div class="col-sm-4">
-                                <button type="submit" href="" class="boton-rojo">Descargar base</button>
+                                <button type="submit" href="" class="boton-rojo" (click)="generateExcel()" >Descargar base</button>
                             </div>
                         </div>                   
                         <br>
@@ -48,19 +48,24 @@
                                 
                                 </tr>
                             </thead>
-                                <tbody>
-                                    <tr *ngFor="let row of tableData1.dataRows; let i=index">
-                                        <td *ngFor="let cell of row">{{cell}}</td>
-                                        <td>
-                                            <button (click)="editRow(i)">
-                                                <i class="fas fa-edit"></i>
-                                            </button>    
-                                            <button (click)="deleteRow(i)">
-                                                <i class="fas fa-trash"></i>
-                                            </button>                                     
-                                        </td>   
-                                    </tr>
-                                </tbody>
+                            <tbody>
+                                <tr *ngFor="let row of tableData1.dataRows; let i=index" >
+                                  <th>{{row.id}}</th>
+                                  <th>{{row.fechaCreacion}}</th>
+                                  <td>{{row.numRegiones}}</td>
+                                  <td>{{row.numDiocesisEstablecidas}}</td>
+                                  <td>{{row.numDiocesisContacto}}</td>
+                                  <td>{{row.numDiocesisExpansion}}</td>                                  
+                                  <td>
+                                    <button (click)="editRow(row)">
+                                      <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button (click)="deleteRow(i)">
+                                      <i class="fas fa-trash"></i>
+                                    </button>
+                                  </td>                                                
+                                </tr>
+                              </tbody>
                           </table>
 
                     </div>

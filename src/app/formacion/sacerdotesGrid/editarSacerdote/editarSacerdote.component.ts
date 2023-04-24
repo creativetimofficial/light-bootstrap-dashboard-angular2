@@ -29,6 +29,7 @@ export class EditarSacerdoteComponent implements OnInit {
       fechaCreacion: [null, Validators.required],
       jornadaDialogo: [null, Validators.required],
       retornoEspiritual: [null, Validators.required],
+      lenguajeAmor: [null, Validators.required],
       guiaDeRelacion: [null, Validators.required],
       sacramento: [null, Validators.required],
       diosEnSacramento: [null, Validators.required],

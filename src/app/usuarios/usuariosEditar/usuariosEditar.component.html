@@ -1,0 +1,150 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        
+    </head>
+<body>
+<div class="main-content" >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Editar Usuario</h4>
+                    </div>
+                    <div class="content">
+                        <form  [formGroup]="usuariosEditarForm" (ngSubmit)="editarUsuario()">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Nombres</label>
+                                        <input type="text" id="name" formControlName="name" class="form-control" >
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Apellidos</label>
+                                        <input type="text" id="lastname" formControlName="lastname" class="form-control" >
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Nombre de usuario</label>
+                                        <input type="text" id="username"  formControlName="username" class="form-control" >
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Tipo de identificación</label>
+                                        <select type="text" id=""  class="form-control" ></select>
+                                    </div>
+                                </div> -->
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Número de identificación</label>
+                                        <input type="text" id="document" formControlName="document"  class="form-control" >
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Contraseña</label>
+                                        <input type="text" id="contraseña" formControlName="password" class="form-control" >
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Rol de usuario</label>
+                                        <br>
+                                        <select name="rol" id="rol" formControlName="rol" class="form-control">
+                                            <option value="9">Rol admin</option>
+                                            <option value="10">Rol usuario</option>
+                                            <option value="11">Rol diosesano</option>
+                                            <option value="12">Rol regional</option>
+                                            <option value="13">Rol zonal</option>
+                                            <option value="14">Rol latam</option>                                        
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Fecha de nacimiento</label>
+                                        <input type="date" id=""  class="form-control" >
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>N° Celular</label>
+                                        <input type="text" id=""  class="form-control" >
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Correo Electrónico</label>
+                                        <input type="text" id="" class="form-control" >
+                                    </div>
+                                </div> -->
+                            </div>
+                            <div class="row">
+                                <!-- <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Confirmacion de correo</label>
+                                        <input type="text" id=""  class="form-control" >
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-md-9">
+                                    <div class="form-group">
+                                        <label>Rol de usuario</label>
+                                        <br>
+                                        <select name="rol" id="rol" formControlName="rol" class="form-control">
+                                            <option value="9">Rol admin</option>
+                                            <option value="10">Rol usuario</option>
+                                            <option value="11">Rol diosesano</option>
+                                            <option value="12">Rol regional</option>
+                                            <option value="13">Rol zonal</option>
+                                            <option value="14">Rol latam</option>                                        
+                                        </select>
+                                    </div>
+                                </div> -->
+
+                                
+                            </div>
+                            <!-- <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Pais</label>
+                                        <select type="text" id=""  class="form-control" ></select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Ciudad</label>
+                                        <select type="text" id="" class="form-control" ></select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Contraseña</label>
+                                        <input type="password" id="password" formControlName="password" class="form-control" >
+                                    </div>
+                                </div> -->
+                            <!-- </div> -->
+                            
+                            <button type="submit" class="boton-rojo">Crear nuevo</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+</body>
+</html>

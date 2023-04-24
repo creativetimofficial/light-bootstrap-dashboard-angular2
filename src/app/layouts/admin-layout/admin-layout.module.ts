@@ -29,6 +29,8 @@ import { NuevoSacerdoteComponent } from 'app/formacion/sacerdotesGrid/nuevoSacer
 import { EditarSacerdoteComponent } from 'app/formacion/sacerdotesGrid/editarSacerdote/editarSacerdote.component';
 import { NuevoMatrimonioComponent } from 'app/formacion/matrimoniosGrid/nuevoMatrimonio/nuevoMatrimonio.component';
 import { EditarMatrimonioComponent } from 'app/formacion/matrimoniosGrid/editarMatrimonio/editarMatrimonio.component';
+import { UsuariosComponent } from 'app/usuarios/usuariosCrear/usuarios.component';
+import { UsuariosEditarComponent } from 'app/usuarios/usuariosEditar/usuariosEditar.component';
 
 @NgModule({
   imports: [
@@ -41,6 +43,7 @@ import { EditarMatrimonioComponent } from 'app/formacion/matrimoniosGrid/editarM
   declarations: [
     HomeComponent,
     UsuariosGridComponent,
+    UsuariosComponent,
     PrimerPilarGridComponent,
     SegundoPilarGridComponent,
     TercerPilarGridComponent,
@@ -64,7 +67,8 @@ import { EditarMatrimonioComponent } from 'app/formacion/matrimoniosGrid/editarM
     NuevoSacerdoteComponent,
     EditarSacerdoteComponent,
     NuevoMatrimonioComponent,
-    EditarMatrimonioComponent
+    EditarMatrimonioComponent,
+    UsuariosEditarComponent
   ]
 })
 

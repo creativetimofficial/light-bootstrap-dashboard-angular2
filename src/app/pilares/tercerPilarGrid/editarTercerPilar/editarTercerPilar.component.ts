@@ -31,6 +31,7 @@ export class EditarTercerPilarComponent implements OnInit {
       numDiocesisEstablecidas: [null, Validators.required],
       numDiocesisContacto: [null, Validators.required],
       numDiocesisExpansion: [null, Validators.required],
+      numDiocesisEclisiastica: [null, Validators.required],
     });
   }
   ngOnInit() {
@@ -56,6 +57,7 @@ export class EditarTercerPilarComponent implements OnInit {
       this.editarTercerPilarForm.controls['numDiocesisEstablecidas'].setValue(data.response.numDiocesisEstablecidas);
       this.editarTercerPilarForm.controls['numDiocesisContacto'].setValue(data.response.numDiocesisContacto);
       this.editarTercerPilarForm.controls['numDiocesisExpansion'].setValue(data.response.numDiocesisExpansion);
+      this.editarTercerPilarForm.controls['numDiocesisEclisiastica'].setValue(data.response.numDiocesisEclisiastica);
 
       console.log(data.response);
 
@@ -82,15 +84,18 @@ export class EditarTercerPilarComponent implements OnInit {
     const numDiocesisEstablecidas = (<HTMLInputElement>document.getElementById('numDiocesisEstablecidas')).value;
     const numDiocesisContacto = (<HTMLInputElement>document.getElementById('numDiocesisContacto')).value;
     const numDiocesisExpansion = (<HTMLInputElement>document.getElementById('numDiocesisExpansion')).value;
-    const editPrimerPilar = {
+    const numDiocesisEclisiastica = (<HTMLInputElement>document.getElementById('numDiocesisEclisiastica')).value;
+
+    const editTercerPilar = {
       id,
       fechaCreacion,
       numRegiones,
       numDiocesisEstablecidas,
       numDiocesisContacto,
-      numDiocesisExpansion   
+      numDiocesisExpansion,
+      numDiocesisEclisiastica  
     };
-    const jsonTrecerPilar = JSON.stringify(editPrimerPilar); // Convertir el objeto en una cadena JSON
+    const jsonTrecerPilar = JSON.stringify(editTercerPilar); // Convertir el objeto en una cadena JSON
     console.log(jsonTrecerPilar);
     console.log(this.httpOptions);
 

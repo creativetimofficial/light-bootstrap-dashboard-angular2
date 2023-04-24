@@ -7,56 +7,56 @@
                         <h4 class="title">Crear Usuario</h4>
                     </div>
                     <div class="content">
-                        <form>
+                        <form #formularioUsuario ="ngForm" (ngSubmit)="newUsuario()">
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Nombres</label>
-                                        <input type="text" class="form-control" >
+                                        <input type="text" id="name" class="form-control" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Apellidos</label>
-                                        <input type="text" class="form-control" >
+                                        <input type="text" id="lastname" class="form-control" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Género</label>
-                                        <select type="text" class="form-control" ></select>
+                                        <label>Nombre de usuario</label>
+                                        <input type="text" id="username"  class="form-control" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Tipo de identificación</label>
-                                        <select type="text" class="form-control" ></select>
+                                        <select type="text" id=""  class="form-control" ></select>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Número</label>
-                                        <input type="text" class="form-control" >
+                                        <label>Número de identificación</label>
+                                        <input type="text" id="document"  class="form-control" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Fecha de nacimiento</label>
-                                        <input type="date" class="form-control" >
+                                        <input type="date" id=""  class="form-control" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>N° Celular</label>
-                                        <input type="text" class="form-control" >
+                                        <input type="text" id=""  class="form-control" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Correo Electrónico</label>
-                                        <input type="text" class="form-control" >
+                                        <input type="text" id="" class="form-control" >
                                     </div>
                                 </div>
                             </div>
@@ -64,33 +64,48 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Confirmacion de correo</label>
-                                        <input type="text" class="form-control" >
+                                        <input type="text" id=""  class="form-control" >
                                     </div>
                                 </div>
                                 <div class="col-md-9">
                                     <div class="form-group">
-                                        <label>Perfil</label>
-                                        <select type="text" class="form-control" ></select>
+                                        <label>Rol de usuario</label>
+                                        <br>
+                                        <select name="rol" id="rol" class="form-control">
+                                            <option value="9">Rol admin</option>
+                                            <option value="10">Rol usuario</option>
+                                            <option value="11">Rol diosesano</option>
+                                            <option value="12">Rol regional</option>
+                                            <option value="13">Rol zonal</option>
+                                            <option value="14">Rol latam</option>                                        
+                                        </select>
                                     </div>
                                 </div>
+
                                 
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Pais</label>
-                                        <select type="text" class="form-control" ></select>
+                                        <select type="text" id=""  class="form-control" ></select>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Ciudad</label>
-                                        <select type="text" class="form-control" ></select>
+                                        <select type="text" id="" class="form-control" ></select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Contraseña</label>
+                                        <input type="password" id="password" class="form-control" >
                                     </div>
                                 </div>
                             </div>
                             
-                            <button type="submit" class="btn btn-info btn-fill pull-right">Crear nuevo</button>
+                            <button type="submit" class="boton-rojo">Crear nuevo</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>

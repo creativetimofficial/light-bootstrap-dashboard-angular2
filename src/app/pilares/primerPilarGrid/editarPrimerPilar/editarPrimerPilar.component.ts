@@ -46,7 +46,8 @@ export class EditarPrimerPilarComponent implements OnInit {
       })
     };
     const elementId = this.activatedRoute.snapshot.paramMap.get('id');
-    
+    console.log(elementId);
+
     this.obtenerDatosDelPilar(elementId).subscribe(data => {
       // Asignar los datos del elemento al formulario utilizando setValue()
       let fecha = new Date(data.response.fechaCreacion);

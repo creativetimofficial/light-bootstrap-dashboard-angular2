@@ -57,4 +57,5 @@ export class NuevoPrimerPilarComponent implements OnInit {
       alert('httpOptions no está definido, intente iniciar sesion nuevamente');
     }
   }
+  
 }
