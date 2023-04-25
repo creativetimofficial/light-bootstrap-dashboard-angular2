@@ -123,7 +123,25 @@
                                         <br>
                                         <input type="text" id="transmisionNacional" name="transmisionNacional" class="form-control">
                                     </div>
-                                </div>                               
+                                </div>  
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="select-pais">Pais</label>
+                                        <select id="select-pais" (change)="onSelectPais($event.target.value)" class="form-control">
+                                            <option value="" disabled selected>Seleccione un pais</option>
+                                        <option *ngFor="let pais of paises" [value]="pais.id">{{pais.nombre}}</option>
+                                        </select>
+                                    </div>
+                                 </div>  
+                                 <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Ciudad</label>
+                                        <select type="text" id="select-ciudad" class="form-control" [disabled]="!selectedPais" [(ngModel)]="selectedCiudad">
+                                          <option value="" disabled selected>Selecciona una ciudad</option>
+                                          <option *ngFor="let ciudad of ciudades" [value]="ciudad.id">{{ciudad.name}}</option>
+                                        </select>
+                                      </div>
+                                </div>                                
                             </div>
                             <div class="row">
                                 <div class="col-md-3">

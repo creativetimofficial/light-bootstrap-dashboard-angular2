@@ -40,24 +40,11 @@
                            <div class="form-group">
                               <input id="password-field" type="password" [(ngModel)]="password" class="form-control" required>
                               <label class="form-control-placeholder" for="password">Contraseña</label>
-                              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                            </div>
                            <div class="form-group">
                               <button type="button" class="form-control btn btn-primary rounded submit px-3" (click)="login(username, password)">Ingresar</button>
-                           </div>
-                           <div class="form-group d-md-flex">
-                              <div class="w-50 text-left">
-                                 <label class="checkbox-wrap checkbox-primary mb-0">Recuerdame
-                                 <input type="checkbox" checked>
-                                 <span class="checkmark"></span>
-                                 </label>
-                              </div>
-                              <div class="w-50 text-md-right">
-                                 <a href="#">Olvido la contraseña</a>
-                              </div>
-                           </div>
+                           </div>                           
                         </form>
-                        <p class="text-center"><a data-toggle="tab" (click)="register()">Registrarse</a></p>
                      </div>
                   </div>
                </div>

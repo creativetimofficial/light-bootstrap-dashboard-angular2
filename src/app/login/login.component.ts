@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/dashboard']);
     } catch (error) {
       console.error(error);
-      // manejar el error aquí
     }
   }
 

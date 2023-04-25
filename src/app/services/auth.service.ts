@@ -8,6 +8,7 @@ import { map, Observable } from 'rxjs';
 export class AuthService {
     private baseUrl = 'https://encuentro-matrimonial-backend.herokuapp.com';
     public isAuthenticated = false;
+  router: any;
   
     constructor(private http: HttpClient) {}
   
