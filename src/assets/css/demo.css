@@ -54,7 +54,7 @@
     bottom: 10px;
 }
 .sidebar .nav > li.active-pro a{
-    background: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.103);
     opacity: 1;
     color: #FFFFFF;
 }
