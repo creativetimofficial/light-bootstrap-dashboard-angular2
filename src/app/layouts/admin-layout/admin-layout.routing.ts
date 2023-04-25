@@ -44,7 +44,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'icons',component: IconsComponent, canActivate: [AuthGuard] },
     { path: 'maps',component: MapsComponent, canActivate: [AuthGuard] },
     { path: 'notifications',component: NotificationsComponent, canActivate: [AuthGuard] },
-    { path: 'upgrade',component: UpgradeComponent, canActivate: [AuthGuard] },
     { path: 'register',component: RegisterComponent, canActivate: [AuthGuard] },
     { path: 'formation',component: FormationComponent },
     { path: 'nuevoPrimerPilar',component: NuevoPrimerPilarComponent , canActivate: [AuthGuard]},

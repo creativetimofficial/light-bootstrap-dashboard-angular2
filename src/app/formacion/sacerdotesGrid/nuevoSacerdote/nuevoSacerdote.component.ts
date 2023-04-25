@@ -63,6 +63,7 @@ export class NuevoSacerdoteComponent implements OnInit {
     const formacionAcompanantes = (<HTMLInputElement>document.getElementById('formacionAcompanantes')).value;
     const padreNuestro = (<HTMLInputElement>document.getElementById('padreNuestro')).value;
     const transmisionNacional = (<HTMLInputElement>document.getElementById('transmisionNacional')).value;
+    const ciudadSeleccionada = (<HTMLInputElement>document.getElementById('select-ciudad')).value;
 
 
 
@@ -80,7 +81,10 @@ export class NuevoSacerdoteComponent implements OnInit {
       servidoresPostEncuentro,     
       formacionAcompanantes, 
       padreNuestro, 
-      transmisionNacional   
+      transmisionNacional,
+      ciudad: {
+        id: ciudadSeleccionada
+      }, 
     };
 
     const jsonSacerdote = JSON.stringify(sacerdote); // Convertir el objeto en una cadena JSON
