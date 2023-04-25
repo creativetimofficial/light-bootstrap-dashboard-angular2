@@ -24,79 +24,63 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Nombre de usuario</label>
-                                        <input type="text" id="username"  class="form-control" >
+                                        <input type="text" id="nombreUsuario"  class="form-control" >
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Tipo de identificación</label>
-                                        <select type="text" id=""  class="form-control" ></select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Número de identificación</label>
                                         <input type="text" id="document"  class="form-control" >
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row">                                      
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Fecha de nacimiento</label>
-                                        <input type="date" id=""  class="form-control" >
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>N° Celular</label>
-                                        <input type="text" id=""  class="form-control" >
+                                        <label>N° Telefono</label>
+                                        <input type="text" id="telefono"  class="form-control" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Correo Electrónico</label>
-                                        <input type="text" id="" class="form-control" >
+                                        <input type="text" id="email" class="form-control" >
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Confirmacion de correo</label>
-                                        <input type="text" id=""  class="form-control" >
-                                    </div>
-                                </div>
-                                <div class="col-md-9">
                                     <div class="form-group">
                                         <label>Rol de usuario</label>
                                         <br>
                                         <select name="rol" id="rol" class="form-control">
-                                            <option value="9">Rol admin</option>
-                                            <option value="10">Rol usuario</option>
-                                            <option value="11">Rol diosesano</option>
-                                            <option value="12">Rol regional</option>
-                                            <option value="13">Rol zonal</option>
-                                            <option value="14">Rol latam</option>                                        
+                                            <option value="1">Rol admin</option>
+                                            <option value="2">Rol usuario</option>
+                                            <option value="3">Rol diosesano</option>
+                                            <option value="4">Rol regional</option>
+                                            <option value="5">Rol zonal</option>
+                                            <option value="6">Rol latam</option>                                        
                                         </select>
                                     </div>
                                 </div>
-
-                                
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Pais</label>
-                                        <select type="text" id=""  class="form-control" ></select>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
+                                        <label for="select-pais">Pais</label>
+                                        <select id="select-pais" (change)="onSelectPais($event.target.value)" class="form-control">
+                                            <option value="" disabled selected>Seleccione un pais</option>
+                                          <option *ngFor="let pais of paises" [value]="pais.id">{{pais.nombre}}</option>
+                                        </select>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Ciudad</label>
-                                        <select type="text" id="" class="form-control" ></select>
-                                    </div>
-                                </div>
+                                        <select type="text" id="select-ciudad" class="form-control" [disabled]="!selectedPais" [(ngModel)]="selectedCiudad">
+                                          <option value="" disabled selected>Selecciona una ciudad</option>
+                                          <option *ngFor="let ciudad of ciudades" [value]="ciudad.id">{{ciudad.name}}</option>
+                                        </select>
+                                      </div>
+                                  </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Contraseña</label>

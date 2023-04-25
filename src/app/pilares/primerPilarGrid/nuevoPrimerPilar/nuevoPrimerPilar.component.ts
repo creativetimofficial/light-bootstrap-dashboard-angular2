@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-nuevoPrimerPilar',
@@ -8,8 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./nuevoPrimerPilar.component.css']
 })
 export class NuevoPrimerPilarComponent implements OnInit {
+
   httpOptions: any;
   token: any;
+  ciudades: any[]; // Declarar la propiedad 'ciudades'
+  paises: any[]; // Declarar la propiedad 'paises'
+  selectedCiudad: string;
+  selectedPais: string;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -23,6 +29,21 @@ export class NuevoPrimerPilarComponent implements OnInit {
         'Content-Type': 'application/json'
       })
     };
+    // Obtener los datos del país
+  this.obtenerDatosPais().subscribe((data) => {
+    // Obtener la respuesta del JSON
+    const response = data.response;
+    // Obtener el select del HTML
+    const selectPais = document.getElementById('select-pais') as HTMLSelectElement;
+
+    // Crear un option por cada país en la respuesta del JSON
+    response.forEach((pais: any) => {
+      const option = document.createElement('option');
+      option.value = pais.id;
+      option.text = pais.name;
+      selectPais.appendChild(option);
+    });
+  });
   }
 
   newPilar() {
@@ -33,12 +54,18 @@ export class NuevoPrimerPilarComponent implements OnInit {
     const numMatrinoniosVivieron = (<HTMLInputElement>document.getElementById('numMatrinoniosVivieron')).value;
     const numSacerdotesVivieron = (<HTMLInputElement>document.getElementById('numSacerdotesVivieron')).value;
     const numReligiososVivieron = (<HTMLInputElement>document.getElementById('numReligiososVivieron')).value;
+    const ciudadSeleccionada = (<HTMLInputElement>document.getElementById('select-ciudad')).value;
+
     const newPrimerPilar = {
       fechaCreacion,
       numFDS,
       numMatrinoniosVivieron,
       numSacerdotesVivieron,
-      numReligiososVivieron      
+      numReligiososVivieron,
+      ciudadSeleccionada,
+      ciudad: {
+        id: ciudadSeleccionada
+      },      
     };
     const jsonPrimerPilar = JSON.stringify(newPrimerPilar); // Convertir el objeto en una cadena JSON
     console.log(jsonPrimerPilar);
@@ -57,5 +84,37 @@ export class NuevoPrimerPilarComponent implements OnInit {
       alert('httpOptions no está definido, intente iniciar sesion nuevamente');
     }
   }
+  onSelectPais(idPais: string) {
+    this.obtenerDatosCiudad(idPais).subscribe((data: any) => {
+      const ciudades = data.response;
+      const selectCiudad = document.getElementById('select-ciudad') as HTMLSelectElement;
   
+      // Limpiar el select de ciudades
+      selectCiudad.innerHTML = '';
+  
+      // Crear un option por cada ciudad en la respuesta del JSON
+      ciudades.forEach((ciudad: any) => {
+        const option = document.createElement('option');
+        option.value = ciudad.id;
+        option.text = ciudad.name;
+        selectCiudad.appendChild(option);
+      });
+      selectCiudad.disabled = false;
+
+    });
+  }
+
+  obtenerDatosCiudad(id: string) {
+    const params = { id: id };
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getCiudadPaises?idPais=${params.id}`;
+    const response = this.http.get(url, this.httpOptions); 
+    return response  
+  }
+
+  obtenerDatosPais(): Observable<any> {
+    console.log(this.token);
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getPaises`;
+    return this.http.get(url, this.httpOptions);
+  }
+   
 }
