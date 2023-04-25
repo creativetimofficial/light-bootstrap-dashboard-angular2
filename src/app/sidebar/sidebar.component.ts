@@ -28,7 +28,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/segundoPilarGrid', title: 'Segundo pilar',  icon:'pe-7s-plugin', class: '', type:'link' },
     { path: '/tercerPilarGrid', title: 'Tercer pilar',  icon:'pe-7s-plugin', class: '', type:'link' },
     { path: '/cuartoPilarGrid', title: 'Cuarto pilar',  icon:'pe-7s-plugin', class: '', type:'link' },
-    { path: '/formation', title: 'formation', icon:'', class: '', type:'link', },    
+    { path: '/formation', title: 'formación', icon:'', class: '', type:'link', },    
     { path: '/matrimoniosGrid', title: 'Matrimonios',  icon:'pe-7s-leaf', class: '', type:'link' },
     { path: '/sacerdotesGrid', title: 'Sacerdotes',  icon:'pe-7s-id', class: '', type:'link' },
     { path: '/icons', title: 'Reportes',  icon:'pe-7s-note2', class: '', type:'link' },

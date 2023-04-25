@@ -11,7 +11,6 @@ import { SacerdotesGridComponent } from '../../formacion/sacerdotesGrid/sacerdot
 import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
-import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { RegisterComponent } from '../../register/register.component';
 import { FormationComponent } from '../../formation/formation.component';
 import { NuevoPrimerPilarComponent } from '../../pilares/primerPilarGrid/nuevoPrimerPilar/nuevoPrimerPilar.component';
@@ -45,7 +44,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'icons',component: IconsComponent },
     { path: 'maps',component: MapsComponent },
     { path: 'notifications',component: NotificationsComponent },
-    { path: 'upgrade',component: UpgradeComponent },
     { path: 'register',component: RegisterComponent },
     { path: 'formation',component: FormationComponent },
     { path: 'nuevoPrimerPilar',component: NuevoPrimerPilarComponent },
