@@ -17,18 +17,17 @@ export class LoginComponent implements OnInit {
 
   async login(username: string, password: string) {
     try {
-      await this.authService.login(username, password).toPromise();
+
+      await  this.authService.login(username, password).toPromise();
+
       // navegar al componente de la página principal si la respuesta es exitosa
-      this.router.navigate(['/dashboard']);
+
     } catch (error) {
       console.error(error);
     }
   }
 
-  register() {
-    const user = { email: this.email, password: this.password };
-    this.router.navigateByUrl('/register');
-  }
+
 
   ngOnInit() {
   }
