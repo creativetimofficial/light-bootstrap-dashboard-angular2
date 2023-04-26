@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { Observable, throwError, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -8,22 +10,33 @@ import { map, Observable } from 'rxjs';
 export class AuthService {
     private baseUrl = 'https://encuentro-matrimonial-backend.herokuapp.com';
     public isAuthenticated = false;
-  router: any;
   
-    constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
   
-    login(username: string, password: string): Observable<any> {
-      return this.http.post<any>(`${this.baseUrl}/login`, { username, password })
-        .pipe(
-          map(response => {
-            // Guardar el token en local storage
-            localStorage.setItem('jwt', response.jwt);
-            // Establecer isAuthenticated en true
-            this.isAuthenticated = true;
+    login(username: string, password: string) {
+      return this.http.post<any>(`${this.baseUrl}/login`, { username, password }).pipe(
+        map(response => {
+          // Guardar el token en local storage
+          if (response.code == "401"){
+            alert ("Credenciales incorrectas")
+          }else     {
+            this.router.navigate(['/dashboard']);
 
-            return response;
-          })
-        );
+          }
+          localStorage.setItem('jwt', response.jwt);
+          
+          // Establecer isAuthenticated en true
+          this.isAuthenticated = true;
+          return this.isAuthenticated;
+        }),
+        catchError(error => {
+          if (error.status === 401) {
+            this.isAuthenticated = false;
+            return of(this.isAuthenticated);
+          }
+          return throwError(error);
+        })
+      )
     }
 }
   
