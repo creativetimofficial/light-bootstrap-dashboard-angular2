@@ -3,41 +3,50 @@
         <div class="row">
             <div class="col-md-4">
                 <lbd-chart
-                  [title]="'Email Statistics'"
-                  [subtitle]="'Last Campaign Performance'"
+                  [title]="'Estadisticas de uso'"
+                  [subtitle]="'Estadisticas de prueba a implementar'"
                   [chartClass]="'ct-perfect-fourth'"
                   [chartType]="emailChartType"
                   [chartData]="emailChartData"
                   [legendItems]="emailChartLegendItems"
                   [withHr]="true"
-                  [footerIconClass]="'fa fa-clock-o'"
-                  [footerText]="'Campaign sent 2 days ago'">
+                  [footerIconClass]="'fa fa-clock-o'">
                 </lbd-chart>
             </div>
-            <div class="col-md-8">
+
+
+            <div class="col-md-6">
                 <div class="card">
-                    <h2 style="text-align: center;font-family:Montserrat;font-weight:400;font-style:normal">Lo que Dios quiere para nuestro Sacramento</h2>
-                    <div class="">
-                        <p style="text-align: center;">«Maridos, amen a sus mujeres, así como Cristo amó a la iglesia y se dio Él mismo por ella.»</p>
-                </div>
+                    <div class="header">
+                        <h4 class="title">Finalidad del sistema</h4>
+                        <p class="category">Gestion pilares Encuentro Matrimonial Mundial</p>
+                    </div>
+                    <div class="content">
+                        <div class="footer">
+                            <hr>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <p class="stats" style='text-align:center'>La finalidad del sistema de información facilitar la recopilación, almacenamiento y distribución de datos e información dentro de la organización Encuentros Matimoniales</p>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                        </div>
+                        <div class="footer">
+                            <hr>
+                            <div class="stats">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+
+    </div>
         <div class="row">
-            <div class="col-md-6">
-                <lbd-chart
-                  [title]="'2021 Sales'"
-                  [subtitle]="'All products including Taxes'"
-                  [chartType]="activityChartType"
-                  [chartData]="activityChartData"
-                  [chartOptions]="activityChartOptions"
-                  [chartResponsive]="activityChartResponsive"
-                  [legendItems]="activityChartLegendItems"
-                  [withHr]="true"
-                  [footerIconClass]="'fa fa-check'"
-                  [footerText]="'Data information certified'">
-                </lbd-chart>
-            </div>
 
             <div class="col-md-6">
                 <div class="card">

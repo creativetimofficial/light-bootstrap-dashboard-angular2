@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import * as XLSX from 'xlsx';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
 declare interface TableData {
     headerRow: string[];
@@ -53,6 +54,8 @@ export class PrimerPilarGridComponent implements OnInit {
       });
 
       this.data = responseData;
+      
+      
     });
   }
 
@@ -74,6 +77,7 @@ export class PrimerPilarGridComponent implements OnInit {
       this.getTableData();
     });
   }
+
 
   editRow(row) {
     const elementId = row.id;
