@@ -65,7 +65,7 @@ export class NuevoPrimerPilarComponent implements OnInit {
       ciudadSeleccionada,
       ciudad: {
         id: ciudadSeleccionada
-      },      
+      },
     };
     const jsonPrimerPilar = JSON.stringify(newPrimerPilar); // Convertir el objeto en una cadena JSON
     console.log(jsonPrimerPilar);

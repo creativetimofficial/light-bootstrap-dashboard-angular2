@@ -54,16 +54,27 @@
                                 </tr>
                             </thead>
                                 <tbody>
-                                    <tr *ngFor="let row of tableData1.dataRows; let i=index">
-                                        <td *ngFor="let cell of row">{{cell}}</td>
-                                        <td>
-                                            <button (click)="editRow(i)">
-                                                <i class="fas fa-edit"></i>
-                                            </button>    
-                                            <button (click)="deleteRow(i)">
-                                                <i class="fas fa-trash"></i>
-                                            </button>                                     
-                                        </td>   
+                                    <tr *ngFor="let row of tableData1.dataRows; let i=index" >
+                                    <th>{{row.id}}</th>
+                                    <th>{{row.fechaCreacion}}</th>
+                                    <td>{{row.numFdsProfundosPeriodo}}</td>
+                                    <td>{{row.numMatrimosDebutaronProfundo}}</td>
+                                    <td>{{row.numMatrimosServidoresActivos}}</td>
+                                    <td>{{row.numMatrimosServidoresProfundoActivos}}</td> 
+                                    <td>{{row.numMatrimosVivieronProfundo}}</td>                                  
+                                    <td>{{row.numSacerdotesDebutaronProfundo}}</td>                                  
+                                    <td>{{row.numMatrimosServidoresProfundoActivos}}</td>                                  
+                                    <td>{{row.numSacerdotesServidoresActivos}}</td>                                  
+                                    <td>{{row.numSacerdotesServidoresprofundoActivos}}</td>                                  
+                                 
+                                    <td>
+                                        <button (click)="editRow(row)">
+                                        <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button (click)="deleteRow(row)">
+                                        <i class="fas fa-trash"></i>
+                                        </button>
+                                    </td>                                                
                                     </tr>
                                 </tbody>
                           </table>

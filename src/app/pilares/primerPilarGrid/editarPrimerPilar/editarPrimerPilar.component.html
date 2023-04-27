@@ -63,11 +63,28 @@
                                             <br>
                                             <input type="text" id="numSacerdotesVivieron" formControlName="numSacerdotesVivieron" name="numSacerdotesVivieron" pattern="^[0-9]+$"class="form-control" required="true">
                                         </div>
-                                    </div>                                   
+                                    </div>    
+                                    <!-- <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="select-pais">Pais</label>
+                                            <select id="select-pais" formControlName="select-pais"  (change)="onSelectPais($event.target.value)" class="form-control">
+                                            <option *ngFor="let pais of paises" [value]="pais.id">{{pais.nombre}}</option>
+                                            </select>
+                                        </div>
+                                    </div>-->
                                 </div>
-                             
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Ciudad</label>
+                                            <select type="text" id="select-ciudad" formControlName="select-ciudad"  class="form-control">
+                                              <option *ngFor="let ciudad of ciudades" [value]="ciudad.id">{{ciudad.name}}</option>
+                                            </select>
+                                          </div>
+                                    </div>
+                                </div> -->
+                                <div class="row">
+                                    <div class="col-md-3"> 
                                         <button type="submit" class="boton-rojo">Guardar</button>
                                     </div>
                                     <div class="col-md-3">
