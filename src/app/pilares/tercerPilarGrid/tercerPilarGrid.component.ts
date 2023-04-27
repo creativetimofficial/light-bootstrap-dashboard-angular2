@@ -41,18 +41,19 @@ export class TercerPilarGridComponent implements OnInit {
       .subscribe(response => {
         console.log(response); // ver los datos obtenidos en la consola
         const responseData = response['response']; // acceder al array 'response' dentro de la respuesta
-        this.tableData1.dataRows = responseData.map(item => {
-          return {
-            id: item.id,
-            numDiocesisContacto : item.numDiocesisContacto,
-            numDiocesisEclisiastica : item.numDiocesisEclisiastica,
-            fechaCreacion:  new Date(item.fechaCreacion).toLocaleDateString('es-ES'),
-            numDiocesisEstablecidas: item.numDiocesisEstablecidas,
-            numDiocesisExpansion: item.numDiocesisExpansion,
-            numRegiones: item.numDiocesisExpansion       
-          }
-        });
-  
+        if (responseData) {
+          this.tableData1.dataRows = responseData.map(item => {
+            return {
+              id: item.id,
+              numDiocesisContacto : item.numDiocesisContacto,
+              numDiocesisEclisiastica : item.numDiocesisEclisiastica,
+              fechaCreacion:  new Date(item.fechaCreacion).toLocaleDateString('es-ES'),
+              numDiocesisEstablecidas: item.numDiocesisEstablecidas,
+              numDiocesisExpansion: item.numDiocesisExpansion,
+              numRegiones: item.numDiocesisExpansion       
+            }
+          });
+        }
         this.data = responseData;
       });
     }
@@ -62,6 +63,46 @@ export class TercerPilarGridComponent implements OnInit {
       this.router.navigate(['/editarTercerPilar', elementId]);
       
     }
+    public deleteRow(row) {
+      const params = { id: row.id };
+      console.log(this.httpOptions);
+      const token = localStorage.getItem('jwt');
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        })
+      };
+      const response = this.http.post(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/tercerPilar/delete?id=${params.id}`, {}, httpOptions);
+      
+      response.subscribe((result: any) => {
+    
+        // Actualizar la tabla llamando la función getTableData()
+        this.getTableData();
+      });
+    }
+    
+    public getTableData() {
+      this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/pilar/tercerPilar/getAll', this.httpOptions)
+        .subscribe(response => {
+          console.log(response); // ver los datos obtenidos en la consola
+          const responseData = response['response']; // acceder al array 'response' dentro de la respuesta
+          this.tableData1.dataRows = responseData.map(item => {
+            return {
+              id: item.id,
+              numDiocesisContacto : item.numDiocesisContacto,
+              numDiocesisEclisiastica : item.numDiocesisEclisiastica,
+              fechaCreacion:  new Date(item.fechaCreacion).toLocaleDateString('es-ES'),
+              numDiocesisEstablecidas: item.numDiocesisEstablecidas,
+              numDiocesisExpansion: item.numDiocesisExpansion,
+              numRegiones: item.numDiocesisExpansion                
+            }
+          });
+    
+          this.data = responseData;
+        });
+    }
+    
       // Función para generar el archivo Excel
 generateExcel() {
   // Realizar la consulta y obtener los datos en un arreglo

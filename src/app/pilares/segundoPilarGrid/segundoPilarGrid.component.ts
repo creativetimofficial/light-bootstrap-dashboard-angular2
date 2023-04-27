@@ -42,12 +42,25 @@ export class SegundoPilarGridComponent implements OnInit {
     .subscribe(response => {
       console.log(response); // ver los datos obtenidos en la consola
       const responseData = response['response']; // acceder al array 'response' dentro de la respuesta
-      this.tableData1.dataRows = responseData.map(item => {
-        const formattedDate = new Date(item.fechaCreacion).toLocaleDateString('es-ES');
-        const rowValues = Object.values(item);
-        rowValues[1] = formattedDate;
-        return rowValues;
-      });
+      if (responseData) {
+
+        this.tableData1.dataRows = responseData.map(item => {
+          return {
+            id: item.id,
+            fechaCreacion: new Date(item.fechaCreacion).toLocaleDateString('es-ES'),
+            numFdsProfundosPeriodo: item.numFdsProfundosPeriodo,
+            numMatrimosDebutaronProfundo: item.numMatrimosDebutaronProfundo,
+            numMatrimosServidoresActivos: item.numMatrimosServidoresActivos,
+            numMatrimosServidoresProfundoActivos: item.numMatrimosServidoresProfundoActivos,
+            numMatrimosVivieronProfundo: item.numMatrimosVivieronProfundo,
+            numSacerdotesDebutaronProfundo: item.numSacerdotesDebutaronProfundo,
+            numSacerdotesServidoresActivos: item.numSacerdotesServidoresActivos,
+            numSacerdotesServidoresprofundoActivos: item.numSacerdotesServidoresprofundoActivos,
+            numSacerdotesVivieronProfundo: item.numSacerdotesVivieronProfundo  
+          }
+        });
+      }
+      this.data = responseData;
     });
   }
   editRow(index: number) {
@@ -57,6 +70,53 @@ export class SegundoPilarGridComponent implements OnInit {
     // Navegar a la página de edición del primer pilar, pasando el ID como parámetro
     this.router.navigate(['/editarSegundoPilar', elementId]);
   }
+
+  public deleteRow(row) {
+    const params = { id: row.id };
+    console.log(this.httpOptions);
+    const token = localStorage.getItem('jwt');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      })
+    };
+    const response = this.http.post(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/segundoPilar/delete?id=${params.id}`, {}, httpOptions);
+    
+    response.subscribe((result: any) => {
+  
+      // Actualizar la tabla llamando la función getTableData()
+      this.getTableData();
+    });
+  }
+  
+  public getTableData() {
+    this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/pilar/segundoPilar/getAll', this.httpOptions)
+      .subscribe(response => {
+        console.log(response); // ver los datos obtenidos en la consola
+        const responseData = response['response']; // acceder al array 'response' dentro de la respuesta
+        if (responseData) {
+
+        this.tableData1.dataRows = responseData.map(item => {
+          return {
+            id: item.id,
+            fechaCreacion: new Date(item.fechaCreacion).toLocaleDateString('es-ES'),
+            numFdsProfundosPeriodo: item.numFdsProfundosPeriodo,
+            numMatrimosDebutaronProfundo: item.numMatrimosDebutaronProfundo,
+            numMatrimosServidoresActivos: item.numMatrimosServidoresActivos,
+            numMatrimosServidoresProfundoActivos: item.numMatrimosServidoresProfundoActivos,
+            numMatrimosVivieronProfundo: item.numMatrimosVivieronProfundo,
+            numSacerdotesDebutaronProfundo: item.numSacerdotesDebutaronProfundo,
+            numSacerdotesServidoresActivos: item.numSacerdotesServidoresActivos,
+            numSacerdotesServidoresprofundoActivos: item.numSacerdotesServidoresprofundoActivos,
+            numSacerdotesVivieronProfundo: item.numSacerdotesVivieronProfundo
+          }
+        });
+      }
+        this.data = responseData;
+      });
+  }
+  
   generateExcel(){
   // Realizar la consulta y obtener los datos en un arreglo
   this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/pilar/segundoPilar/getAll', this.httpOptions)
@@ -124,5 +184,6 @@ export class SegundoPilarGridComponent implements OnInit {
     }
     return buf;
   }
+  
 
 }

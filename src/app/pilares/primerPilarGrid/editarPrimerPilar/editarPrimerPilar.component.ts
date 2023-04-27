@@ -18,7 +18,13 @@ export class EditarPrimerPilarComponent implements OnInit {
   token: any;
   response: any;
   datosCargados: boolean;
-  @ViewChild('fechaInput') fechaInput: ElementRef;
+  @ViewChild('fechaInput') fechaInput: ElementRef;  
+  ciudades: any[]; // Declarar la propiedad 'ciudades'
+  paises: any[]; // Declarar la propiedad 'paises'
+  selectedCiudad: string;
+  selectedPais: string;
+  data: any;
+
 
   fechaCreacion: string;
 
@@ -31,7 +37,14 @@ export class EditarPrimerPilarComponent implements OnInit {
       numMatrinoniosVivieron: [null, Validators.required],
       numSacerdotesVivieron: [null, Validators.required],
       numReligiososVivieron: [null, Validators.required],
-      numReligiosasVivieron: [null, Validators.required]
+      'select-ciudad': this.formBuilder.group({
+        id: [null, Validators.required],
+        name: [null, Validators.required]
+      }),
+      'select-pais': this.formBuilder.group({
+          id: [null, Validators.required],
+          name: [null, Validators.required]
+      })
     });
   }
   ngOnInit() {
@@ -46,8 +59,8 @@ export class EditarPrimerPilarComponent implements OnInit {
       })
     };
     const elementId = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log(elementId);
 
+    
     this.obtenerDatosDelPilar(elementId).subscribe(data => {
       // Asignar los datos del elemento al formulario utilizando setValue()
       let fecha = new Date(data.response.fechaCreacion);
@@ -57,14 +70,19 @@ export class EditarPrimerPilarComponent implements OnInit {
       this.editarPrimerPilarForm.controls['numMatrinoniosVivieron'].setValue(data.response.numMatrinoniosVivieron);
       this.editarPrimerPilarForm.controls['numSacerdotesVivieron'].setValue(data.response.numSacerdotesVivieron);
       this.editarPrimerPilarForm.controls['numReligiososVivieron'].setValue(data.response.numReligiososVivieron);
+      console.log(data.response.ciudad.name);
+      console.log(data.response.ciudad.pais.name);
+
       
 
-      console.log(data.response);
+      // this.editarPrimerPilarForm.controls['select-ciudad'].setValue(data.response.ciudad.id);
+      // this.editarPrimerPilarForm.controls['select-pais'].setValue(data.response.ciudad.pais.id);
+
 
       this.datosCargados = true;
-      console.log(this.datosCargados);
     });
-   
+ 
+
   }
 
   obtenerDatosDelPilar(id: string): Observable<any> {
@@ -108,5 +126,37 @@ export class EditarPrimerPilarComponent implements OnInit {
     } else {      
       alert('httpOptions no está definido, intente iniciar sesion nuevamente');
     }
+  }
+  onSelectPais(idPais: string) {
+    this.obtenerDatosCiudad(idPais).subscribe((data: any) => {
+      const ciudades = data.response;
+      const selectCiudad = document.getElementById('select-ciudad') as HTMLSelectElement;
+  
+      // Limpiar el select de ciudades
+      selectCiudad.innerHTML = '';
+  
+      // Crear un option por cada ciudad en la respuesta del JSON
+      ciudades.forEach((ciudad: any) => {
+        const option = document.createElement('option');
+        option.value = ciudad.id;
+        option.text = ciudad.name;
+        selectCiudad.appendChild(option);
+      });
+      selectCiudad.disabled = false;
+
+    });
+  }
+
+  obtenerDatosCiudad(id: string) {
+    const params = { id: id };
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getCiudadPaises?idPais=${params.id}`;
+    const response = this.http.get(url, this.httpOptions); 
+    return response  
+  }
+
+  obtenerDatosPais(): Observable<any> {
+    console.log(this.token);
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getPaises`;
+    return this.http.get(url, this.httpOptions);
   }
 }
