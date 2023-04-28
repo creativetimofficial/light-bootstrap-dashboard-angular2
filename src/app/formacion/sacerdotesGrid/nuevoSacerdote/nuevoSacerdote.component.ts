@@ -49,7 +49,9 @@ export class NuevoSacerdoteComponent implements OnInit {
   newSacerdote() {
     const fecha = (document.getElementById("fechaCreacion") as HTMLInputElement).value;
     const fechaObjeto = new Date(fecha);
-    const fechaCreacion = fechaObjeto.toISOString();
+    fechaObjeto.setDate(fechaObjeto.getDate() - 1); // Resta un día
+    const fechaCreacion = fechaObjeto.toISOString().slice(0, 10);
+
     const jornadaDialogo = (<HTMLInputElement>document.getElementById('jornadaDialogo')).value;
     const retornoEspiritual = (<HTMLInputElement>document.getElementById('retornoEspiritual')).value;
     const lenguajeAmor = (<HTMLInputElement>document.getElementById('lenguajeAmor')).value;

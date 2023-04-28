@@ -47,7 +47,7 @@ export class TercerPilarGridComponent implements OnInit {
               id: item.id,
               numDiocesisContacto : item.numDiocesisContacto,
               numDiocesisEclisiastica : item.numDiocesisEclisiastica,
-              fechaCreacion:  new Date(item.fechaCreacion).toLocaleDateString('es-ES'),
+              fechaCreacion: new Date(new Date(item.fechaCreacion).getTime() + 86400000).toLocaleDateString('es-ES', {year: 'numeric', month: '2-digit', day: '2-digit'}).split('/').join('-'),
               numDiocesisEstablecidas: item.numDiocesisEstablecidas,
               numDiocesisExpansion: item.numDiocesisExpansion,
               numRegiones: item.numDiocesisExpansion       
@@ -92,7 +92,7 @@ export class TercerPilarGridComponent implements OnInit {
               id: item.id,
               numDiocesisContacto : item.numDiocesisContacto,
               numDiocesisEclisiastica : item.numDiocesisEclisiastica,
-              fechaCreacion:  new Date(item.fechaCreacion).toLocaleDateString('es-ES'),
+              fechaCreacion: new Date(new Date(item.fechaCreacion).getTime() + 86400000).toLocaleDateString('es-ES', {year: 'numeric', month: '2-digit', day: '2-digit'}).split('/').join('-'),
               numDiocesisEstablecidas: item.numDiocesisEstablecidas,
               numDiocesisExpansion: item.numDiocesisExpansion,
               numRegiones: item.numDiocesisExpansion                

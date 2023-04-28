@@ -47,7 +47,7 @@ export class PrimerPilarGridComponent implements OnInit {
           id: item.id,
           numFDS : item.numFDS,
           numMatrinoniosVivieron : item.numMatrinoniosVivieron,
-          fechaCreacion:  new Date(item.fechaCreacion).toLocaleDateString('es-ES'),
+          fechaCreacion: new Date(new Date(item.fechaCreacion).getTime() + 86400000).toLocaleDateString('es-ES', {year: 'numeric', month: '2-digit', day: '2-digit'}).split('/').join('-'),
           numSacerdotesVivieron: item.numSacerdotesVivieron,
           numReligiososVivieron: item.numReligiososVivieron        
         }
@@ -96,7 +96,7 @@ export class PrimerPilarGridComponent implements OnInit {
             id: item.id,
             numFDS : item.numFDS,
             numMatrinoniosVivieron : item.numMatrinoniosVivieron,
-            fechaCreacion:  new Date(item.fechaCreacion).toLocaleDateString('es-ES'),
+            fechaCreacion: new Date(new Date(item.fechaCreacion).getTime() + 86400000).toLocaleDateString('es-ES', {year: 'numeric', month: '2-digit', day: '2-digit'}).split('/').join('-'),
             numSacerdotesVivieron: item.numSacerdotesVivieron,
             numReligiososVivieron: item.numReligiososVivieron        
           }
@@ -159,4 +159,4 @@ export class PrimerPilarGridComponent implements OnInit {
     }
     return buf;
   }
-  }
+}

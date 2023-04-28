@@ -60,6 +60,7 @@ export class EditarSacerdoteComponent implements OnInit {
       // Asignar los datos del elemento al formulario utilizando setValue()
    
       let fecha = new Date(data.response.fechaCreacion);
+      fecha.setDate(fecha.getDate() - 1); // Resta un día
       let fechaFormateada = fecha.toISOString().substring(0, 10);
       this.editarSacerdoteForm.controls['fechaCreacion'].setValue(fechaFormateada);
       this.editarSacerdoteForm.controls['jornadaDialogo'].setValue(data.response.jornadaDialogo);
