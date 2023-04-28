@@ -47,7 +47,7 @@ export class SegundoPilarGridComponent implements OnInit {
         this.tableData1.dataRows = responseData.map(item => {
           return {
             id: item.id,
-            fechaCreacion: new Date(item.fechaCreacion).toLocaleDateString('es-ES'),
+            fechaCreacion: new Date(new Date(item.fechaCreacion).getTime() + 86400000).toLocaleDateString('es-ES', {year: 'numeric', month: '2-digit', day: '2-digit'}).split('/').join('-'),
             numFdsProfundosPeriodo: item.numFdsProfundosPeriodo,
             numMatrimosDebutaronProfundo: item.numMatrimosDebutaronProfundo,
             numMatrimosServidoresActivos: item.numMatrimosServidoresActivos,
@@ -100,7 +100,7 @@ export class SegundoPilarGridComponent implements OnInit {
         this.tableData1.dataRows = responseData.map(item => {
           return {
             id: item.id,
-            fechaCreacion: new Date(item.fechaCreacion).toLocaleDateString('es-ES'),
+            fechaCreacion: new Date(new Date(item.fechaCreacion).getTime() + 86400000).toLocaleDateString('es-ES', {year: 'numeric', month: '2-digit', day: '2-digit'}).split('/').join('-'),
             numFdsProfundosPeriodo: item.numFdsProfundosPeriodo,
             numMatrimosDebutaronProfundo: item.numMatrimosDebutaronProfundo,
             numMatrimosServidoresActivos: item.numMatrimosServidoresActivos,
