@@ -159,9 +159,4 @@ export class PrimerPilarGridComponent implements OnInit {
     }
     return buf;
   }
-  }
-
-
-
-
-
+}

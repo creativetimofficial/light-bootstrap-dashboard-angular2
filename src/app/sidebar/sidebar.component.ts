@@ -23,12 +23,12 @@ interface IChildItem {
 
 export const ROUTES: RouteInfo[] = [
     { path: '/usuariosGrid', title: 'Lista usuarios', icon:'pe-7s-add-user', class: '', type:'link' },
-    { path: '', title: 'Pilares', icon:'', class: '', type:'link', },    
+    { path: '/primerPilarGrid', title: 'Pilares', icon:'', class: '', type:'link', },    
     { path: '/primerPilarGrid', title: 'Primer pilar',  icon:'pe-7s-plugin', class: '', type:'link' },
     { path: '/segundoPilarGrid', title: 'Segundo pilar',  icon:'pe-7s-plugin', class: '', type:'link' },
     { path: '/tercerPilarGrid', title: 'Tercer pilar',  icon:'pe-7s-plugin', class: '', type:'link' },
     { path: '/cuartoPilarGrid', title: 'Cuarto pilar',  icon:'pe-7s-plugin', class: '', type:'link' },
-    { path: '', title: 'Formación', icon:'', class: '', type:'link' },    
+    { path: '/matrimoniosGrid', title: 'Formación', icon:'', class: '', type:'link' },    
     { path: '/matrimoniosGrid', title: 'Matrimonios',  icon:'pe-7s-leaf', class: '', type:'link' },
     { path: '/sacerdotesGrid', title: 'Sacerdotes',  icon:'pe-7s-id', class: '', type:'link' },
     { path: '/icons', title: 'Reportes',  icon:'pe-7s-note2', class: '', type:'link' },
