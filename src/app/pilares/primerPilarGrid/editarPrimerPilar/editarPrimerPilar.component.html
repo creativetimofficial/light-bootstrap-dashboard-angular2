@@ -64,14 +64,24 @@
                                             <input type="text" id="numSacerdotesVivieron" formControlName="numSacerdotesVivieron" name="numSacerdotesVivieron" pattern="^[0-9]+$"class="form-control" required="true">
                                         </div>
                                     </div>    
-                                    <!-- <div class="col-md-3">
+                                    <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="select-pais">Pais</label>
-                                            <select id="select-pais" formControlName="select-pais"  (change)="onSelectPais($event.target.value)" class="form-control">
-                                            <option *ngFor="let pais of paises" [value]="pais.id">{{pais.nombre}}</option>
+                                          <label>Pais</label>
+                                          <select formControlName="select-pais" id="select-pais" (change)="onSelectPais($event.target.value)" class="form-control">
+                                            <option value="">Seleccionar país</option>
+                                            <option *ngFor="let pais of paises" [value]="pais.id">{{ pais.name }}</option>
+                                          </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Ciudad</label>
+                                            <select formControlName="select-ciudad" id="select-ciudad" [disabled]="editarPrimerPilarForm.controls['select-pais'].value === ''" class="form-control">
+                                                <option value="">Seleccionar ciudad</option>
+                                                <option *ngFor="let ciudad of ciudades" [value]="ciudad.id">{{ ciudad.name }}</option>
                                             </select>
                                         </div>
-                                    </div>-->
+                                    </div>
                                 </div>
                                 <!-- <div class="row">
                                     <div class="col-md-3">

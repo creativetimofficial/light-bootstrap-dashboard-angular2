@@ -19,9 +19,15 @@ export class EditarTercerPilarComponent implements OnInit {
   response: any;
   datosCargados: boolean;
   @ViewChild('fechaInput') fechaInput: ElementRef;
-
+  ciudades: any[]; // Declarar la propiedad 'ciudades'
+  paises: any[]; // Declarar la propiedad 'paises'
+  selectedCiudad: string;
+  selectedPais: string;
+  data: any;
+  pais: any; // cambia a tipo any
   fechaCreacion: string;
 
+  
   constructor(private http: HttpClient, private router: Router,
     private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) {
     this.editarTercerPilarForm = this.formBuilder.group({
@@ -32,6 +38,8 @@ export class EditarTercerPilarComponent implements OnInit {
       numDiocesisContacto: [null, Validators.required],
       numDiocesisExpansion: [null, Validators.required],
       numDiocesisEclisiastica: [null, Validators.required],
+      'select-pais': ['', Validators.required],
+      'select-ciudad': ['', Validators.required]
     });
   }
   ngOnInit() {
@@ -59,10 +67,48 @@ export class EditarTercerPilarComponent implements OnInit {
       this.editarTercerPilarForm.controls['numDiocesisExpansion'].setValue(data.response.numDiocesisExpansion);
       this.editarTercerPilarForm.controls['numDiocesisEclisiastica'].setValue(data.response.numDiocesisEclisiastica);
 
-      console.log(data.response);
+      const pais = data.response.ciudad.pais;
+      const ciudad = data.response.ciudad;
+      
+      console.log(pais.id)
+      this.editarTercerPilarForm.controls['select-pais'].setValue(pais.id);
 
-      this.datosCargados = true;
-      console.log(this.datosCargados);
+      this.obtenerDatosPais(pais.id).subscribe((data: any) => {
+        const paises = data.response;
+        const selectPais = document.getElementById('select-pais') as HTMLSelectElement;
+    
+        selectPais.innerHTML = '';
+    
+        paises.forEach((pais: any) => {
+          const option = document.createElement('option');
+          option.value = pais.id;
+          option.text = pais.name;
+          selectPais.appendChild(option);
+        });
+    
+        // Establecemos el país seleccionado en el select del país
+        this.editarTercerPilarForm.controls['select-pais'].setValue(pais.id);
+      });
+
+      this.obtenerDatosCiudad(pais.id).subscribe((data: any) => {
+        const ciudades = data.response;
+        console.log(ciudades);
+        const selectCiudad = document.getElementById('select-ciudad') as HTMLSelectElement;
+     
+        selectCiudad.innerHTML = '';
+    
+        ciudades.forEach((ciudad: any) => {
+          const option = document.createElement('option');
+          option.value = ciudad.id;
+          option.text = ciudad.name;
+          selectCiudad.appendChild(option);
+        });
+        selectCiudad.disabled = false;
+    
+        // Establecemos la ciudad seleccionada en el select de la ciudad
+        this.editarTercerPilarForm.controls['select-ciudad'].setValue(ciudad.id);
+      });
+      
     });
    
   }
@@ -85,6 +131,7 @@ export class EditarTercerPilarComponent implements OnInit {
     const numDiocesisContacto = (<HTMLInputElement>document.getElementById('numDiocesisContacto')).value;
     const numDiocesisExpansion = (<HTMLInputElement>document.getElementById('numDiocesisExpansion')).value;
     const numDiocesisEclisiastica = (<HTMLInputElement>document.getElementById('numDiocesisEclisiastica')).value;
+    const ciudadSeleccionada = (<HTMLInputElement>document.getElementById('select-ciudad')).value;
 
     const editTercerPilar = {
       id,
@@ -93,7 +140,10 @@ export class EditarTercerPilarComponent implements OnInit {
       numDiocesisEstablecidas,
       numDiocesisContacto,
       numDiocesisExpansion,
-      numDiocesisEclisiastica  
+      numDiocesisEclisiastica,
+      ciudad: {
+        id: ciudadSeleccionada
+      },
     };
     const jsonTrecerPilar = JSON.stringify(editTercerPilar); // Convertir el objeto en una cadena JSON
     console.log(jsonTrecerPilar);
@@ -111,5 +161,40 @@ export class EditarTercerPilarComponent implements OnInit {
     } else {      
       alert('httpOptions no está definido, intente iniciar sesion nuevamente');
     }
+  }
+  onSelectPais(idPais: string) {
+    this.obtenerDatosCiudad(idPais).subscribe((data: any) => {
+      const ciudades = data.response;
+      const selectCiudad = document.getElementById('select-ciudad') as HTMLSelectElement;
+      
+      selectCiudad.innerHTML = '';
+      
+      ciudades.forEach((ciudad: any) => {
+        const option = document.createElement('option');
+        option.value = ciudad.id;
+        option.text = ciudad.name;
+        selectCiudad.appendChild(option);
+      });
+      selectCiudad.disabled = false;
+      
+      // reiniciar el selector de ciudades
+      this.editarTercerPilarForm.controls['select-ciudad'].reset(); 
+      
+    });
+  }
+
+  obtenerDatosCiudad(id: string) {
+    const params = { id: id };
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getCiudadPaises?idPais=${params.id}`;
+    const response = this.http.get(url, this.httpOptions); 
+    return response  
+  }
+
+  obtenerDatosPais(id: string){
+    const params = { id: id };
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getPaises?idPais=${params.id}`;
+    const response = this.http.get(url, this.httpOptions); 
+
+    return response  
   }
 }

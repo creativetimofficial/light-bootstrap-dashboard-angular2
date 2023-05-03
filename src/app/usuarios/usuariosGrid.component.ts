@@ -57,7 +57,6 @@ export class UsuariosGridComponent implements OnInit {
   editRow(row) {
     console.log(row);
     const id = row.id;
-    console.log(id + "este");
     this.router.navigate(['/usuariosEditar', id]);
     
   }

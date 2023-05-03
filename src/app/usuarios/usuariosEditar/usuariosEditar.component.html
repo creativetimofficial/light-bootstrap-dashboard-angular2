@@ -3,7 +3,11 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-        
+        <script>
+        $( function() {
+            $( "#fechaCreacion" ).datepicker();
+        } );
+        </script>
     </head>
 <body>
 <div class="main-content" >
@@ -16,6 +20,20 @@
                     </div>
                     <div class="content">
                         <form  [formGroup]="usuariosEditarForm" (ngSubmit)="editarUsuario()">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Fecha de creacion</label>
+                                            <div class="input-group date" data-provide="datepicker">
+                                                <input type="date" class="form-control" id ="fechaCreacion" name="fechaCreacion" formControlName="creationDate" >
+                                                <div class="input-group-addon">
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
@@ -35,12 +53,6 @@
                                         <input type="text" id="username"  formControlName="username" class="form-control" >
                                     </div>
                                 </div>
-                                <!-- <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Tipo de identificación</label>
-                                        <select type="text" id=""  class="form-control" ></select>
-                                    </div>
-                                </div> -->
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
@@ -57,83 +69,43 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Rol de usuario</label>
-                                        <br>
-                                        <select name="rol" id="rol" formControlName="rol" class="form-control">
-                                            <option value="9">Rol admin</option>
-                                            <option value="10">Rol usuario</option>
-                                            <option value="11">Rol diosesano</option>
-                                            <option value="12">Rol regional</option>
-                                            <option value="13">Rol zonal</option>
-                                            <option value="14">Rol latam</option>                                        
-                                        </select>
+                                      <label>Rol de usuario</label>
+                                      <br>
+                                      <select name="rol" id="select-rol" formControlName="rol" class="form-control">
+                                        <option *ngFor="let rol of roles" [value]="rol.key">{{ rol.value.name }}</option>
+                                      </select>
                                     </div>
-                                </div>
-                                <!-- <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Fecha de nacimiento</label>
-                                        <input type="date" id=""  class="form-control" >
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>N° Celular</label>
-                                        <input type="text" id=""  class="form-control" >
-                                    </div>
-                                </div> -->
-                                <!-- <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Correo Electrónico</label>
-                                        <input type="text" id="" class="form-control" >
-                                    </div>
-                                </div> -->
+                                  </div>                               
                             </div>
                             <div class="row">
-                                <!-- <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Confirmacion de correo</label>
-                                        <input type="text" id=""  class="form-control" >
-                                    </div>
-                                </div> -->
-                                <!-- <div class="col-md-9">
-                                    <div class="form-group">
-                                        <label>Rol de usuario</label>
-                                        <br>
-                                        <select name="rol" id="rol" formControlName="rol" class="form-control">
-                                            <option value="9">Rol admin</option>
-                                            <option value="10">Rol usuario</option>
-                                            <option value="11">Rol diosesano</option>
-                                            <option value="12">Rol regional</option>
-                                            <option value="13">Rol zonal</option>
-                                            <option value="14">Rol latam</option>                                        
-                                        </select>
-                                    </div>
-                                </div> -->
-
-                                
-                            </div>
-                            <!-- <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Pais</label>
-                                        <select type="text" id=""  class="form-control" ></select>
+                                      <label>Pais</label>
+                                      <select formControlName="select-pais" id="select-pais" (change)="onSelectPais($event.target.value)" class="form-control">
+                                        <option value="">Seleccionar país</option>
+                                        <option *ngFor="let pais of paises" [value]="pais.id">{{ pais.name }}</option>
+                                      </select>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Ciudad</label>
-                                        <select type="text" id="" class="form-control" ></select>
+                                        <select formControlName="select-ciudad" id="select-ciudad" [disabled]="usuariosEditarForm.controls['select-pais'].value === ''" class="form-control">
+                                            <option value="">Seleccionar ciudad</option>
+                                            <option *ngFor="let ciudad of ciudades" [value]="ciudad.id">{{ ciudad.name }}</option>
+                                        </select>
+                                    </div>
+                                </div> 
+                                
+                            </div>
+                                                       
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <button type="submit" class="boton-rojo">Guardar</button>
+                                        <a routerLink="/usuariosGrid" class="boton-gris">Cancelar</a>                                
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Contraseña</label>
-                                        <input type="password" id="password" formControlName="password" class="form-control" >
-                                    </div>
-                                </div> -->
-                            <!-- </div> -->
-                            
-                            <button type="submit" class="boton-rojo">Crear nuevo</button>
+                                    
                             <div class="clearfix"></div>
                         </form>
                     </div>

@@ -24,8 +24,7 @@ export class EditarPrimerPilarComponent implements OnInit {
   selectedCiudad: string;
   selectedPais: string;
   data: any;
-
-
+  pais: any; // cambia a tipo any
   fechaCreacion: string;
 
   constructor(private http: HttpClient, private router: Router,
@@ -37,32 +36,24 @@ export class EditarPrimerPilarComponent implements OnInit {
       numMatrinoniosVivieron: [null, Validators.required],
       numSacerdotesVivieron: [null, Validators.required],
       numReligiososVivieron: [null, Validators.required],
-      'select-ciudad': this.formBuilder.group({
-        id: [null, Validators.required],
-        name: [null, Validators.required]
-      }),
-      'select-pais': this.formBuilder.group({
-          id: [null, Validators.required],
-          name: [null, Validators.required]
-      })
+    
+      'select-pais': ['', Validators.required],
+      'select-ciudad': ['', Validators.required]
     });
   }
   ngOnInit() {
-
-
     let token = localStorage.getItem('jwt');
-
+  
     this.httpOptions = {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + token,
         'Content-Type': 'application/json'
       })
     };
+  
     const elementId = this.activatedRoute.snapshot.paramMap.get('id');
-
-    
+  
     this.obtenerDatosDelPilar(elementId).subscribe(data => {
-      // Asignar los datos del elemento al formulario utilizando setValue()
       let fecha = new Date(data.response.fechaCreacion);
       let fechaFormateada = fecha.toISOString().substring(0, 10);
       this.editarPrimerPilarForm.controls['fechaCreacion'].setValue(fechaFormateada);
@@ -70,19 +61,50 @@ export class EditarPrimerPilarComponent implements OnInit {
       this.editarPrimerPilarForm.controls['numMatrinoniosVivieron'].setValue(data.response.numMatrinoniosVivieron);
       this.editarPrimerPilarForm.controls['numSacerdotesVivieron'].setValue(data.response.numSacerdotesVivieron);
       this.editarPrimerPilarForm.controls['numReligiososVivieron'].setValue(data.response.numReligiososVivieron);
-      console.log(data.response.ciudad.name);
-      console.log(data.response.ciudad.pais.name);
-
+    
+      const pais = data.response.ciudad.pais;
+      const ciudad = data.response.ciudad;
       
+      console.log(pais.id)
+      this.editarPrimerPilarForm.controls['select-pais'].setValue(pais.id);
 
-      // this.editarPrimerPilarForm.controls['select-ciudad'].setValue(data.response.ciudad.id);
-      // this.editarPrimerPilarForm.controls['select-pais'].setValue(data.response.ciudad.pais.id);
+      this.obtenerDatosPais(pais.id).subscribe((data: any) => {
+        const paises = data.response;
+        const selectPais = document.getElementById('select-pais') as HTMLSelectElement;
+    
+        selectPais.innerHTML = '';
+    
+        paises.forEach((pais: any) => {
+          const option = document.createElement('option');
+          option.value = pais.id;
+          option.text = pais.name;
+          selectPais.appendChild(option);
+        });
+    
+        // Establecemos el país seleccionado en el select del país
+        this.editarPrimerPilarForm.controls['select-pais'].setValue(pais.id);
+      });
 
-
-      this.datosCargados = true;
+      this.obtenerDatosCiudad(pais.id).subscribe((data: any) => {
+        const ciudades = data.response;
+        console.log(ciudades);
+        const selectCiudad = document.getElementById('select-ciudad') as HTMLSelectElement;
+     
+        selectCiudad.innerHTML = '';
+    
+        ciudades.forEach((ciudad: any) => {
+          const option = document.createElement('option');
+          option.value = ciudad.id;
+          option.text = ciudad.name;
+          selectCiudad.appendChild(option);
+        });
+        selectCiudad.disabled = false;
+    
+        // Establecemos la ciudad seleccionada en el select de la ciudad
+        this.editarPrimerPilarForm.controls['select-ciudad'].setValue(ciudad.id);
+      });
+      
     });
- 
-
   }
 
   obtenerDatosDelPilar(id: string): Observable<any> {
@@ -93,6 +115,7 @@ export class EditarPrimerPilarComponent implements OnInit {
 
     return response  
   }
+
   editarPilar() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     const fecha = (document.getElementById("fechaCreacion") as HTMLInputElement).value;
@@ -102,6 +125,8 @@ export class EditarPrimerPilarComponent implements OnInit {
     const numMatrinoniosVivieron = (<HTMLInputElement>document.getElementById('numMatrinoniosVivieron')).value;
     const numSacerdotesVivieron = (<HTMLInputElement>document.getElementById('numSacerdotesVivieron')).value;
     const numReligiososVivieron = (<HTMLInputElement>document.getElementById('numReligiososVivieron')).value;
+    const ciudadSeleccionada = (<HTMLInputElement>document.getElementById('select-ciudad')).value;
+
     const editPrimerPilar = {
       id,
       fechaCreacion,
@@ -109,6 +134,9 @@ export class EditarPrimerPilarComponent implements OnInit {
       numMatrinoniosVivieron,
       numSacerdotesVivieron,
       numReligiososVivieron,
+      ciudad: {
+        id: ciudadSeleccionada
+      },
     };
     const jsonPrimerPilar = JSON.stringify(editPrimerPilar); // Convertir el objeto en una cadena JSON
     console.log(jsonPrimerPilar);
@@ -131,11 +159,9 @@ export class EditarPrimerPilarComponent implements OnInit {
     this.obtenerDatosCiudad(idPais).subscribe((data: any) => {
       const ciudades = data.response;
       const selectCiudad = document.getElementById('select-ciudad') as HTMLSelectElement;
-  
-      // Limpiar el select de ciudades
+      
       selectCiudad.innerHTML = '';
-  
-      // Crear un option por cada ciudad en la respuesta del JSON
+      
       ciudades.forEach((ciudad: any) => {
         const option = document.createElement('option');
         option.value = ciudad.id;
@@ -143,7 +169,10 @@ export class EditarPrimerPilarComponent implements OnInit {
         selectCiudad.appendChild(option);
       });
       selectCiudad.disabled = false;
-
+      
+      // reiniciar el selector de ciudades
+      this.editarPrimerPilarForm.controls['select-ciudad'].reset(); 
+      
     });
   }
 
@@ -154,9 +183,11 @@ export class EditarPrimerPilarComponent implements OnInit {
     return response  
   }
 
-  obtenerDatosPais(): Observable<any> {
-    console.log(this.token);
-    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getPaises`;
-    return this.http.get(url, this.httpOptions);
+  obtenerDatosPais(id: string){
+    const params = { id: id };
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getPaises?idPais=${params.id}`;
+    const response = this.http.get(url, this.httpOptions); 
+
+    return response  
   }
 }

@@ -79,7 +79,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="select-pais">Pais</label>
-                                            <select id="select-pais" (change)="onSelectPais($event.target.value)" class="form-control">
+                                            <select type="text" id="select-pais" (change)="onSelectPais($event.target.value)" class="form-control">
                                                 <option value="" disabled selected>Seleccione un pais</option>
                                             <option *ngFor="let pais of paises" [value]="pais.id">{{pais.nombre}}</option>
                                             </select>

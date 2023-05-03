@@ -63,9 +63,9 @@ export class SegundoPilarGridComponent implements OnInit {
       this.data = responseData;
     });
   }
-  editRow(index: number) {
-    // Obtener el ID del elemento que se está editando desde el arreglo de datos
-    const elementId = this.tableData1.dataRows[index][0];
+
+  editRow(row) {
+    const elementId = row.id;
     console.log(elementId);
     // Navegar a la página de edición del primer pilar, pasando el ID como parámetro
     this.router.navigate(['/editarSegundoPilar', elementId]);
