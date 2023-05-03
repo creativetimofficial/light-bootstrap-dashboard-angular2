@@ -19,7 +19,12 @@ export class EditarSegundoPilarComponent implements OnInit {
   response: any;
   datosCargados: boolean;
   @ViewChild('fechaInput') fechaInput: ElementRef;
-
+  ciudades: any[]; // Declarar la propiedad 'ciudades'
+  paises: any[]; // Declarar la propiedad 'paises'
+  selectedCiudad: string;
+  selectedPais: string;
+  data: any;
+  pais: any; // cambia a tipo any
   fechaCreacion: string;
 
   constructor(private http: HttpClient, private router: Router,
@@ -37,7 +42,9 @@ export class EditarSegundoPilarComponent implements OnInit {
       numSacerdotesVivieronProfundo: [null, Validators.required],
       numMatrimosDebutaronProfundo: [null, Validators.required],
       numSacerdotesDebutaronProfundo: [null, Validators.required],
-
+    
+      'select-pais': ['', Validators.required],
+      'select-ciudad': ['', Validators.required]
     });
   }
   ngOnInit() {
@@ -68,7 +75,47 @@ export class EditarSegundoPilarComponent implements OnInit {
       this.editarSegundoPilarForm.controls['numSacerdotesVivieronProfundo'].setValue(data.response.numSacerdotesVivieronProfundo);
       this.editarSegundoPilarForm.controls['numMatrimosDebutaronProfundo'].setValue(data.response.numMatrimosDebutaronProfundo);
       this.editarSegundoPilarForm.controls['numSacerdotesDebutaronProfundo'].setValue(data.response.numSacerdotesDebutaronProfundo);
+      const pais = data.response.ciudad.pais;
+      const ciudad = data.response.ciudad;
+      
+      console.log(pais.id)
+      this.editarSegundoPilarForm.controls['select-pais'].setValue(pais.id);
 
+      this.obtenerDatosPais(pais.id).subscribe((data: any) => {
+        const paises = data.response;
+        const selectPais = document.getElementById('select-pais') as HTMLSelectElement;
+    
+        selectPais.innerHTML = '';
+    
+        paises.forEach((pais: any) => {
+          const option = document.createElement('option');
+          option.value = pais.id;
+          option.text = pais.name;
+          selectPais.appendChild(option);
+        });
+    
+        // Establecemos el país seleccionado en el select del país
+        this.editarSegundoPilarForm.controls['select-pais'].setValue(pais.id);
+      });
+
+      this.obtenerDatosCiudad(pais.id).subscribe((data: any) => {
+        const ciudades = data.response;
+        console.log(ciudades);
+        const selectCiudad = document.getElementById('select-ciudad') as HTMLSelectElement;
+     
+        selectCiudad.innerHTML = '';
+    
+        ciudades.forEach((ciudad: any) => {
+          const option = document.createElement('option');
+          option.value = ciudad.id;
+          option.text = ciudad.name;
+          selectCiudad.appendChild(option);
+        });
+        selectCiudad.disabled = false;
+    
+        // Establecemos la ciudad seleccionada en el select de la ciudad
+        this.editarSegundoPilarForm.controls['select-ciudad'].setValue(ciudad.id);
+      });
 
       console.log(data.response);
 
@@ -100,6 +147,7 @@ export class EditarSegundoPilarComponent implements OnInit {
     const numSacerdotesVivieronProfundo = (<HTMLInputElement>document.getElementById('numSacerdotesVivieronProfundo')).value;
     const numMatrimosDebutaronProfundo = (<HTMLInputElement>document.getElementById('numMatrimosDebutaronProfundo')).value;
     const numSacerdotesDebutaronProfundo = (<HTMLInputElement>document.getElementById('numSacerdotesDebutaronProfundo')).value;
+    const ciudadSeleccionada = (<HTMLInputElement>document.getElementById('select-ciudad')).value;
 
 
     const newSegundoPilar = {
@@ -113,7 +161,10 @@ export class EditarSegundoPilarComponent implements OnInit {
       numMatrimosVivieronProfundo,
       numSacerdotesVivieronProfundo,
       numMatrimosDebutaronProfundo,
-      numSacerdotesDebutaronProfundo
+      numSacerdotesDebutaronProfundo,
+      ciudad: {
+        id: ciudadSeleccionada
+      },
     };
 
     const jsonSegundoPilar = JSON.stringify(newSegundoPilar); // Convertir el objeto en una cadena JSON
@@ -132,5 +183,39 @@ export class EditarSegundoPilarComponent implements OnInit {
       alert('httpOptions no está definido, intente iniciar sesion nuevamente');
       console.log('httpOptions no está definido');
     }
+  }
+  onSelectPais(idPais: string) {
+    this.obtenerDatosCiudad(idPais).subscribe((data: any) => {
+      const ciudades = data.response;
+      const selectCiudad = document.getElementById('select-ciudad') as HTMLSelectElement;
+      
+      selectCiudad.innerHTML = '';
+      
+      ciudades.forEach((ciudad: any) => {
+        const option = document.createElement('option');
+        option.value = ciudad.id;
+        option.text = ciudad.name;
+        selectCiudad.appendChild(option);
+      });
+      selectCiudad.disabled = false;
+      
+      // reiniciar el selector de ciudades
+      this.editarSegundoPilarForm.controls['select-ciudad'].reset(); 
+      
+    });
+  }
+  obtenerDatosCiudad(id: string) {
+    const params = { id: id };
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getCiudadPaises?idPais=${params.id}`;
+    const response = this.http.get(url, this.httpOptions); 
+    return response  
+  }
+
+  obtenerDatosPais(id: string){
+    const params = { id: id };
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getPaises?idPais=${params.id}`;
+    const response = this.http.get(url, this.httpOptions); 
+
+    return response  
   }
 }

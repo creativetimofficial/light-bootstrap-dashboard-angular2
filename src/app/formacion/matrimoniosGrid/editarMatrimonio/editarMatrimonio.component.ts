@@ -19,7 +19,12 @@ export class EditarMatrimonioComponent implements OnInit {
   response: any;
   datosCargados: boolean;
   @ViewChild('fechaInput') fechaInput: ElementRef;
-
+  ciudades: any[]; // Declarar la propiedad 'ciudades'
+  paises: any[]; // Declarar la propiedad 'paises'
+  selectedCiudad: string;
+  selectedPais: string;
+  data: any;
+  pais: any; // cambia a tipo any
   fechaCreacion: string;
 
   constructor(private http: HttpClient, private router: Router,
@@ -40,6 +45,8 @@ export class EditarMatrimonioComponent implements OnInit {
       formacionAcompanantes: [null, Validators.required],
       padreNuestro: [null, Validators.required],
       transmisionNacional: [null, Validators.required],
+      'select-pais': ['', Validators.required],
+      'select-ciudad': ['', Validators.required]
     });
   }
   ngOnInit() {
@@ -75,10 +82,48 @@ export class EditarMatrimonioComponent implements OnInit {
       this.editarMatrimonioForm.controls['padreNuestro'].setValue(data.response.padreNuestro);
       this.editarMatrimonioForm.controls['transmisionNacional'].setValue(data.response.transmisionNacional);
 
-      console.log(data.response);
+      const pais = data.response.ciudad.pais;
+      const ciudad = data.response.ciudad;
+      
+      console.log(pais.id)
+      this.editarMatrimonioForm.controls['select-pais'].setValue(pais.id);
 
-      this.datosCargados = true;
-      console.log(this.datosCargados);
+      this.obtenerDatosPais(pais.id).subscribe((data: any) => {
+        const paises = data.response;
+        const selectPais = document.getElementById('select-pais') as HTMLSelectElement;
+    
+        selectPais.innerHTML = '';
+    
+        paises.forEach((pais: any) => {
+          const option = document.createElement('option');
+          option.value = pais.id;
+          option.text = pais.name;
+          selectPais.appendChild(option);
+        });
+    
+        // Establecemos el país seleccionado en el select del país
+        this.editarMatrimonioForm.controls['select-pais'].setValue(pais.id);
+      });
+
+      this.obtenerDatosCiudad(pais.id).subscribe((data: any) => {
+        const ciudades = data.response;
+        console.log(ciudades);
+        const selectCiudad = document.getElementById('select-ciudad') as HTMLSelectElement;
+     
+        selectCiudad.innerHTML = '';
+    
+        ciudades.forEach((ciudad: any) => {
+          const option = document.createElement('option');
+          option.value = ciudad.id;
+          option.text = ciudad.name;
+          selectCiudad.appendChild(option);
+        });
+        selectCiudad.disabled = false;
+    
+        // Establecemos la ciudad seleccionada en el select de la ciudad
+        this.editarMatrimonioForm.controls['select-ciudad'].setValue(ciudad.id);
+      });
+      
     });
    
   }
@@ -110,6 +155,7 @@ export class EditarMatrimonioComponent implements OnInit {
     const formacionAcompanantes = (<HTMLInputElement>document.getElementById('formacionAcompanantes')).value;
     const padreNuestro = (<HTMLInputElement>document.getElementById('padreNuestro')).value;
     const transmisionNacional = (<HTMLInputElement>document.getElementById('transmisionNacional')).value;
+    const ciudadSeleccionada = (<HTMLInputElement>document.getElementById('select-ciudad')).value;
 
     const editarMatrimonio = {
       id,
@@ -126,7 +172,10 @@ export class EditarMatrimonioComponent implements OnInit {
       servidoresPostEncuentro,     
       formacionAcompanantes, 
       padreNuestro,
-      transmisionNacional 
+      transmisionNacional,
+      ciudad: {
+        id: ciudadSeleccionada
+      },
     };
     const jsonMatrimonio = JSON.stringify(editarMatrimonio); // Convertir el objeto en una cadena JSON
     console.log(jsonMatrimonio);
@@ -137,12 +186,48 @@ export class EditarMatrimonioComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         alert('Registro Actualizado');
-        this.router.navigate(['/sacerdotesGrid']);
+        this.router.navigate(['/matrimoniosGrid']);
       }, error => {
         console.error(error);
       });
     } else {      
       alert('httpOptions no está definido, intente iniciar sesion nuevamente');
     }
+  }
+  
+  onSelectPais(idPais: string) {
+    this.obtenerDatosCiudad(idPais).subscribe((data: any) => {
+      const ciudades = data.response;
+      const selectCiudad = document.getElementById('select-ciudad') as HTMLSelectElement;
+      
+      selectCiudad.innerHTML = '';
+      
+      ciudades.forEach((ciudad: any) => {
+        const option = document.createElement('option');
+        option.value = ciudad.id;
+        option.text = ciudad.name;
+        selectCiudad.appendChild(option);
+      });
+      selectCiudad.disabled = false;
+      
+      // reiniciar el selector de ciudades
+      this.editarMatrimonioForm.controls['select-ciudad'].reset(); 
+      
+    });
+  }
+
+  obtenerDatosCiudad(id: string) {
+    const params = { id: id };
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getCiudadPaises?idPais=${params.id}`;
+    const response = this.http.get(url, this.httpOptions); 
+    return response  
+  }
+
+  obtenerDatosPais(id: string){
+    const params = { id: id };
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getPaises?idPais=${params.id}`;
+    const response = this.http.get(url, this.httpOptions); 
+
+    return response  
   }
 }

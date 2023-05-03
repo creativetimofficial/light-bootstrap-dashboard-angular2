@@ -19,7 +19,12 @@ export class EditarCuartoPilarComponent implements OnInit {
   response: any;
   datosCargados: boolean;
   @ViewChild('fechaInput') fechaInput: ElementRef;
-
+  ciudades: any[]; // Declarar la propiedad 'ciudades'
+  paises: any[]; // Declarar la propiedad 'paises'
+  selectedCiudad: string;
+  selectedPais: string;
+  data: any;
+  pais: any; // cambia a tipo any
   fechaCreacion: string;
 
   constructor(private http: HttpClient, private router: Router,
@@ -35,6 +40,8 @@ export class EditarCuartoPilarComponent implements OnInit {
       numMatrimoiosComunidad: [null, Validators.required],
       numSacerdotesComunidad: [null, Validators.required],
       numReligiososComunidad: [null, Validators.required],
+      'select-pais': ['', Validators.required],
+      'select-ciudad': ['', Validators.required]
 
 
     });
@@ -66,12 +73,54 @@ export class EditarCuartoPilarComponent implements OnInit {
       this.editarCuartoPilarForm.controls['numMatrimoiosComunidad'].setValue(data.response.numMatrimoiosComunidad);
       this.editarCuartoPilarForm.controls['numSacerdotesComunidad'].setValue(data.response.numSacerdotesComunidad);
       this.editarCuartoPilarForm.controls['numReligiososComunidad'].setValue(data.response.numReligiososComunidad);
+      const pais = data.response.ciudad.pais;
+      const ciudad = data.response.ciudad;
+      
+      console.log(pais.id)
+      this.editarCuartoPilarForm.controls['select-pais'].setValue(pais.id);
+
+      this.obtenerDatosPais(pais.id).subscribe((data: any) => {
+        const paises = data.response;
+        const selectPais = document.getElementById('select-pais') as HTMLSelectElement;
+    
+        selectPais.innerHTML = '';
+    
+        paises.forEach((pais: any) => {
+          const option = document.createElement('option');
+          option.value = pais.id;
+          option.text = pais.name;
+          selectPais.appendChild(option);
+        });
+    
+        // Establecemos el país seleccionado en el select del país
+        this.editarCuartoPilarForm.controls['select-pais'].setValue(pais.id);
+      });
+
+      this.obtenerDatosCiudad(pais.id).subscribe((data: any) => {
+        const ciudades = data.response;
+        console.log(ciudades);
+        const selectCiudad = document.getElementById('select-ciudad') as HTMLSelectElement;
+     
+        selectCiudad.innerHTML = '';
+    
+        ciudades.forEach((ciudad: any) => {
+          const option = document.createElement('option');
+          option.value = ciudad.id;
+          option.text = ciudad.name;
+          selectCiudad.appendChild(option);
+        });
+        selectCiudad.disabled = false;
+    
+        // Establecemos la ciudad seleccionada en el select de la ciudad
+        this.editarCuartoPilarForm.controls['select-ciudad'].setValue(ciudad.id);
+      });
 
       console.log(data.response);
 
       this.datosCargados = true;
       console.log(this.datosCargados);
     });
+
    
   }
 
@@ -97,6 +146,7 @@ export class EditarCuartoPilarComponent implements OnInit {
     const numMatrimoiosComunidad = (<HTMLInputElement>document.getElementById('numMatrimoiosComunidad')).value;
     const numSacerdotesComunidad = (<HTMLInputElement>document.getElementById('numSacerdotesComunidad')).value;
     const numReligiososComunidad = (<HTMLInputElement>document.getElementById('numReligiososComunidad')).value;
+    const ciudadSeleccionada = (<HTMLInputElement>document.getElementById('select-ciudad')).value;
 
     const editCuartoPilar = {
       id,
@@ -108,7 +158,10 @@ export class EditarCuartoPilarComponent implements OnInit {
       numServiciosComunidad,
       numMatrimoiosComunidad,
       numSacerdotesComunidad,
-      numReligiososComunidad
+      numReligiososComunidad,
+      ciudad: {
+        id: ciudadSeleccionada
+      },
     };
     const jsonCuartoPilar = JSON.stringify(editCuartoPilar); // Convertir el objeto en una cadena JSON
     console.log(jsonCuartoPilar);
@@ -126,5 +179,39 @@ export class EditarCuartoPilarComponent implements OnInit {
     } else {      
       alert('httpOptions no está definido, intente iniciar sesion nuevamente');
     }
+  }
+  onSelectPais(idPais: string) {
+    this.obtenerDatosCiudad(idPais).subscribe((data: any) => {
+      const ciudades = data.response;
+      const selectCiudad = document.getElementById('select-ciudad') as HTMLSelectElement;
+      
+      selectCiudad.innerHTML = '';
+      
+      ciudades.forEach((ciudad: any) => {
+        const option = document.createElement('option');
+        option.value = ciudad.id;
+        option.text = ciudad.name;
+        selectCiudad.appendChild(option);
+      });
+      selectCiudad.disabled = false;
+      
+      // reiniciar el selector de ciudades
+      this.editarCuartoPilarForm.controls['select-ciudad'].reset(); 
+      
+    });
+  }
+  obtenerDatosCiudad(id: string) {
+    const params = { id: id };
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getCiudadPaises?idPais=${params.id}`;
+    const response = this.http.get(url, this.httpOptions); 
+    return response  
+  }
+
+  obtenerDatosPais(id: string){
+    const params = { id: id };
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getPaises?idPais=${params.id}`;
+    const response = this.http.get(url, this.httpOptions); 
+
+    return response  
   }
 }
