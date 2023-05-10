@@ -97,7 +97,13 @@ export class UsuariosComponent implements OnInit {
       this.http.post('https://encuentro-matrimonial-backend.herokuapp.com/user/createUsuario', nuevoUsuario, this.httpOptions)
       .subscribe(data => {
         console.log(data);
-        alert('Usuario creado exitosamente');
+        // const dialogRef = this.dialog.open(ModalExitoComponent, {
+        //   width: '400px',
+        //   data: {titulo: 'Usuario creado exitosamente', mensaje: '¡Felicidades, has creado un nuevo usuario!'}
+        // });
+        // dialogRef.afterClosed().subscribe(result => {
+        //   this.router.navigate(['/usuariosGrid']);
+        // });
         this.router.navigate(['/usuariosGrid']);
       }, error => {
         console.error(error);
