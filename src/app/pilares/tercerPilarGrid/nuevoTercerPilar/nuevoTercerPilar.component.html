@@ -8,7 +8,7 @@
                     </div>
                     
                     <div class="content">
-                        <form #formularioTercerPilar="ngForm" (ngSubmit)="newPilar()">
+                        <form #formularioTercerPilar="ngForm">
 
                             <div class="row">
                                 <div class="col-md-3">
@@ -150,7 +150,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <button type="submit" class="boton-rojo">Crear nuevo</button>                              
+                                    <button type="submit" class="boton-rojo" (click)="openDialog()">Crear nuevo</button>                              
                                 </div>
                                 <div class="col-md-3">
                                     <button routerLink="/tercerPilarGrid" class="boton-gris">Cancelar</button>                                

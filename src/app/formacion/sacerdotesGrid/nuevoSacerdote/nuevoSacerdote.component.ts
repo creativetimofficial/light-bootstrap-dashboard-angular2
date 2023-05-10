@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'app/shared/confirm-dialog/confirm-dialog.component'; 
 
 @Component({
   selector: 'app-nuevoSacerdote',
@@ -16,7 +18,7 @@ export class NuevoSacerdoteComponent implements OnInit {
   paises: any[]; // Declarar la propiedad 'paises'
   selectedCiudad: string;
   selectedPais: string;
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, public dialog: MatDialog) {}
 
   
  ngOnInit() {
@@ -46,6 +48,17 @@ export class NuevoSacerdoteComponent implements OnInit {
   });
   }
 
+  openDialog():void{
+    const dialogRef = this.dialog.open(ConfirmDialogComponent,{
+      data: "¿Estás seguro que la informacion ingresada es correcta?"
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+      if(res){
+        this.newSacerdote();
+      }
+    })
+  }
   newSacerdote() {
     const fecha = (document.getElementById("fechaCreacion") as HTMLInputElement).value;
     const fechaObjeto = new Date(fecha);

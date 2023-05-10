@@ -50,3 +50,5 @@
     box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
     cursor: pointer;
   }
+
+  @import "@angular/material/prebuilt-themes/indigo-pink.css"

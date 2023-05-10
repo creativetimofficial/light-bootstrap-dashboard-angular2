@@ -20,7 +20,7 @@
                         </div>
                         
                         <div class="content">
-                            <form [formGroup]="editarPrimerPilarForm" (ngSubmit)="editarPilar()">
+                            <form [formGroup]="editarPrimerPilarForm" >
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
@@ -95,7 +95,7 @@
                                 </div> -->
                                 <div class="row">
                                     <div class="col-md-3"> 
-                                        <button type="submit" class="boton-rojo">Guardar</button>
+                                        <button type="submit" class="boton-rojo" (click)="openDialog()">Guardar</button>
                                     </div>
                                     <div class="col-md-3">
                                         <button routerLink="/primerPilarGrid" class="boton-gris">Cancelar</button>

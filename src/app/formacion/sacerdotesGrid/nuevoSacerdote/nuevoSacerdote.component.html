@@ -7,7 +7,7 @@
                         <h4 class="title">Crear Nuevo</h4>
                     </div>                    
                     <div class="content">
-                        <form #formularioSacerdote="ngForm" (ngSubmit)="newSacerdote()">
+                        <form #formularioSacerdote="ngForm">
 
                             <div class="row">
                                 <div class="col-md-3">
@@ -145,7 +145,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <button type="submit" class="boton-rojo">Crear nuevo</button>
+                                    <button type="submit" class="boton-rojo" (click)="openDialog()">Crear nuevo</button>
                                 </div>
                                 <div class="col-md-3">
                                     <button routerLink="/sacerdotesGrid" class="boton-gris">Cancelar</button>                                
