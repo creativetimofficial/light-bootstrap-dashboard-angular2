@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'app/shared/confirm-dialog/confirm-dialog.component'; 
+
 @Component({
   selector: 'app-nuevoTercerPilar',
   templateUrl: './nuevoTercerPilar.component.html',
@@ -15,7 +18,7 @@ export class NuevoTercerPilarComponent implements OnInit {
   paises: any[]; // Declarar la propiedad 'paises'
   selectedCiudad: string;
   selectedPais: string;
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, public dialog: MatDialog,) {}
 
   ngOnInit() {
     let token = localStorage.getItem('jwt');
@@ -42,6 +45,18 @@ export class NuevoTercerPilarComponent implements OnInit {
       selectPais.appendChild(option);
     });
   });
+  }
+
+  openDialog():void{
+    const dialogRef = this.dialog.open(ConfirmDialogComponent,{
+      data: "¿Estás seguro que la informacion ingresada es correcta?"
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+      if(res){
+        this.newPilar();
+      }
+    })
   }
 
   newPilar() {

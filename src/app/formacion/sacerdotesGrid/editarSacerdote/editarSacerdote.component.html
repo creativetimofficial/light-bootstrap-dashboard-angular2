@@ -19,7 +19,7 @@
                             <h4 class="title">Editar Registro</h4>
                         </div>                        
                         <div class="content">
-                            <form [formGroup]="editarSacerdoteForm" (ngSubmit)="editarSacerdote()">
+                            <form [formGroup]="editarSacerdoteForm">
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="col-md-3">
@@ -156,7 +156,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <button type="submit" class="boton-rojo">Guardar</button>
+                                        <button type="submit" class="boton-rojo" (click)="openDialog()">Guardar</button>
                                     </div>
                                     <div class="col-md-3">
                                         <button routerLink="/sacerdotesGrid" class="boton-gris">Cancelar</button>                                

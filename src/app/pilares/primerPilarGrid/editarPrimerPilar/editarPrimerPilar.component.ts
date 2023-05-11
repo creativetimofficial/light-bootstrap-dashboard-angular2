@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, NgForm , Validators} from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'app/shared/confirm-dialog/confirm-dialog.component'; 
 
 @Component({
   selector: 'app-editarPrimerPilar',
@@ -27,7 +29,7 @@ export class EditarPrimerPilarComponent implements OnInit {
   pais: any; // cambia a tipo any
   fechaCreacion: string;
 
-  constructor(private http: HttpClient, private router: Router,
+  constructor(private http: HttpClient, private router: Router, public dialog: MatDialog,
     private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) {
     this.editarPrimerPilarForm = this.formBuilder.group({
       id: [null],
@@ -114,6 +116,18 @@ export class EditarPrimerPilarComponent implements OnInit {
     const response = this.http.get(url, this.httpOptions); 
 
     return response  
+  }
+
+  openDialog():void{
+    const dialogRef = this.dialog.open(ConfirmDialogComponent,{
+      data: "¿Estás seguro que la informacion ingresada es correcta?"
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+      if(res){
+        this.editarPilar();
+      }
+    })
   }
 
   editarPilar() {

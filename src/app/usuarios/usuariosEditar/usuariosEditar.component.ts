@@ -5,6 +5,8 @@ import { Observable, catchError, map } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder,  FormGroup,  Validators} from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'app/shared/confirm-dialog/confirm-dialog.component'; 
 
 @Component({
   selector: 'app-usuariosEditar',
@@ -39,7 +41,7 @@ export class UsuariosEditarComponent implements OnInit {
   creationDate: string;
 
 
-  constructor(private http: HttpClient, private router: Router,
+  constructor(private http: HttpClient, private router: Router, public dialog: MatDialog,
     private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) {
     this.usuariosEditarForm = this.formBuilder.group({
       id: [null],
@@ -152,6 +154,18 @@ export class UsuariosEditarComponent implements OnInit {
         throw error;
       })
     );  
+  }
+
+  openDialog():void{
+    const dialogRef = this.dialog.open(ConfirmDialogComponent,{
+      data: "¿Estás seguro que la informacion ingresada es correcta?"
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+      if(res){
+        this.editarUsuario();
+      }
+    })
   }
   editarUsuario() {
     // const id = this.activatedRoute.snapshot.paramMap.get('id');

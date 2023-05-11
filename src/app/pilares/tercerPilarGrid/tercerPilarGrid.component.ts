@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import * as XLSX from 'xlsx';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDownloadDialogComponent } from 'app/shared/confirm-download-dialog/confirm-download-dialog.component'; 
 
 declare interface TableData {
     headerRow: string[];
@@ -27,7 +29,7 @@ export class TercerPilarGridComponent implements OnInit {
     // Genera el array de páginas
     pages = Array(this.totalPages).fill(0).map((x, i) => i + 1);
 
-    constructor(private http: HttpClient,  private router: Router) { 
+    constructor(private http: HttpClient,  private router: Router, public dialog: MatDialog) { 
       this.tableData1 = { headerRow: [], dataRows: [] };
     }
 
@@ -139,7 +141,17 @@ export class TercerPilarGridComponent implements OnInit {
         });
     }
     
-      // Función para generar el archivo Excel
+    openDialog():void{
+      const dialogRef = this.dialog.open(ConfirmDownloadDialogComponent,{
+      });
+      dialogRef.afterClosed().subscribe(res => {
+        console.log(res);
+        if(res){
+          this.generateExcel();
+        }
+      })
+    }
+  // Función para generar el archivo Excel
 generateExcel() {
   // Realizar la consulta y obtener los datos en un arreglo
   this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/pilar/tercerPilar/getAll', this.httpOptions)

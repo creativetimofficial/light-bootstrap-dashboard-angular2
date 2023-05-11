@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'app/shared/confirm-dialog/confirm-dialog.component'; 
 
 @Component({
   selector: 'app-nuevoPrimerPilar',
@@ -17,7 +19,9 @@ export class NuevoPrimerPilarComponent implements OnInit {
   selectedCiudad: string;
   selectedPais: string;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, public dialog: MatDialog) {}
+
+  
 
   ngOnInit() {
     let token = localStorage.getItem('jwt');
@@ -46,6 +50,18 @@ export class NuevoPrimerPilarComponent implements OnInit {
   });
   }
 
+  openDialog():void{
+    const dialogRef = this.dialog.open(ConfirmDialogComponent,{
+      data: "¿Estás seguro que la informacion ingresada es correcta?"
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+      if(res){
+        this.newPilar();
+      }
+    })
+  }
+
   newPilar() {
     const fecha = (document.getElementById("fechaCreacion") as HTMLInputElement).value;
     const fechaObjeto = new Date(fecha);
@@ -70,7 +86,7 @@ export class NuevoPrimerPilarComponent implements OnInit {
     const jsonPrimerPilar = JSON.stringify(newPrimerPilar); // Convertir el objeto en una cadena JSON
     console.log(jsonPrimerPilar);
     console.log(this.httpOptions);
-
+    
     if (this.httpOptions) {
       this.http.post('https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/create', jsonPrimerPilar, this.httpOptions)
       .subscribe(data => {

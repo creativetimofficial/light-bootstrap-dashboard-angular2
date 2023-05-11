@@ -19,7 +19,7 @@
                         <h4 class="title">Editar Usuario</h4>
                     </div>
                     <div class="content">
-                        <form  [formGroup]="usuariosEditarForm" (ngSubmit)="editarUsuario()">
+                        <form  [formGroup]="usuariosEditarForm">
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="col-md-3">
@@ -101,7 +101,7 @@
                                                        
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <button type="submit" class="boton-rojo">Guardar</button>
+                                        <button type="submit" class="boton-rojo" (click)="openDialog()">Guardar</button>
                                         <a routerLink="/usuariosGrid" class="boton-gris">Cancelar</a>                                
                                     </div>
                                 </div>

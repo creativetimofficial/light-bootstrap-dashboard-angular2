@@ -7,7 +7,7 @@
                         <h4 class="title">Crear Usuario</h4>
                     </div>
                     <div class="content">
-                        <form #formularioUsuario ="ngForm" (ngSubmit)="newUsuario()">
+                        <form #formularioUsuario ="ngForm">
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
@@ -89,7 +89,7 @@
                                 </div>
                             </div>
                             
-                            <button type="submit" class="boton-rojo">Crear nuevo</button>
+                            <button type="submit" class="boton-rojo" (click)="openDialog()">Crear nuevo</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>

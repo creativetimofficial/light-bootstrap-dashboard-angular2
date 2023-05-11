@@ -1,0 +1,9 @@
+<div mat-dialog-content align="center">{{message}}</div>
+<div mat-dialog-content align="center"><br></div>
+<div mat-dialog-content align="center">Si creas este registro, este sera visible para los demas miembros de la organización.</div>
+<div mat-dialog-content align="center"><br></div>
+<div mat-dialog-actions align="center">
+    <div ><button mat-button [mat-dialog-close]="true" class="boton-rojo">Confirmar</button></div>
+    <div ><p>&nbsp;</p></div>
+    <div ><button mat-button (click)="onClickNo()" class="boton-gris">Cancelar</button></div>
+</div>
