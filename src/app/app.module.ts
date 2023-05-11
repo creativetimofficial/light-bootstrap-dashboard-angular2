@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import { RegisterComponent } from './register/register.component';
     SidebarModule,
     AppRoutingModule  
   ],
-  declarations: [AppComponent, AdminLayoutComponent, LoginComponent, RegisterComponent],
+  declarations: [AppComponent, AdminLayoutComponent, LoginComponent, RegisterComponent, PaginationComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

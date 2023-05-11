@@ -19,7 +19,16 @@ export class SegundoPilarGridComponent implements OnInit {
     public tableData2: TableData;
     data: any; // variable para almacenar los datos obtenidos de la llamada
     httpOptions: any;
-
+    currentPage = 1;
+    pageSize = 5; // Tamaño de página deseado
+    totalRecords = 20; // Número total de registros
+ 
+    // Calcula el número total de páginas
+    totalPages = Math.ceil(this.totalRecords / this.pageSize);
+ 
+    // Genera el array de páginas
+    pages = Array(this.totalPages).fill(0).map((x, i) => i + 1);
+ 
       
     constructor(private http: HttpClient,  private router: Router) { 
       this.tableData1 = { headerRow: [], dataRows: [] };
@@ -44,7 +53,7 @@ export class SegundoPilarGridComponent implements OnInit {
       const responseData = response['response']; // acceder al array 'response' dentro de la respuesta
       if (responseData) {
 
-        this.tableData1.dataRows = responseData.map(item => {
+        this.tableData1.dataRows = responseData.slice(0, 5).map(item => {
           return {
             id: item.id,
             fechaCreacion: new Date(new Date(item.fechaCreacion).getTime() + 86400000).toLocaleDateString('es-ES', {year: 'numeric', month: '2-digit', day: '2-digit'}).split('/').join('-'),
@@ -60,10 +69,42 @@ export class SegundoPilarGridComponent implements OnInit {
           }
         });
       }
-      this.data = responseData;
+       this.data = responseData;
+       // Calcular el número total de páginas
+       this.totalPages = Math.ceil(this.data.length / this.pageSize);
+
+       // Generar un array con las páginas
+       this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
+       // Actualizar los datos de la página actual
+       this.setCurrentPage(1);
+    });
+     
+  }
+  setCurrentPage(page: number) {
+    this.currentPage = page;
+    const start = (page - 1) * 5;
+    const end = start + 5;
+    this.tableData1.dataRows = this.data.slice(start, end).map(item => {
+      return {
+        id: item.id,
+        fechaCreacion: new Date(new Date(item.fechaCreacion).getTime() + 86400000).toLocaleDateString('es-ES', {year: 'numeric', month: '2-digit', day: '2-digit'}).split('/').join('-'),
+        numFdsProfundosPeriodo: item.numFdsProfundosPeriodo,
+        numMatrimosDebutaronProfundo: item.numMatrimosDebutaronProfundo,
+        numMatrimosServidoresActivos: item.numMatrimosServidoresActivos,
+        numMatrimosServidoresProfundoActivos: item.numMatrimosServidoresProfundoActivos,
+        numMatrimosVivieronProfundo: item.numMatrimosVivieronProfundo,
+        numSacerdotesDebutaronProfundo: item.numSacerdotesDebutaronProfundo,
+        numSacerdotesServidoresActivos: item.numSacerdotesServidoresActivos,
+        numSacerdotesServidoresprofundoActivos: item.numSacerdotesServidoresprofundoActivos,
+        numSacerdotesVivieronProfundo: item.numSacerdotesVivieronProfundo       
+      }
     });
   }
-
+  calculatePageData() {
+    const start = (this.currentPage - 1) * this.pageSize;
+    const end = start + this.pageSize;
+    this.tableData1.dataRows = this.data.slice(start, end);
+  }
   editRow(row) {
     const elementId = row.id;
     console.log(elementId);
