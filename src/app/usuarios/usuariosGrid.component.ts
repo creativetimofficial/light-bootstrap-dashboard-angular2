@@ -25,6 +25,7 @@ export class UsuariosGridComponent implements OnInit {
     // Genera el array de páginas
     pages = Array(this.totalPages).fill(0).map((x, i) => i + 1);
     currentPage = 1;
+    searchText= "";
 
     constructor(private http: HttpClient,  private router: Router) { 
         this.tableData1 = { headerRow: [], dataRows: [] };
@@ -132,5 +133,32 @@ export class UsuariosGridComponent implements OnInit {
   
         this.data = responseData;
       });
+  }
+  filterByUsername(searchText: string) {
+    this.searchText = searchText.trim().toLowerCase();
+  
+    if (this.searchText === '') {
+      // Si el campo de búsqueda está vacío, mostrar todos los resultados
+      this.tableData1.dataRows = this.data.map(item => ({
+        id: item.id,
+        name: item.name,
+        lastname: item.lastname,
+        creationDate: item.creationDate.slice(0, 10),
+        document: item.document,
+        username: item.username
+      }));
+    } else {
+      // Realizar la búsqueda por username y filtrar los resultados
+      this.tableData1.dataRows = this.data.filter(item =>
+        item.username.toLowerCase().includes(this.searchText)
+      ).map(item => ({
+        id: item.id,
+        name: item.name,
+        lastname: item.lastname,
+        creationDate: item.creationDate.slice(0, 10),
+        document: item.document,
+        username: item.username
+      }));
+    }
   }
 }

@@ -17,14 +17,11 @@
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label>Filtrar por fecha</label>
-                                    <input type="date" class="form-control" placeholder="Filtrar por fecha" value="Mike">
+                                    <input type="date" class="form-control" placeholder="Filtrar por fecha" (change)="filterByDate($event.target.value)">
                                 </div>
                             </div>
                             <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Buscar</label>
-                                    <input type="text" class="form-control" placeholder="" value="">                        
-                                </div>
+                                
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">

@@ -56,7 +56,9 @@ export class SacerdotesGridComponent implements OnInit {
               jornadaDialogo : item.jornadaDialogo,
               lenguajeAmor: item.lenguajeAmor,
               sacramento: item.sacramento,
-              patronesComportamiento: item.patronesComportamiento,  
+              patronesComportamiento: item.patronesComportamiento, 
+              isVisible: true
+ 
             }
           });
           this.data = responseData;
@@ -222,5 +224,38 @@ export class SacerdotesGridComponent implements OnInit {
           view[i] = s.charCodeAt(i) & 0xff;
         }
         return buf;
+      }
+      filterByDate(selectedDate: string) {
+        const selectedDateObj = new Date(selectedDate);
+        const selectedYear = selectedDateObj.getFullYear();
+        const selectedMonth = selectedDateObj.getMonth() + 1; // Los meses en JavaScript van de 0 a 11
+      
+        const filteredData = this.data.filter(item => {
+          const itemDate = new Date(item.fechaCreacion);
+          const itemYear = itemDate.getFullYear();
+          const itemMonth = itemDate.getMonth() + 1; // Los meses en JavaScript van de 0 a 11
+      
+          return itemYear === selectedYear && itemMonth === selectedMonth;
+        });
+      
+        this.totalPages = Math.ceil(filteredData.length / this.pageSize); // Actualizar el número total de páginas
+      
+        // Verificar si la página actual es mayor al nuevo número total de páginas y ajustarla si es necesario
+        if (this.currentPage > this.totalPages) {
+          this.currentPage = this.totalPages;
+        }
+      
+        const start = (this.currentPage - 1) * this.pageSize;
+        const end = start + this.pageSize;
+      
+        this.tableData1.dataRows = filteredData.slice(start, end).map(item => ({
+          id: item.id,
+          fechaCreacion:  new Date(item.fechaCreacion).toLocaleDateString('es-ES'),
+          jornadaDialogo : item.jornadaDialogo,
+          lenguajeAmor: item.lenguajeAmor,
+          sacramento: item.sacramento,
+          patronesComportamiento: item.patronesComportamiento,  
+          isVisible: true
+        }));
       }
   }
