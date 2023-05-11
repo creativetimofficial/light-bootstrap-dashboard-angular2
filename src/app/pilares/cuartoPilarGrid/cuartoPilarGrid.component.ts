@@ -224,6 +224,42 @@ export class CuartoPilarGridComponent implements OnInit {
         }
         return buf;
       }
+      filterByDate(selectedDate: string) {
+        const selectedDateObj = new Date(selectedDate);
+        const selectedYear = selectedDateObj.getFullYear();
+        const selectedMonth = selectedDateObj.getMonth() + 1; // Los meses en JavaScript van de 0 a 11
+      
+        const filteredData = this.data.filter(item => {
+          const itemDate = new Date(item.fechaCreacion);
+          const itemYear = itemDate.getFullYear();
+          const itemMonth = itemDate.getMonth() + 1; // Los meses en JavaScript van de 0 a 11
+      
+          return itemYear === selectedYear && itemMonth === selectedMonth;
+        });
+      
+        this.totalPages = Math.ceil(filteredData.length / this.pageSize); // Actualizar el número total de páginas
+      
+        // Verificar si la página actual es mayor al nuevo número total de páginas y ajustarla si es necesario
+        if (this.currentPage > this.totalPages) {
+          this.currentPage = this.totalPages;
+        }
+      
+        const start = (this.currentPage - 1) * this.pageSize;
+        const end = start + this.pageSize;
+      
+        this.tableData1.dataRows = filteredData.slice(start, end).map(item => ({
+          id: item.id,
+          numComunidadApoyo : item.numComunidadApoyo,
+          numFdsPostPeriodo : item.numFdsPostPeriodo,
+          fechaCreacion: new Date(new Date(item.fechaCreacion).getTime() + 86400000).toLocaleDateString('es-ES', {year: 'numeric', month: '2-digit', day: '2-digit'}).split('/').join('-'),
+          numMatrimoiosComunidad: item.numMatrimoiosComunidad,
+          numMatrimonioVivieron: item.numMatrimonioVivieron,
+          numSacerdotesComunidad: item.numSacerdotesComunidad,       
+          numServiciosComunidad: item.numServiciosComunidad,
+          numServidoresPostActivos: item.numServidoresPostActivos, 
+          isVisible: true
+        }));
+      }
   } 
 
 
