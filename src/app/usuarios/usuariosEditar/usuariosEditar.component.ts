@@ -168,36 +168,39 @@ export class UsuariosEditarComponent implements OnInit {
     })
   }
   editarUsuario() {
-    const id = this.activatedRoute.snapshot.paramMap.get('id');
-
+    // const id = this.activatedRoute.snapshot.paramMap.get('id');
     const name = (<HTMLInputElement>document.getElementById('name')).value;
+    const creationDate = (<HTMLInputElement>document.getElementById('creationDate')).value;
+
     const lastname = (<HTMLInputElement>document.getElementById('lastname')).value;
     const username = (<HTMLInputElement>document.getElementById('username')).value;
     const password = (<HTMLInputElement>document.getElementById('password')).value;
     const data = { document: (<HTMLInputElement>document.getElementById('document')).value };
+    
     const state = true;
-    const rolSelecionado = (<HTMLInputElement>document.getElementById('select-rol')).value;
-    const selectedRole = this.roles[rolSelecionado];
-    const ciudadSeleccionada = (<HTMLInputElement>document.getElementById('select-ciudad')).value;
+    // const rolSelecionado = (<HTMLInputElement>document.getElementById('select-rol')).value;
+    // const selectedRole = this.roles[rolSelecionado];
+    // const ciudadSeleccionada = (<HTMLInputElement>document.getElementById('select-ciudad')).value;
 
     const jsonUsuario = {
-      id,
+      
       name,
+      creationDate,
       lastname,
       username,
       password,
       data,
       state,
-      roles: [{
-        id: rolSelecionado,
-        name: selectedRole.name,
-        detalle: selectedRole.detalle
-      }],
-      ciudad: {
-        id: ciudadSeleccionada
-      },
+      // roles: [{
+      //   id: rolSelecionado,
+      //   name: selectedRole.name,
+      //   detalle: selectedRole.detalle
+      // }],
+      // ciudad: {
+      //   id: ciudadSeleccionada
+      // },
     };
-    console.error(jsonUsuario);
+    console.log(jsonUsuario);
 
     const nuevoUsuario = JSON.stringify(jsonUsuario); // Convertir el objeto en una cadena JSON
 

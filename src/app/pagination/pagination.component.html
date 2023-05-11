@@ -1,0 +1,16 @@
+ <div>
+    <nav>
+        <ul class="pagination justify-content-center">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <a class="page-link" href="#" (click)="setCurrentPage(currentPage - 1); $event.preventDefault()">Anterior</a>
+          </li>
+          <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage === page">
+            <a class="page-link" href="#" (click)="setCurrentPage(page); $event.preventDefault()">{{page}}</a>
+          </li>
+          <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <a class="page-link" href="#" (click)="setCurrentPage(currentPage + 1); $event.preventDefault()">Siguiente</a>
+          </li>
+        </ul>
+      </nav>
+  </div>
+  <app-pagination></app-pagination>
