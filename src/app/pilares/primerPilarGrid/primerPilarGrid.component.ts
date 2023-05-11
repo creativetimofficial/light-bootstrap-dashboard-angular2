@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import * as XLSX from 'xlsx';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDownloadDialogComponent } from 'app/shared/confirm-download-dialog/confirm-download-dialog.component'; 
 
 declare interface TableData {
     headerRow: string[];
@@ -23,7 +25,7 @@ export class PrimerPilarGridComponent implements OnInit {
     httpOptions: any;
     token: any;
     response: any;
-    constructor(private http: HttpClient,  private router: Router) { 
+    constructor(private http: HttpClient,  private router: Router, public dialog: MatDialog) { 
         this.tableData1 = { headerRow: [], dataRows: [] };
     }
 
@@ -106,7 +108,16 @@ export class PrimerPilarGridComponent implements OnInit {
       });
   }
   
-
+  openDialog():void{
+    const dialogRef = this.dialog.open(ConfirmDownloadDialogComponent,{
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+      if(res){
+        this.generateExcel();
+      }
+    })
+  }
  
   // Función para generar el archivo Excel
   generateExcel() {

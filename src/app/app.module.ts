@@ -14,6 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.component';
+import { ConfirmDownloadDialogComponent } from './shared/confirm-download-dialog/confirm-download-dialog.component';
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.c
     MatButtonModule
   ],
   entryComponents: [ConfirmDialogComponent],
-  declarations: [AppComponent, AdminLayoutComponent, LoginComponent, RegisterComponent, ConfirmDialogComponent],
+  declarations: [AppComponent, AdminLayoutComponent, LoginComponent, RegisterComponent, ConfirmDialogComponent, ConfirmDownloadDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

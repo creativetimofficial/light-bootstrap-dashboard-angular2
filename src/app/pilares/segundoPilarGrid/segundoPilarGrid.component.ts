@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import * as XLSX from 'xlsx';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDownloadDialogComponent } from 'app/shared/confirm-download-dialog/confirm-download-dialog.component'; 
 
 declare interface TableData {
     headerRow: string[];
@@ -21,7 +23,7 @@ export class SegundoPilarGridComponent implements OnInit {
     httpOptions: any;
 
       
-    constructor(private http: HttpClient,  private router: Router) { 
+    constructor(private http: HttpClient,  private router: Router, public dialog: MatDialog) { 
       this.tableData1 = { headerRow: [], dataRows: [] };
   }
 
@@ -117,6 +119,17 @@ export class SegundoPilarGridComponent implements OnInit {
       });
   }
   
+  openDialog():void{
+    const dialogRef = this.dialog.open(ConfirmDownloadDialogComponent,{
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+      if(res){
+        this.generateExcel();
+      }
+    })
+  }
+
   generateExcel(){
   // Realizar la consulta y obtener los datos en un arreglo
   this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/pilar/segundoPilar/getAll', this.httpOptions)

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import * as XLSX from 'xlsx';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDownloadDialogComponent } from 'app/shared/confirm-download-dialog/confirm-download-dialog.component'; 
 
 declare interface TableData {
     headerRow: string[];
@@ -20,7 +22,7 @@ export class SacerdotesGridComponent implements OnInit {
     data: any; // variable para almacenar los datos obtenidos de la llamada
     httpOptions: any;
 
-    constructor(private http: HttpClient,  private router: Router) { 
+    constructor(private http: HttpClient,  private router: Router, public dialog: MatDialog) { 
       this.tableData1 = { headerRow: [], dataRows: [] };
     }
     ngOnInit() {
@@ -104,7 +106,16 @@ export class SacerdotesGridComponent implements OnInit {
           this.data = responseData;
         });
     }
-    
+    openDialog():void{
+      const dialogRef = this.dialog.open(ConfirmDownloadDialogComponent,{
+      });
+      dialogRef.afterClosed().subscribe(res => {
+        console.log(res);
+        if(res){
+          this.generateExcel();
+        }
+      })
+    }
     generateExcel(){
       // Realizar la consulta y obtener los datos en un arreglo
       this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/formacion/sacerdote/getAll', this.httpOptions)
