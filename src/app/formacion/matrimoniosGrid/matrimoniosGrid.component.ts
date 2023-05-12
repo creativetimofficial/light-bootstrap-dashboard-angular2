@@ -112,10 +112,9 @@ export class MatrimoniosGridComponent implements OnInit {
           'Authorization': `Bearer ${token}`
         })
       };
-      const response = this.http.post(`https://encuentro-matrimonial-backend.herokuapp.com/formacion/sacerdote/delete?id=${params.id}`, {}, httpOptions);
-      
+      const response = this.http.post(`https://encuentro-matrimonial-backend.herokuapp.com/formacion/matrimonio/delete?id=${params.id}`, {}, httpOptions);
       response.subscribe((result: any) => {
-    
+  
         // Actualizar la tabla llamando la función getTableData()
         this.getTableData();
       });
@@ -123,7 +122,7 @@ export class MatrimoniosGridComponent implements OnInit {
 
        
     public getTableData() {
-      this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/formacion/sacerdote/getAll', this.httpOptions)
+      this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/formacion/matrimonio/getAll', this.httpOptions)
         .subscribe(response => {
           console.log(response); // ver los datos obtenidos en la consola
           const responseData = response['response']; // acceder al array 'response' dentro de la respuesta
@@ -134,7 +133,8 @@ export class MatrimoniosGridComponent implements OnInit {
               jornadaDialogo : item.jornadaDialogo,
               lenguajeAmor: item.lenguajeAmor,
               sacramento: item.sacramento,
-              patronesComportamiento: item.patronesComportamiento,             
+              patronesComportamiento: item.patronesComportamiento,       
+              isVisible: true          
             }
           });
     
