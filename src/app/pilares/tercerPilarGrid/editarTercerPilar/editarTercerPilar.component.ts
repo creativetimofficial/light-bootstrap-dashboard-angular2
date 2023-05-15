@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormBuilder,  FormGroup,  Validators} from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from 'app/shared/confirm-dialog/confirm-dialog.component'; 
+import { ConfirmCreationComponent } from 'app/shared/confirm-creation/confirm-creation.component';
 
 
 @Component({
@@ -144,6 +145,20 @@ export class EditarTercerPilarComponent implements OnInit {
       }
     })
   }
+
+  openDialogConfirm():void{
+    const dialogRef = this.dialog.open(ConfirmCreationComponent,{
+      data: ""
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+      if(res){
+        close;
+      }
+    })
+  }
+  
   editarPilar() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     const fecha = (document.getElementById("fechaCreacion") as HTMLInputElement).value;
@@ -176,7 +191,7 @@ export class EditarTercerPilarComponent implements OnInit {
       this.http.post('https://encuentro-matrimonial-backend.herokuapp.com/pilar/tercerPilar/update', jsonTrecerPilar, this.httpOptions)
       .subscribe(data => {
         console.log(data);
-        alert('Pilar Actualizado');
+        this.openDialogConfirm();
         this.router.navigate(['/tercerPilarGrid']);
       }, error => {
         console.error(error);

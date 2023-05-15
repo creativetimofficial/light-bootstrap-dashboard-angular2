@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormBuilder,  FormGroup,  Validators} from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from 'app/shared/confirm-dialog/confirm-dialog.component'; 
+import { ConfirmCreationComponent } from 'app/shared/confirm-creation/confirm-creation.component';
 
 
 @Component({
@@ -158,6 +159,18 @@ export class EditarCuartoPilarComponent implements OnInit {
       }
     })
   }
+  openDialogConfirm():void{
+    const dialogRef = this.dialog.open(ConfirmCreationComponent,{
+      data: ""
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+      if(res){
+        close;
+      }
+    })
+  }
 
   editarPilar() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
@@ -197,7 +210,7 @@ export class EditarCuartoPilarComponent implements OnInit {
       this.http.post('https://encuentro-matrimonial-backend.herokuapp.com/pilar/cuartoPilar/update', jsonCuartoPilar, this.httpOptions)
       .subscribe(data => {
         console.log(data);
-        alert('Pilar Actualizado');
+        this.openDialogConfirm();
         this.router.navigate(['/cuartoPilarGrid']);
       }, error => {
         console.error(error);

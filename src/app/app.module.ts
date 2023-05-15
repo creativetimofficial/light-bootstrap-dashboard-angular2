@@ -19,6 +19,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.component';
 import { ConfirmDownloadDialogComponent } from './shared/confirm-download-dialog/confirm-download-dialog.component';
 import { ConfirmDeleteComponent } from './shared/confirm-delete/confirm-delete.component';
+import { ConfirmCreationComponent } from './shared/confirm-creation/confirm-creation.component';
+import { ConfimLoginErrorComponent } from './shared/confim-login-error/confim-login-error.component';
 
 
 
@@ -37,7 +39,7 @@ import { ConfirmDeleteComponent } from './shared/confirm-delete/confirm-delete.c
   ],
 
   entryComponents: [ConfirmDialogComponent],
-  declarations: [AppComponent, AdminLayoutComponent, LoginComponent, RegisterComponent, ConfirmDialogComponent, ConfirmDownloadDialogComponent, PaginationComponent, ConfirmDeleteComponent],
+  declarations: [AppComponent, AdminLayoutComponent, LoginComponent, RegisterComponent, ConfirmDialogComponent, ConfirmDownloadDialogComponent, PaginationComponent, ConfirmDeleteComponent, ConfirmCreationComponent, ConfimLoginErrorComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
