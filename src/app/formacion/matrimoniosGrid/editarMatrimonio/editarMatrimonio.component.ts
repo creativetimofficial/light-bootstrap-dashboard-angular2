@@ -196,7 +196,7 @@ export class EditarMatrimonioComponent implements OnInit {
     console.log(this.httpOptions);
 
     if (this.httpOptions) {
-      this.http.post('https://encuentro-matrimonial-backend.herokuapp.com/formacion/matrimonio/update', jsonMatrimonio, this.httpOptions)
+      this.http.post('https://encuentro-matrimonial-backend.herokuapp.com/formacion/matrimonio/create', jsonMatrimonio, this.httpOptions)
       .subscribe(data => {
         console.log(data);
         alert('Registro Actualizado');

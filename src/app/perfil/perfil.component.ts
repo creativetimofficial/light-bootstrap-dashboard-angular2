@@ -170,7 +170,7 @@ export class PerfilComponent implements OnInit {
     })
   }
   editarUsuario() {
-    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    const id = localStorage.getItem('userId');
     const name = (<HTMLInputElement>document.getElementById('name')).value;
     const fecha = (document.getElementById("fechaCreacion") as HTMLInputElement).value;
     const fechaObjeto = new Date(fecha);
@@ -194,8 +194,10 @@ export class PerfilComponent implements OnInit {
       lastname,
       username,
       password,
-      doc,
+      document: doc,
       state,
+      email,
+      telefono,
       roles: [
         {
         id: rolSeleccionado,
