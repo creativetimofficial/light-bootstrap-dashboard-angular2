@@ -35,7 +35,6 @@
                           <table class="table table-hover table-striped">
                             <thead>
                                 <tr>
-                                  <th></th>
                                   <th>Fecha</th>
                                   <th>#Matrim. FdS Activo</th>
                                   <th>#Sacer. FdS Activo</th>
@@ -52,7 +51,6 @@
                             </thead>
                                 <tbody>
                                     <tr *ngFor="let row of tableData1.dataRows; let i=index" >
-                                    <th>{{row.id}}</th>
                                     <th>{{row.fechaCreacion}}</th>
                                     <td>{{row.numFdsProfundosPeriodo}}</td>
                                     <td>{{row.numMatrimosDebutaronProfundo}}</td>
