@@ -7,6 +7,7 @@ import { SidebarComponent } from './sidebar.component';
     imports: [ RouterModule, CommonModule ],
     declarations: [ SidebarComponent ],
     exports: [ SidebarComponent ]
+    
 })
 
 export class SidebarModule {}
