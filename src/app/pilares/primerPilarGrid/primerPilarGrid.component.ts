@@ -58,7 +58,7 @@ export class PrimerPilarGridComponent implements OnInit {
       console.log(response); // ver los datos obtenidos en la consola
       const responseData = response['response']; // acceder al array 'response' dentro de la respuesta
       this.tableData1.dataRows = responseData.slice(0, 5).map(item => {
-          return {
+          return { 
           id: item.id,
           numFDS : item.numFDS,
           numMatrinoniosVivieron : item.numMatrinoniosVivieron,
@@ -141,7 +141,8 @@ export class PrimerPilarGridComponent implements OnInit {
   }
 
   public getTableData() {
-    this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/getAll', this.httpOptions)
+    let userId = localStorage.getItem('userId');
+    this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/getAll?id=${userId}`, this.httpOptions)
       .subscribe(response => {
         console.log(response); // ver los datos obtenidos en la consola
         const responseData = response['response']; // acceder al array 'response' dentro de la respuesta
@@ -173,8 +174,10 @@ export class PrimerPilarGridComponent implements OnInit {
  
   // Función para generar el archivo Excel
   generateExcel() {
+    let userId = localStorage.getItem('userId');
+
     // Realizar la consulta y obtener los datos en un arreglo
-    this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/getAll', this.httpOptions)
+    this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/getAll?id=${userId}`, this.httpOptions)
     .subscribe(data => {
       const rows = [];
 
