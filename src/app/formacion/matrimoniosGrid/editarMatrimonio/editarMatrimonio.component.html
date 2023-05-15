@@ -1,15 +1,4 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-        <script>
-        $( function() {
-            $( "#fechaCreacion" ).datepicker();
-        } );
-        </script>
-    </head>
-<body>
+
     <div class="main-content" >
         <div class="container-fluid">
             <div class="row">
@@ -153,9 +142,12 @@
                                         </div>                          
                                     </div>
                                     <div class="row">
+
                                         <div class="col-md-3" *ngIf="!actualizarMostrarBotonGuardar(rolId)">
                                             <button type="submit" class="boton-rojo" (click)="openDialog()">Guardar</button>
-                                            <a routerLink="/matrimoniosGrid" class="boton-gris">Cancelar</a>                                
+                                        </div>
+                                        <div class="col-md-3">
+                                            <button routerLink="/matrimoniosGrid" class="boton-gris">Cancelar</button>                                
                                         </div>
                                     </div>
                                     
@@ -168,8 +160,4 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script src="js/bootstrap-datepicker.js"></script>
-</body>
-</html>
+

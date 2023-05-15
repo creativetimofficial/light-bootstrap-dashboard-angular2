@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDownloadDialogComponent } from 'app/shared/confirm-download-dialog/confirm-download-dialog.component'; 
+import { ConfirmDeleteComponent } from 'app/shared/confirm-delete/confirm-delete.component';
 
 declare interface TableData {
     headerRow: string[];
@@ -27,7 +30,7 @@ export class UsuariosGridComponent implements OnInit {
     currentPage = 1;
     searchText= "";
 
-    constructor(private http: HttpClient,  private router: Router) { 
+    constructor(private http: HttpClient,  private router: Router, public dialog: MatDialog) { 
         this.tableData1 = { headerRow: [], dataRows: [] };
     }
 
@@ -104,7 +107,16 @@ export class UsuariosGridComponent implements OnInit {
     this.router.navigate(['/usuariosEditar', id]);
     
   }
-
+  openDialogDelete(row):void{
+    const dialogRef = this.dialog.open(ConfirmDeleteComponent,{
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+      if(res){
+        this.deleteRow(row);
+      }
+    })
+  }
   public deleteRow(row) {
     const params = { id: row.id };
     console.log(this.httpOptions);
