@@ -14,7 +14,11 @@ export class LoginComponent implements OnInit {
   username: string;
 
   constructor(public authService: AuthService, public router: Router) {}
-
+  ngOnInit() {
+    localStorage.removeItem('jwt');
+    localStorage.removeItem('userId');
+    
+  }
   async login(username: string, password: string) {
     try {
 
@@ -27,9 +31,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-
-
-  ngOnInit() {
-  }
+  
 
 }

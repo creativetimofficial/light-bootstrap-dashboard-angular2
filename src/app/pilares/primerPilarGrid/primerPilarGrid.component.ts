@@ -44,7 +44,7 @@ export class PrimerPilarGridComponent implements OnInit {
 
   ngOnInit() {
     let token = localStorage.getItem('jwt');
-    console.log(token);
+    let userId = localStorage.getItem('userId');
 
     this.httpOptions = {
       headers: new HttpHeaders({
@@ -52,8 +52,8 @@ export class PrimerPilarGridComponent implements OnInit {
         'Authorization': `Bearer ${token}`
       })
     };
-
-    this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/getAll', this.httpOptions)
+    console.log(userId);
+    this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/getAll?id=${userId}`, this.httpOptions)
     .subscribe(response => {
       console.log(response); // ver los datos obtenidos en la consola
       const responseData = response['response']; // acceder al array 'response' dentro de la respuesta

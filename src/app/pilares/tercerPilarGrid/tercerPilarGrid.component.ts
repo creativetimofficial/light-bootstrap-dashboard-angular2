@@ -36,7 +36,7 @@ export class TercerPilarGridComponent implements OnInit {
 
     ngOnInit() {
       let token = localStorage.getItem('jwt');
-      console.log(token);
+      let userId = localStorage.getItem('userId');
 
       this.httpOptions = {
         headers: new HttpHeaders({
@@ -47,7 +47,7 @@ export class TercerPilarGridComponent implements OnInit {
 
 
 
-      this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/pilar/tercerPilar/getAll', this.httpOptions)
+      this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/tercerPilar/getAll?id=${userId}`, this.httpOptions)
       .subscribe(response => {
         console.log(response); // ver los datos obtenidos en la consola
         const responseData = response['response']; // acceder al array 'response' dentro de la respuesta

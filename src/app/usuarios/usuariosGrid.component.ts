@@ -33,6 +33,8 @@ export class UsuariosGridComponent implements OnInit {
 
   ngOnInit() {
     let token = localStorage.getItem('jwt');
+    let userId = localStorage.getItem('userId');
+
     console.log(token);
 
     this.httpOptions = {
@@ -42,7 +44,7 @@ export class UsuariosGridComponent implements OnInit {
       })
     };
 
-    this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/user/getUsuarios', this.httpOptions)
+    this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/user/getUsuarios?id=${userId}`, this.httpOptions)
     .subscribe(response => {  
       console.log(response); // ver los datos obtenidos en la consola
       const responseData = response['response']; // acceder al array 'response' dentro de la respuesta
@@ -54,10 +56,10 @@ export class UsuariosGridComponent implements OnInit {
         return {
           id : item.id,
           name : item.name,
-          lastname : item.lastname,
+          document : item.document,
           creationDate: modifiedCreationDate?.slice(0, 10),
-          document: item.document,
-          username: item.username        
+          ciudad: item.ciudad.name,
+          pais: item.ciudad.pais.name        
         }
       });
 

@@ -74,9 +74,9 @@
                                 </div>
                             
                                 <div class="row">
-                                    <div class="col-md-3"> 
+                                    <div class="col-md-3" *ngIf="!actualizarMostrarBotonGuardar(rolId)">
                                         <button type="submit" class="boton-rojo" (click)="openDialog()">Guardar</button>
-                                    </div>
+                                      </div>
                                     <div class="col-md-3">
                                         <button routerLink="/primerPilarGrid" class="boton-gris">Cancelar</button>
                                     </div>

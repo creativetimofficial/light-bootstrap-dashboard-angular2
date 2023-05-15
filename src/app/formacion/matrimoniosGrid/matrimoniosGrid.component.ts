@@ -35,7 +35,7 @@ export class MatrimoniosGridComponent implements OnInit {
     }
     ngOnInit() {
         let token = localStorage.getItem('jwt');
-        console.log(token);
+        let userId = localStorage.getItem('userId');
 
         this.httpOptions = {
           headers: new HttpHeaders({
@@ -44,7 +44,7 @@ export class MatrimoniosGridComponent implements OnInit {
           })
         };
 
-        this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/formacion/matrimonio/getAll', this.httpOptions)
+        this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/formacion/sacerdote/getAll?id=${userId}`, this.httpOptions)
         .subscribe(response => {
           console.log(response); // ver los datos obtenidos en la consola
           const responseData = response['response']; // acceder al array 'response' dentro de la respuesta

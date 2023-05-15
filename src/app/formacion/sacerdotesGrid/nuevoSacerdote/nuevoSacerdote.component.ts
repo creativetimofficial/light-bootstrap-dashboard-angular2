@@ -141,14 +141,16 @@ export class NuevoSacerdoteComponent implements OnInit {
 
   obtenerDatosCiudad(id: string) {
     const params = { id: id };
-    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getCiudadPaises?idPais=${params.id}`;
+    let userId = localStorage.getItem('userId');
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getCiudadPaises?id=${userId}`;
     const response = this.http.get(url, this.httpOptions); 
     return response  
   }
 
   obtenerDatosPais(): Observable<any> {
     console.log(this.token);
-    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getPaises`;
+    let userId = localStorage.getItem('userId');
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getPaises?id=${userId}`;
     return this.http.get(url, this.httpOptions);
   }
 

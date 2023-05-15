@@ -35,6 +35,8 @@ export class CuartoPilarGridComponent implements OnInit {
     }
     ngOnInit() {
         let token = localStorage.getItem('jwt');
+        let userId = localStorage.getItem('userId');
+
         console.log(token);
 
         this.httpOptions = {
@@ -46,10 +48,11 @@ export class CuartoPilarGridComponent implements OnInit {
 
 
 
-        this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/pilar/cuartoPilar/getAll', this.httpOptions)
+        this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/cuartoPilar/getAll?id=${userId}`, this.httpOptions)
         .subscribe(response => {
           console.log(response); // ver los datos obtenidos en la consola
         const responseData = response['response']; // acceder al array 'response' dentro de la respuesta
+        
         if (responseData) {
 
           this.tableData1.dataRows = responseData.slice(0, 5).map(item => {

@@ -25,7 +25,8 @@ export class AuthService {
           }
           localStorage.setItem('jwt', response.jwt);
           localStorage.setItem('userId', response.usuario.id);
-
+          localStorage.setItem('rolId', response.usuario.roles[0].id);
+          console.log(response.usuario.roles[0].id);
           // Establecer isAuthenticated en true
           this.isAuthenticated = true;
           return this.isAuthenticated;
