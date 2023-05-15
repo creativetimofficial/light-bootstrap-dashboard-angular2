@@ -1,4 +1,15 @@
-
+<html>
+    <head>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <script>
+        $( function() {
+            $( "#fechaCreacion" ).datepicker();
+        } );
+        </script>
+    </head>
+<body>
 <div class="main-content" >
     <div class="container-fluid">
         <div class="row">
@@ -10,16 +21,21 @@
                     <div class="content">
                         <form  [formGroup]="perfilForm">
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div>
-                                        <h2>Bienvenido, {{perfilForm.controls.name.value }} {{perfilForm.controls.lastname.value}} </h2>
+                                <div class="col-md-3">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Fecha de creacion</label>
+                                            <div class="input-group date" data-provide="datepicker">
+                                                <input type="date" class="form-control"  id ="fechaCreacion" name="fechaCreacion" formControlName="creationDate" disabled>                                                
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                </div> 
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Nombre</label>
+                                        <label>Nombres</label>
                                         <input type="text" id="name" formControlName="name" class="form-control" >
                                     </div>
                                 </div>
@@ -42,7 +58,6 @@
                                     </div>
                                 </div>
                             </div>
-                            
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
@@ -59,13 +74,13 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Contraseña</label>
-                                        <input type="password" id="password" formControlName="password"  class="form-control" disabled="true">                                    </div>
+                                        <input type="password" id="password" formControlName="password"  class="form-control" >                                    </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                       <label>Rol de usuario</label>
                                       <br>
-                                      <select name="rol" id="select-rol" formControlName="rol" class="form-control" disabled="true">
+                                      <select name="rol" id="select-rol" formControlName="rol" class="form-control">
                                         <option *ngFor="let rol of roles" [value]="rol.key">{{ rol.value.name }}</option>
                                       </select>
                                     </div>
@@ -75,17 +90,30 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                       <label>Pais</label>
-                                      <select formControlName="select-pais" id="select-pais" (change)="onSelectPais($event.target.value)" class="form-control" disabled="true">
+                                      <select formControlName="select-pais" id="select-pais" (change)="onSelectPais($event.target.value)" class="form-control">
                                         <option value="">Seleccionar país</option>
                                         <option *ngFor="let pais of paises" [value]="pais.id">{{ pais.name }}</option>
                                       </select>
                                     </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Ciudad</label>
+                                        <select formControlName="select-ciudad" id="select-ciudad" [disabled]="perfilForm.controls['select-pais'].value === ''" class="form-control">
+                                            <option value="">Seleccionar ciudad</option>
+                                            <option *ngFor="let ciudad of ciudades" [value]="ciudad.id">{{ ciudad.name }}</option>
+                                        </select>
+                                    </div>
                                 </div> 
+                                
                             </div>
 
                             <div class="row">
                                 <div class="col-md-3">
-                                    <button type="submit" class="boton-rojo" (click)="openDialog()">Actualizar</button>                          
+                                    <button type="submit" class="boton-rojo" (click)="openDialog()">Guardar</button>                          
+                                </div>
+                                <div class="col-md-3">
+                                    <button routerLink="/usuariosGrid" class="boton-gris">Cancelar</button>                                
                                 </div>
                             </div>
                                     
@@ -98,4 +126,8 @@
         </div>
     </div>
 </div>
-
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+</body>
+</html>
