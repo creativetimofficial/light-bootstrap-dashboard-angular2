@@ -9,15 +9,15 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from 'app/shared/confirm-dialog/confirm-dialog.component'; 
 
 @Component({
-  selector: 'app-usuariosEditar',
-  templateUrl: './usuariosEditar.component.html',
-  styleUrls: ['./usuariosEditar.component.css'],
+  selector: 'app-perfil',
+  templateUrl: './perfil.component.html',
+  styleUrls: ['./perfil.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 
 })
-export class UsuariosEditarComponent implements OnInit {
+export class PerfilComponent implements OnInit {
 
-  usuariosEditarForm: FormGroup;
+  perfilForm: FormGroup;
   httpOptions: any;
   token: any;
   response: any;
@@ -43,7 +43,7 @@ export class UsuariosEditarComponent implements OnInit {
 
   constructor(private http: HttpClient, private router: Router, public dialog: MatDialog,
     private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) {
-    this.usuariosEditarForm = this.formBuilder.group({
+    this.perfilForm = this.formBuilder.group({
       id: [null],
       name: [null, Validators.required],
       creationDate: [null, Validators.required],
@@ -70,27 +70,27 @@ export class UsuariosEditarComponent implements OnInit {
         'Content-Type': 'application/json'
       })
     };
-    const elementId = this.activatedRoute.snapshot.paramMap.get('id');
+    let userId = localStorage.getItem('userId');
 
-    this.obtenerDatosUsuario(elementId).subscribe(data => {
+    this.obtenerDatosUsuario(userId).subscribe(data => {
       // Asignar los datos del elemento al formulario utilizando setValue()
       let fecha = new Date(data.response.creationDate);
       let fechaFormateada = fecha.toISOString().substring(0, 10);
-      this.usuariosEditarForm.controls['creationDate'].setValue(fechaFormateada);
-      this.usuariosEditarForm.controls['name'].setValue(data.response.name);
-      this.usuariosEditarForm.controls['lastname'].setValue(data.response.lastname);
-      this.usuariosEditarForm.controls['username'].setValue(data.response.username);
-      this.usuariosEditarForm.controls['password'].setValue(data.response.password);
-      this.usuariosEditarForm.controls['document'].setValue(data.response.document);
-      this.usuariosEditarForm.controls['email'].setValue(data.response.email);
-      this.usuariosEditarForm.controls['telefono'].setValue(data.response.telefono);
+      this.perfilForm.controls['creationDate'].setValue(fechaFormateada);
+      this.perfilForm.controls['name'].setValue(data.response.name);
+      this.perfilForm.controls['lastname'].setValue(data.response.lastname);
+      this.perfilForm.controls['username'].setValue(data.response.username);
+      this.perfilForm.controls['password'].setValue(data.response.password);
+      this.perfilForm.controls['document'].setValue(data.response.document);
+      this.perfilForm.controls['email'].setValue(data.response.email);
+      this.perfilForm.controls['telefono'].setValue(data.response.telefono);
 
-
+     
      // Gestion de paises
      const pais = data.response.ciudad.pais;
      const ciudad = data.response.ciudad;
     
-     this.usuariosEditarForm.controls['select-pais'].setValue(pais.id);
+     this.perfilForm.controls['select-pais'].setValue(pais.id);
 
      this.obtenerDatosPais(pais.id).subscribe((data: any) => {
        const paises = data.response;
@@ -106,7 +106,7 @@ export class UsuariosEditarComponent implements OnInit {
        });
    
        // Establecemos el país seleccionado en el select del país
-       this.usuariosEditarForm.controls['select-pais'].setValue(pais.id);
+       this.perfilForm.controls['select-pais'].setValue(pais.id);
      });
 
      this.obtenerDatosCiudad(pais.id).subscribe((data: any) => {
@@ -124,7 +124,7 @@ export class UsuariosEditarComponent implements OnInit {
        selectCiudad.disabled = false;
    
        // Establecemos la ciudad seleccionada en el select de la ciudad
-       this.usuariosEditarForm.controls['select-ciudad'].setValue(ciudad.id);
+       this.perfilForm.controls['select-ciudad'].setValue(ciudad.id);
      });
       // Crear opciones para el select de roles
       const rolesKeys = Object.keys(this.roles);
@@ -139,7 +139,7 @@ export class UsuariosEditarComponent implements OnInit {
 
       // Establecer el rol seleccionado en el select
       const selectedRol = this.roles[data.response.roles.id];
-      this.usuariosEditarForm.controls['rol'].setValue(selectedRol.name);
+      this.perfilForm.controls['rol'].setValue(selectedRol.name);
     });
   }
   obtenerDatosUsuario(id: string): Observable<any> {
@@ -185,17 +185,16 @@ export class UsuariosEditarComponent implements OnInit {
     const ciudadSeleccionada = parseInt((<HTMLInputElement>document.getElementById('select-ciudad')).value, 10);
     const state = true;
     const rolSeleccionado = parseInt((<HTMLInputElement>document.getElementById('select-rol')).value, 10);
+ 
 
     const jsonUsuario = {
       id,
       name,
+      creationDate,
       lastname,
       username,
-      creationDate,
       password,
-      document: doc,
-      email,
-      telefono,
+      doc,
       state,
       roles: [
         {
@@ -206,9 +205,9 @@ export class UsuariosEditarComponent implements OnInit {
         id: ciudadSeleccionada
       },
     };
+    console.log(jsonUsuario);
 
     const nuevoUsuario = JSON.stringify(jsonUsuario); // Convertir el objeto en una cadena JSON
-    console.log(nuevoUsuario);
 
     if (this.httpOptions) {
       this.http.post('https://encuentro-matrimonial-backend.herokuapp.com/user/updateUsuario', nuevoUsuario, this.httpOptions)
@@ -238,7 +237,7 @@ export class UsuariosEditarComponent implements OnInit {
       selectCiudad.disabled = false;
       
       // reiniciar el selector de ciudades
-      this.usuariosEditarForm.controls['select-ciudad'].reset(); 
+      this.perfilForm.controls['select-ciudad'].reset(); 
       
     });
   }

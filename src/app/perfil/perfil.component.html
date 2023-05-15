@@ -16,19 +16,17 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Editar Usuario</h4>
+                        <h4 class="title">Perfil de usuario</h4>
                     </div>
                     <div class="content">
-                        <form  [formGroup]="usuariosEditarForm">
+                        <form  [formGroup]="perfilForm">
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Fecha de creacion</label>
                                             <div class="input-group date" data-provide="datepicker">
-                                                <input type="date" class="form-control" id ="fechaCreacion" name="fechaCreacion" formControlName="creationDate" >
-                                                <div class="input-group-addon">
-                                              </div>
+                                                <input type="date" class="form-control"  id ="fechaCreacion" name="fechaCreacion" formControlName="creationDate" disabled>                                                
                                             </div>
                                         </div>
                                     </div>
@@ -101,7 +99,7 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Ciudad</label>
-                                        <select formControlName="select-ciudad" id="select-ciudad" [disabled]="usuariosEditarForm.controls['select-pais'].value === ''" class="form-control">
+                                        <select formControlName="select-ciudad" id="select-ciudad" [disabled]="perfilForm.controls['select-pais'].value === ''" class="form-control">
                                             <option value="">Seleccionar ciudad</option>
                                             <option *ngFor="let ciudad of ciudades" [value]="ciudad.id">{{ ciudad.name }}</option>
                                         </select>

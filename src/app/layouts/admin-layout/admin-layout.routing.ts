@@ -11,7 +11,6 @@ import { SacerdotesGridComponent } from '../../formacion/sacerdotesGrid/sacerdot
 import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
-import { RegisterComponent } from '../../register/register.component';
 import { FormationComponent } from '../../formation/formation.component';
 import { NuevoPrimerPilarComponent } from '../../pilares/primerPilarGrid/nuevoPrimerPilar/nuevoPrimerPilar.component';
 import { NuevoSegundoPilarComponent } from '../../pilares/segundoPilarGrid/nuevoSegundoPilar/nuevoSegundoPilar.component';
@@ -28,6 +27,7 @@ import { EditarSacerdoteComponent } from 'app/formacion/sacerdotesGrid/editarSac
 import { NuevoMatrimonioComponent } from 'app/formacion/matrimoniosGrid/nuevoMatrimonio/nuevoMatrimonio.component';
 import { EditarMatrimonioComponent } from 'app/formacion/matrimoniosGrid/editarMatrimonio/editarMatrimonio.component';
 import { UsuariosEditarComponent } from 'app/usuarios/usuariosEditar/usuariosEditar.component';
+import { PerfilComponent } from 'app/perfil/perfil.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -44,7 +44,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'icons',component: IconsComponent, canActivate: [AuthGuard] },
     { path: 'maps',component: MapsComponent, canActivate: [AuthGuard] },
     { path: 'notifications',component: NotificationsComponent, canActivate: [AuthGuard] },
-    // { path: 'register',component: RegisterComponent, canActivate: [AuthGuard] },
     { path: 'formation',component: FormationComponent },
     { path: 'nuevoPrimerPilar',component: NuevoPrimerPilarComponent , canActivate: [AuthGuard]},
     { path: 'nuevoSegundoPilar',component: NuevoSegundoPilarComponent , canActivate: [AuthGuard]},
@@ -58,5 +57,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'editarMatrimonio/:id',component: EditarMatrimonioComponent, canActivate: [AuthGuard] },
     { path: 'nuevoSacerdote',component: NuevoSacerdoteComponent, canActivate: [AuthGuard] },
     { path: 'editarSacerdote/:id',component: EditarSacerdoteComponent, canActivate: [AuthGuard] },
+    { path: 'perfil',component: PerfilComponent, canActivate: [AuthGuard] },
+
 
 ];

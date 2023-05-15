@@ -48,11 +48,14 @@ export class UsuariosGridComponent implements OnInit {
       const responseData = response['response']; // acceder al array 'response' dentro de la respuesta
   
       this.tableData1.dataRows = responseData.slice(0, 5).map(item => {
+        const currentDate = new Date(item.creationDate);
+        currentDate.setDate(currentDate.getDate() - 1);
+        const modifiedCreationDate = currentDate.toISOString();
         return {
           id : item.id,
           name : item.name,
           lastname : item.lastname,
-          creationDate: item.creationDate.slice(0, 10),
+          creationDate: modifiedCreationDate?.slice(0, 10),
           document: item.document,
           username: item.username        
         }
@@ -78,7 +81,7 @@ export class UsuariosGridComponent implements OnInit {
           id : item.id,
           name : item.name,
           lastname : item.lastname,
-          creationDate: item.creationDate.slice(0, 10),
+          creationDate: item.creationDate?.slice(0, 10),
           document: item.document,
           username: item.username     
       }

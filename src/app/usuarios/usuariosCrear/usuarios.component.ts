@@ -74,6 +74,7 @@ export class UsuariosComponent implements OnInit {
     const username = (<HTMLInputElement>document.getElementById('nombreUsuario')).value;
     const password = (<HTMLInputElement>document.getElementById('password')).value;
     const doc = (<HTMLInputElement>document.getElementById('document')).value;
+    currentDate.setDate(currentDate.getDate() - 1);
     const creationDate = currentDate.toISOString();
     const state = true;
     const rolSelecionado = (<HTMLInputElement>document.getElementById('rol')).value;
