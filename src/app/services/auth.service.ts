@@ -24,7 +24,8 @@ export class AuthService {
 
           }
           localStorage.setItem('jwt', response.jwt);
-          
+          localStorage.setItem('userId', response.usuario.id);
+
           // Establecer isAuthenticated en true
           this.isAuthenticated = true;
           return this.isAuthenticated;

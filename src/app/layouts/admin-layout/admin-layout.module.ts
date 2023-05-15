@@ -31,6 +31,7 @@ import { NuevoMatrimonioComponent } from 'app/formacion/matrimoniosGrid/nuevoMat
 import { EditarMatrimonioComponent } from 'app/formacion/matrimoniosGrid/editarMatrimonio/editarMatrimonio.component';
 import { UsuariosComponent } from 'app/usuarios/usuariosCrear/usuarios.component';
 import { UsuariosEditarComponent } from 'app/usuarios/usuariosEditar/usuariosEditar.component';
+import { PerfilComponent } from 'app/perfil/perfil.component';
 
 @NgModule({
   imports: [
@@ -68,7 +69,8 @@ import { UsuariosEditarComponent } from 'app/usuarios/usuariosEditar/usuariosEdi
     EditarSacerdoteComponent,
     NuevoMatrimonioComponent,
     EditarMatrimonioComponent,
-    UsuariosEditarComponent
+    UsuariosEditarComponent,
+    PerfilComponent
   ]
 })
 
