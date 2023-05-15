@@ -39,7 +39,7 @@ export class PerfilComponent implements OnInit {
   data: any;
   pais: any; // cambia a tipo any
   creationDate: string;
-
+  rolId: number;
 
   constructor(private http: HttpClient, private router: Router, public dialog: MatDialog,
     private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) {
@@ -63,7 +63,9 @@ export class PerfilComponent implements OnInit {
   ngOnInit() {
    
     let token = localStorage.getItem('jwt');
-
+    let rolIdString = localStorage.getItem('rolId');
+    this.rolId = parseInt(rolIdString, 10);
+    
     this.httpOptions = {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + token,
@@ -138,8 +140,8 @@ export class PerfilComponent implements OnInit {
       });
 
       // Establecer el rol seleccionado en el select
-      const selectedRol = this.roles[data.response.roles.id];
-      this.perfilForm.controls['rol'].setValue(selectedRol.name);
+      console.log(this.roles[this.rolId].name)
+      this.perfilForm.controls['rol'].setValue(this.roles[this.rolId].name);
     });
   }
   obtenerDatosUsuario(id: string): Observable<any> {
@@ -246,14 +248,16 @@ export class PerfilComponent implements OnInit {
 
   obtenerDatosCiudad(id: string) {
     const params = { id: id };
-    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getCiudadPaises?idPais=${params.id}`;
+    let userId = localStorage.getItem('userId');
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getCiudadPaises?id=${userId}`;
     const response = this.http.get(url, this.httpOptions); 
     return response  
   }
 
   obtenerDatosPais(id: string){
     const params = { id: id };
-    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getPaises?idPais=${params.id}`;
+    let userId = localStorage.getItem('userId');
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getPaises?id=${userId}`;
     const response = this.http.get(url, this.httpOptions); 
 
     return response  
