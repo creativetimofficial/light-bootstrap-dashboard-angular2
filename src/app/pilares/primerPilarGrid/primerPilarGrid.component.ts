@@ -226,13 +226,15 @@ export class PrimerPilarGridComponent implements OnInit {
     const selectedDateObj = new Date(selectedDate);
     const selectedYear = selectedDateObj.getFullYear();
     const selectedMonth = selectedDateObj.getMonth() + 1; // Los meses en JavaScript van de 0 a 11
+    const selectedDay = selectedDateObj.getDate();
   
     const filteredData = this.data.filter(item => {
       const itemDate = new Date(item.fechaCreacion);
       const itemYear = itemDate.getFullYear();
       const itemMonth = itemDate.getMonth() + 1; // Los meses en JavaScript van de 0 a 11
+      const itemDay = itemDate.getDate();
   
-      return itemYear === selectedYear && itemMonth === selectedMonth;
+      return itemYear === selectedYear && itemMonth === selectedMonth && itemDay === selectedDay;
     });
   
     this.totalPages = Math.ceil(filteredData.length / this.pageSize); // Actualizar el número total de páginas
@@ -245,18 +247,23 @@ export class PrimerPilarGridComponent implements OnInit {
     const start = (this.currentPage - 1) * this.pageSize;
     const end = start + this.pageSize;
   
-    this.tableData1.dataRows = filteredData.slice(start, end).map(item => ({
-      id: item.id,
-      numFDS: item.numFDS,
-      numMatrinoniosVivieron: item.numMatrinoniosVivieron,
-      fechaCreacion: new Date(new Date(item.fechaCreacion).getTime() + 86400000)
-        .toLocaleDateString('es-ES', { year: 'numeric', month: '2-digit', day: '2-digit' })
-        .split('/')
-        .join('-'),
-      numSacerdotesVivieron: item.numSacerdotesVivieron,
-      numReligiososVivieron: item.numReligiososVivieron,
-      isVisible: true
-    }));
+    this.tableData1.dataRows = filteredData.slice(start, end).map(item => {
+      const fechaCreacion = new Date(item.fechaCreacion);
+      fechaCreacion.setDate(fechaCreacion.getDate() + 1);
+  
+      return {
+        id: item.id,
+        numFDS: item.numFDS,
+        numMatrinoniosVivieron: item.numMatrinoniosVivieron,
+        fechaCreacion: fechaCreacion
+          .toLocaleDateString('es-ES', { year: 'numeric', month: '2-digit', day: '2-digit' })
+          .split('/')
+          .join('-'),
+        numSacerdotesVivieron: item.numSacerdotesVivieron,
+        numReligiososVivieron: item.numReligiososVivieron,
+        isVisible: true
+      };
+    });
   }
   
 }
