@@ -23,6 +23,7 @@ export class UsuariosEditarComponent implements OnInit {
   response: any;
   datosCargados: boolean;
   @ViewChild('fechaInput') fechaInput: ElementRef;
+  rolId: number;
 
   roles = {
     1: { name: "Rol admin", detalle: "ROLE_ADMIN" },
@@ -63,6 +64,8 @@ export class UsuariosEditarComponent implements OnInit {
   ngOnInit() {
    
     let token = localStorage.getItem('jwt');
+    let rolIdString = localStorage.getItem('rolId');
+    this.rolId = parseInt(rolIdString, 10);
 
     this.httpOptions = {
       headers: new HttpHeaders({
@@ -139,8 +142,8 @@ export class UsuariosEditarComponent implements OnInit {
       });
 
       // Establecer el rol seleccionado en el select
-      const selectedRol = this.roles[data.response.roles.id];
-      this.usuariosEditarForm.controls['rol'].setValue(selectedRol.name);
+      console.log(this.roles[this.rolId].name)
+      this.usuariosEditarForm.controls['rol'].setValue(this.roles[this.rolId].name);
     });
   }
   obtenerDatosUsuario(id: string): Observable<any> {
@@ -244,16 +247,19 @@ export class UsuariosEditarComponent implements OnInit {
     });
   }
 
+
   obtenerDatosCiudad(id: string) {
     const params = { id: id };
-    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getCiudadPaises?idPais=${params.id}`;
+    let userId = localStorage.getItem('userId');
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getCiudadPaises?id=${userId}`;
     const response = this.http.get(url, this.httpOptions); 
     return response  
   }
 
   obtenerDatosPais(id: string){
     const params = { id: id };
-    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getPaises?idPais=${params.id}`;
+    let userId = localStorage.getItem('userId');
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getPaises?id=${userId}`;
     const response = this.http.get(url, this.httpOptions); 
 
     return response  

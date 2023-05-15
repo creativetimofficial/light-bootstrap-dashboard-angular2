@@ -39,6 +39,9 @@ export class SegundoPilarGridComponent implements OnInit {
 
   ngOnInit() {
     let token = localStorage.getItem('jwt');
+    let userId = localStorage.getItem('userId');
+
+
     console.log(token);
 
     this.httpOptions = {
@@ -49,8 +52,7 @@ export class SegundoPilarGridComponent implements OnInit {
     };
 
 
-
-    this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/pilar/segundoPilar/getAll', this.httpOptions)
+    this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/segundoPilar/getAll?id=${userId}`, this.httpOptions)
     .subscribe(response => {
       console.log(response); // ver los datos obtenidos en la consola
       const responseData = response['response']; // acceder al array 'response' dentro de la respuesta
@@ -83,6 +85,14 @@ export class SegundoPilarGridComponent implements OnInit {
     });
      
   }
+
+  actualizarMostrarBotonGuardar(rol: number): boolean {
+    console.log(rol);
+    const mostrarBoton = rol !== 1;
+    console.log(mostrarBoton);
+    return mostrarBoton;
+  }
+  
   setCurrentPage(page: number) {
     this.currentPage = page;
     const start = (page - 1) * 5;

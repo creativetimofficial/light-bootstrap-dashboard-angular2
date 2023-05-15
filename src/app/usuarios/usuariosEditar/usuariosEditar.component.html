@@ -66,17 +66,18 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Contraseña</label>
-                                        <input type="password" id="password" formControlName="password"  class="form-control" >                                    </div>
+                                        <input type="password" id="password" formControlName="password"  class="form-control" >                                    
+                                    </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                       <label>Rol de usuario</label>
                                       <br>
-                                      <select name="rol" id="select-rol" formControlName="rol" class="form-control" disabled="true">
-                                        <option *ngFor="let rol of roles" [value]="rol.key">{{ rol.value.name }}</option>
+                                      <select name="rol" id="select-rol" formControlName="rol" class="form-control">
+                                        <option *ngFor="let rol of roles | keyvalue" [value]="rol.value.name">{{ rol.value.name }}</option>
                                       </select>
                                     </div>
-                                  </div>                               
+                                </div>                             
                             </div>
                             <div class="row">
                                 <div class="col-md-3">

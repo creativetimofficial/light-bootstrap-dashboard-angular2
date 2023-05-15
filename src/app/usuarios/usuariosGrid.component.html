@@ -40,20 +40,18 @@
                                     <thead>
                                         <tr>
                                           <th>Nombre</th>
-                                          <th>Apellido</th>
-                                          <th>Nombre de usuario</th>
-                                          <th>Fecha de creación</th>
                                           <th>Documento</th>
+                                          <th>Ciudad</th>
+                                          <th>Pais</th>
                                           <th>Acciones</th> 
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr *ngFor="let row of tableData1.dataRows; let i=index">
                                           <td>{{row.name}}</td>
-                                          <td>{{row.lastname}}</td>
-                                          <td>{{row.username}}</td>
-                                          <td>{{row.creationDate}}</td>
                                           <td>{{row.document}}</td>
+                                          <td>{{row.ciudad}}</td>
+                                          <td>{{row.pais}}</td>
                                           <td>
                                             <button (click)="editRow(row)">
                                               <i class="fas fa-edit"></i>

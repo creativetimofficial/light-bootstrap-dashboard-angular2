@@ -142,8 +142,9 @@
                                         </div>                          
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-3">
-                                            <button type="submit" class="boton-rojo" (click)="openDialog()">Guardar</button>                       
+
+                                        <div class="col-md-3" *ngIf="!actualizarMostrarBotonGuardar(rolId)">
+                                            <button type="submit" class="boton-rojo" (click)="openDialog()">Guardar</button>
                                         </div>
                                         <div class="col-md-3">
                                             <button routerLink="/matrimoniosGrid" class="boton-gris">Cancelar</button>                                

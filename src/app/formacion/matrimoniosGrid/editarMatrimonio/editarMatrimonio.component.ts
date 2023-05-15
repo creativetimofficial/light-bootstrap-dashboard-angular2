@@ -28,6 +28,8 @@ export class EditarMatrimonioComponent implements OnInit {
   data: any;
   pais: any; // cambia a tipo any
   fechaCreacion: string;
+  rolId: number;
+  mostrarBotonGuardar: boolean = false;
 
   constructor(private http: HttpClient, private router: Router, public dialog: MatDialog,
     private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) {
@@ -52,9 +54,10 @@ export class EditarMatrimonioComponent implements OnInit {
     });
   }
   ngOnInit() {
-
-
     let token = localStorage.getItem('jwt');
+    let rolIdString = localStorage.getItem('rolId');
+    this.rolId = parseInt(rolIdString, 10);
+    this.mostrarBotonGuardar = this.actualizarMostrarBotonGuardar(this.rolId);
 
     this.httpOptions = {
       headers: new HttpHeaders({
@@ -68,6 +71,7 @@ export class EditarMatrimonioComponent implements OnInit {
       // Asignar los datos del elemento al formulario utilizando setValue()
 
       let fecha = new Date(data.response.fechaCreacion);
+      fecha.setDate(fecha.getDate() - 1); // Resta un día
       let fechaFormateada = fecha.toISOString().substring(0, 10);
       this.editarMatrimonioForm.controls['fechaCreacion'].setValue(fechaFormateada);
       this.editarMatrimonioForm.controls['jornadaDialogo'].setValue(data.response.jornadaDialogo);
@@ -129,7 +133,12 @@ export class EditarMatrimonioComponent implements OnInit {
     });
    
   }
-
+  actualizarMostrarBotonGuardar(rol: number): boolean {
+    console.log(rol);
+    const mostrarBoton = rol !== 1;
+    console.log(mostrarBoton);
+    return mostrarBoton;
+  }
   obtenerMatrimonio(id: string): Observable<any> {
     const params = { id: id };
     console.log(this.token);
@@ -232,14 +241,16 @@ export class EditarMatrimonioComponent implements OnInit {
 
   obtenerDatosCiudad(id: string) {
     const params = { id: id };
-    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getCiudadPaises?idPais=${params.id}`;
+    let userId = localStorage.getItem('userId');
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getCiudadPaises?id=${userId}`;
     const response = this.http.get(url, this.httpOptions); 
     return response  
   }
 
   obtenerDatosPais(id: string){
     const params = { id: id };
-    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getPaises?idPais=${params.id}`;
+    let userId = localStorage.getItem('userId');
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getPaises?id=${userId}`;
     const response = this.http.get(url, this.httpOptions); 
 
     return response  
