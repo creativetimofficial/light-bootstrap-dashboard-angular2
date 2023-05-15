@@ -76,12 +76,16 @@ export class UsuariosGridComponent implements OnInit {
     this.currentPage = page;
     const start = (page - 1) * 5;
     const end = start + 5;
+    
     this.tableData1.dataRows = this.data.slice(start, end).map(item => {
+      const currentDate = new Date(item.creationDate);
+      currentDate.setDate(currentDate.getDate() - 1);
+      const modifiedCreationDate = currentDate.toISOString();
       return {
           id : item.id,
           name : item.name,
           lastname : item.lastname,
-          creationDate: item.creationDate?.slice(0, 10),
+          creationDate: modifiedCreationDate?.slice(0, 10),
           document: item.document,
           username: item.username     
       }
