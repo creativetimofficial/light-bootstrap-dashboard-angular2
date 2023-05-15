@@ -5,7 +5,7 @@
   padding: 10px 30px; /* espaciado interno del botón */
   border: none; /* sin borde */
   width: 100%;
-  max-width: 300px;
+  max-width: 200px;
 }
 .boton-gris {
     background-color: #cccccc; /* color gris */
@@ -14,5 +14,30 @@
     padding: 10px 30px; /* espaciado interno del botón */
     border: none; /* sin borde */
     width: 100%;
-    max-width: 300px;
+    max-width: 200px;
   }
+
+  .btn-buscar {
+    background-color: white;
+    border: 2px solid #cd4042;
+    border-radius: 18px;
+    color: #cd4042;
+    /*font-size: 18px;*/
+    padding: 10px 30px;
+    max-width: 200px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-buscar:hover {
+    background-color: #cd4042;
+    color: white;
+  }
+
+.pagination {
+    display: flex;
+    padding-left: 0px;
+    list-style: none;
+    border-radius: 0.25rem;
+    justify-content: center;
+}

@@ -1,15 +1,4 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-        <script>
-        $( function() {
-            $( "#fechaCreacion" ).datepicker();
-        } );
-        </script>
-    </head>
-<body>
+
 <div class="main-content" >
     <div class="container-fluid">
         <div class="row">
@@ -24,7 +13,7 @@
                                 <div class="col-md-3">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Fecha de creacion</label>
+                                            <label>Fecha</label>
                                             <div class="input-group date" data-provide="datepicker">
                                                 <input type="date" class="form-control" id ="fechaCreacion" name="fechaCreacion" formControlName="creationDate" >
                                                 <div class="input-group-addon">
@@ -64,14 +53,14 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Contraseña</label>
-                                        <input type="text" id="contraseña" formControlName="password" class="form-control" >
+                                        <input type="password" id="contraseña" formControlName="password" class="form-control" disabled="true">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                       <label>Rol de usuario</label>
                                       <br>
-                                      <select name="rol" id="select-rol" formControlName="rol" class="form-control">
+                                      <select name="rol" id="select-rol" formControlName="rol" class="form-control" disabled="true">
                                         <option *ngFor="let rol of roles" [value]="rol.key">{{ rol.value.name }}</option>
                                       </select>
                                     </div>
@@ -95,16 +84,17 @@
                                             <option *ngFor="let ciudad of ciudades" [value]="ciudad.id">{{ ciudad.name }}</option>
                                         </select>
                                     </div>
-                                </div> 
-                                
+                                </div>    
                             </div>
                                                        
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <button type="submit" class="boton-rojo" (click)="openDialog()">Guardar</button>
-                                        <a routerLink="/usuariosGrid" class="boton-gris">Cancelar</a>                                
-                                    </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <button type="submit" class="boton-rojo" (click)="openDialog()">Guardar</button>                          
                                 </div>
+                                <div class="col-md-3">
+                                    <button routerLink="/usuariosGrid" class="boton-gris">Cancelar</button>                                
+                                </div>
+                            </div>
                                     
                             <div class="clearfix"></div>
                         </form>
@@ -115,8 +105,3 @@
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<script src="js/bootstrap-datepicker.js"></script>
-</body>
-</html>

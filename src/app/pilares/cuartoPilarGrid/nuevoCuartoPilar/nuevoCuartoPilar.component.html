@@ -46,8 +46,6 @@
                                         <input type="text" id="numMatrimonioVivieron" name="numMatrimonioVivieron" class="form-control">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>N° de Comunidades de apoyo</label>
@@ -55,6 +53,8 @@
                                         <input type="text" id="numComunidadApoyo" name="numComunidadApoyo" class="form-control">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>N° de Servidores de comunidad</label>
@@ -69,8 +69,6 @@
                                         <input type="text" id="numMatrimoiosComunidad" name="numMatrimoiosComunidad" class="form-control">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>N° Sacerdotes Asistentes por Comunidad</label>
@@ -84,7 +82,9 @@
                                         <br>
                                         <input type="text" id="numReligiososComunidad" name="numReligiososComunidad" class="form-control">
                                     </div>
-                                </div>    
+                                </div>
+                            </div>
+                            <div class="row">  
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="select-pais">Pais</label>
@@ -93,10 +93,8 @@
                                         <option *ngFor="let pais of paises" [value]="pais.id">{{pais.nombre}}</option>
                                         </select>
                                     </div>
-                                 </div>                           
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
+                                 </div>  
+                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Ciudad</label>
                                         <select type="text" id="select-ciudad" class="form-control" [disabled]="!selectedPais" [(ngModel)]="selectedCiudad">
@@ -104,8 +102,9 @@
                                           <option *ngFor="let ciudad of ciudades" [value]="ciudad.id">{{ciudad.name}}</option>
                                         </select>
                                       </div>
-                                </div>
+                                </div>                         
                             </div>
+                            
                             <div class="row">
                                 <div class="col-md-3">
                                     <button type="submit" class="boton-rojo" (click)="openDialog()">Crear nuevo</button>

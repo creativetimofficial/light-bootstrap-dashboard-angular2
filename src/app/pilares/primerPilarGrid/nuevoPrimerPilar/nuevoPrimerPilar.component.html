@@ -1,15 +1,4 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-        <script>
-        $( function() {
-            $( "#datepicker" ).datepicker();
-        } );
-        </script>
-    </head>
-<body>
+
     <div class="main-content" >
         <div class="container-fluid">
             <div class="row">
@@ -18,7 +7,6 @@
                         <div class="header">
                             <h4 class="title">Nuevo primer pilar</h4>
                         </div>
-                        
                         <div class="content">
                             <form #formularioPrimerPilar="ngForm">
                                 <div class="row">
@@ -26,9 +14,9 @@
                                         <div class="form-group">
                                             <label>Fecha</label>
                                             <div class="input-group date" data-provide="datepicker">
-                                              <input type="date" class="form-control" id ="fechaCreacion" name="fechaCreacion" required="true">
-                                              <div class="input-group-addon">
-                                              </div>
+                                                <input type="date" class="form-control" id ="fechaCreacion" name="fechaCreacion" required="true">
+                                                <div class="input-group-addon">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -40,7 +28,8 @@
                                             <input type="text" id="numFDS" name="numFDS" pattern="^[0-9]+$"class="form-control" required="true">
                                         </div>
                                     </div>  
-                                    <div class="row">
+                                    
+                                    
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>N° de Religiosos/as que lo vivieron</label>
@@ -55,10 +44,6 @@
                                                 <input type="text" id="numMatrinoniosVivieron" name="MatrimoniosVividos" pattern="^[0-9]+$"class="form-control">
                                             </div>
                                         </div>
-                                     
-
-                                    </div>
-                                  
                                 </div>
     
                                 <div class="row">
@@ -93,9 +78,7 @@
                                               <option *ngFor="let ciudad of ciudades" [value]="ciudad.id">{{ciudad.name}}</option>
                                             </select>
                                           </div>
-                                    </div>
-                                   
-                                                                     
+                                    </div>                               
                                 </div>
                              
                                 <div class="row">
@@ -115,8 +98,4 @@
             </div>
         </div>
     </div>
-    <script src="js/jquery-1.7.1.js"></script>  
-    <script src="js/bootstrap.js"></script>
-    <script src="js/bootstrap-datepicker.js"></script>
-</body>
-</html>
+
