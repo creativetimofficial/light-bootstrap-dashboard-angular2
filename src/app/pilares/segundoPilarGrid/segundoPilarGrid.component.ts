@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import * as XLSX from 'xlsx';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDownloadDialogComponent } from 'app/shared/confirm-download-dialog/confirm-download-dialog.component'; 
+import { ConfirmDeleteComponent } from 'app/shared/confirm-delete/confirm-delete.component';
 
 declare interface TableData {
     headerRow: string[];
@@ -115,7 +116,16 @@ export class SegundoPilarGridComponent implements OnInit {
     // Navegar a la página de edición del primer pilar, pasando el ID como parámetro
     this.router.navigate(['/editarSegundoPilar', elementId]);
   }
-
+  openDialogDelete(row):void{
+    const dialogRef = this.dialog.open(ConfirmDeleteComponent,{
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+      if(res){
+        this.deleteRow(row);
+      }
+    })
+  }
   public deleteRow(row) {
     const params = { id: row.id };
     console.log(this.httpOptions);

@@ -5,6 +5,7 @@ import * as XLSX from 'xlsx';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDownloadDialogComponent } from 'app/shared/confirm-download-dialog/confirm-download-dialog.component'; 
+import { ConfirmDeleteComponent } from 'app/shared/confirm-delete/confirm-delete.component';
 
 declare interface TableData {
     headerRow: string[];
@@ -100,6 +101,17 @@ export class PrimerPilarGridComponent implements OnInit {
     const start = (this.currentPage - 1) * this.pageSize;
     const end = start + this.pageSize;
     this.tableData1.dataRows = this.data.slice(start, end);
+  }
+
+  openDialogDelete(row):void{
+    const dialogRef = this.dialog.open(ConfirmDeleteComponent,{
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+      if(res){
+        this.deleteRow(row);
+      }
+    })
   }
   public deleteRow(row) {
     const params = { id: row.id };

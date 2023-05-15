@@ -153,7 +153,7 @@ export class UsuariosGridComponent implements OnInit {
     } else {
       // Realizar la búsqueda por username y filtrar los resultados
       this.tableData1.dataRows = this.data.filter(item =>
-        item.username.toLowerCase().includes(this.searchText)
+        item.name.toLowerCase().includes(this.searchText)
       ).map(item => ({
         id: item.id,
         name: item.name,

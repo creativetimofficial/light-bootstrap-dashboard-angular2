@@ -1,15 +1,4 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-        <script>
-        $( function() {
-            $( "#fechaCreacion" ).datepicker();
-        } );
-        </script>
-    </head>
-<body>
+
     <div class="main-content" >
         <div class="container-fluid">
             <div class="row">
@@ -40,102 +29,37 @@
                                         <div class="form-group">
                                             <label>N° de Regiones</label>
                                             <br>
-                                            <select name="numRegiones" id="numRegiones" formControlName="numRegiones" class="form-control">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="1">9</option>
-                                                <option value="10">10</option>
-                                                <option value="11">11</option>
-                                                <option value="12">12</option>
-                                            </select>
+                                            <input type="text" id="numMatrimosServidoresActivos" name="numMatrimosServidoresActivos" formControlName="numMatrimosServidoresActivos"  pattern="^[0-9]+$" class="form-control" required="true">                                         
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>N° de Diócesis Establecidas</label>
                                             <br>
-                                            <select name="numDiocesisEstablecidas" id="numDiocesisEstablecidas" formControlName="numDiocesisEstablecidas" class="form-control">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="1">9</option>
-                                                <option value="10">10</option>
-                                                <option value="11">11</option>
-                                                <option value="12">12</option>
-                                            </select>
+                                            <input type="text" name="numDiocesisEstablecidas" id="numDiocesisEstablecidas" formControlName="numDiocesisEstablecidas" pattern="^[0-9]+$" class="form-control" required="true">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>N° de Diócesis Contacto</label>
                                             <br>
-                                            <select name="numDiocesisContacto"  id="numDiocesisContacto" formControlName="numDiocesisContacto" class="form-control">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="1">9</option>
-                                                <option value="10">10</option>
-                                                <option value="11">11</option>
-                                                <option value="12">12</option>
-                                            </select>
+                                            <input type="text" name="numDiocesisContacto"  id="numDiocesisContacto" formControlName="numDiocesisContacto" pattern="^[0-9]+$" class="form-control" required="true">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>N° de Diócesis en Expansión</label>
+                                            <br>
+                                            <input type="text"  id="numDiocesisExpansion" formControlName="numDiocesisExpansion" pattern="^[0-9]+$" class="form-control" required="true">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>N° de Diócesis en Expansión</label>
-                                            <br>
-                                            <select  id="numDiocesisExpansion" formControlName="numDiocesisExpansion" class="form-control">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="1">9</option>
-                                                <option value="10">10</option>
-                                                <option value="11">11</option>
-                                                <option value="12">12</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
                                             <label>N° de Diócesis Eclesiásticas</label>
                                             <br>
-                                            <select  id="numDiocesisEclisiastica" class="form-control">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="1">9</option>
-                                                <option value="10">10</option>
-                                                <option value="11">11</option>
-                                                <option value="12">12</option>
-                                            </select>
+                                            <input type="text" id="numDiocesisEclisiastica" formControlName="numDiocesisEclisiastica" pattern="^[0-9]+$" class="form-control" required="true">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -147,8 +71,6 @@
                                           </select>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Ciudad</label>
@@ -175,8 +97,4 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script src="js/bootstrap-datepicker.js"></script>
-</body>
-</html>
+

@@ -18,6 +18,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.component';
 import { ConfirmDownloadDialogComponent } from './shared/confirm-download-dialog/confirm-download-dialog.component';
+import { ConfirmDeleteComponent } from './shared/confirm-delete/confirm-delete.component';
 
 
 
@@ -36,7 +37,7 @@ import { ConfirmDownloadDialogComponent } from './shared/confirm-download-dialog
   ],
 
   entryComponents: [ConfirmDialogComponent],
-  declarations: [AppComponent, AdminLayoutComponent, LoginComponent, RegisterComponent, ConfirmDialogComponent, ConfirmDownloadDialogComponent, PaginationComponent],
+  declarations: [AppComponent, AdminLayoutComponent, LoginComponent, RegisterComponent, ConfirmDialogComponent, ConfirmDownloadDialogComponent, PaginationComponent, ConfirmDeleteComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

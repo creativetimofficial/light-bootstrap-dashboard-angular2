@@ -57,8 +57,6 @@
                                             <input type="text" id="numMatrimonioVivieron" formControlName="numMatrimonioVivieron" name="numMatrimonioVivieron" class="form-control">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>N° de Comunidades de apoyo</label>
@@ -66,6 +64,8 @@
                                             <input type="text" id="numComunidadApoyo" formControlName="numComunidadApoyo" name="numComunidadApoyo" class="form-control">
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>N° de Servidores de comunidad</label>
@@ -80,8 +80,6 @@
                                             <input type="text" id="numMatrimoiosComunidad" formControlName="numMatrimoiosComunidad" name="numMatrimoiosComunidad" class="form-control">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>N° Sacerdotes Asistentes por Comunidad</label>
@@ -95,7 +93,9 @@
                                             <br>
                                             <input type="text" id="numReligiososComunidad" formControlName="numReligiososComunidad" name="numReligiososComunidad" class="form-control">
                                         </div>
-                                    </div>   
+                                    </div>
+                                </div>
+                                <div class="row"> 
                                     <div class="col-md-3">
                                         <div class="form-group">
                                           <label>Pais</label>
@@ -104,9 +104,7 @@
                                             <option *ngFor="let pais of paises" [value]="pais.id">{{ pais.name }}</option>
                                           </select>
                                         </div>
-                                    </div>                             
-                                </div>
-                                <div class="row">
+                                    </div>  
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Ciudad</label>
@@ -115,7 +113,7 @@
                                                 <option *ngFor="let ciudad of ciudades" [value]="ciudad.id">{{ ciudad.name }}</option>
                                             </select>
                                         </div>
-                                    </div>
+                                    </div>                           
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
@@ -125,8 +123,6 @@
                                         <button routerLink="/cuartoPilarGrid" class="boton-gris">Cancelar</button>                                
                                     </div>
                                 </div>
-                                
-                                
                                 <div class="clearfix"></div>
                             </form>
                         </div>
