@@ -157,7 +157,7 @@ export class EditarPrimerPilarComponent implements OnInit {
     console.log(this.httpOptions);
 
     if (this.httpOptions) {
-      this.http.post('https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/update', jsonPrimerPilar, this.httpOptions)
+      this.http.post('https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/create', jsonPrimerPilar, this.httpOptions)
       .subscribe(data => {
         console.log(data);
         alert('Pilar Actualizado');
