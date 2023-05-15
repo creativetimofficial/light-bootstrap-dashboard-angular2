@@ -156,7 +156,8 @@ export class SegundoPilarGridComponent implements OnInit {
   }
   
   public getTableData() {
-    this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/pilar/segundoPilar/getAll', this.httpOptions)
+    let userId = localStorage.getItem('userId');
+    this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/segundoPilar/getAll?id=${userId}`, this.httpOptions)
       .subscribe(response => {
         console.log(response); // ver los datos obtenidos en la consola
         const responseData = response['response']; // acceder al array 'response' dentro de la respuesta
@@ -194,8 +195,9 @@ export class SegundoPilarGridComponent implements OnInit {
   }
 
   generateExcel(){
+    let userId = localStorage.getItem('userId');
   // Realizar la consulta y obtener los datos en un arreglo
-  this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/pilar/segundoPilar/getAll', this.httpOptions)
+  this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/segundoPilar/getAll?id=${userId}`, this.httpOptions)
   .subscribe(data => {
     const rows = [];
 
