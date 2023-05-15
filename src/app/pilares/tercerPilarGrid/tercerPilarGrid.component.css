@@ -26,3 +26,24 @@
       width: 100%;
       max-width: 200px;
     }
+
+    .pagination {
+      display: flex;
+      padding-left: 0px;
+      list-style: none;
+      border-radius: 0.25rem;
+      justify-content: center;
+      
+  }
+  
+  .pagination .page-link {
+    color: #cccccc !important;
+    background-color: white !important;
+    border-color: white !important;
+  }
+  
+  .pagination .page-item.active .page-link {
+    color: white !important;
+    background-color: #cd4042 !important;
+    border-color: white !important;
+  }
