@@ -75,7 +75,8 @@ export class UsuariosEditarComponent implements OnInit {
     this.obtenerDatosUsuario(elementId).subscribe(data => {
       // Asignar los datos del elemento al formulario utilizando setValue()
       let fecha = new Date(data.response.creationDate);
-      let fechaFormateada = fecha.toISOString().substring(0, 10);
+      fecha.setDate(fecha.getDate() - 1);
+      let fechaFormateada = fecha.toISOString().substring(0, 10);;
       this.usuariosEditarForm.controls['creationDate'].setValue(fechaFormateada);
       this.usuariosEditarForm.controls['name'].setValue(data.response.name);
       this.usuariosEditarForm.controls['lastname'].setValue(data.response.lastname);
