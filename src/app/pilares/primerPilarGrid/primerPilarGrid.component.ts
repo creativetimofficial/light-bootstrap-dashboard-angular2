@@ -54,7 +54,7 @@ export class PrimerPilarGridComponent implements OnInit {
         'Authorization': `Bearer ${token}`
       })
     };
-    console.log(userId);
+
     this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/getAll?id=${userId}`, this.httpOptions)
     .subscribe(response => {
       console.log(response); // ver los datos obtenidos en la consola
@@ -77,6 +77,7 @@ export class PrimerPilarGridComponent implements OnInit {
           key: item.key,
           value : item.value,                
         }
+        
       });  
          
       this.data = responseData;
@@ -136,11 +137,10 @@ export class PrimerPilarGridComponent implements OnInit {
     const response = this.http.post(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/delete?id=${params.id}`, {}, httpOptions);
     
     response.subscribe((result: any) => {
-  
       // Actualizar la tabla llamando la función getTableData()
       this.getTableData();
+      this.getTableData2();
       this.setCurrentPage(1);
-
     });
   }
 
@@ -166,6 +166,23 @@ export class PrimerPilarGridComponent implements OnInit {
             fechaCreacion: new Date(new Date(item.fechaCreacion).getTime() + 86400000).toLocaleDateString('es-ES', {year: 'numeric', month: '2-digit', day: '2-digit'}).split('/').join('-'),
             numSacerdotesVivieron: item.numSacerdotesVivieron,
             numReligiososVivieron: item.numReligiososVivieron        
+          }
+        });
+  
+        this.data = responseData;
+      });
+  }
+
+  public getTableData2() {
+    let userId = localStorage.getItem('userId');
+    this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/getAll?id=${userId}`, this.httpOptions)
+      .subscribe(response => {
+        console.log(response); // ver los datos obtenidos en la consola
+        const responseData = response['totalResponse']; // acceder al array 'response' dentro de la respuesta
+        this.tableData2.dataRows = responseData.map(item => {
+          return {
+            key: item.key,
+            value : item.value,
           }
         });
   

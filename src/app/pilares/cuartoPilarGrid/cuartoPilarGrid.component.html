@@ -77,6 +77,27 @@
                           </nav>
                         </div>
                 </div>
+                <div class="card">
+                  <div class="content table-responsive table-full-width">
+                    <table class="table table-hover table-striped">
+                      <thead>
+                          <tr>
+                            <th>Nombre</th>
+                            <th>Realizado</th>
+                            <th>Proyectado</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let row of tableData2.dataRows; let i=index" >
+                          <td>{{row.key}}</td>
+                          <td>{{row.value}}</td>
+                          <td>                                  
+                          </td>                                                
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
             </div>
             
         </div>

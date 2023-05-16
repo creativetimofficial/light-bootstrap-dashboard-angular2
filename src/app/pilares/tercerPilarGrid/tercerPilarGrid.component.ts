@@ -32,6 +32,7 @@ export class TercerPilarGridComponent implements OnInit {
 
     constructor(private http: HttpClient,  private router: Router, public dialog: MatDialog) { 
       this.tableData1 = { headerRow: [], dataRows: [] };
+      this.tableData2 = { headerRow: [], dataRows: [] };
     }
 
     ngOnInit() {
@@ -62,6 +63,7 @@ export class TercerPilarGridComponent implements OnInit {
               numRegiones: item.numDiocesisExpansion,       
             }
           });
+
           this.data = responseData;
           // Calcular el número total de páginas
           this.totalPages = Math.ceil(this.data.length / this.pageSize);
@@ -72,6 +74,15 @@ export class TercerPilarGridComponent implements OnInit {
           // Actualizar los datos de la página actual
           this.setCurrentPage(1);
         }
+
+        const responseData2 = response['totalResponse']; // acceder al array 'response' dentro de la respuesta
+        this.tableData2.dataRows = responseData2.slice(0, 5).map(item => {
+            return { 
+            key: item.key,
+            value : item.value,                
+          }
+        });
+        
       });
     }
     setCurrentPage(page: number) {
@@ -127,6 +138,7 @@ export class TercerPilarGridComponent implements OnInit {
     
         // Actualizar la tabla llamando la función getTableData()
         this.getTableData();
+        this.getTableData2();
         this.setCurrentPage(1);
       });
     }
@@ -147,6 +159,23 @@ export class TercerPilarGridComponent implements OnInit {
               numDiocesisEstablecidas: item.numDiocesisEstablecidas,
               numDiocesisExpansion: item.numDiocesisExpansion,
               numRegiones: item.numDiocesisExpansion                
+            }
+          });
+    
+          this.data = responseData;
+        });
+    }
+    
+    public getTableData2() {
+      let userId = localStorage.getItem('userId');
+      this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/getAll?id=${userId}`, this.httpOptions)
+        .subscribe(response => {
+          console.log(response); // ver los datos obtenidos en la consola
+          const responseData = response['totalResponse']; // acceder al array 'response' dentro de la respuesta
+          this.tableData2.dataRows = responseData.map(item => {
+            return {
+              key: item.key,
+              value : item.value,
             }
           });
     
