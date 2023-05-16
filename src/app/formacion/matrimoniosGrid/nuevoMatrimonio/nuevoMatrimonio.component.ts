@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from 'app/shared/confirm-dialog/confirm-dialog.component'; 
+import { ConfirmCreationComponent } from 'app/shared/confirm-creation/confirm-creation.component';
+
 
 @Component({
   selector: 'app-nuevoMatrimonio',
@@ -59,6 +61,20 @@ export class NuevoMatrimonioComponent implements OnInit {
       }
     })
   }
+
+  openDialogConfirm():void{
+    const dialogRef = this.dialog.open(ConfirmCreationComponent,{
+      data: ""
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+      if(res){
+        close;
+      }
+    })
+  }
+
   newMatrimonio() {
 
     const fecha = (document.getElementById("fechaCreacion") as HTMLInputElement).value;
@@ -107,7 +123,7 @@ export class NuevoMatrimonioComponent implements OnInit {
       this.http.post('https://encuentro-matrimonial-backend.herokuapp.com/formacion/matrimonio/create', jsonMatrimonio, this.httpOptions)
       .subscribe(data => {
         console.log(data);
-        alert('Registro creado exitosamente');
+        this.openDialogConfirm();
         this.router.navigate(['/matrimoniosGrid']);
       }, error => {
         console.error(error);

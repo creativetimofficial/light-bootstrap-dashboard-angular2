@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from 'app/shared/confirm-dialog/confirm-dialog.component'; 
+import { ConfirmCreationComponent } from 'app/shared/confirm-creation/confirm-creation.component';
+
 
 @Component({
   selector: 'app-nuevoCuartoPilar',
@@ -61,6 +63,19 @@ export class NuevoCuartoPilarComponent implements OnInit {
     })
   }
 
+  openDialogConfirm():void{
+    const dialogRef = this.dialog.open(ConfirmCreationComponent,{
+      data: ""
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+      if(res){
+        close;
+      }
+    })
+  }
+
   newPilar() {
     const fecha = (document.getElementById("fecha") as HTMLInputElement).value;
     const fechaObjeto = new Date(fecha);
@@ -97,7 +112,7 @@ export class NuevoCuartoPilarComponent implements OnInit {
       this.http.post('https://encuentro-matrimonial-backend.herokuapp.com/pilar/cuartoPilar/create', jsonSegundoPilar, this.httpOptions)
       .subscribe(data => {
         console.log(data);
-        alert('Cuarto pilar creado exitosamente');
+        this.openDialogConfirm();
         this.router.navigate(['/cuartoPilarGrid']);
       }, error => {
         console.error(error);

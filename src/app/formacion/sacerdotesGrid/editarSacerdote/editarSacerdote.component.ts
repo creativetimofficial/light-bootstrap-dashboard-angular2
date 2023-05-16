@@ -6,6 +6,8 @@ import { ActivatedRoute } from '@angular/router';
 import { FormBuilder,  FormGroup,  Validators} from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from 'app/shared/confirm-dialog/confirm-dialog.component'; 
+import { ConfirmCreationComponent } from 'app/shared/confirm-creation/confirm-creation.component';
+
 
 
 @Component({
@@ -156,6 +158,20 @@ export class EditarSacerdoteComponent implements OnInit {
       }
     })
   }
+
+  openDialogConfirm():void{
+    const dialogRef = this.dialog.open(ConfirmCreationComponent,{
+      data: ""
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+      if(res){
+        close;
+      }
+    })
+  }
+
   editarSacerdote() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     const fecha = (document.getElementById("fechaCreacion") as HTMLInputElement).value;
@@ -202,7 +218,9 @@ export class EditarSacerdoteComponent implements OnInit {
     if (this.httpOptions) {
       this.http.post('https://encuentro-matrimonial-backend.herokuapp.com/formacion/sacerdote/update', jsonSacerdote, this.httpOptions)
       .subscribe(data => {
-        alert('Registro Actualizado');
+
+        this.openDialogConfirm();
+
         this.router.navigate(['/sacerdotesGrid']);
       }, error => {
         console.error(error);

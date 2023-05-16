@@ -5,7 +5,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Editar Usuario</h4>
+                        <h4 class="title"><b>Editar Usuario</b></h4>
                     </div>
                     <div class="content">
                         <form  [formGroup]="usuariosEditarForm">
@@ -13,7 +13,7 @@
                                 <div class="col-md-3">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Fecha</label>
+                                            <label class="letra">Fecha</label>
                                             <div class="input-group date" data-provide="datepicker">
                                                 <input type="date" class="form-control" id ="fechaCreacion" name="fechaCreacion" formControlName="creationDate" >
                                                 <div class="input-group-addon">
@@ -26,25 +26,25 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Nombres</label>
+                                        <label class="letra">Nombres</label>
                                         <input type="text" id="name" formControlName="name" class="form-control" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Apellidos</label>
+                                        <label class="letra">Apellidos</label>
                                         <input type="text" id="lastname" formControlName="lastname" class="form-control" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Nombre de usuario</label>
+                                        <label class="letra">Nombre de usuario</label>
                                         <input type="text" id="username"  formControlName="username" class="form-control" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Número de identificación</label>
+                                        <label class="letra">Número de identificación</label>
                                         <input type="text" id="document" formControlName="document"  class="form-control" >
                                     </div>
                                 </div>
@@ -53,25 +53,25 @@
                              
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Correo Electrónico</label>
+                                        <label class="letra">Correo Electrónico</label>
                                         <input type="text" id="email" formControlName="email" class="form-control" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Teléfono</label>
+                                        <label class="letra">Teléfono</label>
                                         <input type="text" id="telefono" formControlName="telefono" class="form-control" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Contraseña</label>
+                                        <label class="letra">Contraseña</label>
                                         <input type="password" id="password" formControlName="password"  class="form-control" >                                    
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                      <label>Rol de usuario</label>
+                                      <label class="letra">Rol de usuario</label>
                                       <br>
                                       <select formControlName="select-rol" id="select-rol" class="form-control">
                                         <option *ngFor="let rol of roles" [value]="rol.id">{{ rol.name }}</option>
@@ -82,7 +82,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                      <label>Pais</label>
+                                      <label class="letra">Pais</label>
                                       <select formControlName="select-pais" id="select-pais" (change)="onSelectPais($event.target.value)" class="form-control">
                                         <option value="">Seleccionar país</option>
                                         <option *ngFor="let pais of paises" [value]="pais.id">{{ pais.name }}</option>
@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Ciudad</label>
+                                        <label class="letra">Ciudad</label>
                                         <select formControlName="select-ciudad" id="select-ciudad" [disabled]="usuariosEditarForm.controls['select-pais'].value === ''" class="form-control">
                                             <option value="">Seleccionar ciudad</option>
                                             <option *ngFor="let ciudad of ciudades" [value]="ciudad.id">{{ ciudad.name }}</option>

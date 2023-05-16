@@ -4,32 +4,32 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Crear Usuario</h4>
+                        <h4 class="title"><b>Crear Usuario</b></h4>
                     </div>
                     <div class="content">
                         <form #formularioUsuario ="ngForm">
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Nombres</label>
+                                        <label class="letra">Nombres</label>
                                         <input type="text" id="name" class="form-control" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Apellidos</label>
+                                        <label class="letra">Apellidos</label>
                                         <input type="text" id="lastname" class="form-control" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Nombre de usuario</label>
+                                        <label class="letra">Nombre de usuario</label>
                                         <input type="text" id="nombreUsuario"  class="form-control" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Número de identificación</label>
+                                        <label class="letra">Número de identificación</label>
                                         <input type="text" id="document"  class="form-control" >
                                     </div>
                                 </div>
@@ -37,13 +37,13 @@
                             <div class="row">                                      
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>N° Telefono</label>
+                                        <label class="letra">N° Telefono</label>
                                         <input type="text" id="telefono"  class="form-control" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Correo Electrónico</label>
+                                        <label class="letra">Correo Electrónico</label>
                                         <input type="text" id="email" class="form-control" >
                                     </div>
                                 </div>
@@ -60,7 +60,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="select-pais">Pais</label>
+                                        <label for="select-pais" class="letra">Pais</label>
                                         <select id="select-pais" (change)="onSelectPais($event.target.value)" class="form-control">
                                             <option value="" disabled selected>Seleccione un pais</option>
                                           <option *ngFor="let pais of paises" [value]="pais.id">{{pais.nombre}}</option>
@@ -69,7 +69,7 @@
                                   </div>
                                   <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Ciudad</label>
+                                        <label class="letra">Ciudad</label>
                                         <select type="text" id="select-ciudad" class="form-control" [disabled]="!selectedPais" [(ngModel)]="selectedCiudad">
                                           <option value="" disabled selected>Selecciona una ciudad</option>
                                           <option *ngFor="let ciudad of ciudades" [value]="ciudad.id">{{ciudad.name}}</option>
@@ -78,7 +78,7 @@
                                   </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Contraseña</label>
+                                        <label class="letra">Contraseña</label>
                                         <input type="password" id="password" class="form-control" >
                                     </div>
                                 </div>
@@ -98,34 +98,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="col-md-4">
-                <div class="card card-user">
-                    <div class="image">
-                        <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
-                    </div>
-                    <div class="content">
-                        <div class="author">
-                            <a href="#">
-                                <img class="avatar border-gray" src="assets/img/faces/face-3.jpg" alt="..."/>
-
-                                <h4 class="title">Mike Andrew<br />
-                                    <small>michael24</small>
-                                </h4>
-                            </a>
-                        </div>
-                        <p class="description text-center"> "Lamborghini Mercy <br>
-                            Your chick she so thirsty <br>
-                            I'm in that two seat Lambo"
-                        </p>
-                    </div>
-                    <hr>
-                    <div class="text-center">
-                        <button href="#" class="btn btn-simple"><i class="fa fa-facebook-square"></i></button>
-                        <button href="#" class="btn btn-simple"><i class="fa fa-twitter"></i></button>
-                        <button href="#" class="btn btn-simple"><i class="fa fa-google-plus-square"></i></button>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </div>
 </div>

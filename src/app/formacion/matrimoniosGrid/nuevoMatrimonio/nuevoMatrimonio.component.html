@@ -5,14 +5,14 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
-                            <h4 class="title">Crear Nuevo matrimonio</h4>
+                            <h4 class="title"><b>Crear Nuevo matrimonio</b></h4>
                         </div>                                    
                         <div class="content">
                             <form #formularioMatrimonio="ngForm">
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Fecha</label>
+                                            <label class="letra">Fecha</label>
                                             <div class="input-group date" data-provide="datepicker">
                                                 <input type="date" class="form-control" id ="fechaCreacion" name="fechaCreacion" required="true">
                                                 <div class="input-group-addon">
@@ -25,28 +25,28 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Jornadas de Diálogo</label>
+                                            <label class="letra">Jornadas de Diálogo</label>
                                             <br>
                                             <input type="text" id="jornadaDialogo" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Retorno Espiritual</label>
+                                            <label class="letra">Retorno Espiritual</label>
                                             <br>
                                             <input type="text" id="retornoEspiritual" name="numFdsPostPeriodo" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Lenguajes del Amor</label>
+                                            <label class="letra">Lenguajes del Amor</label>
                                             <br>
                                             <input type="text" id="lenguajeAmor" name="numMatrimonioVivieron" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Guiar a través de la relación</label>
+                                            <label class="letra">Guiar a través de la relación</label>
                                             <br>
                                             <input type="text" id="guiaDeRelacion" name="numComunidadApoyo" class="form-control">
                                         </div>
@@ -55,28 +55,28 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Sacramentos</label>
+                                            <label class="letra">Sacramentos</label>
                                             <br>
                                             <input type="text" id="sacramento" name="numServiciosComunidad" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Dias en nuestro sacramento</label>
+                                            <label class="letra">Dios en nuestro sacramento</label>
                                             <br>
                                             <input type="text" id="diosEnSacramento" name="numMatrimoiosComunidad" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Dios en nuestras vídas</label>
+                                            <label class="letra">Dios en nuestras vídas</label>
                                             <br>
                                             <input type="text" id="diosEnVida" name="numComunidadApoyo" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Patrones de comportamiento</label>
+                                            <label class="letra">Patrones de comportamiento</label>
                                             <br>
                                             <input type="text" id="patronesComportamiento" name="numServiciosComunidad" class="form-control">
                                         </div>
@@ -87,28 +87,28 @@
                                     
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Dialogo profundo</label>
+                                            <label class="letra">Dialogo profundo</label>
                                             <br>
                                             <input type="text" id="dialogoProfundo" name="numMatrimoiosComunidad" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Servidores de post encuentro</label>
+                                            <label class="letra">Servidores de post encuentro</label>
                                             <br>
                                             <input type="text" id="servidoresPostEncuentro" name="servidoresPostEncuentro" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Formación para acompañantes</label>
+                                            <label class="letra">Formación para acompañantes</label>
                                             <br>
                                             <input type="text" id="formacionAcompanantes" name="formacionAcompanantes" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>El Padre nuestro</label>
+                                            <label class="letra">El Padre nuestro</label>
                                             <br>
                                             <input type="text" id="padreNuestro" name="padreNuestro" class="form-control">
                                         </div>
@@ -119,14 +119,14 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Trasmisión nacional</label>
+                                            <label class="letra">Trasmisión nacional</label>
                                             <br>
                                             <input type="text" id="transmisionNacional" name="transmisionNacional" class="form-control">
                                         </div>
                                     </div>     
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="select-pais">Pais</label>
+                                            <label for="select-pais" class="letra">Pais</label>
                                             <select id="select-pais" (change)="onSelectPais($event.target.value)" class="form-control">
                                                 <option value="" disabled selected>Seleccione un pais</option>
                                             <option *ngFor="let pais of paises" [value]="pais.id">{{pais.nombre}}</option>
@@ -135,7 +135,7 @@
                                      </div>  
                                      <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Ciudad</label>
+                                            <label class="letra">Ciudad</label>
                                             <select type="text" id="select-ciudad" class="form-control" [disabled]="!selectedPais" [(ngModel)]="selectedCiudad">
                                               <option value="" disabled selected>Selecciona una ciudad</option>
                                               <option *ngFor="let ciudad of ciudades" [value]="ciudad.id">{{ciudad.name}}</option>

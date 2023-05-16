@@ -7,6 +7,7 @@ import {FormBuilder, FormControl, FormGroup, NgForm , Validators} from '@angular
 import { DatePipe } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from 'app/shared/confirm-dialog/confirm-dialog.component'; 
+import { ConfirmCreationComponent } from 'app/shared/confirm-creation/confirm-creation.component';
 
 @Component({
   selector: 'app-editarPrimerPilar',
@@ -140,6 +141,19 @@ export class EditarPrimerPilarComponent implements OnInit {
     })
   }
 
+  openDialogConfirm():void{
+    const dialogRef = this.dialog.open(ConfirmCreationComponent,{
+      data: ""
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+      if(res){
+        close;
+      }
+    })
+  }
+
   editarPilar() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     const fecha = (document.getElementById("fechaCreacion") as HTMLInputElement).value;
@@ -170,7 +184,7 @@ export class EditarPrimerPilarComponent implements OnInit {
       this.http.post('https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/create', jsonPrimerPilar, this.httpOptions)
       .subscribe(data => {
         console.log(data);
-        alert('Pilar Actualizado');
+        this.openDialogConfirm();
         this.router.navigate(['/primerPilarGrid']);
       }, error => {
         console.error(error);
@@ -179,6 +193,7 @@ export class EditarPrimerPilarComponent implements OnInit {
       alert('httpOptions no está definido, intente iniciar sesion nuevamente');
     }
   }
+  
   onSelectPais(idPais: string) {
     this.obtenerDatosCiudad(idPais).subscribe((data: any) => {
       const ciudades = data.response;

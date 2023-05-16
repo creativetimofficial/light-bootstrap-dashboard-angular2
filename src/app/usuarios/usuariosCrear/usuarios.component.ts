@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from 'app/shared/confirm-dialog/confirm-dialog.component'; 
+import { ConfirmCreationComponent } from 'app/shared/confirm-creation/confirm-creation.component';
+
 
 @Component({
   selector: 'app-usuarios',
@@ -63,6 +65,20 @@ export class UsuariosComponent implements OnInit {
       }
     })
   }
+
+  openDialogConfirm():void{
+    const dialogRef = this.dialog.open(ConfirmCreationComponent,{
+      data: ""
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+      if(res){
+        close;
+      }
+    })
+  }
+
   newUsuario() {
     const currentDate = new Date();
 
@@ -105,6 +121,7 @@ export class UsuariosComponent implements OnInit {
       this.http.post('https://encuentro-matrimonial-backend.herokuapp.com/user/createUsuario', nuevoUsuario, this.httpOptions)
       .subscribe(data => {
         console.log(data);
+        this.openDialogConfirm();
         this.router.navigate(['/usuariosGrid']);
       }, error => {
         console.error(error);

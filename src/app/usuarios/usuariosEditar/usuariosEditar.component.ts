@@ -7,6 +7,8 @@ import { FormBuilder,  FormGroup,  Validators} from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from 'app/shared/confirm-dialog/confirm-dialog.component'; 
+import { ConfirmCreationComponent } from 'app/shared/confirm-creation/confirm-creation.component';
+
 
 @Component({
   selector: 'app-usuariosEditar',
@@ -164,6 +166,20 @@ export class UsuariosEditarComponent implements OnInit {
       }
     })
   }
+
+  openDialogConfirm():void{
+    const dialogRef = this.dialog.open(ConfirmCreationComponent,{
+      data: ""
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+      if(res){
+        close;
+      }
+    })
+  }
+
   editarUsuario() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     const name = (<HTMLInputElement>document.getElementById('name')).value;
@@ -207,7 +223,7 @@ export class UsuariosEditarComponent implements OnInit {
     if (this.httpOptions) {
       this.http.post('https://encuentro-matrimonial-backend.herokuapp.com/user/updateUsuario', nuevoUsuario, this.httpOptions)
       .subscribe(data => {
-        alert('Usuario Actualizado exitosamente');
+        this.openDialogConfirm();
         this.router.navigate(['/usuariosGrid']);
       }, error => {
         console.error(error);

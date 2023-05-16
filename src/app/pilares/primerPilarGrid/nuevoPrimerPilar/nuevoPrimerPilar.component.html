@@ -5,14 +5,14 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
-                            <h4 class="title">Nuevo primer pilar</h4>
+                            <h4 class="title" class="letra"><b>Nuevo primer pilar</b></h4>
                         </div>
                         <div class="content">
                             <form #formularioPrimerPilar="ngForm">
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Fecha</label>
+                                            <label class="letra">Fecha</label>
                                             <div class="input-group date" data-provide="datepicker">
                                                 <input type="date" class="form-control" id ="fechaCreacion" name="fechaCreacion" required="true">
                                                 <div class="input-group-addon">
@@ -23,7 +23,7 @@
                                   
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>N° de Fin de semana</label>
+                                            <label class="letra">N° de Fin de semana</label>
                                             <br>
                                             <input type="text" id="numFDS" name="numFDS" pattern="^[0-9]+$"class="form-control" required="true">
                                         </div>
@@ -32,16 +32,16 @@
                                     
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>N° de Religiosos/as que lo vivieron</label>
+                                                <label class="letra">N° de Religiosos/as que lo vivieron</label>
                                                 <br>
                                                 <input type="text" id="numReligiososVivieron" name="numReligiososVivieron" pattern="^[0-9]+$"class="form-control" required="true">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>N° de Matrimonios que lo vivieron</label>
+                                                <label class="letra">N° de Matrimonios que lo vivieron</label>
                                                 <br>
-                                                <input type="text" id="numMatrinoniosVivieron" name="MatrimoniosVividos" pattern="^[0-9]+$"class="form-control">
+                                                <input type="text" id="numMatrinoniosVivieron" name="MatrimoniosVividos" pattern="^[0-9]+$"class="form-control" required="true">
                                             </div>
                                         </div>
                                 </div>
@@ -49,21 +49,14 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>N° de Matrimonios que lo vivieron</label>
-                                            <br>
-                                            <input type="text" id="numMatrinoniosVivieron" name="MatrimoniosVividos" pattern="^[0-9]+$"class="form-control" required="true">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>N° de Sacerdotes que lo vivieron</label>
+                                            <label class="letra">N° de Sacerdotes que lo vivieron</label>
                                             <br>
                                             <input type="text" id="numSacerdotesVivieron" name="numSacerdotesVivieron" pattern="^[0-9]+$"class="form-control" required="true">
                                         </div>
                                     </div> 
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="select-pais">Pais</label>
+                                            <label for="select-pais" class="letra">Pais</label>
                                             <select type="text" id="select-pais" (change)="onSelectPais($event.target.value)" class="form-control">
                                                 <option value="" disabled selected>Seleccione un pais</option>
                                             <option *ngFor="let pais of paises" [value]="pais.id">{{pais.nombre}}</option>
@@ -72,7 +65,7 @@
                                      </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Ciudad</label>
+                                            <label class="letra">Ciudad</label>
                                             <select type="text" id="select-ciudad" class="form-control" [disabled]="!selectedPais" [(ngModel)]="selectedCiudad">
                                               <option value="" disabled selected>Selecciona una ciudad</option>
                                               <option *ngFor="let ciudad of ciudades" [value]="ciudad.id">{{ciudad.name}}</option>
