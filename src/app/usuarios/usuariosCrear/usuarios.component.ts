@@ -16,19 +16,12 @@ export class UsuariosComponent implements OnInit {
 
   httpOptions: any;
   token: any;
-  ciudades: any[]; // Declarar la propiedad 'ciudades'
-  paises: any[]; // Declarar la propiedad 'paises'
+  ciudades: any[]; 
+  paises: any[]; 
   selectedCiudad: string;
   selectedPais: string;
+  roles: any[] = [];
 
-  roles = {
-    1: { name: "ROLE_ADMIN", detalle: "ROLE_ADMIN" },
-    2: { name: "ROLE_USUARIO", detalle: "ROLE_USUARIO" },
-    3: { name: "ROLE_DIOSESANO", detalle: "ROLE_DIOSESANO" },
-    4: { name: "ROLE_REGIONAL", detalle: "ROLE_REGIONAL" },
-    5: { name: "ROLE_ZONAL", detalle: "ROLE_ZONAL" },
-    6: { name: "ROLE_LATAM", detalle: "ROLE_LATAM" },
-  }
   constructor(private http: HttpClient, private router: Router, public dialog: MatDialog) {}
 
   ngOnInit() {
@@ -41,22 +34,26 @@ export class UsuariosComponent implements OnInit {
         'Content-Type': 'application/json'
       })
     };
+    // Obtener los datos de roles
+    this.obtenerDatosRol().subscribe((data) => {
+      this.roles = data.response;
+    });    
     // Obtener los datos del país
-  this.obtenerDatosPais().subscribe((data) => {
-    // Obtener la respuesta del JSON
-    const response = data.response;
-    // Obtener el select del HTML
-    const selectPais = document.getElementById('select-pais') as HTMLSelectElement;
+    this.obtenerDatosPais().subscribe((data) => {
+      // Obtener la respuesta del JSON
+      const response = data.response;
+      // Obtener el select del HTML
+      const selectPais = document.getElementById('select-pais') as HTMLSelectElement;
 
-    // Crear un option por cada país en la respuesta del JSON
-    response.forEach((pais: any) => {
-      const option = document.createElement('option');
-      option.value = pais.id;
-      option.text = pais.name;
-      selectPais.appendChild(option);
+      // Crear un option por cada país en la respuesta del JSON
+      response.forEach((pais: any) => {
+        const option = document.createElement('option');
+        option.value = pais.id;
+        option.text = pais.name;
+        selectPais.appendChild(option);
+      });
     });
-  });
-  }
+    }
   openDialog():void{
     const dialogRef = this.dialog.open(ConfirmDialogComponent,{
       data: "¿Estás seguro que la informacion ingresada es correcta?"
@@ -93,8 +90,8 @@ export class UsuariosComponent implements OnInit {
     currentDate.setDate(currentDate.getDate() - 1);
     const creationDate = currentDate.toISOString();
     const state = true;
-    const rolSelecionado = (<HTMLInputElement>document.getElementById('rol')).value;
-    const selectedRole = this.roles[rolSelecionado];
+    const selectRol = document.getElementById('select-rol') as HTMLSelectElement;
+    const rolSelecionado = selectRol.value;;
     const email = (<HTMLInputElement>document.getElementById('email')).value;
     const telefono = (<HTMLInputElement>document.getElementById('telefono')).value;
     const ciudadSeleccionada = (<HTMLInputElement>document.getElementById('select-ciudad')).value;
@@ -114,8 +111,6 @@ export class UsuariosComponent implements OnInit {
       },
       roles: [{
         id: rolSelecionado,
-        name: selectedRole.name,
-        detalle: selectedRole.detalle
       }]
     };
 
@@ -171,5 +166,13 @@ export class UsuariosComponent implements OnInit {
     const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getPaises?id=${userId}`;
     return this.http.get(url, this.httpOptions);
   }
-   
+
+  obtenerDatosRol(): Observable<any> {
+    console.log(this.token);
+    let userId = localStorage.getItem('userId');
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/rol/getRoles?id=${userId}`;
+    return this.http.get(url, this.httpOptions);
+  }
+
+ 
 }

@@ -78,11 +78,11 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                      <label>Rol de usuario</label>
-                                      <br>
-                                      <select name="rol" id="select-rol" formControlName="rol" class="form-control">
-                                        <option *ngFor="let rol of roles | keyvalue" [value]="rol.value.name">{{ rol.value.name }}</option>
-                                      </select>
+                                        <label>Rol de usuario</label>
+                                        <br>
+                                        <select formControlName="select-rol" id="select-rol" class="form-control">
+                                          <option *ngFor="let rol of roles" [value]="rol.id">{{ rol.name }}</option>
+                                        </select>
                                     </div>
                                 </div>                              
                             </div>

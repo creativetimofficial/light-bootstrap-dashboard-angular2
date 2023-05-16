@@ -23,23 +23,14 @@ export class PerfilComponent implements OnInit {
   response: any;
   datosCargados: boolean;
   @ViewChild('fechaInput') fechaInput: ElementRef;
-
-  roles = {
-    1: { name: "Rol admin", detalle: "ROLE_ADMIN" },
-    2: { name: "Rol usuario", detalle: "ROLE_USUARIO" },
-    3: { name: "Rol diosesano", detalle: "ROLE_DIOSESANO" },
-    4: { name: "Rol regional", detalle: "ROLE_REGIONAL" },
-    5: { name: "Rol zonal", detalle: "ROLE_ZONAL" },
-    6: { name: "Rol latam", detalle: "ROLE_LATAM" },
-  }
   ciudades: any[]; // Declarar la propiedad 'ciudades'
   paises: any[]; // Declarar la propiedad 'paises'
+  roles: any[] = [];
   selectedCiudad: string;
   selectedPais: string;
   data: any;
   pais: any; // cambia a tipo any
   creationDate: string;
-  rolId: number;
 
   constructor(private http: HttpClient, private router: Router, public dialog: MatDialog,
     private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) {
@@ -54,8 +45,7 @@ export class PerfilComponent implements OnInit {
       state: [null, Validators.required],
       email: [null, Validators.required],
       telefono: [null, Validators.required],
-
-      rol: [null, Validators.required],
+      'select-rol': ['', Validators.required],
       'select-pais': ['', Validators.required],
       'select-ciudad': ['', Validators.required]
     });
@@ -63,8 +53,7 @@ export class PerfilComponent implements OnInit {
   ngOnInit() {
    
     let token = localStorage.getItem('jwt');
-    let rolIdString = localStorage.getItem('rolId');
-    this.rolId = parseInt(rolIdString, 10);
+   
     
     this.httpOptions = {
       headers: new HttpHeaders({
@@ -91,7 +80,8 @@ export class PerfilComponent implements OnInit {
      // Gestion de paises
      const pais = data.response.ciudad.pais;
      const ciudad = data.response.ciudad;
-    
+     const rol = data.response.roles[0].id;
+
      this.perfilForm.controls['select-pais'].setValue(pais.id);
 
      this.obtenerDatosPais(pais.id).subscribe((data: any) => {
@@ -128,20 +118,22 @@ export class PerfilComponent implements OnInit {
        // Establecemos la ciudad seleccionada en el select de la ciudad
        this.perfilForm.controls['select-ciudad'].setValue(ciudad.id);
      });
-      // Crear opciones para el select de roles
-      const rolesKeys = Object.keys(this.roles);
-      const selectRol = document.getElementById('select-rol') as HTMLSelectElement;
-      selectRol.innerHTML = '';
-      rolesKeys.forEach(key => {
-        const option = document.createElement('option');
-        option.value = key;
-        option.text = this.roles[key].name;
-        selectRol.appendChild(option);
-      });
 
-      // Establecer el rol seleccionado en el select
-      console.log(this.roles[this.rolId].name)
-      this.perfilForm.controls['rol'].setValue(this.roles[this.rolId].name);
+     this.obtenerDatosRol().subscribe((data: any) => {
+      const roles = data.response;
+      const selectRol = document.getElementById('select-rol') as HTMLSelectElement;
+  
+      selectRol.innerHTML = '';
+  
+      roles.forEach((rol: any) => {
+          const option = document.createElement('option');
+          option.value = rol.id;
+          option.text = rol.name;
+          selectRol.appendChild(option);
+      });
+      this.perfilForm.controls['select-rol'].setValue(rol);
+    });
+  
     });
   }
   obtenerDatosUsuario(id: string): Observable<any> {
@@ -260,6 +252,12 @@ export class PerfilComponent implements OnInit {
     const url = `https://encuentro-matrimonial-backend.herokuapp.com/ubicacion/getPaises?id=${userId}`;
     const response = this.http.get(url, this.httpOptions); 
 
+    return response  
+  }
+  obtenerDatosRol(){
+    let userId = localStorage.getItem('userId');
+    const url = `https://encuentro-matrimonial-backend.herokuapp.com/rol/getRoles?id=${userId}`;
+    const response = this.http.get(url, this.httpOptions); 
     return response  
   }
 }

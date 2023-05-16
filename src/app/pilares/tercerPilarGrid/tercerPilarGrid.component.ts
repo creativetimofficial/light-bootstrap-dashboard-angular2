@@ -35,6 +35,7 @@ export class TercerPilarGridComponent implements OnInit {
     }
 
     ngOnInit() {
+
       let token = localStorage.getItem('jwt');
       let userId = localStorage.getItem('userId');
 
@@ -44,8 +45,6 @@ export class TercerPilarGridComponent implements OnInit {
           'Content-Type': 'application/json'
         })
       };
-
-
 
       this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/tercerPilar/getAll?id=${userId}`, this.httpOptions)
       .subscribe(response => {
@@ -60,9 +59,7 @@ export class TercerPilarGridComponent implements OnInit {
               fechaCreacion: new Date(new Date(item.fechaCreacion).getTime() + 86400000).toLocaleDateString('es-ES', {year: 'numeric', month: '2-digit', day: '2-digit'}).split('/').join('-'),
               numDiocesisEstablecidas: item.numDiocesisEstablecidas,
               numDiocesisExpansion: item.numDiocesisExpansion,
-              numRegiones: item.numDiocesisExpansion,
-              isVisible: true
-       
+              numRegiones: item.numDiocesisExpansion,       
             }
           });
           this.data = responseData;
@@ -130,11 +127,14 @@ export class TercerPilarGridComponent implements OnInit {
     
         // Actualizar la tabla llamando la función getTableData()
         this.getTableData();
+        this.setCurrentPage(1);
       });
     }
     
     public getTableData() {
-      this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/pilar/tercerPilar/getAll', this.httpOptions)
+      let userId = localStorage.getItem('userId');
+
+      this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/tercerPilar/getAll?id=${userId}`, this.httpOptions)
         .subscribe(response => {
           console.log(response); // ver los datos obtenidos en la consola
           const responseData = response['response']; // acceder al array 'response' dentro de la respuesta
@@ -165,38 +165,40 @@ export class TercerPilarGridComponent implements OnInit {
       })
     }
   // Función para generar el archivo Excel
-generateExcel() {
-  // Realizar la consulta y obtener los datos en un arreglo
-  this.http.get('https://encuentro-matrimonial-backend.herokuapp.com/pilar/tercerPilar/getAll', this.httpOptions)
-  .subscribe(data => {
-    const rows = [];
+  generateExcel() {
+    let userId = localStorage.getItem('userId');
 
-    // Agregar los encabezados como primera fila
-    const headers = [
-      'ID' ,
-      'Número de diócesis de contacto',
-      'Número de diócesis eclesiásticas',
-      'Fecha de creación',
-      'Número de diócesis establecidas',
-      'Número de diócesis en expansión',
-      'Número de regiones'
-    ]
-    rows.push(headers);
-    console.log(data)
-    const responseData = data['response']; // acceder al array 'response' dentro de la respuesta
+    // Realizar la consulta y obtener los datos en un arreglo
+    this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/tercerPilar/getAll?id=${userId}`, this.httpOptions)
+    .subscribe(data => {
+      const rows = [];
 
-    responseData.forEach(item => {
-      const row = [
-        item.id,
-        item.numDiocesisContacto,
-        item.numDiocesisEclisiastica,
-        new Date(item.fechaCreacion).toLocaleDateString('es-ES'),
-        item.numDiocesisEstablecidas,
-        item.numDiocesisExpansion,
-        item.numRegiones  
-      ];
-      rows.push(row);
-    });
+      // Agregar los encabezados como primera fila
+      const headers = [
+        'ID' ,
+        'Número de diócesis de contacto',
+        'Número de diócesis eclesiásticas',
+        'Fecha de creación',
+        'Número de diócesis establecidas',
+        'Número de diócesis en expansión',
+        'Número de regiones'
+      ]
+      rows.push(headers);
+      console.log(data)
+      const responseData = data['response']; // acceder al array 'response' dentro de la respuesta
+
+      responseData.forEach(item => {
+        const row = [
+          item.id,
+          item.numDiocesisContacto,
+          item.numDiocesisEclisiastica,
+          new Date(item.fechaCreacion).toLocaleDateString('es-ES'),
+          item.numDiocesisEstablecidas,
+          item.numDiocesisExpansion,
+          item.numRegiones  
+        ];
+        rows.push(row);
+      });
     // Crear una nueva hoja de cálculo de Excel
     const worksheet = XLSX.utils.aoa_to_sheet(rows);
 
