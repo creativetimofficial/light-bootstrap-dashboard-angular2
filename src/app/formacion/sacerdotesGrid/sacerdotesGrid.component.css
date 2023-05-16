@@ -1,0 +1,44 @@
+.boton-rojo {
+  background-color: #cd4042; /* color rojo */
+  color: #ffffff; /* color de texto blanco */
+  border-radius: 18px; /* bordes redondeados */
+  padding: 10px 30px; /* espaciado interno del botón */
+  border: none; /* sin borde */
+  width: 100%;
+  max-width: 200px;
+}
+.boton-gris {
+    background-color: #cccccc; /* color gris */
+    color: #020202; /* color de texto blanco */
+    border-radius: 18px; /* bordes redondeados */
+    padding: 10px 30px; /* espaciado interno del botón */
+    border: none; /* sin borde */
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .pagination {
+    display: flex;
+    padding-left: 0px;
+    list-style: none;
+    border-radius: 0.25rem;
+    justify-content: center;
+    
+}
+
+.pagination .page-link {
+  color: #000000 !important;
+  background-color: white !important;
+  border-color: white !important;
+}
+
+.pagination .page-item.active .page-link {
+  color: white !important;
+  background-color: #cd4042 !important;
+  border-color: white !important;
+}
+
+.table-responsive.table-full-width th {
+  color: black;
+  font-weight: bold;
+}

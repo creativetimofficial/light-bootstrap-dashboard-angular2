@@ -1,0 +1,132 @@
+<div class="main-content" >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title"><b>Nuevo segundo pilar</b></h4>
+                    </div>
+                    
+                    <div class="content">
+                        <form #formularioSegundoPilar="ngForm">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="letra">Fecha</label>
+                                            <div class="input-group date" data-provide="datepicker">
+                                              <input type="date" class="form-control" id ="fecha" name="fecha">
+                                              <div class="input-group-addon">
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="letra">N° de Matrimonios Servidores de FdS activos</label>
+                                        <br>
+                                        <input type="text" id="MatrimoniosServidores" name="MatrimoniosServidores" pattern="^[0-9]+$"class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="letra">N° de Sacerdotes Servidores de FdS activos</label>
+                                        <br>
+                                        <input type="text" id="SacerdotesServidores" name="SacerdotesServidores" pattern="^[0-9]+$"class="form-control">
+                                    </div>
+                                </div> 
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="letra">N° de Matrimonios Servidores de FdS profundos activos</label>
+                                        <br>
+                                        <input type="text" id="MatrimoniosProfundosServidores" name="MatrimoniosProfundosServidores" pattern="^[0-9]+$"class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="letra">N° de Sacerdotes Servidores de FdS profundos activos</label>
+                                        <br>
+                                        <input type="text" id="SacerdotesProfundosServidores" name="SacerdotesProfundosServidores" pattern="^[0-9]+$"class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="letra">N° de fines de semana Profundos en el periodo</label>
+                                        <br>
+                                        <input type="text" id="FdSProfundosPeriodo" name="FdSProfundosPeriodo" pattern="^[0-9]+$"class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="letra">N° de Matrimonios que vivieron FdS Profundo</label>
+                                        <br>
+                                        <input type="text" id="MatrimoniosProfundosVividos" name="MatrimoniosProfundosVividos" pattern="^[0-9]+$"class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="letra">N° de Sacerdotes que vivieron FdS profundo</label>
+                                        <br>
+                                        <input type="text" id="SacerdotesProfundosVividos" name="SacerdotesProfundosVividos" pattern="^[0-9]+$" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="letra">N° de Matrimonios que debutaron después de FdS Profundo</label>
+                                        <br>
+                                        <input type="text" id="MatrimoniosProfundosDebutados" name="MatrimoniosProfundosDebutados" pattern="^[0-9]+$" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="letra">N° de Sacerdotes que debutaron después de FdS Profundo</label>
+                                        <br>
+                                        <input type="text" id="SacerdotesProfundosDebutados" name="SacerdotesProfundosDebutados" pattern="^[0-9]+$" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="select-pais" class="letra">Pais</label>
+                                        <select id="select-pais" (change)="onSelectPais($event.target.value)" class="form-control">
+                                            <option value="" disabled selected>Seleccione un pais</option>
+                                        <option *ngFor="let pais of paises" [value]="pais.id">{{pais.nombre}}</option>
+                                        </select>
+                                    </div>
+                                 </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="letra">Ciudad</label>
+                                        <select type="text" id="select-ciudad" class="form-control" [disabled]="!selectedPais" [(ngModel)]="selectedCiudad">
+                                          <option value="" disabled selected>Selecciona una ciudad</option>
+                                          <option *ngFor="let ciudad of ciudades" [value]="ciudad.id">{{ciudad.name}}</option>
+                                        </select>
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <button type="submit" class="boton-rojo" (click)="openDialog()">Crear nuevo</button>
+                                </div>
+                                <div class="col-md-3">
+                                    <button routerLink="/segundoPilarGrid" class="boton-gris">Cancelar</button>
+                                </div>
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -97,7 +97,7 @@
 
         li{
             > a{
-                color: #FFFFFF;
+                color: #ffffff00;
                 margin: 5px 15px;
                 opacity: .86;
                 border-radius: 4px;
@@ -110,7 +110,7 @@
             }
 
             &.active > a{
-                color: #FFFFFF;
+                color: #ffffff00;
                 opacity: 1;
                 background: rgba(255,255,255,0.23);
 

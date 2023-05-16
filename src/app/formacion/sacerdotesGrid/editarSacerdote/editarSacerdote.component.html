@@ -1,0 +1,161 @@
+
+    <div class="main-content" >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title"><b>Editar Registro</b></h4>
+                        </div>                        
+                        <div class="content">
+                            <form [formGroup]="editarSacerdoteForm">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="letra">Fecha</label>
+                                                <div class="input-group date" data-provide="datepicker">
+                                                  <input type="date" class="form-control" id ="fechaCreacion" name="fechaCreacion" formControlName="fechaCreacion" >
+                                                  <div class="input-group-addon">
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+    
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="letra">Jornadas de Diálogo</label>
+                                            <br>
+                                            <input type="text" id="jornadaDialogo" formControlName="jornadaDialogo"  class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="letra">Retorno Espiritual</label>
+                                            <br>
+                                            <input type="text" id="retornoEspiritual" formControlName="retornoEspiritual" name="retornoEspiritual"  class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="letra">Lenguajes del Amor</label>
+                                            <br>
+                                            <input type="text" id="lenguajeAmor" formControlName="lenguajeAmor"  name="lenguajeAmor" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="letra">Guiar a través de la relación</label>
+                                            <br>
+                                            <input type="text" id="guiaDeRelacion" formControlName="guiaDeRelacion"  name="guiaDeRelacion" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="letra">Sacramentos</label>
+                                            <br>
+                                            <input type="text" id="sacramento" formControlName="sacramento"  name="sacramento" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="letra">Dios en nuestro sacramento</label>
+                                            <br>
+                                            <input type="text" id="diosEnSacramento" formControlName="diosEnSacramento"  name="diosEnSacramento" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="letra">Dios en nuestras vídas</label>
+                                            <br>
+                                            <input type="text" id="diosEnVida" formControlName="diosEnVida"  name="diosEnVida" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="letra">Patrones de comportamiento</label>
+                                            <br>
+                                            <input type="text" id="patronesComportamiento" formControlName="patronesComportamiento"  name="patronesComportamiento" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="letra">Dialogo profundo</label>
+                                            <br>
+                                            <input type="text" id="dialogoProfundo" formControlName="dialogoProfundo"  name="dialogoProfundo" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="letra">Servidores de post encuentro</label>
+                                            <br>
+                                            <input type="text" id="servidoresPostEncuentro" name="servidoresPostEncuentro" formControlName="servidoresPostEncuentro"  class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="letra">Formación para acompañantes</label>
+                                            <br>
+                                            <input type="text" id="formacionAcompanantes" name="formacionAcompanantes" formControlName="formacionAcompanantes"  class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="letra">El Padre nuestro</label>
+                                            <br>
+                                            <input type="text" id="padreNuestro" name="padreNuestro" formControlName="padreNuestro"  class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="letra">Trasmisión nacional</label>
+                                            <br>
+                                            <input type="text" id="transmisionNacional" name="transmisionNacional" formControlName="transmisionNacional"  class="form-control">
+                                        </div>
+                                    </div>  
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                          <label class="letra">Pais</label>
+                                          <select formControlName="select-pais" id="select-pais" (change)="onSelectPais($event.target.value)" class="form-control">
+                                            <option value="">Seleccionar país</option>
+                                            <option *ngFor="let pais of paises" [value]="pais.id">{{ pais.name }}</option>
+                                          </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="letra">Ciudad</label>
+                                            <select formControlName="select-ciudad" id="select-ciudad" [disabled]="editarSacerdoteForm.controls['select-pais'].value === ''" class="form-control">
+                                                <option value="">Seleccionar ciudad</option>
+                                                <option *ngFor="let ciudad of ciudades" [value]="ciudad.id">{{ ciudad.name }}</option>
+                                            </select>
+                                        </div>
+                                    </div>                      
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3" *ngIf="!actualizarMostrarBotonGuardar(rolId)">
+                                        <button type="submit" class="boton-rojo" (click)="openDialog()">Guardar</button>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button routerLink="/sacerdotesGrid" class="boton-gris">Cancelar</button>                                
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>           
+            </div>
+        </div>
+    </div>

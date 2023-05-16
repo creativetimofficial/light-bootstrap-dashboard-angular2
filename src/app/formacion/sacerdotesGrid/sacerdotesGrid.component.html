@@ -1,0 +1,87 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <h4 class="title"><b>Formación Sacerdotes</b></h4>
+                            </div>
+                            <div class="col-sm-4">
+                                <button type="submit" href="" class="boton-rojo" (click)="openDialog()" >Descargar base</button>
+                            </div>
+                        </div>                       
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Filtrar por fecha</label>
+                                    <input type="date" class="form-control" placeholder="Filtrar por fecha" (change)="filterByDate($event.target.value)">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                             
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <br>
+                                    <button  routerLink="/nuevoSacerdote" type="submit" class="boton-rojo">Crear nuevo</button>                                
+                                </div>
+                            </div>
+                    </div>             
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Jornada de dialogo</th>
+                                    <th>Lenguaje de amor</th>
+                                    <th>Sacramento</th>   
+                                    <th>Patrones de comportamiento</th>   
+                                    <th>Acciones</th>                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of tableData1.dataRows; let i=index" >
+
+                           
+                                  <td>{{row.fechaCreacion}}</td>
+
+                                  <td>{{row.jornadaDialogo}}</td>
+                                  <td>{{row.lenguajeAmor}}</td>
+                                  <td>{{row.sacramento}}</td>
+                                  <td>{{row.patronesComportamiento}}</td>
+                               
+                                  <td>
+                                    <button (click)="editRow(row)">
+                                      <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button (click)="openDialogDelete(row)">
+                                      <i class="fas fa-trash"></i>
+                                    </button>
+                                  </td>                                                
+                                </tr>
+                              </tbody>
+                          </table>
+                          <nav>
+                            <ul class="pagination justify-content-center">
+                              <li class="page-item" [class.disabled]="currentPage === 1">
+                                <a class="page-link" href="#" (click)="setCurrentPage(currentPage - 1); $event.preventDefault()">Anterior</a>
+                              </li>
+                              <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage === page">
+                                <a class="page-link" href="#" (click)="setCurrentPage(page); $event.preventDefault()">{{page}}</a>
+                              </li>
+                              <li class="page-item" [class.disabled]="currentPage === totalPages">
+                                <a class="page-link" href="#" (click)="setCurrentPage(currentPage + 1); $event.preventDefault()">Siguiente</a>
+                              </li>
+                            </ul>
+                          </nav>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

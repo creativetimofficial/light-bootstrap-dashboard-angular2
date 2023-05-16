@@ -1,22 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 declare const $: any;
 declare interface RouteInfo {
-    path: string;
+    path?: string;
     title: string;
-    icon: string;
+    icon?: string;
     class: string;
+    tooltip?: string; // Tooltip text
+    type?: 'link' | 'dropDown' | 'icon' | 'separator' | 'extLink';
+    sub?: IChildItem[];
 }
+
+interface IChildItem {
+  path?: string;
+  title: string;
+  icon: string;
+  class: string;
+  type?: string;
+  sub?: IChildItem[];
+}
+
 export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard', title: 'Dashboard',  icon: 'pe-7s-graph', class: '' },
-    { path: '/user', title: 'User Profile',  icon:'pe-7s-user', class: '' },
-    { path: '/table', title: 'Table List',  icon:'pe-7s-note2', class: '' },
-    { path: '/typography', title: 'Typography',  icon:'pe-7s-news-paper', class: '' },
-    { path: '/icons', title: 'Icons',  icon:'pe-7s-science', class: '' },
-    { path: '/maps', title: 'Maps',  icon:'pe-7s-map-marker', class: '' },
-    { path: '/notifications', title: 'Notifications',  icon:'pe-7s-bell', class: '' },
-    { path: '/upgrade', title: 'Upgrade to PRO',  icon:'pe-7s-rocket', class: 'active-pro' },
-];
+    { path: '/usuariosGrid', title: 'Lista usuarios', icon:'pe-7s-add-user', class: '', type:'link' },
+    { path: '/primerPilarGrid', title: 'Pilares', icon:'', class: '', type:'link', },    
+    { path: '/primerPilarGrid', title: 'Primer pilar',  icon:'pe-7s-plugin', class: '', type:'link' },
+    { path: '/segundoPilarGrid', title: 'Segundo pilar',  icon:'pe-7s-plugin', class: '', type:'link' },
+    { path: '/tercerPilarGrid', title: 'Tercer pilar',  icon:'pe-7s-plugin', class: '', type:'link' },
+    { path: '/cuartoPilarGrid', title: 'Cuarto pilar',  icon:'pe-7s-plugin', class: '', type:'link' },
+    { path: '/matrimoniosGrid', title: 'Formación', icon:'', class: '', type:'link' },    
+    { path: '/matrimoniosGrid', title: 'Matrimonios',  icon:'pe-7s-leaf', class: '', type:'link' },
+    { path: '/sacerdotesGrid', title: 'Sacerdotes',  icon:'pe-7s-id', class: '', type:'link' },
+    { path: '/login', title: 'Cerrar sesión',  icon:'pe-7s-power', class: '', type:'link' },
+    ]
 
 @Component({
   selector: 'app-sidebar',
@@ -24,6 +40,7 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
+  openSidebar: boolean = true;
 
   constructor() { }
 

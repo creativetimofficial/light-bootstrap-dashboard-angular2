@@ -1,0 +1,130 @@
+<!-- register.component.html -->
+
+<div class="register">
+    <form class="custom-form" method="post">
+      <h1>Register</h1>
+      <input
+        type="email"
+        [(ngModel)]="email"
+        name="email"
+        placeholder="Email"
+        required="required"
+      />
+      <input
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        placeholder="Password"
+        required="required"
+      />
+      <input
+        type="password"
+        [(ngModel)]="confirmPassword"
+        name="password"
+        placeholder="Repeat the password"
+        required="required"
+      />
+      <button type="submit" (click)="register()">Register</button>
+    </form>
+  </div>
+<!-- <div class="main-content" >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Registro</h4>
+                    </div>
+                    <div class="content">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Nombres</label>
+                                        <input type="text" class="form-control" >
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Apellidos</label>
+                                        <input type="text" class="form-control" >
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Género</label>
+                                        <select type="text" class="form-control" ></select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Tipo de identificación</label>
+                                        <select type="text" class="form-control" ></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Número</label>
+                                        <input type="text" class="form-control" >
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Fecha de nacimiento</label>
+                                        <input type="date" class="form-control" >
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>N° Celular</label>
+                                        <input type="text" class="form-control" >
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Correo Electrónico</label>
+                                        <input type="text" class="form-control" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Confirmacion de correo</label>
+                                        <input type="text" class="form-control" >
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <label>Perfil</label>
+                                        <select type="text" class="form-control" ></select>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Pais</label>
+                                        <select type="text" class="form-control" ></select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Ciudad</label>
+                                        <select type="text" class="form-control" ></select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-info btn-fill pull-right">Crear nuevo</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

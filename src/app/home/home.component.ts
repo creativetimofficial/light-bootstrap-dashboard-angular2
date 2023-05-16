@@ -3,6 +3,7 @@ import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import { LegendItem, ChartType } from '../lbd/lbd-chart/lbd-chart.component';
 import * as Chartist from 'chartist';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -24,9 +25,12 @@ export class HomeComponent implements OnInit {
     public activityChartOptions: any;
     public activityChartResponsive: any[];
     public activityChartLegendItems: LegendItem[];
-  constructor() { }
 
-  ngOnInit() {
+    constructor() {}
+    
+    ngOnInit() {
+    this.getUserLogged();
+
       this.emailChartType = ChartType.Pie;
       this.emailChartData = {
         labels: ['62%', '32%', '6%'],
@@ -107,6 +111,9 @@ export class HomeComponent implements OnInit {
       ];
 
 
+    }
+    getUserLogged() {
+      
     }
 
 }
