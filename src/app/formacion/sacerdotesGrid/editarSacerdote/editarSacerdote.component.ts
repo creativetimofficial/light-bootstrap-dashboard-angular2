@@ -97,7 +97,6 @@ export class EditarSacerdoteComponent implements OnInit {
       const pais = data.response.ciudad.pais;
       const ciudad = data.response.ciudad;
       
-      console.log(pais.id)
       this.editarSacerdoteForm.controls['select-pais'].setValue(pais.id);
 
       this.obtenerDatosPais(pais.id).subscribe((data: any) => {
@@ -119,7 +118,6 @@ export class EditarSacerdoteComponent implements OnInit {
 
       this.obtenerDatosCiudad(pais.id).subscribe((data: any) => {
         const ciudades = data.response;
-        console.log(ciudades);
         const selectCiudad = document.getElementById('select-ciudad') as HTMLSelectElement;
      
         selectCiudad.innerHTML = '';
@@ -139,14 +137,11 @@ export class EditarSacerdoteComponent implements OnInit {
    
   }
  actualizarMostrarBotonGuardar(rol: number): boolean {
-    console.log(rol);
     const mostrarBoton = rol !== 1;
-    console.log(mostrarBoton);
     return mostrarBoton;
   }
   obtenerSacerdote(id: string): Observable<any> {
     const params = { id: id };
-    console.log(this.token);
     const url = `https://encuentro-matrimonial-backend.herokuapp.com/formacion/sacerdote/get?id=${params.id}`;
     const response = this.http.get(url, this.httpOptions); 
 
@@ -158,7 +153,6 @@ export class EditarSacerdoteComponent implements OnInit {
       data: "¿Estás seguro que la informacion ingresada es correcta?"
     });
     dialogRef.afterClosed().subscribe(res => {
-      console.log(res);
       if(res){
         this.editarSacerdote();
       }
@@ -219,14 +213,14 @@ export class EditarSacerdoteComponent implements OnInit {
       },
     };
     const jsonSacerdote = JSON.stringify(editSacerdote); // Convertir el objeto en una cadena JSON
-    console.log(jsonSacerdote);
-    console.log(this.httpOptions);
+
 
     if (this.httpOptions) {
       this.http.post('https://encuentro-matrimonial-backend.herokuapp.com/formacion/sacerdote/update', jsonSacerdote, this.httpOptions)
       .subscribe(data => {
-        console.log(data);
+
         this.openDialogConfirm();
+
         this.router.navigate(['/sacerdotesGrid']);
       }, error => {
         console.error(error);

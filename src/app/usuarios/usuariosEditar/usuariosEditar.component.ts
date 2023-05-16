@@ -82,11 +82,10 @@ export class UsuariosEditarComponent implements OnInit {
       this.usuariosEditarForm.controls['telefono'].setValue(data.response.telefono);
 
 
-     // Gestion de paises
+     // Gestion de paises y roles 
      const pais = data.response.ciudad.pais;
      const ciudad = data.response.ciudad;
      const rol = data.response.roles[0].id;
-     console.log(rol + "este es el id del rol");
 
      this.usuariosEditarForm.controls['select-pais'].setValue(pais.id);
 
