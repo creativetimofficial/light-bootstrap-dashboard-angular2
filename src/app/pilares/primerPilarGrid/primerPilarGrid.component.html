@@ -88,19 +88,13 @@
                                   </tr>
                               </thead>
                               <tbody>
-                                  <tr *ngFor="" >
-                                    <th>Número de FDS</th>
-                                    <td></td>                                                                             
-                                  </tr>
-                                  <tr *ngFor="" >
-                                    <th>Número de matrimonios vivieron</th>
-                                    <td></td>                                                                              
-                                  </tr>
-                                  <tr *ngFor="" >
-                                    <th>Número de sacerdotes vivieron</th>
-                                    <td></td>                                                                               
-                                  </tr>
-                                </tbody>
+                                <tr *ngFor="let row of tableData2.dataRows; let i=index" >
+                                  <td>{{row.key}}</td>
+                                  <td>{{row.value}}</td>
+                                  <td>                                  
+                                  </td>                                                
+                                </tr>
+                              </tbody>
                             </table>
                           </div>
                         </div>
