@@ -40,6 +40,8 @@ export class PrimerPilarGridComponent implements OnInit {
 
     constructor(private http: HttpClient,  private router: Router, public dialog: MatDialog) { 
         this.tableData1 = { headerRow: [], dataRows: [] };
+        this.tableData2 = { headerRow: [], dataRows: [] };
+
     }
 
   ngOnInit() {
@@ -65,10 +67,18 @@ export class PrimerPilarGridComponent implements OnInit {
           fechaCreacion: new Date(new Date(item.fechaCreacion).getTime() + 86400000).toLocaleDateString('es-ES', { year: 'numeric', month: '2-digit', day: '2-digit' }).split('/').join('-'),
           numSacerdotesVivieron: item.numSacerdotesVivieron,
           numReligiososVivieron: item.numReligiososVivieron,
-          isVisible: true 
-        
+                
         }
-      });      
+      });   
+
+      const responseData2 = response['totalResponse']; // acceder al array 'response' dentro de la respuesta
+      this.tableData2.dataRows = responseData2.slice(0, 5).map(item => {
+          return { 
+          key: item.key,
+          value : item.value,                
+        }
+      });  
+         
       this.data = responseData;
       // Calcular el número total de páginas
       this.totalPages = Math.ceil(this.data.length / this.pageSize);
