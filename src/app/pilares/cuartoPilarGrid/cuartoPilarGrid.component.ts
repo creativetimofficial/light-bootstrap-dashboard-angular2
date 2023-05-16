@@ -32,6 +32,7 @@ export class CuartoPilarGridComponent implements OnInit {
 
     constructor(private http: HttpClient,  private router: Router, public dialog: MatDialog) { 
       this.tableData1 = { headerRow: [], dataRows: [] };
+      this.tableData2 = { headerRow: [], dataRows: [] };
     }
     ngOnInit() {
         let token = localStorage.getItem('jwt');
@@ -52,7 +53,6 @@ export class CuartoPilarGridComponent implements OnInit {
         .subscribe(response => {
           console.log(response); // ver los datos obtenidos en la consola
         const responseData = response['response']; // acceder al array 'response' dentro de la respuesta
-        
         if (responseData) {
 
           this.tableData1.dataRows = responseData.slice(0, 5).map(item => {
@@ -69,6 +69,16 @@ export class CuartoPilarGridComponent implements OnInit {
 
           }
         });
+
+        const responseData2 = response['totalResponse']; // acceder al array 'response' dentro de la respuesta
+        this.tableData2.dataRows = responseData2.slice(0, 5).map(item => {
+            return { 
+            key: item.key,
+            value : item.value,                
+          }
+        });
+
+        
         this.data = responseData;
         // Calcular el número total de páginas
         this.totalPages = Math.ceil(this.data.length / this.pageSize);
@@ -137,6 +147,7 @@ export class CuartoPilarGridComponent implements OnInit {
     
         // Actualizar la tabla llamando la función getTableData()
         this.getTableData();
+        this.getTableData2();
       });
     }
     
@@ -157,6 +168,23 @@ export class CuartoPilarGridComponent implements OnInit {
               numSacerdotesComunidad: item.numSacerdotesComunidad,       
               numServiciosComunidad: item.numServiciosComunidad,
               numServidoresPostActivos: item.numServidoresPostActivos,      
+            }
+          });
+    
+          this.data = responseData;
+        });
+    }
+    
+    public getTableData2() {
+      let userId = localStorage.getItem('userId');
+      this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/getAll?id=${userId}`, this.httpOptions)
+        .subscribe(response => {
+          console.log(response); // ver los datos obtenidos en la consola
+          const responseData = response['totalResponse']; // acceder al array 'response' dentro de la respuesta
+          this.tableData2.dataRows = responseData.map(item => {
+            return {
+              key: item.key,
+              value : item.value,
             }
           });
     
