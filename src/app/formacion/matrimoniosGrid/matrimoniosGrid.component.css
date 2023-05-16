@@ -27,7 +27,7 @@
 }
 
 .pagination .page-link {
-  color: #cccccc !important;
+  color: #000000 !important;
   background-color: white !important;
   border-color: white !important;
 }
@@ -36,4 +36,9 @@
   color: white !important;
   background-color: #cd4042 !important;
   border-color: white !important;
+}
+
+.table-responsive.table-full-width th {
+  color: black;
+  font-weight: bold;
 }

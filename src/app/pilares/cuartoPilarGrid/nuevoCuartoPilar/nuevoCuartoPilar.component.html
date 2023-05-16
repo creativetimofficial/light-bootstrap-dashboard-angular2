@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Nuevo cuarto pilar</h4>
+                        <h4 class="title"><b>Nuevo cuarto pilar</b></h4>
                     </div>                    
                     <div class="content">
                         <form #formularioCuartoPilar="ngForm">
@@ -13,7 +13,7 @@
                                 <div class="col-md-3">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Fecha</label>
+                                            <label class="letra">Fecha</label>
                                             <div class="input-group date" data-provide="datepicker">
                                               <input type="date" class="form-control" id ="fecha" name="fecha">
                                               <div class="input-group-addon">
@@ -27,28 +27,28 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>N° Servidores de Post-Encuentro activos</label>
+                                        <label class="letra">N° Servidores de Post-Encuentro activos</label>
                                         <br>
                                         <input type="text" id="numServidoresPostActivos" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>N° FdS Servidores Post-Encuentro en el periodo</label>
+                                        <label class="letra">N° FdS Servidores Post-Encuentro en el periodo</label>
                                         <br>
                                         <input type="text" id="numFdsPostPeriodo" name="numFdsPostPeriodo" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>N° Matrimonios que vivieron Servidores Post-Encuentro</label>
+                                        <label class="letra">N° Matrimonios que vivieron Servidores Post-Encuentro</label>
                                         <br>
                                         <input type="text" id="numMatrimonioVivieron" name="numMatrimonioVivieron" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>N° de Comunidades de apoyo</label>
+                                        <label class="letra">N° de Comunidades de apoyo</label>
                                         <br>
                                         <input type="text" id="numComunidadApoyo" name="numComunidadApoyo" class="form-control">
                                     </div>
@@ -57,28 +57,28 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>N° de Servidores de comunidad</label>
+                                        <label class="letra">N° de Servidores de comunidad</label>
                                         <br>
                                         <input type="text" id="numServiciosComunidad" name="numServiciosComunidad" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>N° de Matrimonios Asistentes por Comunidad</label>
+                                        <label class="letra">N° de Matrimonios Asistentes por Comunidad</label>
                                         <br>
                                         <input type="text" id="numMatrimoiosComunidad" name="numMatrimoiosComunidad" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>N° Sacerdotes Asistentes por Comunidad</label>
+                                        <label class="letra">N° Sacerdotes Asistentes por Comunidad</label>
                                         <br>
                                         <input type="text" id="numSacerdotesComunidad" name="numSacerdotesComunidad" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>N° de Religiosos/as Asistentes por Comunidad</label>
+                                        <label class="letra">N° de Religiosos/as Asistentes por Comunidad</label>
                                         <br>
                                         <input type="text" id="numReligiososComunidad" name="numReligiososComunidad" class="form-control">
                                     </div>
@@ -87,7 +87,7 @@
                             <div class="row">  
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="select-pais">Pais</label>
+                                        <label for="select-pais"  class="letra">Pais</label>
                                         <select id="select-pais" (change)="onSelectPais($event.target.value)" class="form-control">
                                             <option value="" disabled selected>Seleccione un pais</option>
                                         <option *ngFor="let pais of paises" [value]="pais.id">{{pais.nombre}}</option>
@@ -96,7 +96,7 @@
                                  </div>  
                                  <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Ciudad</label>
+                                        <label class="letra">Ciudad</label>
                                         <select type="text" id="select-ciudad" class="form-control" [disabled]="!selectedPais" [(ngModel)]="selectedCiudad">
                                           <option value="" disabled selected>Selecciona una ciudad</option>
                                           <option *ngFor="let ciudad of ciudades" [value]="ciudad.id">{{ciudad.name}}</option>
