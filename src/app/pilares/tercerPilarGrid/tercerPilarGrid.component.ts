@@ -35,6 +35,7 @@ export class TercerPilarGridComponent implements OnInit {
     }
 
     ngOnInit() {
+
       let token = localStorage.getItem('jwt');
       let userId = localStorage.getItem('userId');
 
@@ -44,8 +45,6 @@ export class TercerPilarGridComponent implements OnInit {
           'Content-Type': 'application/json'
         })
       };
-
-
 
       this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/tercerPilar/getAll?id=${userId}`, this.httpOptions)
       .subscribe(response => {
@@ -60,9 +59,7 @@ export class TercerPilarGridComponent implements OnInit {
               fechaCreacion: new Date(new Date(item.fechaCreacion).getTime() + 86400000).toLocaleDateString('es-ES', {year: 'numeric', month: '2-digit', day: '2-digit'}).split('/').join('-'),
               numDiocesisEstablecidas: item.numDiocesisEstablecidas,
               numDiocesisExpansion: item.numDiocesisExpansion,
-              numRegiones: item.numDiocesisExpansion,
-              isVisible: true
-       
+              numRegiones: item.numDiocesisExpansion,       
             }
           });
           this.data = responseData;
@@ -130,6 +127,7 @@ export class TercerPilarGridComponent implements OnInit {
     
         // Actualizar la tabla llamando la función getTableData()
         this.getTableData();
+        this.setCurrentPage(1);
       });
     }
     
@@ -167,40 +165,40 @@ export class TercerPilarGridComponent implements OnInit {
       })
     }
   // Función para generar el archivo Excel
-generateExcel() {
-  let userId = localStorage.getItem('userId');
+  generateExcel() {
+    let userId = localStorage.getItem('userId');
 
-  // Realizar la consulta y obtener los datos en un arreglo
-  this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/tercerPilar/getAll?id=${userId}`, this.httpOptions)
-  .subscribe(data => {
-    const rows = [];
+    // Realizar la consulta y obtener los datos en un arreglo
+    this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/tercerPilar/getAll?id=${userId}`, this.httpOptions)
+    .subscribe(data => {
+      const rows = [];
 
-    // Agregar los encabezados como primera fila
-    const headers = [
-      'ID' ,
-      'Número de diócesis de contacto',
-      'Número de diócesis eclesiásticas',
-      'Fecha de creación',
-      'Número de diócesis establecidas',
-      'Número de diócesis en expansión',
-      'Número de regiones'
-    ]
-    rows.push(headers);
-    console.log(data)
-    const responseData = data['response']; // acceder al array 'response' dentro de la respuesta
+      // Agregar los encabezados como primera fila
+      const headers = [
+        'ID' ,
+        'Número de diócesis de contacto',
+        'Número de diócesis eclesiásticas',
+        'Fecha de creación',
+        'Número de diócesis establecidas',
+        'Número de diócesis en expansión',
+        'Número de regiones'
+      ]
+      rows.push(headers);
+      console.log(data)
+      const responseData = data['response']; // acceder al array 'response' dentro de la respuesta
 
-    responseData.forEach(item => {
-      const row = [
-        item.id,
-        item.numDiocesisContacto,
-        item.numDiocesisEclisiastica,
-        new Date(item.fechaCreacion).toLocaleDateString('es-ES'),
-        item.numDiocesisEstablecidas,
-        item.numDiocesisExpansion,
-        item.numRegiones  
-      ];
-      rows.push(row);
-    });
+      responseData.forEach(item => {
+        const row = [
+          item.id,
+          item.numDiocesisContacto,
+          item.numDiocesisEclisiastica,
+          new Date(item.fechaCreacion).toLocaleDateString('es-ES'),
+          item.numDiocesisEstablecidas,
+          item.numDiocesisExpansion,
+          item.numRegiones  
+        ];
+        rows.push(row);
+      });
     // Crear una nueva hoja de cálculo de Excel
     const worksheet = XLSX.utils.aoa_to_sheet(rows);
 

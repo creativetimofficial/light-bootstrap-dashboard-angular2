@@ -41,27 +41,27 @@
                                         <tr>
                                           <th>Nombre</th>
                                           <th>Documento</th>
-                                          <th>Ciudad</th>
                                           <th>Pais</th>
+                                          <th>Ciudad</th>
                                           <th>Acciones</th> 
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let row of tableData1.dataRows; let i=index">
-                                          <td>{{row.name}}</td>
-                                          <td>{{row.document}}</td>
-                                          <td>{{row.ciudad}}</td>
-                                          <td>{{row.pais}}</td>
-                                          <td>
-                                            <button (click)="editRow(row)">
-                                              <i class="fas fa-edit"></i>
-                                            </button>    
-                                            <button (click)="openDialogDelete(row)">
-                                              <i class="fas fa-trash"></i>
-                                            </button>                                     
-                                          </td>                                                
-                                        </tr>                                    
-                                      </tbody>
+                                      <tr *ngFor="let row of tableData1.dataRows; let i=index">
+                                        <td>{{row.name}}</td>
+                                        <td>{{row.document}}</td>
+                                        <td>{{row.ciudad }}</td> <!-- Impresión en la consola -->
+                                        <td>{{row.pais }}</td> <!-- Impresión en la consola -->
+                                        <td>
+                                          <button (click)="editRow(row)">
+                                            <i class="fas fa-edit"></i>
+                                          </button>    
+                                          <button (click)="openDialogDelete(row)">
+                                            <i class="fas fa-trash"></i>
+                                          </button>                                     
+                                        </td>                                                
+                                      </tr>                                    
+                                    </tbody>
                                   </table>    
                                   <nav>
                                     <ul class="pagination justify-content-center pagination-color:red">

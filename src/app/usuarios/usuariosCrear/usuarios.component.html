@@ -49,15 +49,10 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Rol de usuario</label>
-                                        <br>
-                                        <select name="rol" id="rol" class="form-control">
-                                            <option value="1">Rol admin</option>
-                                            <option value="2">Rol usuario</option>
-                                            <option value="3">Rol diosesano</option>
-                                            <option value="4">Rol regional</option>
-                                            <option value="5">Rol zonal</option>
-                                            <option value="6">Rol latam</option>                                        
+                                        <label for="select-rol">Rol</label>
+                                        <select id="select-rol" class="form-control">
+                                          <option value="" disabled selected>Seleccione un rol</option>
+                                          <option *ngFor="let rol of roles" [value]="rol.id">{{rol.name}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -70,7 +65,7 @@
                                             <option value="" disabled selected>Seleccione un pais</option>
                                           <option *ngFor="let pais of paises" [value]="pais.id">{{pais.nombre}}</option>
                                         </select>
-                                      </div>
+                                    </div>
                                   </div>
                                   <div class="col-md-3">
                                     <div class="form-group">

@@ -129,6 +129,8 @@ export class PrimerPilarGridComponent implements OnInit {
   
       // Actualizar la tabla llamando la función getTableData()
       this.getTableData();
+      this.setCurrentPage(1);
+
     });
   }
 
