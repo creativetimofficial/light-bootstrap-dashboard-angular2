@@ -24,6 +24,12 @@ Quick start options:
 + [Download from Creative Tim](https://www.creative-tim.com/product/light-bootstrap-dashboard-angular2).
 + Clone the repo: `git clone https://github.com/creativetimofficial/light-bootstrap-dashboard-angular2.git`.
 
+## Deploy
+
+:rocket: You can deploy your own version of the template to Genezio with one click:
+
+[![Deploy to Genezio](https://raw.githubusercontent.com/Genez-io/graphics/main/svg/deploy-button.svg)](https://app.genez.io/start/deploy?repository=https://github.com/creativetimofficial/light-bootstrap-dashboard-angular2&utm_source=github&utm_medium=referral&utm_campaign=github-creativetim&utm_term=deploy-project&utm_content=button-head)
+
 ## Terminal Commands
 
 1. Install NodeJs from [NodeJs Official Page](https://nodejs.org/en).
