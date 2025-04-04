@@ -1,0 +1,130 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h4 class="title">Liste des formateurs</h4>
+                                <p class="category">Gérer les formateurs</p>
+                            </div>
+                            <button class="btn btn-primary" (click)="openAddModal()">
+                                <i class="fa fa-plus"></i> Ajouter un formateur
+                            </button>
+                        </div>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of tableData1.dataRows; let i = index">
+                                    <td *ngFor="let cell of row">{{cell}}</td>
+                                    <td>
+                                        <div class="d-flex justify-content-start gap-2">
+                                            <button type="button" class="btn btn-sm btn-info mr-2" (click)="openEditModal(i)">
+                                                <i class="fa fa-edit mr-1"></i> Modifier
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-danger" (click)="deleteFormateur(i)">
+                                                <i class="fa fa-trash mr-1"></i> Supprimer
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal pour ajouter/modifier un formateur -->
+<div class="modal" [class.show]="showFormateurModal" [style.display]="showFormateurModal ? 'block' : 'none'" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ isEditMode ? 'Modifier' : 'Ajouter' }} un formateur</h5>
+                <button type="button" class="close" (click)="closeFormateurModal()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formateurForm">
+                    <div class="form-group">
+                        <label for="formateurId">ID</label>
+                        <input type="text" class="form-control" id="formateurId" formControlName="id" [readonly]="isEditMode">
+                    </div>
+                    <div class="form-group">
+                        <label for="formateurNom">Nom</label>
+                        <input type="text" class="form-control" id="formateurNom" formControlName="nom">
+                    </div>
+                    <div class="form-group">
+                        <label for="formateurPrenom">Prénom</label>
+                        <input type="text" class="form-control" id="formateurPrenom" formControlName="prenom">
+                    </div>
+                    <div class="form-group">
+                        <label for="formateurEmail">Email</label>
+                        <input type="email" class="form-control" id="formateurEmail" formControlName="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="formateurTel">Tel</label>
+                        <input type="text" class="form-control" id="formateurTel" formControlName="tel">
+                    </div>
+                  
+                    <div class="form-group">
+                        <label for="formateurType">Type</label>
+                        <select class="form-control" id="formateurType" formControlName="type">
+                            <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="formateurEmployeur">Employeur</label>
+                        <select class="form-control" id="formateurEmployeur" formControlName="employeur">
+                            <option *ngFor="let employeur of employeurs" [value]="employeur">{{ employeur }}</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeFormateurModal()">Annuler</button>
+                <button type="button" class="btn btn-primary" [disabled]="formateurForm.invalid" (click)="saveFormateur()">
+                    {{ isEditMode ? 'Modifier' : 'Ajouter' }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop fade show" *ngIf="showFormateurModal"></div>
+
+<!-- Modal de confirmation pour la suppression -->
+<div class="modal" [class.show]="showDeleteModal" [style.display]="showDeleteModal ? 'block' : 'none'" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmation de suppression</h5>
+                <button type="button" class="close" (click)="closeDeleteModal()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Êtes-vous sûr de vouloir supprimer ce formateur?</p>
+                <p *ngIf="selectedFormateur">
+                    <strong>Nom:</strong> {{ selectedFormateur[1] }}<br>
+                    <strong>ID:</strong> {{ selectedFormateur[0] }}
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeDeleteModal()">Annuler</button>
+                <button type="button" class="btn btn-danger" (click)="confirmDelete()">Supprimer</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop fade show" *ngIf="showDeleteModal"></div>

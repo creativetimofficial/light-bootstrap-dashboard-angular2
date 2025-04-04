@@ -1,0 +1,138 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h4 class="title">Liste des participants</h4>
+                                <p class="category">Gérer les participants</p>
+                            </div>
+                            <button class="btn btn-primary" (click)="openAddModal()">
+                                <i class="fa fa-plus"></i> Ajouter un participant
+                            </button>
+                        </div>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of tableData1.dataRows; let i = index">
+                                    <td *ngFor="let cell of row">{{cell}}</td>
+                                    <td>
+                                        <div class="d-flex justify-content-start gap-2">
+                                            <button type="button" class="btn btn-sm btn-info mr-2" (click)="openEditModal(i)">
+                                                <i class="fa fa-edit mr-1"></i> Modifier
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-danger" (click)="deleteUser(i)">
+                                                <i class="fa fa-trash mr-1"></i> Supprimer
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal pour ajouter/modifier un utilisateur -->
+<div class="modal" [class.show]="showUserModal" [style.display]="showUserModal ? 'block' : 'none'" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ isEditMode ? 'Modifier' : 'Ajouter' }} un utilisateur</h5>
+                <button type="button" class="close" (click)="closeUserModal()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="userForm">
+                    <div class="form-group">
+                        <label for="userId">ID</label>
+                        <input type="text" class="form-control" id="userId" formControlName="id" [readonly]="isEditMode">
+                    </div>
+                    <div class="form-group">
+                        <label for="userName">Nom</label>
+                        <input type="text" class="form-control" id="userName" formControlName="name">
+                        <div *ngIf="userForm.get('name').invalid && (userForm.get('name').dirty || userForm.get('name').touched)" class="text-danger">
+                            <div *ngIf="userForm.get('name').errors.required">Le nom est requis</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="userCountry">Pays</label>
+                        <input type="text" class="form-control" id="userCountry" formControlName="country">
+                        <div *ngIf="userForm.get('country').invalid && (userForm.get('country').dirty || userForm.get('country').touched)" class="text-danger">
+                            <div *ngIf="userForm.get('country').errors.required">Le pays est requis</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="userCity">Ville</label>
+                        <input type="text" class="form-control" id="userCity" formControlName="city">
+                        <div *ngIf="userForm.get('city').invalid && (userForm.get('city').dirty || userForm.get('city').touched)" class="text-danger">
+                            <div *ngIf="userForm.get('city').errors.required">La ville est requise</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="userCity">age</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="userSalary">Salaire</label>
+                        <input type="text" class="form-control" id="userSalary" formControlName="salary">
+                        <div *ngIf="userForm.get('salary').invalid && (userForm.get('salary').dirty || userForm.get('salary').touched)" class="text-danger">
+                            <div *ngIf="userForm.get('salary').errors.required">Le salaire est requis</div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeUserModal()">Annuler</button>
+                <button type="button" class="btn btn-primary" [disabled]="userForm.invalid" (click)="saveUser()">
+                    {{ isEditMode ? 'Modifier' : 'Ajouter' }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop fade show" *ngIf="showUserModal"></div>
+
+<!-- Modal de confirmation pour la suppression -->
+<div class="modal" [class.show]="showDeleteModal" [style.display]="showDeleteModal ? 'block' : 'none'" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmation de suppression</h5>
+                <button type="button" class="close" (click)="closeDeleteModal()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Êtes-vous sûr de vouloir supprimer cet utilisateur?</p>
+                <p *ngIf="selectedUser">
+                    <strong>Nom:</strong> {{ selectedUser[1] }}<br>
+                    <strong>ID:</strong> {{ selectedUser[0] }}
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeDeleteModal()">Annuler</button>
+                <button type="button" class="btn btn-danger" (click)="confirmDelete()">Supprimer</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop fade show" *ngIf="showDeleteModal"></div>
