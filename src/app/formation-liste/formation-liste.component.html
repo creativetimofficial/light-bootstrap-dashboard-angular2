@@ -1,0 +1,266 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h4 class="title">Liste des formations</h4>
+                                <p class="category">Gérer les formations</p>
+                            </div>
+                            <button class="btn btn-primary" (click)="openAddModal()">
+                                <i class="fa fa-plus"></i> Ajouter une formation
+                            </button>
+                        </div>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th *ngFor="let cell of tableData.headerRow">{{ cell }}</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of tableData.dataRows; let i = index">
+                                    <td *ngFor="let cell of row">{{cell}}</td>
+                                    <td>
+                                        <div class="d-flex justify-content-start gap-2">
+                                            <button type="button" class="btn btn-sm btn-info" (click)="openEditModal(i)">
+                                                <i class="fa fa-edit"></i> Modifier
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-danger" (click)="deleteFormation(i)">
+                                                <i class="fa fa-trash"></i> Supprimer
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-success" (click)="openEmailModal(i)">
+                                                <i class="fa fa-envelope"></i> Email
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-warning" (click)="openCertificatModal(i)">
+                                                <i class="fa fa-certificate"></i> Certificats
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal pour ajouter/modifier une formation -->
+<div class="modal" [class.show]="showFormationModal" [style.display]="showFormationModal ? 'block' : 'none'" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ isEditMode ? 'Modifier' : 'Ajouter' }} une formation</h5>
+                <button type="button" class="close" (click)="closeFormationModal()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formationForm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="formationId">ID</label>
+                                <input type="text" class="form-control" id="formationId" formControlName="id" [readonly]="isEditMode">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="formationTitre">Titre</label>
+                                <input type="text" class="form-control" id="formationTitre" formControlName="titre">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="formationDateDebut">Date de début</label>
+                                <input type="date" class="form-control" id="formationDateDebut" formControlName="dateDebut" (change)="calculateDuration()">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="formationDateFin">Date de fin</label>
+                                <input type="date" class="form-control" id="formationDateFin" formControlName="dateFin" (change)="calculateDuration()">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="formationDuree">Durée (jours)</label>
+                                <input type="number" class="form-control" id="formationDuree" formControlName="duree" min="1">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="formationDomaine">Domaine</label>
+                                <select class="form-control" id="formationDomaine" formControlName="domaine">
+                                    <option *ngFor="let domaine of domaines" [value]="domaine">{{ domaine }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="formationFormateur">Formateur</label>
+                                <select class="form-control" id="formationFormateur" formControlName="formateur">
+                                    <option *ngFor="let formateur of formateurs" [value]="formateur">{{ formateur }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="formationBudget">Budget (€)</label>
+                                <input type="number" class="form-control" id="formationBudget" formControlName="budget" min="0">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Participants</label>
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <ul class="list-group">
+                                    <li *ngFor="let participant of participants" 
+                                        class="list-group-item d-flex justify-content-between align-items-center" 
+                                        [class.active]="isParticipantSelected(participant)"
+                                        (click)="toggleParticipant(participant)"
+                                        style="cursor: pointer;">
+                                        {{ participant.prenom }} {{ participant.nom }} ({{ participant.email }})
+                                        <span class="badge badge-primary badge-pill" *ngIf="isParticipantSelected(participant)">
+                                            <i class="fa fa-check"></i>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <small class="form-text text-muted">Cliquez sur un participant pour l'ajouter ou le retirer.</small>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeFormationModal()">Annuler</button>
+                <button type="button" class="btn btn-primary" [disabled]="formationForm.invalid" (click)="saveFormation()">
+                    {{ isEditMode ? 'Modifier' : 'Ajouter' }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop fade show" *ngIf="showFormationModal"></div>
+
+<!-- Modal de confirmation pour la suppression -->
+<div class="modal" [class.show]="showDeleteModal" [style.display]="showDeleteModal ? 'block' : 'none'" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmation de suppression</h5>
+                <button type="button" class="close" (click)="closeDeleteModal()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Êtes-vous sûr de vouloir supprimer cette formation?</p>
+                <p *ngIf="selectedFormation">
+                    <strong>Titre:</strong> {{ selectedFormation[1] }}<br>
+                    <strong>ID:</strong> {{ selectedFormation[0] }}
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeDeleteModal()">Annuler</button>
+                <button type="button" class="btn btn-danger" (click)="confirmDelete()">Supprimer</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop fade show" *ngIf="showDeleteModal"></div>
+
+<!-- Modal pour l'envoi d'emails -->
+<div class="modal" [class.show]="showEmailModal" [style.display]="showEmailModal ? 'block' : 'none'" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Envoyer un email de convocation</h5>
+                <button type="button" class="close" (click)="closeEmailModal()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="emailForm">
+                    <div class="form-group">
+                        <label for="emailObjet">Objet</label>
+                        <input type="text" class="form-control" id="emailObjet" formControlName="objet">
+                    </div>
+                    <div class="form-group">
+                        <label for="emailMessage">Message</label>
+                        <textarea class="form-control" id="emailMessage" formControlName="message" rows="6"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Destinataires</label>
+                        <ul class="list-group">
+                            <li *ngFor="let participant of participants.slice(0,selectedFormation ? selectedFormation[8] : '0')" class="list-group-item">
+                                {{ participant.prenom }} {{ participant.nom }} ({{ participant.email }})
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeEmailModal()">Annuler</button>
+                <button type="button" class="btn btn-success" [disabled]="emailForm.invalid" (click)="sendEmail()">
+                    <i class="fa fa-paper-plane"></i> Envoyer
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop fade show" *ngIf="showEmailModal"></div>
+
+<!-- Modal pour la génération de certificats -->
+<div class="modal" [class.show]="showCertificatModal" [style.display]="showCertificatModal ? 'block' : 'none'" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Générer des certificats</h5>
+                <button type="button" class="close" (click)="closeCertificatModal()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="certificatForm">
+                    <div class="form-group">
+                        <label for="certificatTitre">Titre du certificat</label>
+                        <input type="text" class="form-control" id="certificatTitre" formControlName="titre">
+                    </div>
+                    <div class="form-group">
+                        <label for="certificatDate">Date de génération</label>
+                        <input type="date" class="form-control" id="certificatDate" formControlName="dateGeneration">
+                    </div>
+                    <div class="form-group">
+                        <label>Participants qui recevront un certificat</label>
+                        <ul class="list-group">
+                            <li *ngFor="let participant of participants.slice(0, selectedFormation ? selectedFormation[8] : '0')" class="list-group-item">
+                                {{ participant.prenom }} {{ participant.nom }} ({{ participant.email }})
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeCertificatModal()">Annuler</button>
+                <button type="button" class="btn btn-warning" [disabled]="certificatForm.invalid" (click)="generateCertificats()">
+                    <i class="fa fa-certificate"></i> Générer les certificats
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop fade show" *ngIf="showCertificatModal"></div>
