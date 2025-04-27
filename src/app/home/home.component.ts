@@ -9,6 +9,13 @@ import * as Chartist from 'chartist';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+    // Nouveaux compteurs
+    public participantsCount: number = 0;
+    public formateursCount: number = 0;
+    public formationsCount: number = 0;
+    public utilisateursCount: number = 0;
+    
     public emailChartType: ChartType;
     public emailChartData: any;
     public emailChartLegendItems: LegendItem[];
@@ -25,7 +32,37 @@ export class HomeComponent implements OnInit {
     public activityChartResponsive: any[];
     public activityChartLegendItems: LegendItem[];
   constructor() { }
-
+  formateurs = [
+    {
+      nom: 'Miladi',
+      prenom: 'Imen',
+      email: 'imen.miladi@example.com',
+      tel: '+216 99 123 456',
+      specialite: 'Développement mobile',
+      employeur: 'ISI Ariana',
+      nb:'6'
+    },
+    {
+      nom: 'Doe',
+      prenom: 'Jane',
+      email: 'jane.doe@example.com',
+      tel: '+216 20 654 321',
+      specialite: 'Intelligence Artificielle',
+      employeur: 'Université Centrale',
+      nb:'5'
+    },
+    {
+      nom: 'Ali',
+      prenom: 'Ahmed',
+      email: 'ahmed.ali@example.com',
+      tel: '+216 25 789 456',
+      specialite: 'Mobile Development',
+      employeur: 'GoMyCode',
+      nb:'3'
+    },
+    // Ajouter d'autres formateurs ici
+  ];
+  
   ngOnInit() {
       this.emailChartType = ChartType.Pie;
       this.emailChartData = {
@@ -77,36 +114,45 @@ export class HomeComponent implements OnInit {
       ];
 
       this.activityChartType = ChartType.Bar;
-      this.activityChartData = {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        series: [
-          [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895],
-          [412, 243, 280, 580, 453, 353, 300, 364, 368, 410, 636, 695]
-        ]
-      };
-      this.activityChartOptions = {
-        seriesBarDistance: 10,
-        axisX: {
-          showGrid: false
-        },
-        height: '245px'
-      };
-      this.activityChartResponsive = [
-        ['screen and (max-width: 640px)', {
-          seriesBarDistance: 5,
-          axisX: {
-            labelInterpolationFnc: function (value) {
-              return value[0];
-            }
-          }
-        }]
-      ];
-      this.activityChartLegendItems = [
-        { title: 'Tesla Model S', imageClass: 'fa fa-circle text-info' },
-        { title: 'BMW 5 Series', imageClass: 'fa fa-circle text-danger' }
-      ];
-
-
+this.activityChartData = {
+  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  series: [
+    [542, 443, 320, 780, 5530, 4530, 3260, 4340, 5680, 6100, 7560, 8950], 
+    [412, 243, 280, 580, 4530, 3530, 3000, 3640, 3680, 4100, 6360, 6950], 
+    [1000, 249, 3000, 580, 5000, 6000, 7000, 8000, 3000, 6000, 4500, 5700] 
+  ]
+};
+this.activityChartOptions = {
+  seriesBarDistance: 10,
+  axisX: {
+    showGrid: false
+  },
+  axisY: {
+    type: Chartist.FixedScaleAxis,
+    low: 0, // 🔥 commence bien à zéro
+    high: 10000,
+    ticks: [0, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000], // 🔥 on ajoute 0 ici
+    labelInterpolationFnc: function(value) {
+      return value; // si tu veux ajouter 'DT', fais return value + ' DT';
     }
+  },
+  height: '245px'
+};
 
-}
+this.activityChartResponsive = [
+  ['screen and (max-width: 640px)', {
+    seriesBarDistance: 5,
+    axisX: {
+      labelInterpolationFnc: function (value) {
+        return value[0];
+      }
+    }
+  }]
+];
+
+this.activityChartLegendItems = [
+  { title: 'Web', imageClass: 'fa fa-circle text-info' },
+  { title: 'mobile', imageClass: 'fa fa-circle text-danger' },
+  { title: 'AI', imageClass: 'fa fa-circle text-warning' }
+];
+  }}
