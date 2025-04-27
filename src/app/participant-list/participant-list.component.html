@@ -1,0 +1,133 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h4 class="title">Liste des participants</h4>
+                                <p class="category">Gérer les participants</p>
+                            </div>
+                            <button class="btn btn-primary" (click)="openAddModal()">
+                                <i class="fa fa-plus"></i> Ajouter un participant
+                            </button>
+                        </div>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                          <thead>
+                            <tr>
+                              <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
+                              <th>Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let participant of participants; let i = index">
+                              <td>{{ participant.id }}</td>
+                              <td>{{ participant.nom }}</td>
+                              <td>{{ participant.prenom }}</td>
+                              <td>{{ participant.structure?.libelle }}</td>
+                              <td>{{ participant.profile?.libelle }}</td>
+                              <td>{{ participant.email }}</td>
+                              <td>{{ participant.tel }}</td>
+                              <td>
+                                <div class="d-flex justify-content-start gap-2">
+                                  <button type="button" class="btn btn-sm btn-info mr-2" (click)="openEditModal(i)">
+                                    <i class="fa fa-edit mr-1"></i> Modifier
+                                  </button>
+                                  <button type="button" class="btn btn-sm btn-danger" (click)="deleteParticipant(i)">
+                                    <i class="fa fa-trash mr-1"></i> Supprimer
+                                  </button>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      
+<!-- Modal pour ajouter/modifier un utilisateur -->
+<div class="modal" [class.show]="showUserModal" [style.display]="showUserModal ? 'block' : 'none'" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ isEditMode ? 'Modifier' : 'Ajouter' }} un participant</h5>
+                <button type="button" class="close" (click)="closeUserModal()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="userForm">
+                    <!-- <div class="form-group">
+                        <label for="userId">ID</label>
+                        <input type="text" class="form-control" id="userId" formControlName="id" [readonly]="isEditMode">
+                    </div> -->
+                    <div class="form-group">
+                        <label for="userName">Nom</label>
+                        <input type="text" class="form-control" id="userName" formControlName="nom">
+                        <div *ngIf="userForm.get('nom').invalid && (userForm.get('nom').dirty || userForm.get('nom').touched)" class="text-danger">
+                            <div *ngIf="userForm.get('nom').errors.required">Le nom est requis</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="participantPrenom">Prénom</label>
+                        <input type="text" class="form-control" id="participantPrenom" formControlName="prenom">
+                    </div>
+                    <div class="form-group">
+                        <label for="participantStructure">structure</label>
+                        <select class="form-control" id="participantStructure" formControlName="structure">
+                            <option *ngFor="let structure of structures" [value]="structure.id">{{ structure.name }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="participantProfile">profile</label>
+                        <select class="form-control" id="participantProfile" formControlName="profile">
+                            <option *ngFor="let profile of profiles" [value]="profile.id">{{ profile.name }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="participantEmail">Email</label>
+                        <input type="email" class="form-control" id="participantEmail" formControlName="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="participantTel">Telephone</label>
+                        <input type="text" class="form-control" id="participantTelephone" formControlName="telephone">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeUserModal()">Annuler</button>
+                <button type="button" class="btn btn-primary" [disabled]="userForm.invalid" (click)="saveUser()">
+                    {{ isEditMode ? 'Modifier' : 'Ajouter' }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop fade show" *ngIf="showUserModal"></div>
+
+<!-- Modal de confirmation pour la suppression -->
+<div class="modal" [class.show]="showDeleteModal" [style.display]="showDeleteModal ? 'block' : 'none'" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmation de suppression</h5>
+                <button type="button" class="close" (click)="closeDeleteModal()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Êtes-vous sûr de vouloir supprimer cet participant?</p>
+                <p *ngIf="selectedUser">
+                    <strong>Nom:</strong> {{ selectedUser[1] }}<br>
+                    <strong>ID:</strong> {{ selectedUser[0] }}
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeDeleteModal()">Annuler</button>
+                <button type="button" class="btn btn-danger" (click)="confirmDelete()">Supprimer</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop fade show" *ngIf="showDeleteModal"></div>

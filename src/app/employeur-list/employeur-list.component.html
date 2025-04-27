@@ -1,0 +1,102 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h4 class="title">Liste des employeurs</h4>
+                                <p class="category">Gérer les employeurs</p>
+                            </div>
+                            <button class="btn btn-primary" (click)="openAddModal()">
+                                <i class="fa fa-plus"></i> Ajouter un employeur
+                            </button>
+                        </div>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let employeur of this.employeurs; let i = index">
+                                    <td>{{ employeur.id }}</td>
+                                    <td>{{ employeur.nomEmployeur }}</td>
+                                    <td>
+                                        <div class="d-flex justify-content-start gap-2">
+                                            <button type="button" class="btn btn-sm btn-info mr-2" (click)="openEditModal(i)">
+                                                <i class="fa fa-edit mr-1"></i> Modifier
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-danger" (click)="deleteEmployeur(i)">
+                                                <i class="fa fa-trash mr-1"></i> Supprimer
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal pour ajouter/modifier un employeur -->
+<div class="modal" [class.show]="showEmployeurModal" [style.display]="showEmployeurModal ? 'block' : 'none'" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ isEditMode ? 'Modifier' : 'Ajouter' }} un employeur</h5>
+                <button type="button" class="close" (click)="closeEmployeurModal()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="employeurForm">
+                    <div class="form-group">
+                        <label for="employeurNom">Nom</label>
+                        <input type="text" class="form-control" id="employeurNom" formControlName="nomEmployeur">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeEmployeurModal()">Annuler</button>
+                <button type="button" class="btn btn-primary" [disabled]="employeurForm.invalid" (click)="saveEmployeur()">
+                    {{ isEditMode ? 'Modifier' : 'Ajouter' }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop fade show" *ngIf="showEmployeurModal"></div>
+
+<!-- Modal de confirmation pour la suppression -->
+<div class="modal" [class.show]="showDeleteModal" [style.display]="showDeleteModal ? 'block' : 'none'" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmation de suppression</h5>
+                <button type="button" class="close" (click)="closeDeleteModal()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Êtes-vous sûr de vouloir supprimer cet employeur?</p>
+                <p *ngIf="selectedEmployeur">
+                    <strong>Nom:</strong> {{ selectedEmployeur[1] }}<br>
+                    <strong>ID:</strong> {{ selectedEmployeur[0] }}
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeDeleteModal()">Annuler</button>
+                <button type="button" class="btn btn-danger" (click)="confirmDelete()">Supprimer</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop fade show" *ngIf="showDeleteModal"></div>
