@@ -1,0 +1,44 @@
+<!-- login.component.html -->
+<div class="login-container">
+    <div class="login-card">
+      <div class="logo-container">
+        <img src="assets/img/new_logo.png" alt="Logo du centre de formation" class="logo">
+        <h1>Welcome to <b>WeLearn</b> </h1>
+      </div>
+      
+      <form class="login-form" (ngSubmit)="onLogin()">
+        <div class="form-group">
+          <label for="username">Nom d'utilisateur</label>
+          <input 
+            type="text" 
+            id="username" 
+            name="username" 
+            [(ngModel)]="credentials.login" 
+            required 
+            placeholder="Entrez votre nom d'utilisateur">
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Mot de passe</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            [(ngModel)]="credentials.motDePasse" 
+            required 
+            placeholder="Entrez votre mot de passe">
+        </div>
+        
+        <!-- <div class="remember-me">
+          <input type="checkbox" id="remember" name="remember" [(ngModel)]="rememberMe">
+          <label for="remember">Se souvenir de moi</label>
+        </div> -->
+        
+        <button type="submit" class="login-button">Se connecter</button>
+        
+        <!-- <div class="forgot-password">
+          <a href="#">Mot de passe oublié ?</a>
+        </div> -->
+      </form>
+    </div>
+  </div>
