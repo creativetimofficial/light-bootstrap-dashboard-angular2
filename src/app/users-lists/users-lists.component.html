@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h4 class="title" style="color: #357;">👥 Liste des utilisateurs</h4>
+  </div>
+  <div class="card-body table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Rôle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.nom }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

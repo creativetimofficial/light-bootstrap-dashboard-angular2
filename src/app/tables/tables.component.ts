@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 declare interface TableData {
     headerRow: string[];
@@ -14,31 +16,120 @@ export class TablesComponent implements OnInit {
     public tableData1: TableData;
     public tableData2: TableData;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
-      this.tableData1 = {
-          headerRow: [ 'ID', 'Name', 'Country', 'City', 'Salary'],
-          dataRows: [
-              ['1', 'Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
-              ['2', 'Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
-              ['3', 'Sage Rodriguez', 'Netherlands', 'Baileux', '$56,142'],
-              ['4', 'Philip Chaney', 'Korea, South', 'Overland Park', '$38,735'],
-              ['5', 'Doris Greene', 'Malawi', 'Feldkirchen in Kärnten', '$63,542'],
-              ['6', 'Mason Porter', 'Chile', 'Gloucester', '$78,615']
-          ]
-      };
-      this.tableData2 = {
-          headerRow: [ 'ID', 'Name',  'Salary', 'Country', 'City' ],
-          dataRows: [
-              ['1', 'Dakota Rice','$36,738', 'Niger', 'Oud-Turnhout' ],
-              ['2', 'Minerva Hooper', '$23,789', 'Curaçao', 'Sinaai-Waas'],
-              ['3', 'Sage Rodriguez', '$56,142', 'Netherlands', 'Baileux' ],
-              ['4', 'Philip Chaney', '$38,735', 'Korea, South', 'Overland Park' ],
-              ['5', 'Doris Greene', '$63,542', 'Malawi', 'Feldkirchen in Kärnten', ],
-              ['6', 'Mason Porter', '$78,615', 'Chile', 'Gloucester' ]
-          ]
-      };
+    
+  }
+ produitsIot = [
+  {
+    id: 1,
+    nom: 'Capteur Température',
+    description: 'Mesure en temps réel la température ambiante.',
+    prix: 120,
+    image: '/assets/img/Camtrack.jpg'
+  },
+  {
+    id: 2,
+    nom: 'Caméra HD',
+    description: 'Caméra connectée avec vision nocturne.',
+    prix: 300,
+    image: '/assets/img/Camtrack.jpg'
+  }
+];
+
+produitsGps = [
+  {
+    id: 101,
+    nom: 'GPS Tracker A1',
+    description: 'Dispositif de géolocalisation précis.',
+    prix: 150,
+    image: '/assets/img/Camtrack.jpg'
+  },
+  {
+    id: 102,
+    nom: 'Balise GPS Pro',
+    description: 'Balise longue autonomie.',
+    prix: 250,
+    image: '/assets/img/Camtrack.jpg'
+  }
+];
+
+  editIot(id: number) {
+    this.router.navigate(['/update-product', id]);
   }
 
+  editGps(id: number) {
+    this.router.navigate(['/update-product', id]);
+  }
+
+  deleteIot(id: number) {
+    Swal.fire({
+      title: 'Êtes-vous sûr ?',
+      text: 'Voulez-vous vraiment supprimer ce produit IoT ?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#369',   
+      cancelButtonColor: '#888',
+      confirmButtonText: 'Oui, supprimer !',
+      cancelButtonText: 'Annuler'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.produitsIot = this.produitsIot.filter(p => p.id !== id);
+        Swal.fire('Supprimé !', 'Le produit IoT a été supprimé.', 'success');
+      }
+    });
+  }
+
+  deleteGps(id: number) {
+    Swal.fire({
+      title: 'Êtes-vous sûr ?',
+      text: 'Voulez-vous vraiment supprimer ce produit GPS ?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#369',   
+      cancelButtonColor: '#888',
+      confirmButtonText: 'Oui, supprimer !',
+      cancelButtonText: 'Annuler'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.produitsGps = this.produitsGps.filter(p => p.id !== id);
+        Swal.fire('Supprimé !', 'Le produit GPS a été supprimé.', 'success');
+      }
+    });
+  }
+  searchTerm: string = '';
+  searchIot: string = '';
+  searchGps: string = '';
+  get filteredIot() {
+    if (!this.searchTerm) return this.produitsIot;
+    const term = this.searchTerm.toLowerCase();
+    return this.produitsIot.filter(p =>
+      p.nom.toLowerCase().includes(term) || p.description.toLowerCase().includes(term)
+    );
+  }
+
+  get filteredGps() {
+    if (!this.searchTerm) return this.produitsGps;
+    const term = this.searchTerm.toLowerCase();
+    return this.produitsGps.filter(p =>
+      p.nom.toLowerCase().includes(term) || p.description.toLowerCase().includes(term)
+    );
+  }
+  /*
+   get filteredIot() {
+    if (!this.searchIot) return this.produitsIot;
+    const term = this.searchIot.toLowerCase();
+    return this.produitsIot.filter(p =>
+      p.nom.toLowerCase().includes(term) || p.description.toLowerCase().includes(term)
+    );
+  }
+
+  get filteredGps() {
+    if (!this.searchGps) return this.produitsGps;
+    const term = this.searchGps.toLowerCase();
+    return this.produitsGps.filter(p =>
+      p.nom.toLowerCase().includes(term) || p.description.toLowerCase().includes(term)
+    );
+  }*/
 }

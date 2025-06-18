@@ -1,0 +1,20 @@
+.carousel-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.carousel-content {
+  display: flex;
+  transition: transform 0.01s linear; /* Transition très courte pour fluidité */
+  will-change: transform; /* Optimisation performance */
+}
+
+/* Masquer la scrollbar */
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

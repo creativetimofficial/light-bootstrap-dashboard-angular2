@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-md tm-navbar" id="tmNav" style="padding-top: 0px; padding-bottom: 0px;">
+  <div class="container" style="margin-top: 0px; margin-bottom: 0px;">   
+  <div class="tm-next">
+  <a href="#infinite" class="navbar-brand d-flex align-items-center" style="margin: 0; padding: 0;">
+    <img id="logoBlanc" src="/assets/img/logoTunavBlanc.png" alt="Logo Blanc" style="height: 70px; margin-right: 10px; display: block;">
+    <img id="logoCouleur" src="/assets/img/logoTunav5.png" alt="Logo Couleur" style="height: 70px; margin-right: 10px; display: none;">
+    </a>
+    </div>
+
+<nav class="navbar navbar-expand-md tm-navbar" id="tmNav">              
+  <div class="container">   
+    <div class="tm-next">
+  <a href="#infinite" class="navbar-brand d-flex align-items-center">
+    <img src="assets/img/logoTunav5.png" alt="Logo" style="height: 70px; margin-right: 10px;">
+  </a>
+</div>
+            
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+      <i class="fas fa-bars navbar-toggler-icon"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+      <li class="nav-item"><a class="nav-link tm-nav-link" href=""(click)="navigateToSection('infinite',$event)" >Home</a></li>
+      <!--<li class="nav-item"><a class="nav-link tm-nav-link" href="#whatwedo" (click)="navigateToSection('whatwedo')">What We Do</a></li>-->
+       <li class="nav-item">
+      <a class="nav-link tm-nav-link" href="#" (click)="navigateToSection('gallery', $event)">Gallery</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link tm-nav-link" href="#" (click)="navigateToSection('testimonials', $event)">Testimonials</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link tm-nav-link" href="#" (click)="navigateToSection('contact', $event)">Contact</a>
+      </li>
+        <li class="nav-item"><a class="nav-link tm-nav-link" href=""(click)="About($event)">About-us</a></li>  
+        <li class="nav-item"><a class="nav-link tm-nav-link" href=""(click)="Blogs($event)">Blogs</a></li>  
+        <li class="nav-item">
+        <a class="nav-link tm-nav-link" (click)="Login($event)" href="">Login/Register</a>  
+        </li>
+      </ul>
+    </div>        
+  </div>
+</nav>
+

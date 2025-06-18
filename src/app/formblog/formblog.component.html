@@ -1,0 +1,51 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>{{ isEditMode ? 'Modifier le blog' : 'Ajouter un blog' }}</h2>
+  </div>
+
+  <form (ngSubmit)="onSubmit()" #blogForm="ngForm">
+    <!-- Titre -->
+    <div class="form-group">
+      <label for="titre">Titre</label>
+      <input type="text" id="titre" class="form-control" required [(ngModel)]="blog.titre" name="titre">
+    </div>
+
+    <!-- Contenu -->
+    <div class="form-group mt-3">
+      <label for="contenu">Contenu</label>
+      <textarea id="contenu" class="form-control" rows="5" required [(ngModel)]="blog.contenu" name="contenu"></textarea>
+    </div>
+
+    <!-- Tags -->
+    <div class="form-group mt-3">
+      <label>Tags</label>
+      <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+        <span *ngFor="let tag of blog.tags; let i = index" class="badge bg-primary px-2 py-1 me-1">
+          {{ tag }}
+          <button type="button" class="btn btn-sm btn-light ms-2" (click)="removeTag(i)">×</button>
+        </span>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="newTag" name="newTag"
+             (keydown.enter)="addTag($event)" placeholder="Ajouter un tag et appuyer sur Entrée">
+    </div>
+
+    <!-- Image par drag & drop -->
+    <div class="form-group mt-4">
+      <label>Image</label>
+      <div class="image-upload-container"
+           (drop)="onDrop($event)"
+           (dragover)="onDragOver($event)"
+           (dragleave)="onDragLeave($event)"
+           [class.drag-over]="isDragging">
+        <p *ngIf="!blog.image">Glissez-déposez une image ici ou sélectionnez un fichier.</p>
+        <img *ngIf="blog.image" [src]="blog.image" class="image-preview" alt="Aperçu de l'image">
+        <input type="file" (change)="onFileSelected($event)" class="form-control mt-2" accept="image/*">
+      </div>
+    </div>
+
+    <!-- Bouton de soumission -->
+    <button type="submit" class="btn btn-success mt-4">
+      {{ isEditMode ? 'Mettre à jour' : 'Ajouter' }}
+    </button>
+  </form>
+</div>

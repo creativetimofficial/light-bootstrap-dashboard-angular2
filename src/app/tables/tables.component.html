@@ -1,51 +1,113 @@
-<div class="main-content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="header">
-                        <h4 class="title">Striped Table with Hover</h4>
-                        <p class="category">Here is a subtitle for this table</p>
-                    </div>
-                    <div class="content table-responsive table-full-width">
-                          <table class="table table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let row of tableData1.dataRows">
-                                        <td *ngFor="let cell of row">{{cell}}</td>
-                                    </tr>
-                                </tbody>
-                          </table>
+<div class="main-content" style="margin-top: 0; padding-top: 0;">
+  <div class="container-fluid" style="margin-top: 0; padding-top: 0;">
+            <div class="row align-items-center mb-4">
+            <div class="col-md-6">
+                <h2 style="font-weight: bold; color: #357;">📦 Liste des produits</h2>
+            </div>
+            <div class="col-md-6 text-end">
+                <input type="text"
+                    [(ngModel)]="searchTerm"
+                    class="form-control"
+                    placeholder="Rechercher par nom ou description...">
+            </div>
+            </div>
+    <div class="row">
+      <!-- Produits IoT -->
+      <div class="col-md-12">
+        <div class="card">
+         <div class="header d-flex justify-content-between align-items-center">
+                <div>
+                    <h4 class="title" style="color: #357;">Liste des Produits IoT</h4>
+                    <p class="category">Tableau des produits IoT disponibles</p>
+                </div>
+                <input type="text" class="form-control w-25" placeholder="Recherche nom ou description..." [(ngModel)]="searchIot" />
+                <a [routerLink]="['/add-product']" title="Ajouter un produit">
+                    <i class="fa fa-plus" style="font-size: 22px; color: #38B; cursor: pointer;"></i>
+                </a>
+            </div>
 
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="card card-plain">
-                    <div class="header">
-                        <h4 class="title">Table on Plain Background</h4>
-                        <p class="category">Here is a subtitle for this table</p>
-                    </div>
-                    <div class="content table-responsive table-full-width">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th *ngFor="let cell of tableData2.headerRow">{{ cell }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let row of tableData2.dataRows">
-                                    <td *ngFor="let cell of row">{{cell}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+          <div class="content table-responsive table-full-width">
+            <table class="table table-hover table-striped">
+              <thead>
+                <tr>
+                  <th>Photo</th>
+                  <th>Nom</th>
+                  <th>Description</th>
+                  <th>Prix</th>
+                  <th style="width: 60px;">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let produit of filteredIot">
+                  <td>
+                    <img [src]="produit.image" alt="Produit" width="50" height="50" style="object-fit: cover; border-radius: 8px;">
+                  </td>
+                  <td>{{ produit.nom }}</td>
+                  <td>{{ produit.description }}</td>
+                  <td>{{ produit.prix }} DT</td>
+                  <td>
+                    <i class="fa fa-pencil" title="Modifier" 
+                       style="color: #369; margin-right: 8px; cursor: pointer;" 
+                       (click)="editIot(produit.id)"></i>
+                    <i class="fa fa-trash" title="Supprimer" 
+                       style="color: #888; cursor: pointer;" 
+                       (mouseover)="hover = true" 
+                       (mouseleave)="hover = false"
+                       (click)="deleteIot(produit.id)"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
+      </div>
+
+      <!-- Produits GPS -->
+      <div class="col-md-12">
+        <div class="card card-plain">
+          <div class="header d-flex justify-content-between align-items-center">
+            <div>
+              <h4 class="title" style="color: #357;">Liste des Produits GPS</h4>
+              <p class="category">Tableau des produits GPS disponibles</p>
+            </div>
+            <a [routerLink]="['/add-product']" title="Ajouter un produit">
+              <i class="fa fa-plus" style="font-size: 22px; color: #38B; cursor: pointer;"></i>
+            </a>
+          </div>
+          <div class="content table-responsive table-full-width">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Photo</th>
+                  <th>Nom</th>
+                  <th>Description</th>
+                  <th>Prix</th>
+                  <th style="width: 60px;">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let produit of filteredGps">
+                  <td>
+                    <img [src]="produit.image" alt="Produit" width="50" height="50" style="object-fit: cover; border-radius: 8px;">
+                  </td>
+                  <td>{{ produit.nom }}</td>
+                  <td>{{ produit.description }}</td>
+                  <td>{{ produit.prix }} DT</td>
+                  <td>
+                    <i class="fa fa-pencil" title="Modifier" 
+                       style="color: #369; margin-right: 8px; cursor: pointer;" 
+                       (click)="editGps(produit.id)"></i>
+                    <i class="fa fa-trash" title="Supprimer" 
+                       style="color: #888; cursor: pointer;" 
+                       (click)="deleteGps(produit.id)"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
 </div>

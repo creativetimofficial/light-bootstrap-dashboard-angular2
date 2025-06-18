@@ -1,0 +1,75 @@
+<div class="body">
+  <app-navbar></app-navbar>
+  <br />
+  <div class="container">
+    <div class="partie-informations">
+      <h1><span style="color: #01b4ff;">Franchise</span> TUNAV</h1>
+      <p class="subtitle">
+        Rejoignez notre réseau de partenaires et développez votre activité dans les technologies IT, IoT et GPS Tracking avec le support de TUNAV IT GROUP.
+      </p>
+    </div>
+
+    <div class="partie-formulaire">
+      <div class="form-container">
+        <form [formGroup]="formFranchise" (ngSubmit)="onSubmit()">
+          <h2>Demande de Franchise</h2>
+          <p>
+            Nos solutions de franchise vous permettent de développer votre activité avec le support technologique et commercial de TUNAV IT GROUP.
+          </p>
+
+          <label>Nom</label>
+          <input type="text" formControlName="nom" />
+
+          <label>Prénom</label>
+          <input type="text" formControlName="prenom" />
+
+          <label>Email</label>
+          <input type="email" formControlName="email" />
+
+          <label>Téléphone</label>
+          <input type="text" formControlName="telephone" />
+
+          <label>Profession actuelle</label>
+          <input type="text" formControlName="profession" />
+
+          <label>A vez vous de l'Expérience  en IT/IoT/GPS ?</label>
+          <div>
+            <label>
+              <input type="radio" formControlName="experienceIT" value="oui" /> Oui
+            </label>
+            <label>
+              <input type="radio" formControlName="experienceIT" value="non" /> Non
+            </label>
+          </div>
+
+          <div *ngIf="formFranchise.get('experienceIT')?.value === 'oui'" class="experience">
+            <label>précisez la :</label>
+            <textarea formControlName="precisionsExp"></textarea>
+          </div>
+
+          <label>Avez-vous déjà dirigé une entreprise ? </label>
+          <div>
+            <label>
+              <input type="radio" formControlName="dirigeEntreprise" value="oui" /> Oui
+            </label>
+            <label>
+              <input type="radio" formControlName="dirigeEntreprise" value="non" /> Non
+            </label>
+          </div>
+
+          <div *ngIf="formFranchise.get('dirigeEntreprise')?.value === 'oui'" class="dirigerEntreprise">
+            <label>précisez le secteur et la durée :</label>
+            <textarea formControlName="secteurDuree"></textarea>
+          </div>
+
+          <label>Motivation pour rejoindre TUNAV </label>
+          <textarea formControlName="motivation"></textarea>
+
+          <button type="submit">🫴 Demander une franchise</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br /><br /><br />
+  <app-footer-home-page></app-footer-home-page>
+</div>

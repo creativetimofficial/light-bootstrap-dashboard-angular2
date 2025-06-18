@@ -1,0 +1,20 @@
+<nav [ngClass]="{
+      'navbar-transparent': !isScrolled,
+      'navbar-dark': isScrolled
+    }">
+
+  <div class="navbar-container">
+    <a routerLink="/home" class="logo">
+      <img *ngIf="!isScrolled" src="assets/img/TUNAV BLANC HORIZONTAL PNG (1).png" alt="Logo Blanc" />
+      <img *ngIf="isScrolled" src="assets/img/logoTunav5.png" alt="Logo Bleu" />
+    </a>
+    <ul class="nav-links">
+      <li><a (click)="navigateToSection('infinite')">Home</a></li>
+      <li><a (click)="navigateToSection('whatwedo')">What We Do</a></li>
+      <li><a (click)="navigateToSection('testimonials')">Testimonials</a></li>
+      <li><a (click)="navigateToSection('gallery')">Gallery</a></li>
+      <li><a (click)="navigateToSection('contact')">Contact</a></li>
+      <li><a (click)="login($event)">Login/Register</a></li>
+    </ul>
+  </div>
+</nav>
