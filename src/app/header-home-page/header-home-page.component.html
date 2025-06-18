@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-md tm-navbar" id="tmNav">              
+  <div class="container">   
+    <div class="tm-next">
+  <a href="#infinite" class="navbar-brand d-flex align-items-center">
+    <img src="assets/img/logoTunav5.png" alt="Logo" style="height: 70px; margin-right: 10px;">
+  </a>
+</div>
+            
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+      <i class="fas fa-bars navbar-toggler-icon"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link tm-nav-link" href="#infinite"(click)="navigateToSection('infinite')" >Home</a></li>
+        <li class="nav-item"><a class="nav-link tm-nav-link" href="#whatwedo" (click)="navigateToSection('whatwedo')">What We Do</a></li>
+        <li class="nav-item"><a class="nav-link tm-nav-link" href="#testimonials"(click)="navigateToSection('testimonials')">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link tm-nav-link" href="#gallery"(click)="navigateToSection('gallery')">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link tm-nav-link" href="#contact"(click)="navigateToSection('contact')">Contact</a></li>  
+        <li class="nav-item">
+        <a class="nav-link tm-nav-link" (click)="Login($event)" href="">Login/Register</a>  
+        </li>
+      </ul>
+    </div>        
+  </div>
+</nav>
+

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>TUNAV IT GROUP</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700,300">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  </head>
+  <body>    
+    <!-- Hero section -->
+<!-- Navigation -->
+<app-header-home-page></app-header-home-page>
+  <!-- Carousel Component -->
+<app-carousel-home-page></app-carousel-home-page>
+      <section class="menu-section" #menuSection>
+        <div class="circular-menu" [class.open]="isOpen">
+          <div class="center-icon">Où sommes-nous ?</div>
+          <div
+            class="menu-item"
+            *ngFor="let icon of icons; let i = index"
+            [style.transform]="getIconTransform(i)">
+            {{ icon }}
+          </div>
+        </div>
+      </section>
+
+
+  <section id="whatwedo" class="tm-section-pad-top">
+  <div class="container">
+
+    <div class="row tm-content-box"><!-- first row -->
+      <div class="col-lg-12 col-xl-12">
+        <div class="tm-intro-text-container">
+          <h2 class="tm-text-primary mb-4 tm-section-title">What We Do</h2>
+          <p class="mb-4 tm-intro-text">
+            Depuis plus de 20 ans, Tunav IT Group se positionne en tant que fournisseur de référence en solutions GPS, IT et IoT. Intégrateur de systèmes à forte valeur ajoutée, Tunav conçoit et déploie des solutions technologiques intelligentes, alliant performance et fiabilité. Nos domaines d’expertise couvrent le suivi GPS, la gestion de flotte, la surveillance à distance en temps réel ainsi que l’optimisation des processus métier, au service de la transformation digitale des organisations.
+          </p>
+        </div>
+      </div>
+    </div><!-- first row -->
+
+    <div class="row tm-content-box"><!-- second row -->
+      <div class="col-lg-1">
+        <i class="fas fa-network-wired fa-3x text-center tm-icon"></i>
+      </div>
+      <div class="col-lg-5">
+        <div class="tm-intro-text-container">
+          <h2 class="tm-text-primary mb-4">Transformation Digitale</h2>
+          <p class="mb-4 tm-intro-text">
+            Nous accompagnons les entreprises dans leur transition numérique avec des solutions innovantes, durables et parfaitement intégrées à leur activité.
+          </p>
+          <div class="tm-continue">
+            <a href="#testimonials" class="tm-intro-text tm-btn-primary">Découvrir</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-1">
+        <i class="fas fa-laptop-code fa-3x text-center tm-icon"></i>
+      </div>
+      <div class="col-lg-5">
+        <div class="tm-intro-text-container">
+          <h2 class="tm-text-primary mb-4">Solutions IT</h2>
+          <p class="mb-4 tm-intro-text">
+             Notre expertise couvre le cloud computing, le développement de logiciels et la surveillance à distance, garantissant aux entreprises de rester compétitives dans un monde numérique en constante évolution. 
+          </p>
+        </div>
+      </div>
+    </div><!-- second row -->
+
+    <div class="row tm-content-box"><!-- third row -->
+      <div class="col-lg-1">
+        <i class="fas fa-map-marker-alt fa-3x text-center tm-icon"></i>
+      </div>
+      <div class="col-lg-5">
+        <div class="tm-intro-text-container">
+          <h2 class="tm-text-primary mb-4">Suivi GPS</h2>
+          <p class="mb-4 tm-intro-text">
+            Nos solutions de géolocalisation assurent un suivi en temps réel fiable et sécurisé de vos véhicules, équipements ou équipes terrain.
+          </p>
+          <div class="tm-continue">
+            <a href="#testimonials" class="tm-intro-text tm-btn-primary">En savoir plus</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-1">
+        <i class="fas fa-cogs fa-3x text-center tm-icon"></i>
+      </div>
+      <div class="col-lg-5">
+         <div class="tm-intro-text-container">
+          <h2 class="tm-text-primary mb-4">Solutions IoT</h2>
+          <p class="mb-4 tm-intro-text">
+            Nos solutions IoT offrent une surveillance intelligente, une gestion centralisée des appareils connectés et des systèmes de sécurité avancés pour protéger vos installations, optimiser vos opérations et améliorer votre efficacité globale.
+          </p>
+        </div>
+       
+      </div>
+    </div><!-- third row -->
+
+  </div>
+</section>
+
+    
+    <section id="testimonials" class="tm-section-pad-top tm-parallax-2">      
+      <div class="container tm-testimonials-content">
+        <div class="row">
+          <div class="col-lg-12 tm-content-box">
+            <h2 class="text-white text-center mb-4 tm-section-title">Temoignages Clients</h2>
+            <p class="mx-auto tm-section-desc text-center">
+              </p>
+            <div class="mx-auto tm-gallery-container tm-gallery-container-2">
+              <div class="tm-testimonials-carousel">
+                <figure class="tm-testimonial-item">
+                  <img src="assets/img/testimonial-img-01.jpg" alt="Image" class="img-fluid mx-auto">
+                        <blockquote>"Bon travail
+                        Nous reva color on est satisfait de votre service
+                        Le grand bravo pour mr hassen krichen vraiment tu merites que du succée dans ton
+                        domaine"
+                    </blockquote>
+                  <figcaption></figcaption>
+                </figure>
+                <figure class="tm-testimonial-item">
+                  <img src="assets/img/testimonial-img-02.jpg" alt="Image" class="img-fluid mx-auto">
+                  <blockquote> “This is reliable and trustworthy service provider, with them you have no chance to get lost when
+                    traveling by Tunisia.
+                    Grateful for their service, grateful for reliable options provided by them. Keep doing the great
+                    work.”
+                    </blockquote>
+                  <figcaption>Alexandre Petrenko</figcaption>
+                </figure>
+                <figure class="tm-testimonial-item">
+                  <img src="assets/img/testimonial-img-03.jpg" alt="Image" class="img-fluid mx-auto">
+                  <blockquote>
+                   "Meilleur Service"
+                  </blockquote>
+                  <figcaption>nourchenne_cheguenni</figcaption>
+                </figure>
+
+                <figure class="tm-testimonial-item">
+                  <img src="assets/img/testimonial-img-04.jpg" alt="Image" class="img-fluid mx-auto">
+                    <blockquote>"Bon travail
+                        Nous reva color on est satisfait de votre service
+                        Le grand bravo pour mr hassen krichen vraiment tu merites que du succée dans ton
+                        domaine"
+                    </blockquote>           
+                           <figcaption></figcaption>
+                </figure>
+
+                <figure class="tm-testimonial-item">
+                  <img src="assets/img/testimonial-img-02.jpg" alt="Image" class="img-fluid mx-auto">
+                   <blockquote> “This is reliable and trustworthy service provider, with them you have no chance to get lost when
+                    traveling by Tunisia.
+                    Grateful for their service, grateful for reliable options provided by them. Keep doing the great
+                    work.”
+                    </blockquote>
+                  <figcaption>Alexandre Petrenko</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tm-bg-overlay"></div>
+    </section>
+    
+    <section id="gallery" class="tm-section-pad-top">
+      <div class="container tm-container-gallery">
+        <div class="row">
+          <div class="text-center col-12">
+              <h2 class="tm-text-primary tm-section-title mb-4">Nos produits</h2>
+              <p class="mx-auto tm-section-desc">
+            Tunav IT Group propose une gamme complète de solutions technologiques innovantes alliant performance et précision.
+             Nos produits couvrent le suivi GPS en temps réel, la gestion intelligente de flotte, les systèmes de surveillance à distance, ainsi que des solutions IoT
+              sur mesure pour divers secteurs d’activité. Nous offrons également des plateformes IT avancées pour l’optimisation des processus métiers, 
+              permettant aux entreprises de mieux piloter leurs ressources, sécuriser leurs opérations et accélérer leur transformation digitale.      </p>
+          </div>            
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="mx-auto tm-gallery-container">
+                    <div class="grid tm-gallery">
+                       <a href="assets/img/MiniTrace_ KIT.png">
+                        <figure class="effect-honey tm-gallery-item product-card"
+                        style="background-color: white">
+                          <img src="assets/img/MiniTrace_ KIT.png" alt="Image 6" class="img-fluid">
+                          <figcaption>
+                            <h2><span><i>MiniTrace_ KIT - PORTABLE</i></span></h2>
+                          </figcaption>
+                        </figure>
+                      </a>
+                       <a href="assets/img/SMART_LOCK.png">
+                        <figure class="effect-honey tm-gallery-item product-card"
+                        style="background-color: white">
+                          <img src="assets/img/SMART_LOCK.png" alt="Image 7" class="img-fluid">
+                          <figcaption>
+                            <h2><span><i>TRAILLER SMART_LOCK</i></span></h2>
+                          </figcaption>
+                        </figure>
+                      </a>
+                     <a href="assets/img/Camtrack.jpg">
+                        <figure class="effect-honey tm-gallery-item product-card"
+                        style="background-color: white">
+                          <img src="assets/img/Camtrack.jpg" alt="Image 8" class="img-fluid">
+                          <figcaption>
+                            <h2><span><i>Camtrack </i></span></h2>
+                          </figcaption>
+                        </figure>
+                      </a>
+                       <a href="assets/img/ETX_KIT.png">
+                        <figure class="effect-honey tm-gallery-item product-card"
+                        style="background-color: white">
+                          <img src="assets/img/ETX_KIT.png" alt="Image 5" class="img-fluid">
+                          <figcaption>
+                            <h2><span><i> ETX_KIT- AUTOMOTIVE</i></span></h2>
+                          </figcaption>
+                        </figure>
+                      </a>
+                       <a href="assets/img/ETBLE_KIT.png">
+                        <figure class="effect-honey tm-gallery-item product-card"
+                        style="background-color: white">
+                          <img src="assets/img/ETBLE_KIT.png" alt="Image 4" class="img-fluid">
+                          <figcaption>
+                            <h2><span><i>ETBLE_KIT - AUTOMOTIVE</i></span></h2>
+                          </figcaption>
+                        </figure>
+                      </a> 
+                     <a href="assets/img/ET6_KIT.png">
+                    <figure class="effect-honey tm-gallery-item product-card"
+                    style="background-color: white"
+                    >
+                      <img src="assets/img/ET6_KIT.png" alt="Image 1" class="img-fluid ">
+                      <figcaption>
+                        <h2><span ><i >ET6_KIT - ADVANCED AUTOMOTIVE</i></span></h2>
+                      </figcaption>
+                    </figure>
+                        </a>
+
+                      <a href="assets/img/ETCAN_KIT.png">
+                        <figure class="effect-honey tm-gallery-item product-card"
+                        style="background-color: white">
+                          <img src="assets/img/ETCAN_KIT.png" alt="Image 2" class="img-fluid">
+                          <figcaption>
+                            <h2><span ><i> ETCAN_KIT BUSCAN/     CARBURANT AUTOMOTIVE</i></span></h2>
+                          </figcaption>
+                        </figure>
+                      </a>
+                      <a href="assets/img/ET8_KIT.png">
+                        <figure class="effect-honey tm-gallery-item product-card"
+                        style="background-color: white">
+                          <img src="assets/img/ET8_KIT.png" alt="Image 3" class="img-fluid">
+                          <figcaption>
+                            <h2><span><i> ET8_KIT  - ETANCHE AUTOMOTIVE</i></span></h2>
+                          </figcaption>
+                        </figure>
+                      </a>
+                     
+                    </div>
+                </div>                
+            </div>        
+          </div>
+      </div>
+      <div class="btn-voir-tous-les-produits">
+        <button (click)="goToProductsPage()" class="btn-tous-produits">Voir Tous Les Produits</button>
+      </div>
+    </section>
+ <!--
+    <app-iotcarousel></app-iotcarousel>
+ --> 
+   <app-clients-carousel></app-clients-carousel>
+    <!-- Contact -->
+    <section id="contact" class="tm-section-pad-top tm-parallax-2">
+    
+      <div class="container tm-container-contact">
+        
+        <div class="row">
+            
+            <div class="text-center col-12">
+                <h2 class="tm-section-title mb-4">Contact Us</h2>
+                <p class="mb-5">
+            Vous pouvez nous contacter à tout moment par e-mail ou par téléphone. Vous pouvez également remplir directement ce formulaire, et notre équipe vous répondra dans les plus brefs délais.     
+        
+          </p><br>
+            </div>
+            
+            <div class="col-sm-12 col-md-6">
+              <form action="" method="get">
+                <input id="name" name="name" type="text" placeholder="Your Name" class="tm-input" required />
+                <input id="email" name="email" type="email" placeholder="Your Email" class="tm-input" required />
+                <textarea id="message" name="message" rows="8" placeholder="Message" class="tm-input" required></textarea>
+                <button type="submit" class="btn tm-btn-submit">Submit</button>
+              </form>
+            </div>
+            
+            <div class="col-sm-12 col-md-6">
+
+                <div class="contact-item">
+                  <a rel="nofollow" href="https://www.tooplate.com/contact" class="item-link">
+                      <i class="far fa-2x fa-comment mr-4"></i>
+                      <span class="mb-0">Chat Online</span>
+                  </a>              
+                </div>
+                
+                <div class="contact-item">
+                  <a rel="nofollow" href="https://mail.google.com/mail/?view=cm&fs=1&to=Tunav@tunav.com" class="item-link">
+                      <i class="far fa-2x fa-envelope mr-4"></i>
+                      <span class="mb-0">T u n a v @ t u n a v . c o m</span>
+                  </a>              
+                </div>
+                
+                <div class="contact-item">
+                 <a rel="nofollow" href="https://maps.app.goo.gl/J6LwFQL7jBeCuPJX7" target="_blank" class="item-link">
+                     <i class="fas fa-2x fa-map-marker-alt mr-4"></i>
+                     <span class="mb-0">
+                       Notre localisation</span>
+                </a>              
+                </div>
+
+                
+                <div class="contact-item">
+                  <a rel="nofollow" href="tel:0100200340" class="item-link">
+                      <i class="fas fa-2x fa-phone-square mr-4"></i>
+                      <span class="mb-0">7 1 8 0 7 6 6 7</span>
+                  </a>              
+                </div>
+                
+                <div class="contact-item">&nbsp;</div>
+            
+            </div>
+            
+            
+        </div><!-- row ending -->
+        
+      </div>
+
+
+    </section>
+    
+
+   
+  </body>
+
+</html>
+  <app-footer-home-page></app-footer-home-page>

@@ -1,0 +1,66 @@
+<section class="products-section"  id="productSection" #productsSection>
+  <div class="body">
+    <div class="carousel-et-nav">
+      <div class="nav">
+        <app-navbar></app-navbar>
+      </div>
+    
+      <div class="carousel">
+        <app-carousel2></app-carousel2>
+      </div>
+    </div>
+
+    <div class="titre" id="partietitre">
+      <titreproduit></titreproduit>
+    </div>
+
+    <div class="filter-buttons" id="filters">
+      <app-petit-cadre
+        *ngFor="let cadre of petitsCadres"
+        [label]="cadre.label"
+        [active]="cadre.active"
+        (clicked)="setActive(cadre.label)">
+      </app-petit-cadre>
+    </div>
+    <div class="description-it" *ngIf="isSolutionsITSelected()">
+      <p>
+        Nous développons et intégrons des solutions IT qui renforcent les opérations,
+        améliorent la performance et accélèrent la transformation digitale des entreprises.
+      </p>
+        <a class="btn-formulaire-it" [routerLink]="['/formulaireiotit']" [queryParams]="{ onglet: 'it' }">
+      👉 Demander une consultation IT
+      </a>
+    </div>
+
+
+    <div class="products-grid" *ngIf="produits_nodevis.length > 0">
+      <app-carte-produit-nodevis
+        *ngFor="let produit of produits_nodevis"
+        [titre]="produit.titre"
+        [description]="produit.description"
+        [image]="produit.image"
+        [categorie]="produit.categorie"
+        [prix]="produit.prix"
+        [caracteristiques]="produit.caracteristiques">
+      </app-carte-produit-nodevis>
+    </div>
+    
+    <div class="products-grid" *ngIf="produits_avecdevis.length > 0">
+      <app-carte-produit
+        *ngFor="let produit of produits_avecdevis"
+        [titre]="produit.titre"
+        [description]="produit.description"
+        [image]="produit.image"
+        [categorie]="produit.categorie"
+        [caracteristiques]="produit.caracteristiques">
+      </app-carte-produit>
+    </div>
+
+  </div>
+</section>
+<br>
+
+
+<div class="footer">
+  <app-footer-home-page></app-footer-home-page>
+</div>

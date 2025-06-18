@@ -1,0 +1,29 @@
+<div class="carousel-container">
+  <div class="carousel-slide fade" *ngIf="slides.length">
+    <div class="left-content">
+      <h2 class="subtitle">{{ slides[currentSlide].subtitle }}</h2>
+      <h1 class="title">{{ slides[currentSlide].title }}</h1>
+      <p class="description">{{ slides[currentSlide].description }}</p>
+      <!-- <div class="button-wrapper">
+        <button (click)="goToVitrine()">En savoir plus</button>
+      </div> -->
+    </div>
+
+    <div class="right-image">
+      <img [src]="slides[currentSlide].image" alt="carousel image" />
+    </div>
+  </div>
+
+  <div class="dots">
+    <span 
+      *ngFor="let slide of slides; let i = index"
+      [class.active]="i === currentSlide"
+      (click)="goToSlide(i)">
+    </span>
+  </div>
+  
+  <div class="scroll-arrow" (click)="scrollToGps()">
+    <img src="assets/img/down-arrow.png" alt="Go to all" />
+  </div>
+
+</div>

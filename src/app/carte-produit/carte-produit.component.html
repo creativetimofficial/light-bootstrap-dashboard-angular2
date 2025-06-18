@@ -1,0 +1,63 @@
+<div class="carte-produit" (mouseenter)="hover = true" (mouseleave)="hover = false" (click)="openModal()">
+  <img class="image-fond" [src]="image" [alt]="titre" />
+
+  <div class="infos-base" *ngIf="!hover">
+    <h2 class="titre">{{ titre }}</h2>
+  </div>
+
+  <div class="overlay" *ngIf="hover">
+    <div class="infos-hover">
+      <h3>{{ titre }}</h3>
+      <p>{{ description }}</p>
+      <button class="btn-devis">SUR DEVIS</button>
+      <div class="liens">
+        <a (click)="openModal() ; $event.stopPropagation() " class="voir-details">Voir détails</a>
+        <a [routerLink]="['/formulaireiotit']" class="demander-devis">Demander un devis</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <!-- Bloc modale  -->
+
+<div class="modal-backdrop" *ngIf="showModal" (click)="closeModal()">
+  <div class="modal-container" (click)="$event.stopPropagation()">
+    <div class="modal-top">
+      <div class="categorie">
+        <h5>{{categorie}}</h5>
+      </div>
+      <div class="titre-et-description">
+        <h2>{{titre}}</h2>
+        <p> {{description}} </p> 
+      </div>
+    </div>
+
+
+    <div class="modal-content">
+
+      <div class="modal-bottom">
+        <div class="imagee">
+          <img [src]="image" alt="Produit" class="modal-image" />
+        </div>
+        <div class="caracteristiques-et-tarif">
+
+          <div class="caracteristiques">
+            <h4>Caractéristiques : </h4>
+            <ul>
+              <li *ngFor="let carac of caracteristiques"> {{ carac }}</li>
+            </ul>
+          </div>
+          <div class="tarif">
+          <h4>Tarif :</h4>
+          <p>SUR DEVIS</p>
+          <button class="btn-devis" (click)="allerAuFormulaire()">Demander un devis</button>
+        </div>
+
+        </div>
+      </div>
+    </div>
+  
+    <button class="modal-close" (click)="closeModal()">×</button>
+  </div>
+</div>
+

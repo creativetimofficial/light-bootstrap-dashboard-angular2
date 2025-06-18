@@ -1,0 +1,25 @@
+<div class="bg-white py-12 overflow-hidden">
+    <div class="text-center col-12">
+      <h2 class="tm-text-primary tm-section-title mb-4">Nos Clients</h2>
+      <p class="mx-auto tm-section-desc">
+     Découvrez les entreprises qui nous font confiance. Notre portfolio inclut des partenariats 
+    avec des leaders industriels et des innovateurs de premier plan, unis par notre engagement 
+    commun envers l'excellence et la qualité.
+      </p>
+    </div>
+    <br>
+    <br>
+  <div class="relative">
+    <div class="carousel-container overflow-hidden">
+      <div class="carousel-content flex w-max">
+        <div *ngFor="let client of duplicatedClients" class="mx-8 flex-shrink-0">
+          <div class="w-32 h-32 flex items-center justify-center">
+            <img [src]="client.logo" [alt]="client.name" class="max-h-16 object-contain" style="height:150px;width:150px">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+    <br>

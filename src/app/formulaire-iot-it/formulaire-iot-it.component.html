@@ -1,0 +1,90 @@
+<div class="body">
+  <app-navbar></app-navbar>
+  <br>
+  <div class="container">
+    <div class="partie-informations">
+      <h1>📡 Solutions GPS Avancées</h1>
+      <p class="subtitle">Découvrez nos solutions IoT et IT pour vos besoins GPS</p>
+    
+      <div class="tabs">
+        <button class="tab" [class.active]="selectedTab === 'iot'"(click)="selectTab('iot')">
+          Solution IoT
+        </button>
+        <button class="tab" [class.active]="selectedTab === 'it'" (click)="selectTab('it')">
+          Solution IT
+        </button>
+      </div>
+    </div>
+  
+    <!-- IoT Form -->
+     <div class="partie-formulaire">
+      
+       <div *ngIf="selectedTab === 'iot'" class="form-container">
+         <h2>🌐 Solution IoT GPS</h2>
+         <p class="description">
+           <strong>Solution Internet des Objets</strong><br />
+           Nos solutions IoT permettent la connectivité et le suivi en temps réel de vos dispositifs GPS avec une intégration cloud avancée.
+         </p>
+     
+         <form [formGroup]="formIot" (ngSubmit)="submitForm('iot')">
+           <label for="nom-iot">Nom *</label>
+           <input id="nom-iot" formControlName="nom" placeholder="Tapez votre nom" />
+     
+           <label for="prenom-iot">Prénom *</label>
+           <input id="prenom-iot" formControlName="prenom" placeholder="Votre prénom" />
+     
+           <label for="email-iot">Email *</label>
+           <input id="email-iot" formControlName="email" type="email" placeholder="votre.email@example.com" />
+     
+           <label for="entreprise-iot">Entreprise</label>
+           <input id="entreprise-iot" formControlName="entreprise" placeholder="Nom de votre entreprise" />
+     
+           <label for="message-iot">Message concernant votre projet IoT *</label>
+           <textarea
+             id="message-iot"
+             formControlName="message"
+             placeholder="Décrivez votre projet IoT"
+           ></textarea>
+     
+           <button type="submit">Demander un devis IoT</button>
+         </form>
+       </div>
+     
+       <!-- IT Form -->
+       <div *ngIf="selectedTab === 'it'" class="form-container">
+         <h2>💻 Solution IT GPS</h2>
+         <p class="description">
+           <strong>Solutions Informatiques</strong><br />
+           Nos solutions IT offrent des systèmes GPS robustes avec intégration logicielle, bases de données et architectures d’entreprise.
+         </p>
+     
+         <form [formGroup]="formIt" (ngSubmit)="submitForm('it')">
+           <label for="nom-it">Nom *</label>
+           <input id="nom-it" formControlName="nom" placeholder="Votre nom" />
+     
+           <label for="prenom-it">Prénom *</label>
+           <input id="prenom-it" formControlName="prenom" placeholder="Votre prénom" />
+     
+           <label for="email-it">Email *</label>
+           <input id="email-it" formControlName="email" type="email" placeholder="votre.email@example.com" />
+     
+           <label for="entreprise-it">Entreprise</label>
+           <input id="entreprise-it" formControlName="entreprise" placeholder="Nom de votre entreprise" />
+     
+           <label for="message-it">Message concernant votre projet IT *</label>
+           <textarea
+             id="message-it"
+             formControlName="message"
+             placeholder="Décrivez votre projet IT"
+           ></textarea>
+     
+           <button type="submit">Demander une consultation IT</button>
+         </form>
+       </div>
+     </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <app-footer-home-page></app-footer-home-page>
+</div>

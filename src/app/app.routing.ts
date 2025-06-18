@@ -4,9 +4,22 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { VitrineComponent } from './vitrine/vitrine.component';
+import { RegisterComponent } from './register/register.component';
+import {ProductsComponent} from './products/products.component';
+import {FormulaireIotItComponent} from './formulaire-iot-it/formulaire-iot-it.component';
+import { FormFranchiseComponent } from './form-franchise/form-franchise.component';
 
 const routes: Routes =[
-  {
+  
+  { path: '', component: VitrineComponent }, 
+  { path: 'products', component: ProductsComponent }, 
+  { path: 'home', component: VitrineComponent },
+  { path: 'auth', component: RegisterComponent },
+  { path: 'formulaireiotit', component: FormulaireIotItComponent },
+  { path: 'formulairefranchise', component: FormFranchiseComponent }
+
+  /*{
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
@@ -21,7 +34,7 @@ const routes: Routes =[
   {
     path: '**',
     redirectTo: 'dashboard'
-  }
+  }*/
 ];
 
 @NgModule({
