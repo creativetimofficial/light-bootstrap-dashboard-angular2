@@ -1,0 +1,115 @@
+.body {
+  background-image: url('assets/img/infinite-loop-01.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  color: white;
+}
+
+.partie-informations {
+  margin-top: 50px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 40%;
+}
+
+.partie-formulaire {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 60%;
+}
+
+h1 {
+  text-align: center;
+  color: #01b4ff;
+}
+
+.subtitle {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.form-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.766);
+}
+
+.form-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: #01b4ff;
+  font-weight: 600;
+}
+
+.form-container p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.form-container label {
+  font-size: 0.9rem;
+}
+
+.form-container input:not([type="radio"]),
+.form-container textarea {
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+textarea {
+  resize: vertical;
+  height: 80px;
+}
+
+.form-container button {
+  margin-top: 1rem;
+  background-color: #01b4ff;
+  border: none;
+  color: white;
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form-container button:hover {
+  background: linear-gradient(to right, #1e88e5, #1565c0);
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .form-container {
+    padding: 1.2rem;
+  }
+}
+input[type="radio"]{
+  border: #01b4ff;
+  gap: 30px;
+}

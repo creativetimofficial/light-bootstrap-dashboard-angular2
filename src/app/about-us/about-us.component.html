@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+  <!-- font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- font ends here -->
+  <style>
+  #about-video {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+  }
+</style>
+
+</head>
+<body class="about-page">
+  <app-header-home-page></app-header-home-page>
+  <section class="about-banner">
+    
+    <div class="about-container">
+      <h1>About us</h1>
+    </div>
+  </section>
+
+ <section class="about-section about-first">
+  <div class="about-container">
+    <div class="about-media-wrapper"> 
+      <div class="about-video-left">
+            <video #aboutVideo  loop playsinline preload="auto"  >
+                <source src="/assets/videos/about_us.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <button class="sound-toggle" (click)="toggleSound()">
+          {{ soundOn ? '🔊' : '🔇' }}
+        </button>
+
+      
+      </div>
+      <div class="about-text-right">
+        <p>
+          Depuis plus de 20 ans, Tunav IT Group se positionne en tant que fournisseur de référence en solutions GPS, 
+          IT et IoT. Intégrateur de systèmes à forte valeur ajoutée, Tunav conçoit et déploie des solutions technologiques
+           intelligentes, alliant performance et fiabilité. Nos domaines d’expertise couvrent le suivi GPS, la gestion de 
+           flotte, la surveillance à distance en temps réel ainsi que
+           l’optimisation des processus métier, au service de la transformation digitale des organisations.</p>
+        <a class="about-cta" href="#second-section">Discover more ⟩</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section class="about-section about-second" id="second-section">
+  <div class="about-container">
+    <div class="about-left-img">
+      <div class="image-slider">
+        <img *ngFor="let image of EventImages" 
+             [src]="image.src" 
+             [alt]="image.alt"
+             [class.active]="image.active">
+      </div>
+    </div>
+    
+    <div class="about-right-content">
+      <h2>TUNAV en Action!</h2>
+      <br>
+      <p>
+       TUNAV IT GROUP a récemment marqué sa présence lors de FITA 2025, un événement majeur dédié à la coopération et
+        à l’investissement en Afrique. À cette occasion, nous avons mis en avant notre engagement pour la transformation
+         digitale à travers des solutions innovantes en IoT, cloud computing et sécurité informatique. Cet événement a 
+         été une formidable opportunité de présenter notre savoir-faire, d’échanger avec des acteurs clés du secteur et
+          de renforcer notre vision :
+        accompagner les entreprises africaines vers une digitalisation efficace, durable et sécurisée.
+      </p>
+      <a class="about-cta" href="https://www.facebook.com/share/r/18qp6ef6pz/">Learn more »</a>
+    </div>
+  </div>
+</section>
+
+  <section class="about-section about-third">
+    <div class="about-container">
+    <div class="about-left-content">
+        <h2>Au-delà du Code : renforcer l’humain chez TUNAV</h2>
+      <p>
+Chez TUNAV IT GROUP, nous croyons que la performance naît d’une équipe soudée et épanouie.
+C’est pourquoi nous organisons régulièrement des activités de team building, qui permettent à nos collaborateurs
+de se retrouver dans un cadre convivial, de renforcer leur cohésion et de stimuler la créativité en dehors du cadre
+ professionnel. Ces moments privilégiés favorisent la communication, 
+la collaboration et la confiance mutuelle, tout en reflétant nos valeurs : l’humain, l’innovation et le partage.
+
+      </p>
+        <a class="about-cta" href="https://www.facebook.com/photo?fbid=1000870172050193&set=pcb.1000872852049925">Voir Plus  »</a>
+      </div>
+      <div class="about-right-img">
+        <div class="image-slider">
+        <img *ngFor="let image of TeamBuildingImages" 
+             [src]="image.src" 
+             [alt]="image.alt"
+             [class.active]="image.active">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section about-four">
+    <h2>Les Experts derrière TUNAV</h2><br>
+  <div class="about-container">
+    <div class="about-member" *ngFor="let membre of membres">
+      <img [src]="membre.image" [alt]="membre.prenom + ' ' + membre.nom">
+      <h3>{{ membre.prenom }} {{ membre.nom }}</h3>
+      <p>{{ membre.profession }}</p>
+      <div class="about-social">
+        <a title="LinkedIn" href="index.html"><img src="/assets/img/linkedin.png" alt="linkedin"></a>
+        <a title="Instagram" href="index.html"><img src="/assets/img/instagram.png" alt="instagram"></a>
+        <a title="Medium" href="index.html"><img src="/assets/img/facebook.png" alt="medium"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+ <section class="about-section about-six">
+  <div class="about-container">
+    <h4>Construisons ensemble des solutions d’avenir</h4>
+    <p>Chez <strong>Tunav IT Group</strong>, nous croyons que l'innovation naît de la collaboration. Forts de plus de 20 ans d’expérience dans les technologies GPS, IT et IoT, nous accompagnons nos partenaires dans la mise en œuvre de projets sur mesure, performants et durables.</p>
+    <img src="/assets/img/letsgetstarted.jpg" alt="Collaboration Tunav IT Group">
+    <p><i>Vous avez un projet, un besoin spécifique ou l’envie de transformer vos processus métier ? Échangeons ensemble pour construire des solutions adaptées à vos enjeux. Notre équipe est à votre écoute et prête à relever vos défis technologiques.</i></p>
+    <a class="about-cta" href="" (click)="contact($event)">Contactez-nous dès aujourd’hui »</a>
+  </div>
+  <br>
+  <br>
+</section>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log("uheifiuefiuh");
+    const video = document.getElementById("about-video");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch((e) => console.log("Erreur de lecture :", e));
+          } else {
+            video.pause();
+          }
+        });
+      },
+      {
+        threshold: 0.5 // au moins 50% de la vidéo visible pour qu’elle joue
+      }
+    );
+
+    observer.observe(video);
+  });
+</script>
+</body>
+<app-footer-home-page></app-footer-home-page>
+</html>

@@ -1,0 +1,112 @@
+ <app-header-home-page></app-header-home-page>
+ <div id="messageBox" style="display:none; margin-top: 10px; font-weight: bold;"></div>
+ <section id="contact" class="tm-section-pad-top tm-parallax-2">
+      <div class="container tm-container-contact">
+        <div class="row"> 
+            <div class="text-center col-12">
+                <h2 class="tm-section-title mb-4">Contact Us</h2>
+                <p class="mb-5">
+            Vous pouvez nous contacter à tout moment par e-mail ou par téléphone. Vous pouvez également remplir directement ce formulaire, et notre équipe vous répondra dans les plus brefs délais.     
+        
+          </p><br>
+            </div>
+            
+            <div class="col-sm-12 col-md-6">
+            <form (ngSubmit)="sendEmail()" #contactForm="ngForm" novalidate>
+
+                <input
+                  name="name"
+                  [(ngModel)]="form.name"
+                  type="text"
+                  placeholder="Your Name"
+                  class="tm-input"
+                  required
+                />
+
+                <input
+                  name="email"
+                  #emailInput
+                  [(ngModel)]="form.email"
+                  type="email"
+                  placeholder="Your Email"
+                  class="tm-input"
+                  required
+                />
+
+                <div
+                  id="emailError"
+                  style="color: red; font-size: 0.9em; margin-top: 4px;"
+                  *ngIf="emailInvalid"
+                >
+                  Veuillez entrer un email valide.
+                </div>
+
+                <textarea
+                  name="message"
+                  [(ngModel)]="form.message"
+                  rows="8"
+                  placeholder="Message"
+                  class="tm-input"
+                  required
+                ></textarea>
+
+                <button type="submit" class="btn tm-btn-submit">Submit</button>
+              </form>
+
+              <div
+                id="messageBox"
+                [style.color]="messageError ? 'red' : 'green'"
+                *ngIf="messageText"
+                style="margin-top: 10px; font-weight: bold;"
+              >
+                {{ messageText }}
+              </div>
+
+            </div>
+            
+            <div class="col-sm-12 col-md-6">
+
+                <div class="contact-item">
+                  <a rel="nofollow" href="https://www.tooplate.com/contact" class="item-link">
+                      <i class="far fa-2x fa-comment mr-4"></i>
+                      <span class="mb-0">Chat Online</span>
+                  </a>              
+                </div>
+                
+                <div class="contact-item">
+                  <a rel="nofollow" rel="nofollow" 
+                    target="_blank"  
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=Tunav@tunav.com" class="item-link">
+                      <i class="far fa-2x fa-envelope mr-4"></i>
+                      <span class="mb-0">T u n a v @ t u n a v . c o m</span>
+                  </a>              
+                </div>
+                
+                <div class="contact-item">
+                 <a rel="nofollow" href="https://maps.app.goo.gl/J6LwFQL7jBeCuPJX7" target="_blank" class="item-link">
+                     <i class="fas fa-2x fa-map-marker-alt mr-4"></i>
+                     <span class="mb-0">
+                       Notre localisation</span>
+                </a>              
+                </div>
+
+                
+                <div class="contact-item">
+                  <a rel="nofollow" href="tel:71807667" class="item-link">
+                      <i class="fas fa-2x fa-phone-square mr-4"></i>
+                      <span class="mb-0">7 1 8 0 7 6 6 7</span>
+                  </a>              
+                </div>
+                
+                <div class="contact-item">&nbsp;</div>
+            
+            </div>
+            
+            
+        </div><!-- row ending -->
+        
+      </div>
+
+
+    </section>
+    <app-footer-home-page></app-footer-home-page>
