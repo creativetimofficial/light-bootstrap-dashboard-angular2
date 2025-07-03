@@ -1,0 +1,66 @@
+.nav{
+  width: 100%;
+  margin-bottom: 50px;
+}
+.products-grid {
+  /* width: 85%; jai rajoute hethy pour le truc de 3 containers */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+
+  /* margin-left: 100px;   jai rajoute hethy pour le truc de 3 containers */
+}
+.carousel-et-nav{
+  background-image: url('assets/img/infinite-loop-03.jpg');
+}
+
+.body {
+  margin-bottom: 100px;
+  padding: 0;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center center;
+  height: 100%;
+}
+.filter-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.description-it {
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #333;
+  background-color: #f4f9ff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.btn-formulaire-it {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: linear-gradient(to right, #42a5f5, #1e88e5);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease;
+}
+
+.btn-formulaire-it:hover {
+  transform: translateY(-5px);
+  transition: transform 0.25s ease-in-out;
+  background: linear-gradient(to right, #1e88e5, #1565c0);
+}
+
+

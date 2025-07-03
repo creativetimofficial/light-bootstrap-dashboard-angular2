@@ -1,0 +1,11 @@
+.drag-drop-area {
+  border: 2px dashed #aaa;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.drag-drop-area:hover {
+  background-color: #f1f1f1;
+}
