@@ -1,0 +1,52 @@
+<div class="container mt-4" *ngIf="franchise">
+<div #pdfContent>
+  <div class="card shadow-lg border-0 rounded-4">
+    <div class="card-header bg-gradient text-white" style="background: linear-gradient(90deg, #357, #5fa);">
+      <h4 class="mb-0">📋 Détails de la demande de franchise</h4>
+    </div>
+
+    <div class="card-body p-4">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <h5 class="text-muted">👤 Informations personnelles</h5>
+          <p><strong>Nom :</strong> {{ franchise.nom }}</p>
+          <p><strong>Prénom :</strong> {{ franchise.prenom }}</p>
+          <p><strong>Email :</strong> {{ franchise.email }}</p>
+          <p><strong>Téléphone :</strong> {{ franchise.telephone }}</p>
+        </div>
+        <div class="col-md-6">
+          <h5 class="text-muted">💼 Expérience & Motivation</h5>
+          <p><strong>Profession actuelle :</strong> {{ franchise.professionActuelle }}</p>
+         <p><strong>Expérience IoT/GPS :</strong> 
+            <span class="badge" [ngClass]="franchise.experienceIotGps ? 'bg-success' : 'bg-secondary'">
+                {{ franchise.experienceIotGps || 'Non' }}
+            </span>
+            </p>
+            <p><strong>A dirigé une entreprise :</strong> 
+            <span class="badge" [ngClass]="franchise.entrepriseDirige ? 'bg-success' : 'bg-secondary'">
+                {{ franchise.entrepriseDirige || 'Non' }}
+            </span>
+            </p>
+          <p><strong>Motivation :</strong><br>
+            <em class="text-primary">{{ franchise.motivation }}</em>
+          </p>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between mt-4">
+        <a routerLink="/franchises" class="btn btn-outline-secondary">
+          ⬅ Retour à la liste
+        </a>
+
+        <button class="btn btn-success" (click)="envoyerMailConfirmation()">
+          📧 Envoyer mail de confirmation
+        </button>
+
+          <button class="btn btn-primary" (click)="genererPdf()">
+      📄 Télécharger la fiche en PDF
+    </button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

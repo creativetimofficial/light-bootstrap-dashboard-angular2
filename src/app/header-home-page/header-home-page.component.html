@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-md tm-navbar" id="tmNav" style="padding-top: 0px; padding-bottom: 0px;">
+  <div class="container" style="margin-top: 0px; margin-bottom: 0px;">
+    <div class="tm-next">
+      <a href="#infinite" class="navbar-brand d-flex align-items-center" style="margin: 0; padding: 0;">
+        <img id="logoBlanc" src="/assets/img/logoTunavBlanc.png" alt="Logo Blanc" style="height: 70px; margin-right: 10px; display: block;">
+        <img id="logoCouleur" src="/assets/img/logoTunav5.png" alt="Logo Couleur" style="height: 70px; margin-right: 10px; display: none;">
+      </a>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+      <i class="fas fa-bars navbar-toggler-icon"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link tm-nav-link" href="" (click)="navigateToSection('infinite',$event)">{{ 'NAV.HOME' | translate }}</a></li>
+        <li class="nav-item"><a class="nav-link tm-nav-link" href="#" (click)="navigateToSection('gallery', $event)">{{ 'NAV.GALLERY' | translate }}</a></li>
+        <li class="nav-item"><a class="nav-link tm-nav-link" href="#" (click)="navigateToSection('testimonials', $event)">{{ 'NAV.TESTIMONIALS' | translate }}</a></li>
+        <li class="nav-item"><a class="nav-link tm-nav-link" href="#" (click)="navigateToSection('contact', $event)">{{ 'NAV.CONTACT' | translate }}</a></li>
+        <li class="nav-item"><a class="nav-link tm-nav-link" href="" (click)="About($event)">{{ 'NAV.ABOUT' | translate }}</a></li>
+        <li class="nav-item"><a class="nav-link tm-nav-link" href="" (click)="Blogs($event)">{{ 'NAV.BLOGS' | translate }}</a></li>
+        <li class="nav-item"><a class="nav-link tm-nav-link" href="" (click)="Login($event)">{{ 'NAV.LOGIN' | translate }}</a></li>
+        <li>
+          <div class="language-switcher position-relative">
+            <button class="btn btn-light d-flex align-items-center" (click)="changeDropDown()">
+              <img [src]="getFlag(currentLanguage)" width="20" class="me-2" />
+              {{ currentLanguage.toUpperCase() }}
+            </button>
+            <ul class="language-menu" *ngIf="isDropdownOpen">
+              <li
+                *ngFor="let language of languages"
+                [class.active]="language.code === currentLanguage"
+                (click)="switchLanguage(language.code)"
+                class="d-flex align-items-center"
+              >
+                <img [src]="getFlag(language.code)" width="20" class="me-2" />
+                {{ language.name }}
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

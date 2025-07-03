@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <h2>{{ isEditMode ? 'Modifier un Produit' : 'Ajouter un Produit' }}</h2>
+
+  <form (ngSubmit)="onSubmit()" [formGroup]="productForm" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="nom">Nom</label>
+      <input id="nom" class="form-control" formControlName="nom" required />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" class="form-control" formControlName="description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="prix">Prix</label>
+      <input id="prix" type="number" class="form-control" formControlName="prix" required />
+    </div>
+
+    <div class="form-group">
+      <label>Image (drag & drop)</label>
+      <div
+        class="drag-drop-area"
+        (dragover)="onDragOver($event)"
+        (drop)="onFileDrop($event)"
+        (dragleave)="onDragLeave($event)"
+      >
+        <p *ngIf="!previewUrl">Glissez-déposez une image ici ou cliquez</p>
+        <img *ngIf="previewUrl" [src]="previewUrl" alt="Image" style="max-width: 200px" />
+        <input type="file" (change)="onFileSelect($event)" hidden #fileInput />
+      </div>
+      <button type="button" class="btn btn-secondary mt-2" (click)="fileInput.click()">Choisir une image</button>
+    </div>
+
+    <button class="btn btn-primary" type="submit">
+      {{ isEditMode ? 'Mettre à jour' : 'Ajouter' }}
+    </button>
+  </form>
+</div>
