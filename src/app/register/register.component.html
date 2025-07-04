@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Auth Component</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800" rel="stylesheet">
+  <link rel="stylesheet" href="register.component.scss">
+</head>
+
+<body>
+<a href="index.html" class="back-arrow"><i class="fas fa-arrow-left"></i></a>
+<div class="auth-component">
+<div class="auth-box" id="auth-box">
+	<div class="form-auth-box sign-up-auth-box">
+		<form action="#">
+			<h1>{{ 'AUTH.SIGNUP.TITLE' | translate }}</h1>
+			<span> {{ 'AUTH.SIGNUP.SUBTITLE' | translate }}</span>
+			<input type="text" [(ngModel)]="signUpName" name="signupName"  [placeholder]="'AUTH.SIGNUP.PLACEHOLDERS.NAME' | translate" required />
+			<input type="email" [(ngModel)]="signUpEmail" name="signupEmail"  [placeholder]="'AUTH.SIGNUP.PLACEHOLDERS.EMAIL' | translate" required />
+			<button type="button" (click)="onSignUp()">{{ 'AUTH.SIGNUP.BUTTON' | translate }}</button>
+		</form>
+	</div>
+	<div class="form-auth-box sign-in-auth-box">
+		<form action="#">
+			<h1>{{ 'AUTH.SIGNIN.TITLE' | translate }}</h1>
+			<input type="email" [(ngModel)]="signInEmail" name="signinEmail" [placeholder]="'AUTH.SIGNIN.PLACEHOLDERS.EMAIL' | translate" required />
+			<input type="password" [(ngModel)]="signInPassword" name="signinPassword" [placeholder]="'AUTH.SIGNIN.PLACEHOLDERS.PASSWORD' | translate" required />
+			<button type="button" (click)="onSignIn()">{{ 'AUTH.SIGNIN.BUTTON' | translate }}</button>
+		</form>
+	</div>
+	<div class="overlay-auth-box">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>{{ 'AUTH.OVERLAY.LEFT.TITLE' | translate }}</h1>
+				<p>{{ 'AUTH.OVERLAY.LEFT.TEXT' | translate }}</p>
+				<button class="ghost" id="signIn">{{ 'AUTH.OVERLAY.LEFT.BUTTON' | translate }}</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>{{ 'AUTH.OVERLAY.RIGHT.TITLE' | translate }}</h1>
+				<p>{{ 'AUTH.OVERLAY.RIGHT.TEXT' | translate }}</p>
+				<button class="ghost" id="signUp">{{ 'AUTH.OVERLAY.RIGHT.BUTTON' | translate }}</button>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<app-footer-home-page></app-footer-home-page>
+</body>
+</html>

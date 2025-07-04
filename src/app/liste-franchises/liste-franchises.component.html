@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h4 class="title" style="color: #357;">📋 Liste des demandes de franchises</h4>
+  </div>
+  <div class="card-body table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Email</th>
+          <th>Téléphone</th>
+          <th>Profession</th>
+          <th>Exp. IT/IoT/GPS</th>
+          <th>Déjà dirigé ?</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let f of franchises">
+          <td>{{ f.nom }}</td>
+          <td>{{ f.prenom }}</td>
+          <td>{{ f.email }}</td>
+          <td>{{ f.telephone }}</td>
+          <td>{{ f.professionActuelle }}</td>
+          <td>{{ f.experienceIotGps ? 'Oui' : 'Non' }}</td>
+          <td>{{ f.entrepriseDirige ? 'Oui' : 'Non' }}</td>
+          <td>
+            <a [routerLink]="['/franchises', f.id]" class="btn btn-sm ">
+              🔍 Détails
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
