@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { HomeComponent } from '../../home/home.component';
+import { DashboardComponent } from '../../dashboard/dashboard.component';  // Add this import
 import { UserComponent } from '../../user/user.component';
 import { TablesComponent } from '../../tables/tables.component';
 import { TypographyComponent } from '../../typography/typography.component';
@@ -11,6 +12,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: HomeComponent },
+    { path: 'new-dashboard', component: DashboardComponent },
     { path: 'user',           component: UserComponent },
     { path: 'table',          component: TablesComponent },
     { path: 'typography',     component: TypographyComponent },

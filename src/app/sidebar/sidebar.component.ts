@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AppService} from "../app.service";
 
 declare const $: any;
 declare interface RouteInfo {
@@ -8,7 +9,11 @@ declare interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard', title: 'Dashboard',  icon: 'pe-7s-graph', class: '' },
+    { path: '/new-dashboard', title: 'Dashboard',  icon: 'pe-7s-graph', class: '' }
+];
+
+export const TEMPLATEROUTES: RouteInfo[] = [
+    { path: '/dashboard', title: 'TDashboard',  icon: 'pe-7s-graph', class: '' },
     { path: '/user', title: 'User Profile',  icon:'pe-7s-user', class: '' },
     { path: '/table', title: 'Table List',  icon:'pe-7s-note2', class: '' },
     { path: '/typography', title: 'Typography',  icon:'pe-7s-news-paper', class: '' },
@@ -25,10 +30,11 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   menuItems: any[];
 
-  constructor() { }
-
+  constructor(private readonly appService: AppService) { }
   ngOnInit() {
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.menuItems = this.appService.isLocalDevelopment
+        ? ROUTES.concat(TEMPLATEROUTES.filter(menuItem => menuItem))
+        : ROUTES;
   }
   isMobileMenu() {
       if ($(window).width() > 991) {

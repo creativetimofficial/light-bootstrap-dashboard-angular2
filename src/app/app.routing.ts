@@ -8,7 +8,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 const routes: Routes =[
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'new-dashboard',
     pathMatch: 'full',
   }, {
     path: '',
@@ -20,7 +20,7 @@ const routes: Routes =[
   }]},
   {
     path: '**',
-    redirectTo: 'dashboard'
+    redirectTo: 'new-dashboard'
   }
 ];
 

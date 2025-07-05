@@ -35,7 +35,7 @@
                         <li><a href="#">Another notification</a></li>
                     </ul>
                 </li>
-                <li>
+                <li *ngIf="appService.isLocalDevelopment">
                     <a href="#">
                         <i class="fa fa-search"></i>
                         <p class="hidden-lg hidden-md">Search</p>
@@ -44,7 +44,7 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li>
+                <li *ngIf="appService.isLocalDevelopment">
                     <a href="#">
                         Account
                     </a>
