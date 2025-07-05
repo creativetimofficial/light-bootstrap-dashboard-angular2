@@ -1,0 +1,80 @@
+<div class="body">
+  <app-navbar></app-navbar>
+   <script>
+   const phoneInputField = document.querySelector("#phone");
+   const phoneInput = window.intlTelInput(phoneInputField, {
+     utilsScript:
+       "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+   });
+ </script>
+  <br />
+ <div class="container">
+    <div class="partie-informations">
+      <h1><span style="color: #01b4ff;">{{ 'FRANCHISE.TITLE' | translate }}</span></h1>
+      <p class="subtitle">
+        {{ 'FRANCHISE.SUBTITLE' | translate }}
+      </p>
+    </div>
+
+    <div class="partie-formulaire">
+      <div class="form-container">
+        <form [formGroup]="formFranchise" (ngSubmit)="onSubmit()">
+          <h2>{{ 'FRANCHISE.FORM.TITLE' | translate }}</h2>
+          <p>{{ 'FRANCHISE.FORM.DESCRIPTION' | translate }}</p>
+
+          <label>{{ 'FRANCHISE.FORM.LABELS.LASTNAME' | translate }}</label>
+          <input type="text" formControlName="nom" [placeholder]="'FRANCHISE.FORM.PLACEHOLDER.LASTNAME' | translate"/>
+
+          <label>{{ 'FRANCHISE.FORM.LABELS.FIRSTNAME' | translate }}</label>
+          <input type="text" formControlName="prenom" [placeholder]="'FRANCHISE.FORM.PLACEHOLDER.FIRSTNAME' | translate"/>
+
+          <label>{{ 'FRANCHISE.FORM.LABELS.EMAIL' | translate }}</label>
+          <input type="email" formControlName="email" [placeholder]="'FRANCHISE.FORM.PLACEHOLDER.EMAIL' | translate" />
+
+          <label>{{ 'FRANCHISE.FORM.LABELS.PHONE' | translate }}</label>
+          <input id="telephone" #phoneInput type="tel" class="form-control" />
+
+          <label>{{ 'FRANCHISE.FORM.LABELS.PROFESSION' | translate }}</label>
+          <input type="text" formControlName="profession" [placeholder]="'FRANCHISE.FORM.PLACEHOLDER.PROFESSION' | translate"/>
+
+          <label>{{ 'FRANCHISE.FORM.LABELS.EXPERIENCE' | translate }}</label>
+          <div>
+            <label>
+              <input type="radio" formControlName="experienceIT" value="oui" /> {{ 'FRANCHISE.FORM.OPTIONS.YES' | translate }}
+            </label>
+            <label>
+              <input type="radio" formControlName="experienceIT" value="non" /> {{ 'FRANCHISE.FORM.OPTIONS.NO' | translate }}
+            </label>
+          </div>
+
+          <div *ngIf="formFranchise.get('experienceIT')?.value === 'oui'" class="experience">
+            <label>{{ 'FRANCHISE.FORM.LABELS.EXPERIENCE_DETAILS' | translate }}</label>
+            <textarea formControlName="precisionsExp"></textarea>
+          </div>
+
+          <label>{{ 'FRANCHISE.FORM.LABELS.MANAGED_BUSINESS' | translate }}</label>
+          <div>
+            <label>
+              <input type="radio" formControlName="dirigeEntreprise" value="oui" /> {{ 'FRANCHISE.FORM.OPTIONS.YES' | translate }}
+            </label>
+            <label>
+              <input type="radio" formControlName="dirigeEntreprise" value="non" /> {{ 'FRANCHISE.FORM.OPTIONS.NO' | translate }}
+            </label>
+          </div>
+
+          <div *ngIf="formFranchise.get('dirigeEntreprise')?.value === 'oui'" class="dirigerEntreprise">
+            <label>{{ 'FRANCHISE.FORM.LABELS.BUSINESS_DETAILS' | translate }}</label>
+            <textarea formControlName="secteurDuree"></textarea>
+          </div>
+
+          <label>{{ 'FRANCHISE.FORM.LABELS.MOTIVATION' | translate }}</label>
+          <textarea formControlName="motivation" [placeholder]="'FRANCHISE.FORM.PLACEHOLDER.MOTIVATION' | translate"></textarea>
+
+          <button type="submit">🫴 {{ 'FRANCHISE.FORM.SUBMIT' | translate }}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br /><br /><br />
+  <app-footer-home-page></app-footer-home-page>
+</div>

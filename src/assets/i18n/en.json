@@ -1,0 +1,223 @@
+{
+  "NAV": {
+    "HOME": "Home",
+    "GALLERY": "Gallery",
+    "TESTIMONIALS": "Testimonials",
+    "CONTACT": "Contact",
+    "ABOUT": "About us",
+    "BLOGS": "Blogs",
+    "LOGIN": "Login / Register"
+  },
+ "ABOUT": {
+    "TITLE": "About us",
+    "VIDEO": {
+      "NOT_SUPPORTED": "Your browser does not support the video tag."
+    },
+    "FIRST": {
+      "TITLE": "About us",
+      "PARAGRAPH": "For over 20 years, Tunav IT Group has established itself as a leading provider of GPS, IT, and IoT solutions. As a value-added systems integrator, Tunav designs and deploys intelligent technological solutions combining performance and reliability. Our areas of expertise include GPS tracking, fleet management, real-time remote monitoring, and business process optimization, serving the digital transformation of organizations.",
+      "CTA": "Discover more ⟩"
+    },
+    "SECOND": {
+      "TITLE": "TUNAV in Action!",
+      "PARAGRAPH": "TUNAV IT GROUP recently showcased its presence at FITA 2025, a major event dedicated to cooperation and investment in Africa. On this occasion, we highlighted our commitment to digital transformation through innovative solutions in IoT, cloud computing, and cybersecurity. This event was a tremendous opportunity to showcase our expertise, exchange with key industry players, and strengthen our vision: supporting African companies towards effective, sustainable, and secure digitalization.",
+      "CTA": "Learn more »"
+    },
+    "THIRD": {
+      "TITLE": "Beyond Code: Strengthening People at TUNAV",
+      "PARAGRAPH": "At TUNAV IT GROUP, we believe that performance comes from a united and fulfilled team. That’s why we regularly organize team-building activities that allow our employees to meet in a friendly setting, strengthen their cohesion, and stimulate creativity outside the professional environment. These privileged moments foster communication, collaboration, and mutual trust while reflecting our values: people, innovation, and sharing.",
+      "CTA": "See more »"
+    },
+    "FOURTH": {
+      "TITLE": "The Experts behind TUNAV"
+    },
+    "SIXTH": {
+      "TITLE": "Building Future Solutions Together",
+      "PARAGRAPH1": "At Tunav IT Group, we believe that innovation is born from collaboration. With over 20 years of experience in GPS, IT, and IoT technologies, we support our partners in implementing tailor-made, efficient, and sustainable projects.",
+      "PARAGRAPH2": "Do you have a project, a specific need, or a desire to transform your business processes? Let's connect to build solutions tailored to your challenges. Our team is here to listen and ready to tackle your technological challenges.",
+      "CTA": "Contact us today »"
+    },
+    "MEMBERS": {
+      "TITLE": "The Experts behind TUNAV",
+      "NAV": {
+        "PREV": "Previous",
+        "NEXT": "Next"
+      }
+    }
+  },
+  "CAROUSEL": {
+    "SLIDE1": {
+      "TITLE": "GPS TRACKING",
+      "SUBTITLE": "Accelerate your digital transformation with GPS tracking",
+      "DESCRIPTION": "We support businesses and individuals with smart GPS tracking and fleet management solutions designed to optimize their performance."
+    },
+    "SLIDE2": {
+      "TITLE": "IOT SOLUTION",
+      "SUBTITLE": "Secure your data with advanced IoT solutions",
+      "DESCRIPTION": "Our IoT solutions offer smart monitoring, simplified equipment management, and enhanced security to improve your daily efficiency."
+    },
+    "SLIDE3": {
+      "TITLE": "IT SOLUTION",
+      "SUBTITLE": "Transform your business through fleet management",
+      "DESCRIPTION": "We develop and integrate IT solutions that strengthen operations, improve performance, and accelerate the digital transformation of companies."
+    }
+  },
+  "MENU": {
+    "CENTER_ICON": "Where are we?"
+  },
+  "WHATWEDO": {
+    "TITLE": "What We Do",
+    "PARAGRAPH1": "For over 20 years, Tunav IT Group has positioned itself as a leading provider of GPS, IT and IoT solutions. As an integrator of high value-added systems, Tunav designs and deploys intelligent technological solutions, combining performance and reliability. Our areas of expertise cover GPS tracking, fleet management, real-time remote monitoring, as well as business process optimization to support the digital transformation of organizations.",
+    "TRANSFORMATION": {
+      "TITLE": "Digital Transformation",
+      "DESCRIPTION": "We support businesses in their digital transition with innovative, sustainable solutions perfectly integrated with their activity.",
+      "LINK": "Discover"
+    },
+    "IT_SOLUTION": {
+      "TITLE": "IT Solutions",
+      "DESCRIPTION": "Our expertise covers cloud computing, software development and remote monitoring, ensuring companies remain competitive in a constantly evolving digital world."
+    },
+    "GPS_TRACKING": {
+      "TITLE": "GPS Tracking",
+      "DESCRIPTION": "Our geolocation solutions provide reliable and secure real-time tracking of your vehicles, equipment or field teams.",
+      "LINK": "Learn more"
+    },
+    "IOT_SOLUTION": {
+      "TITLE": "IoT Solutions",
+      "DESCRIPTION": "Our IoT solutions offer smart monitoring, centralized device management, and advanced security systems to protect your facilities, optimize your operations, and improve your overall efficiency."
+    }
+  },
+  "TESTIMONIALS": {
+    "TITLE": "Customer Testimonials",
+    "QUOTE1": "Good job. We reva color are satisfied with your service. Big congratulations to Mr. Hassen Krichen, you truly deserve success in your field.",
+    "QUOTE2": "This is a reliable and trustworthy service provider, with them you have no chance to get lost when traveling by Tunisia. Grateful for their service, grateful for reliable options provided by them. Keep doing the great work.",
+    "QUOTE3": "Best service"
+  },
+  "GALLERY": {
+    "TITLE": "Our Products",
+    "DESCRIPTION": "Tunav IT Group offers a complete range of innovative technological solutions combining performance and precision. Our products cover real-time GPS tracking, intelligent fleet management, remote monitoring systems, as well as customized IoT solutions for various sectors. We also offer advanced IT platforms for business process optimization, allowing companies to better manage their resources, secure operations, and accelerate digital transformation.",
+    "PRODUCT1": "MiniTrace_ KIT - PORTABLE",
+    "PRODUCT2": "TRAILLER SMART_LOCK",
+    "PRODUCT3": "Camtrack",
+    "PRODUCT4": "ETX_KIT- AUTOMOTIVE",
+    "PRODUCT5": "ETBLE_KIT - AUTOMOTIVE",
+    "PRODUCT6": "ET6_KIT - ADVANCED AUTOMOTIVE",
+    "PRODUCT7": "ETCAN_KIT BUSCAN/ CARBURANT AUTOMOTIVE",
+    "PRODUCT8": "ET8_KIT - ETANCHE AUTOMOTIVE",
+    "BUTTON": "View All Products"
+  },
+  "CLIENTS": {
+    "TITLE": "Our Clients",
+    "DESCRIPTION": "Discover the companies that trust us. Our portfolio includes partnerships with industry leaders and top innovators, united by our shared commitment to excellence and quality."
+  },
+  "CONTACT": {
+    "TITLE": "Contact Us",
+    "INTRO": "You can contact us anytime by email or phone. You can also fill in this form directly, and our team will respond as soon as possible.",
+    "CHAT_ONLINE": "Chat Online",
+    "LOCATION": "Our Location",
+    "FORM": {
+      "NAME_PLACEHOLDER": "Your Name",
+      "EMAIL_PLACEHOLDER": "Your Email",
+      "EMAIL_ERROR": "Please enter a valid email.",
+      "MESSAGE_PLACEHOLDER": "Message",
+      "SUBMIT": "Submit"
+    }
+  },
+  "AUTH": {
+    "SIGNUP": {
+      "TITLE": "Create Account",
+      "SUBTITLE": "Use your email for registration",
+      "PLACEHOLDERS": {
+        "NAME": "Name",
+        "EMAIL": "Email"
+      },
+      "BUTTON": "Sign Up"
+    },
+    "SIGNIN": {
+      "TITLE": "Sign In",
+      "PLACEHOLDERS": {
+        "EMAIL": "Email",
+        "PASSWORD": "Password"
+      },
+      "BUTTON": "Sign In"
+    },
+    "OVERLAY": {
+      "LEFT": {
+        "TITLE": "Welcome Back!",
+        "TEXT": "To keep connected with us please login with your personal info",
+        "BUTTON": "Sign In"
+      },
+      "RIGHT": {
+        "TITLE": "Hello, Friend!",
+        "TEXT": "Enter your personal details and start your journey with us",
+        "BUTTON": "Sign Up"
+      }
+    }
+  },
+  "SOLUTIONS": {
+    "TITLE": "📡 Advanced GPS Solutions",
+    "SUBTITLE": "Discover our IoT and IT solutions for your GPS needs",
+    "IOT": {
+      "TAB": "IoT Solution",
+      "TITLE": "🌐 IoT GPS Solution",
+      "SUBTITLE": "Internet of Things Solution",
+      "DESCRIPTION": "Our IoT solutions enable connectivity and real-time tracking of your GPS devices with advanced cloud integration."
+    },
+    "IT": {
+      "TAB": "IT Solution",
+      "TITLE": "💻 IT GPS Solution",
+      "SUBTITLE": "IT Solutions",
+      "DESCRIPTION": "Our IT solutions offer robust GPS systems with software integration, databases, and enterprise architectures."
+    }
+  },
+  "FORM": {
+    "NAME": "Last Name",
+    "FIRSTNAME": "First Name",
+    "COMPANY": "Company",
+    "IOT_MESSAGE": "Message about your IoT project",
+    "IT_MESSAGE": "Message about your IT project",
+    "PLACEHOLDER": {
+      "NAME": "Enter your last name",
+      "FIRSTNAME": "Enter your first name",
+      "EMAIL": "your.email@example.com",
+      "COMPANY": "Your company name",
+      "IOT_MESSAGE": "Describe your IoT project",
+      "IT_MESSAGE": "Describe your IT project"
+    },
+    "SUBMIT_IOT": "Request IoT Quote",
+    "SUBMIT_IT": "Request IT Consultation"
+  },
+  "FRANCHISE": {
+    "TITLE": "TUNAV Franchise",
+    "SUBTITLE": "Join our network of partners and grow your business in IT, IoT, and GPS Tracking technologies with the support of TUNAV IT GROUP.",
+    "FORM": {
+      "TITLE": "Franchise Application",
+      "DESCRIPTION": "Our franchise solutions help you grow your business with technological and commercial support from TUNAV IT GROUP.",
+      "LABELS": {
+        "LASTNAME": "Last Name",
+        "FIRSTNAME": "First Name",
+        "EMAIL": "Email",
+        "PHONE": "Phone",
+        "PROFESSION": "Current Profession",
+        "EXPERIENCE": "Do you have experience in IT/IoT/GPS?",
+        "EXPERIENCE_DETAILS": "Please specify your experience:",
+        "MANAGED_BUSINESS": "Have you ever run a business?",
+        "BUSINESS_DETAILS": "Specify the sector and duration:",
+        "MOTIVATION": "Motivation to join TUNAV"
+      },
+      "PLACEHOLDER": {
+        "LASTNAME": "Enter your last name",
+        "FIRSTNAME": "Enter your first name",
+        "EMAIL": "example@example.com",
+        "PROFESSION": "Enter your profession",
+        "MOTIVATION": "What motivates you to join the Tunav franchise?"
+      },
+      "OPTIONS": {
+        "YES": "Yes",
+        "NO": "No"
+      },
+      "SUBMIT": "Request a franchise"
+    }
+  }
+}
+
