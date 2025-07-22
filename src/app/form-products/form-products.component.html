@@ -1,0 +1,69 @@
+<div class="container mt-4">
+  <h2>{{ isEditMode ? 'Modifier un Produit' : 'Ajouter un Produit ' + (type === 'iot' ? 'IoT' : 'GPS') }}</h2>
+
+  <form (ngSubmit)="onSubmit()" [formGroup]="productForm" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="nom">Nom</label>
+      <input id="nom" class="form-control" formControlName="nom" required />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" class="form-control" formControlName="description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="categorie">Catégorie</label>
+      <input id="categorie" class="form-control" formControlName="categorie" />
+    </div>
+
+    <div *ngIf="type === 'gps'" class="form-group">
+      <label for="prix">Prix</label>
+      <input id="prix" type="number" class="form-control" formControlName="prix" />
+    </div>
+
+    <div class="form-group mt-3">
+      <label>Caractéristiques</label>
+      <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+        <span *ngFor="let carac of caracteristiques; let i = index" class="badge bg-primary px-2 py-1 me-1">
+          {{ carac }}
+          <button type="button" class="btn btn-sm btn-light ms-2" (click)="removeCaracteristique(i)">×</button>
+        </span>
+      </div>
+      <input type="text"
+         class="form-control"
+         [ngModel]="newCaracteristique"
+         (ngModelChange)="newCaracteristique = $event"
+         name="newCaracteristique"
+         (keydown.enter)="addCaracteristique($event)"
+         placeholder="Ajouter une caractéristique et appuyer sur Entrée"
+         [ngModelOptions]="{ standalone: true }">
+    </div>
+
+    <div class="form-group">
+      <label>Image (drag & drop)</label>
+      <div
+        class="drag-drop-area"
+        (dragover)="onDragOver($event)"
+        (drop)="onFileDrop($event)"
+        (dragleave)="onDragLeave($event)"
+      >
+        <p *ngIf="!previewUrl">Glissez-déposez une image ici ou cliquez</p>
+        <img *ngIf="previewUrl" [src]="previewUrl" alt="Image" style="max-width: 200px" />
+        <input type="file" (change)="onFileSelect($event)" hidden #fileInput />
+      </div>
+      <button type="button" class="btn btn-secondary mt-2" (click)="fileInput.click()">Choisir une image</button>
+    </div>
+   <!--
+    <div *ngIf="type === 'gps'" class="form-group">
+      <label for="userId">User ID</label>
+      <input id="userId" type="number" class="form-control" formControlName="userId" required />
+    </div>
+   --> 
+
+
+    <button class="btn btn-primary" type="submit">
+      {{ isEditMode ? 'Mettre à jour' : 'Ajouter' }}
+    </button>
+  </form>
+</div>

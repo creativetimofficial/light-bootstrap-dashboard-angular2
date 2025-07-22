@@ -1,0 +1,73 @@
+
+<section class="products-section"  id="productSection" #productsSection>
+  <div class="body">
+    <div class="carousel-et-nav">
+      <div class="nav">
+        <app-header-home-page></app-header-home-page>
+      </div>
+      <br />
+      <div class="carousel">
+        <app-carousel2></app-carousel2>
+      </div>
+    </div>
+
+    <div class="titre" id="partietitre">
+      <titreproduit></titreproduit>
+    </div>
+    
+    <div class="filter-buttons" id="filters">
+      <app-petit-cadre
+      *ngFor="let cadre of petitsCadres"
+      [label]="cadre.label"
+      [active]="cadre.active"
+      (clicked)="setActive(cadre.label)">
+    </app-petit-cadre>
+  </div>
+  
+  <section id="section-it" class="anchor-offset">
+    <div class="description-it" *ngIf="isSolutionsITSelected()">
+      <h2>{{ 'SOLUTIONS_PRODUCTS.IT.TITLE' | translate }}</h2>
+      <p>{{ 'SOLUTIONS_PRODUCTS.IT.DESCRIPTION' | translate }}</p>
+      <a class="btn-formulaire-it" [routerLink]="['/formulaireiotit']" [queryParams]="{ onglet: 'it' }">
+        {{ 'SOLUTIONS_PRODUCTS.IT.LINK' | translate }}
+      </a>
+    </div>
+  </section>
+
+    <section id="section-iot" class="anchor-offset">
+      <div class="products-grid" *ngIf="produits_avecdevis.length > 0">
+        <app-carte-produit
+          *ngFor="let produit of produits_avecdevis"
+          [id]="produit.id"
+          [titre]="produit.titre"
+          [description]="produit.description"
+          [image]="produit.imagePath"  
+          [categorie]="produit.categorie"
+          [caracteristiques]="produit.caracteristiques">
+        </app-carte-produit>
+      </div>
+    </section>
+    
+    <section id="section-gps" class="anchor-offset">
+      <div class="products-grid" *ngIf="produits_nodevis.length > 0">
+        <app-carte-produit-nodevis
+        *ngFor="let produit of produits_nodevis"
+          [titre]="produit.titre"
+          [description]="produit.description"
+          [image]="produit.imagePath"
+          [categorie]="produit.categorie"
+          [prix]="produit.prix"
+          [caracteristiques]="produit.caracteristiques">
+        </app-carte-produit-nodevis>
+      </div>
+    </section>
+    
+
+  </div>
+</section>
+<br>
+
+
+<div class="footer">
+  <app-footer-home-page></app-footer-home-page>
+</div>

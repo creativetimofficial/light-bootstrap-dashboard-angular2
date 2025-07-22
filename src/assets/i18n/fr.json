@@ -1,0 +1,259 @@
+{
+  "NAV": {
+    "HOME": "Accueil",
+    "GALLERY": "Galerie",
+    "TESTIMONIALS": "Avis",
+    "CONTACT": "Contact",
+    "ABOUT": "Découvrir",
+    "BLOGS": "Blogs",
+    "LOGIN": "Connexion/ Inscription",
+    "FRANCHISE": "Franchise",
+    "LOGOUT": "Déconnexion"
+  },
+  "ABOUT": {
+    "TITLE": "À propos de nous",
+    "VIDEO": {
+      "NOT_SUPPORTED": "Votre navigateur ne prend pas en charge la lecture de vidéos."
+    },
+    "FIRST": {
+      "PARAGRAPH": "Depuis plus de 20 ans, Tunav IT Group se positionne en tant que fournisseur de référence en solutions GPS, IT et IoT. Intégrateur de systèmes à forte valeur ajoutée, Tunav conçoit et déploie des solutions technologiques intelligentes, alliant performance et fiabilité. Nos domaines d’expertise couvrent le suivi GPS, la gestion de flotte, la surveillance à distance en temps réel ainsi que l’optimisation des processus métier, au service de la transformation digitale des organisations.",
+      "CTA": "Découvrir plus ⟩"
+    },
+    "SECOND": {
+      "TITLE": "TUNAV en Action!",
+      "PARAGRAPH": "TUNAV IT GROUP a récemment marqué sa présence lors de FITA 2025, un événement majeur dédié à la coopération et à l’investissement en Afrique. À cette occasion, nous avons mis en avant notre engagement pour la transformation digitale à travers des solutions innovantes en IoT, cloud computing et sécurité informatique. Cet événement a été une formidable opportunité de présenter notre savoir-faire, d’échanger avec des acteurs clés du secteur et de renforcer notre vision : accompagner les entreprises africaines vers une digitalisation efficace, durable et sécurisée.",
+      "CTA": "En savoir plus »"
+    },
+    "THIRD": {
+      "TITLE": "Au-delà du Code : renforcer l’humain chez TUNAV",
+      "PARAGRAPH": "Chez TUNAV IT GROUP, nous croyons que la performance naît d’une équipe soudée et épanouie. C’est pourquoi nous organisons régulièrement des activités de team building, qui permettent à nos collaborateurs de se retrouver dans un cadre convivial, de renforcer leur cohésion et de stimuler la créativité en dehors du cadre professionnel. Ces moments privilégiés favorisent la communication, la collaboration et la confiance mutuelle, tout en reflétant nos valeurs : l’humain, l’innovation et le partage.",
+      "CTA": "Voir Plus »"
+    },
+    "FOURTH": {
+      "TITLE": "Les Experts derrière TUNAV"
+    },
+    "SIXTH": {
+      "TITLE": "Construisons ensemble des solutions d’avenir",
+      "PARAGRAPH1": "Chez Tunav IT Group, nous croyons que l'innovation naît de la collaboration. Forts de plus de 20 ans d’expérience dans les technologies GPS, IT et IoT, nous accompagnons nos partenaires dans la mise en œuvre de projets sur mesure, performants et durables.",
+      "PARAGRAPH2": "Vous avez un projet, un besoin spécifique ou l’envie de transformer vos processus métier ? Échangeons ensemble pour construire des solutions adaptées à vos enjeux. Notre équipe est à votre écoute et prête à relever vos défis technologiques.",
+      "CTA": "Contactez-nous dès aujourd’hui »"
+    }
+  },
+  "CAROUSEL": {
+    "SLIDE1": {
+      "TITLE": "TRACKING GPS",
+      "SUBTITLE": "Accélérez votre transformation digitale avec le suivi GPS",
+      "DESCRIPTION": "Nous accompagnons les entreprises et les particuliers avec des solutions intelligentes de suivi GPS et de gestion de flotte, conçues pour optimiser leurs performances."
+    },
+    "SLIDE2": {
+      "TITLE": "SOLUTION IOT",
+      "SUBTITLE": "Sécurisez vos données avec les solutions IoT avancées",
+      "DESCRIPTION": "Nos solutions IoT vous offrent une surveillance intelligente, une gestion simplifiée de vos équipements et une sécurité renforcée, pour gagner en efficacité au quotidien."
+    },
+    "SLIDE3": {
+      "TITLE": "SOLUTION IT",
+      "SUBTITLE": "Transformez votre entreprise grâce à la gestion de flotte",
+      "DESCRIPTION": "Nous développons et intégrons des solutions IT qui renforcent les opérations, améliorent la performance et accélèrent la transformation digitale des entreprises."
+    }
+  },
+  "MENU": {
+    "CENTER_ICON": "Où sommes-nous ?"
+  },
+  "WHATWEDO": {
+    "TITLE": "Ce que nous faisons",
+    "PARAGRAPH1": "Depuis plus de 20 ans, Tunav IT Group se positionne en tant que fournisseur de référence en solutions GPS, IT et IoT. Intégrateur de systèmes à forte valeur ajoutée, Tunav conçoit et déploie des solutions technologiques intelligentes, alliant performance et fiabilité. Nos domaines d’expertise couvrent le suivi GPS, la gestion de flotte, la surveillance à distance en temps réel ainsi que l’optimisation des processus métier, au service de la transformation digitale des organisations.",
+    "TRANSFORMATION": {
+      "TITLE": "Transformation Digitale",
+      "DESCRIPTION": "Nous accompagnons les entreprises dans leur transition numérique avec des solutions innovantes, durables et parfaitement intégrées à leur activité.",
+      "LINK": "En savoir plus sur Nos Solutions IT" 
+    },
+    "IT_SOLUTION": {
+      "TITLE": "Solutions IT",
+      "DESCRIPTION": "Notre expertise couvre le cloud computing, le développement de logiciels et la surveillance à distance, garantissant aux entreprises de rester compétitives dans un monde numérique en constante évolution."
+    },
+    "GPS_TRACKING": {
+      "TITLE": "Suivi GPS",
+      "DESCRIPTION": "Nos solutions de géolocalisation assurent un suivi en temps réel fiable et sécurisé de vos véhicules, équipements ou équipes terrain.",
+      "LINK": "En savoir plus"
+    },
+    "IOT_SOLUTION": {
+      "TITLE": "Solutions IoT",
+      "DESCRIPTION": "Nos solutions IoT offrent une surveillance intelligente, une gestion centralisée des appareils connectés pour protéger vos installations et améliorer votre efficacité globale.",
+      "LINK":"Découvrir"
+    }
+  },
+  "TESTIMONIALS": {
+    "TITLE": "Témoignages Clients",
+    "QUOTE1": "Bon travail. Nous reva color on est satisfait de votre service. Le grand bravo pour mr hassen krichen vraiment tu mérites que du succès dans ton domaine.",
+    "QUOTE2": "This is reliable and trustworthy service provider, with them you have no chance to get lost when traveling by Tunisia. Grateful for their service, grateful for reliable options provided by them. Keep doing the great work.",
+    "QUOTE3": "Meilleur Service"
+  },
+  "GALLERY": {
+    "TITLE": "Nos produits",
+    "DESCRIPTION": "Tunav IT Group propose une gamme complète de solutions technologiques innovantes alliant performance et précision. Nos produits couvrent le suivi GPS en temps réel, la gestion intelligente de flotte, les systèmes de surveillance à distance, ainsi que des solutions IoT sur mesure pour divers secteurs d’activité. Nous offrons également des plateformes IT avancées pour l’optimisation des processus métiers, permettant aux entreprises de mieux piloter leurs ressources, sécuriser leurs opérations et accélérer leur transformation digitale.",
+    "PRODUCT1": "MiniTrace_ KIT - PORTABLE",
+    "PRODUCT2": "TRAILLER SMART_LOCK",
+    "PRODUCT3": "Camtrack",
+    "PRODUCT4": "ETX_KIT- AUTOMOTIVE",
+    "PRODUCT5": "ETBLE_KIT - AUTOMOTIVE",
+    "PRODUCT6": "ET6_KIT - ADVANCED AUTOMOTIVE",
+    "PRODUCT7": "ETCAN_KIT BUSCAN/ CARBURANT AUTOMOTIVE",
+    "PRODUCT8": "ET8_KIT - ETANCHE AUTOMOTIVE",
+    "BUTTON": "Voir Tous Les Produits"
+  },
+  "CLIENTS": {
+    "TITLE": "Nos Clients",
+    "DESCRIPTION": "Découvrez les entreprises qui nous font confiance. Notre portfolio inclut des partenariats avec des leaders industriels et des innovateurs de premier plan, unis par notre engagement commun envers l'excellence et la qualité."
+  },
+  "CONTACT": {
+    "TITLE": "Contactez-nous",
+    "INTRO": "Vous pouvez nous contacter à tout moment par e-mail ou par téléphone. Vous pouvez également remplir directement ce formulaire, et notre équipe vous répondra dans les plus brefs délais.",
+    "CHAT_ONLINE": "Chat en ligne",
+    "LOCATION": "Notre localisation",
+    "FORM": {
+      "NAME_PLACEHOLDER": "Votre nom",
+      "EMAIL_PLACEHOLDER": "Votre e-mail",
+      "EMAIL_ERROR": "Veuillez entrer un email valide.",
+      "MESSAGE_PLACEHOLDER": "Message",
+      "SUBMIT": "Envoyer"
+    }
+  },
+  "AUTH": {
+    "FORGET": {
+    "TITLE": "Mot de passe oublié ?",
+    "LINK": "Cliquez ici",
+    "PLACEHOLDER": "Entrez votre email",
+    "BUTTON": "Réinitialiser"
+     },
+    "SIGNUP": {
+      "TITLE": "Créer un compte",
+      "SUBTITLE": "Utilisez votre e-mail pour l'inscription",
+      "PLACEHOLDERS": {
+        "NAME": "Nom",
+        "EMAIL": "Email"
+      },
+      "BUTTON": "S'inscrire"
+    },
+    "SIGNIN": {
+      "TITLE": "Se connecter",
+      "PLACEHOLDERS": {
+        "EMAIL": "Email",
+        "PASSWORD": "Mot de passe"
+      },
+      "BUTTON": "Se connecter"
+    },
+    "OVERLAY": {
+      "LEFT": {
+        "TITLE": "Bon retour !",
+        "TEXT": "Pour rester connecté avec nous, veuillez vous connecter avec vos informations personnelles",
+        "BUTTON": "Se connecter"
+      },
+      "RIGHT": {
+        "TITLE": "Bonjour, Ami !",
+        "TEXT": "Saisissez vos informations personnelles et commencez votre voyage avec nous",
+        "BUTTON": "S'inscrire"
+      }
+    }
+  },
+   "SOLUTIONS": {
+    "TITLE": "📡 Solutions GPS Avancées",
+    "SUBTITLE": "Découvrez nos solutions IoT et IT pour vos besoins GPS",
+      "IOT": {
+      "TAB": "Solution IoT",
+      "TITLE": "Demande de devis pour un produit IoT",
+      "SUBTITLE": "Obtenez un devis personnalisé pour votre solution IoT",
+      "DESCRIPTION": "Veuillez remplir le formulaire ci-dessous pour recevoir un devis pour le produit IoT sélectionné."
+    },
+   "IT": {
+      "TAB": "Solution IT",
+      "TITLE": "Demande de devis pour une solution IT personnalisée",
+      "SUBTITLE": "Décrivez-nous la solution IT dont vous avez besoin",
+      "DESCRIPTION": "Veuillez remplir le formulaire ci-dessous pour demander un devis personnalisé pour une solution IT sur mesure, incluant des logiciels, des bases de données ou des systèmes d’entreprise adaptés à vos besoins."
+    }
+  },
+  "FORM": {
+    "NAME": "Nom",
+    "FIRSTNAME": "Prénom",
+    "COMPANY": "Entreprise",
+    "IOT_MESSAGE": "Message concernant votre projet IoT",
+    "IT_MESSAGE": "Message concernant votre projet IT",
+    "PLACEHOLDER": {
+      "NAME": "Tapez votre nom",
+      "FIRSTNAME": "Votre prénom",
+      "EMAIL": "votre.email@example.com",
+      "COMPANY": "Nom de votre entreprise",
+      "IOT_MESSAGE": "Décrivez votre projet IoT",
+      "IT_MESSAGE": "Décrivez votre projet IT"
+    },
+    "SUBMIT_IOT": "Demander un devis IoT",
+    "SUBMIT_IT": "Demander une consultation IT"
+  },
+  "FRANCHISE": {
+    "TITLE": "Franchise TUNAV",
+    "SUBTITLE": "Rejoignez notre réseau de partenaires et développez votre activité dans les technologies IT, IoT et GPS Tracking avec le support de TUNAV IT GROUP.",
+    "FORM": {
+      "TITLE": "Demande de Franchise",
+      "DESCRIPTION": "Nos solutions de franchise vous permettent de développer votre activité avec le support technologique et commercial de TUNAV IT GROUP.",
+      "LABELS": {
+        "LASTNAME": "Nom",
+        "FIRSTNAME": "Prénom",
+        "EMAIL": "Email",
+        "PHONE": "Téléphone",
+        "PROFESSION": "Profession actuelle",
+        "EXPERIENCE": "Avez-vous de l'expérience en IT/IoT/GPS ?",
+        "EXPERIENCE_DETAILS": "Précisez votre expérience :",
+        "MANAGED_BUSINESS": "Avez-vous déjà dirigé une entreprise ?",
+        "BUSINESS_DETAILS": "Précisez le secteur et la durée :",
+        "MOTIVATION": "Motivation pour rejoindre TUNAV"
+      },
+      "PLACEHOLDER": {
+        "LASTNAME": "Tapez votre nom",
+        "FIRSTNAME": "Tapez votre prénom",
+        "EMAIL": "exemple@exemple.com",
+        "PROFESSION": "Tapez votre profession",
+        "MOTIVATION": "Quels sont vos motivations pour rejoindre la franchise Tunav"
+      },
+      "OPTIONS": {
+        "YES": "Oui",
+        "NO": "Non"
+      },
+      "SUBMIT": "Demander une franchise"
+    }
+  },
+  "SOLUTIONS_PRODUCTS": {
+  "IT": {
+    "TITLE": "Solutions IT",
+    "DESCRIPTION": "Nous développons et intégrons des solutions IT qui renforcent les opérations, améliorent la performance et accélèrent la transformation digitale des entreprises.",
+    "LINK": "👉 Demander une consultation IT"
+  } 
+  },
+  
+  "filters": {
+    "Tous": "Tous",
+    "GPS Trackers": "Traceurs GPS",
+    "Solutions IoT": "Solutions IoT",
+    "Solutions IT": "Solutions IT"
+  },
+
+  "conteneur_avecdevis":{
+    "surDevis": "SUR DEVIS",
+    "voirDetails": "Voir détails",
+    "demanderDevis": "Demander un devis",
+    "caracteristiques": "Caractéristiques :",
+    "tarif": "Tarif :"
+  },
+  "conteneur_sansdevis":{
+    "voirDetails": "Voir Détails",
+    "caracteristiques": "Caractéristiques :",
+    "tarif": "Prix :"
+  }
+
+
+,
+  "ALERT": {
+  "LOGOUT_TITLE": "Déconnexion",
+  "LOGOUT_SUCCESS": "Vous avez été déconnecté avec succès.",
+  "OK": "D'accord"
+}
+
+}

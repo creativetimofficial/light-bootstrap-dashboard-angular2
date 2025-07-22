@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
-import { LegendItem, ChartType } from '../lbd/lbd-chart/lbd-chart.component';
-import * as Chartist from 'chartist';
+import { ChartType, LegendItem } from '../lbd/lbd-chart/lbd-chart.component';
+import { UserStatistics, UserStatisticsService } from 'app/Services/user-statistics.service';
+import { DevisService } from 'app/Services/devis.service';
 
 @Component({
   selector: 'app-home',
@@ -9,104 +9,130 @@ import * as Chartist from 'chartist';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-    public emailChartType: ChartType;
-    public emailChartData: any;
-    public emailChartLegendItems: LegendItem[];
+  // Propriétés pour le graphique des statistiques utilisateur
+  public hoursChartType: ChartType;
+  public hoursChartData: any;
+  public hoursChartOptions: any;
+  public hoursChartResponsive: any[];
+  public hoursChartLegendItems: LegendItem[];
 
-    public hoursChartType: ChartType;
-    public hoursChartData: any;
-    public hoursChartOptions: any;
-    public hoursChartResponsive: any[];
-    public hoursChartLegendItems: LegendItem[];
+  // Propriétés pour le graphique des devis
+  public devisChartType: ChartType;
+  public devisChartData: any;
+  public devisChartOptions: any;
+  public devisChartResponsive: any[];
+  public devisChartLegendItems: LegendItem[];
 
-    public activityChartType: ChartType;
-    public activityChartData: any;
-    public activityChartOptions: any;
-    public activityChartResponsive: any[];
-    public activityChartLegendItems: LegendItem[];
-  constructor() { }
+  public footerText: string = '';
+
+  constructor(
+    private statsService: UserStatisticsService,
+    private devisService: DevisService
+  ) {}
 
   ngOnInit() {
-      this.emailChartType = ChartType.Pie;
-      this.emailChartData = {
-        labels: ['62%', '32%', '6%'],
-        series: [62, 32, 6]
-      };
-      this.emailChartLegendItems = [
-        { title: 'Open', imageClass: 'fa fa-circle text-info' },
-        { title: 'Bounce', imageClass: 'fa fa-circle text-danger' },
-        { title: 'Unsubscribe', imageClass: 'fa fa-circle text-warning' }
-      ];
+    this.hoursChartType = ChartType.Bar;
+    this.hoursChartResponsive = [];
+    this.hoursChartLegendItems = [
+      { title: 'Visitors', imageClass: 'fa fa-eye text-info' },
+      { title: 'Sign-ups', imageClass: 'fa fa-user-plus text-success' },
+      { title: 'Logins', imageClass: 'fa fa-sign-in-alt text-warning' }
+    ];
 
-      this.hoursChartType = ChartType.Line;
-      this.hoursChartData = {
-        labels: ['9:00AM', '12:00AM', '3:00PM', '6:00PM', '9:00PM', '12:00PM', '3:00AM', '6:00AM'],
-        series: [
-          [287, 385, 490, 492, 554, 586, 698, 695, 752, 788, 846, 944],
-          [67, 152, 143, 240, 287, 335, 435, 437, 539, 542, 544, 647],
-          [23, 113, 67, 108, 190, 239, 307, 308, 439, 410, 410, 509]
-        ]
-      };
-      this.hoursChartOptions = {
-        low: 0,
-        high: 800,
-        showArea: true,
-        height: '245px',
-        axisX: {
-          showGrid: false,
-        },
-        lineSmooth: Chartist.Interpolation.simple({
-          divisor: 3
-        }),
-        showLine: false,
-        showPoint: false,
-      };
-      this.hoursChartResponsive = [
-        ['screen and (max-width: 640px)', {
-          axisX: {
-            labelInterpolationFnc: function (value) {
-              return value[0];
+    this.devisChartType = ChartType.Pie;
+    this.devisChartResponsive = [];
+    this.devisChartLegendItems = [
+      { title: 'Devis IT', imageClass: 'fa fa-circle text-info' },
+      { title: 'Devis IOT', imageClass: 'fa fa-circle text-danger' }
+    ];
+
+    this.loadStats();
+  }
+
+  loadStats() {
+    this.statsService.getStats().subscribe({
+      next: (stats: UserStatistics) => {
+        const maxValue = Math.max(stats.visitors, stats.signUps, stats.logins);
+        this.hoursChartOptions = {
+          high: maxValue,
+          low: 0,
+          axisY: {
+            onlyInteger: true
+          },
+          seriesBarDistance: 20
+        };
+        this.hoursChartData = {
+          labels: ['Visitors', 'Sign-ups', 'Logins'],
+          series: [
+            [stats.visitors, stats.signUps, stats.logins]
+          ]
+        };
+
+        this.footerText = this.getTimeSinceLastUpdate(stats.lastUpdated);
+      },
+      error: (error) => console.error('Error fetching user stats')
+    });
+
+    this.devisService.getNumberDevisWithoutProduit().subscribe({
+      next: (withoutProduitData) => {
+        this.devisService.getNumberDevisWithProduit().subscribe({
+          next: (withProduitData) => {
+            const devisWithoutProduit = withoutProduitData.devisWithoutProduit;
+            const devisWithProduit = withProduitData.devisWithProduit;
+            const totalDevis = devisWithProduit + devisWithoutProduit;
+            
+            const withProduitPercentage = totalDevis > 0 ? ((devisWithProduit / totalDevis) * 100).toFixed(1) : 0;
+            const withoutProduitPercentage = totalDevis > 0 ? ((devisWithoutProduit / totalDevis) * 100).toFixed(1) : 0;
+            /*this.devisChartData = {
+              labels: ['Devis IT', 'Devis IOT'],
+              datasets: [{
+                data: [devisWithoutProduit, devisWithProduit],
+                backgroundColor: ['#36A2EB', '#FF6384'],
+                hoverBackgroundColor: ['#36A2EB', '#FF6384']
+              }]
+            };*/
+
+           this.devisChartData = {
+          labels: [`${withoutProduitPercentage}%`, `${withProduitPercentage}%`],
+          series: [devisWithoutProduit, devisWithProduit]
+        };
+
+          this.devisChartOptions = {
+            donut: true,
+            donutWidth: 50,
+            showLabel: true,
+            labelInterpolationFnc: function (value: string, index: number) {
+              return value;
             }
-          }
-        }]
-      ];
-      this.hoursChartLegendItems = [
-        { title: 'Open', imageClass: 'fa fa-circle text-info' },
-        { title: 'Click', imageClass: 'fa fa-circle text-danger' },
-        { title: 'Click Second Time', imageClass: 'fa fa-circle text-warning' }
-      ];
+          };
 
-      this.activityChartType = ChartType.Bar;
-      this.activityChartData = {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        series: [
-          [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895],
-          [412, 243, 280, 580, 453, 353, 300, 364, 368, 410, 636, 695]
-        ]
-      };
-      this.activityChartOptions = {
-        seriesBarDistance: 10,
-        axisX: {
-          showGrid: false
-        },
-        height: '245px'
-      };
-      this.activityChartResponsive = [
-        ['screen and (max-width: 640px)', {
-          seriesBarDistance: 5,
-          axisX: {
-            labelInterpolationFnc: function (value) {
-              return value[0];
-            }
-          }
-        }]
-      ];
-      this.activityChartLegendItems = [
-        { title: 'Tesla Model S', imageClass: 'fa fa-circle text-info' },
-        { title: 'BMW 5 Series', imageClass: 'fa fa-circle text-danger' }
-      ];
+          },
+          error: (error) => console.error('Error fetching devis with produit')
+        });
+      },
+      error: (error) => console.error('Error fetching devis without produit')
+    });
+  }
 
+  getTimeSinceLastUpdate(lastUpdated: string): string {
+    const lastUpdateDate = new Date(lastUpdated);
+    const now = new Date();
+    const diffInMs = now.getTime() - lastUpdateDate.getTime();
+    const diffInMinutes = Math.floor(diffInMs / (1000 * 60));
+    const diffInHours = Math.floor(diffInMs / (1000 * 60 * 60));
+    const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+    const diffInWeeks = Math.floor(diffInMs / (1000 * 60 * 60 * 24 * 7));
 
+    if (diffInMinutes < 1) {
+      return 'Updated just now';
+    } else if (diffInMinutes <= 59) {
+      return `Updated ${diffInMinutes} minute${diffInMinutes === 1 ? '' : 's'} ago`;
+    } else if (diffInHours <= 23) {
+      return `Updated ${diffInHours} hour${diffInHours === 1 ? '' : 's'} ago`;
+    } else if (diffInDays <= 6) {
+      return `Updated ${diffInDays} day${diffInDays === 1 ? '' : 's'} ago`;
+    } else {
+      return `Updated ${diffInWeeks} week${diffInWeeks === 1 ? '' : 's'} ago`;
     }
-
+  }
 }

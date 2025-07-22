@@ -1,0 +1,25 @@
+<div class="detail-container">
+  <div class="row">
+    <div class="col-left">
+      <h4>Nom :</h4>
+      <p>{{ produit.titre }}</p>
+
+      <h4>Description :</h4>
+      <p>{{ produit.description }}</p>
+    </div>
+
+    <div class="col-right">
+      <h4>Catégorie :</h4>
+      <span class="badge iot-badge">{{ produit.categorie }}</span>
+
+      <h4>Caractéristiques :</h4>
+      <div class="tags">
+        <span *ngFor="let c of produit.caracteristiques" class="tag">{{ c.texte }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="image-section">
+    <img [src]="getImageUrl(produit.imagePath)" alt="Produit" />
+  </div>
+</div>

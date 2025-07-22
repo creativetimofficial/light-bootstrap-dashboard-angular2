@@ -1,0 +1,103 @@
+.drag-drop-area {
+  border: 2px dashed #aaa;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.drag-drop-area:hover {
+  background-color: #f1f1f1;
+}
+/* Responsive tablette */
+@media (max-width: 992px) {
+  .container {
+    gap: 20px;
+    padding: 1.5rem;
+  }
+
+  .partie-informations,
+  .partie-formulaire {
+    flex-basis: 100%;
+  }
+
+  .form-container {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .form-container h2 {
+    font-size: 1.3rem;
+  }
+
+  .form-container button {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .drag-drop-area {
+    padding: 15px;
+  }
+}
+
+/* Responsive mobile */
+@media (max-width: 576px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .partie-informations,
+  .partie-formulaire {
+    flex-basis: 100%;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .form-container {
+    padding: 1rem;
+  }
+
+  .form-container h2 {
+    font-size: 1.1rem;
+  }
+
+  .form-container p {
+    font-size: 0.8rem;
+  }
+
+  .form-container input:not([type="radio"]),
+  .form-container textarea {
+    font-size: 0.85rem;
+  }
+
+  .form-container button {
+    font-size: 0.85rem;
+    padding: 0.6rem;
+  }
+
+  .iti__flag-container {
+    padding: 0 6px;
+  }
+
+  input.form-control {
+    font-size: 0.9rem;
+  }
+
+  .drag-drop-area {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+}

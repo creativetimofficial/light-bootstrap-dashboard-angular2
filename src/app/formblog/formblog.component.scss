@@ -1,0 +1,20 @@
+.image-upload-container {
+  border: 2px dashed #3377AA;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #f8f9fa;
+  transition: background-color 0.2s ease-in-out;
+
+  &.drag-over {
+    background-color: #e0f3ff;
+  }
+
+  .image-preview {
+    max-width: 200px;
+    max-height: 200px;
+    margin-top: 10px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+}

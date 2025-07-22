@@ -1,0 +1,223 @@
+.body {
+  background-image: url('assets/img/infinite-loop-01.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  color: white;
+}
+
+.partie-informations {
+  margin-top: 50px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 40%;
+}
+
+.partie-formulaire {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 60%;
+}
+
+h1 {
+  text-align: center;
+  color: #01b4ff;
+}
+
+.subtitle {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.form-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.766);
+}
+
+.form-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: #01b4ff;
+  font-weight: 600;
+}
+
+.form-container p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.form-container label {
+  font-size: 0.9rem;
+}
+
+.form-container input:not([type="radio"]),
+.form-container textarea {
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+textarea {
+  resize: vertical;
+  height: 80px;
+}
+
+.form-container button {
+  margin-top: 1rem;
+  background-color: #01b4ff;
+  border: none;
+  color: white;
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form-container button:hover {
+  background: linear-gradient(to right, #1e88e5, #1565c0);
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .form-container {
+    padding: 1.2rem;
+  }
+}
+input[type="radio"]{
+  border: #01b4ff;
+  gap: 30px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color:black;
+}
+.iti {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.iti__flag-container {
+  background-color: #f3f3f3;
+  border-right: 1px solid #ccc;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+}
+
+input.form-control {
+  border: none;
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+}
+@media (max-width: 992px) {
+  .container {
+    gap: 20px;
+    padding: 1.5rem;
+  }
+
+  .partie-informations,
+  .partie-formulaire {
+    flex-basis: 100%;
+  }
+
+  .form-container {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .form-container h2 {
+    font-size: 1.3rem;
+  }
+
+  .form-container button {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Responsive mobile */
+@media (max-width: 576px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .partie-informations,
+  .partie-formulaire {
+    flex-basis: 100%;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .form-container {
+    padding: 1rem;
+  }
+
+  .form-container h2 {
+    font-size: 1.1rem;
+  }
+
+  .form-container p {
+    font-size: 0.8rem;
+  }
+
+  .form-container input:not([type="radio"]),
+  .form-container textarea {
+    font-size: 0.85rem;
+  }
+
+  .form-container button {
+    font-size: 0.85rem;
+    padding: 0.6rem;
+  }
+
+  .iti__flag-container {
+    padding: 0 6px;
+  }
+
+  input.form-control {
+    font-size: 0.9rem;
+  }
+}

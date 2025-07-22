@@ -1,39 +1,38 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'app/Services/auth.service';
+export const ROUTES = [
+  { path: '/dashboard', title: 'Dashboard', icon: 'fa fa-dashboard', class: '' },
+  { path: '/listProducts', title: 'Liste des Produits', icon: 'fa fa-table', class: '' },
+  { path: '/blogs', title: 'Liste des Blogs', icon: 'fa fa-book', class: '' },
+  { path: '/users', title: 'Liste des Utilisateurs', icon: 'fa fa-user', class: '' },
+  { path: '/franchises', title: 'Demandes des franchises', icon: 'fa fa-user', class: '' },
+  { path: '/listDevis', title: 'Liste des Devis', icon: 'fa fa-user', class: '' },
 
-declare const $: any;
-declare interface RouteInfo {
-    path: string;
-    title: string;
-    icon: string;
-    class: string;
-}
-export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard', title: 'Dashboard',  icon: 'pe-7s-graph', class: '' },
-    { path: '/user', title: 'User Profile',  icon:'pe-7s-user', class: '' },
-    { path: '/table', title: 'Table List',  icon:'pe-7s-note2', class: '' },
-    { path: '/typography', title: 'Typography',  icon:'pe-7s-news-paper', class: '' },
-    { path: '/icons', title: 'Icons',  icon:'pe-7s-science', class: '' },
-    { path: '/maps', title: 'Maps',  icon:'pe-7s-map-marker', class: '' },
-    { path: '/notifications', title: 'Notifications',  icon:'pe-7s-bell', class: '' },
-    { path: '/upgrade', title: 'Upgrade to PRO',  icon:'pe-7s-rocket', class: 'active-pro' },
 ];
-
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent implements OnInit {
-  menuItems: any[];
+  public menuItems = [
+  { path: 'dashboard', title: 'Dashboard', icon: 'fa fa-tachometer-alt', class: '' },
+  { path: 'listProducts', title: 'Liste des Produits', icon: 'fa fa-cubes', class: '' },
+  { path: 'listblogs', title: 'Liste des Blogs', icon: 'fa fa-newspaper', class: '' },
+  { path: 'listusers', title: 'Liste des Utilisateurs', icon: 'fa fa-users', class: '' },
+  { path: 'franchises', title: 'Demandes des franchises', icon: 'fa fa-handshake', class: '' },
+  { path: 'listDevis', title: 'Liste des devis', icon: 'fa fa-file-invoice-dollar', class: '' },
+  ];
 
-  constructor() { }
+  constructor(private authService: AuthService,private router: Router) {}
 
-  ngOnInit() {
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
+  ngOnInit(): void {}
+
+  isMobileMenu(): boolean {
+    return window.innerWidth <= 991;
   }
-  isMobileMenu() {
-      if ($(window).width() > 991) {
-          return false;
-      }
-      return true;
-  };
+   logout() {
+    this.authService.logout();
+    this.router.navigate(['/auth']);
+  }
 }
