@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>TUNAV IT GROUP</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700,300">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  </head>
+  <body>    
+    <!-- Hero section -->
+    <!-- Navigation -->
+    <app-header-home-page></app-header-home-page>
+    <app-carousel-home-page></app-carousel-home-page>
+
+    <section class="menu-section" #menuSection>
+      <div class="circular-menu" [class.open]="isOpen">
+        <div class="center-icon">{{ 'MENU.CENTER_ICON' | translate }}</div>
+        <div
+          class="menu-item"
+          *ngFor="let icon of icons; let i = index"
+          [style.transform]="getIconTransform(i)">
+          {{ icon }}
+        </div>
+      </div>
+    </section>
+
+    <section id="whatwedo" class="tm-section-pad-top">
+      <div class="container">
+
+        <div class="row tm-content-box"><!-- first row -->
+          <div class="col-lg-12 col-xl-12">
+            <div class="tm-intro-text-container">
+              <h2 class="tm-text-primary mb-4 tm-section-title">{{ 'WHATWEDO.TITLE' | translate }}</h2>
+              <p class="mb-4 tm-intro-text">{{ 'WHATWEDO.PARAGRAPH1' | translate }}</p>
+            </div>
+          </div>
+      <section class="webtrace-section">
+            <br />
+            <br />
+            <div class="container">
+              <div class="row align-items-center fade-in-section">
+                <div class="col-lg-6 text-container">
+                  <h2 class="tm-text-primary mb-4">{{ 'video_webtrace.titre' | translate }}</h2>
+                  <p class="mb-4">
+                    {{ 'video_webtrace.paragraphe' | translate }}
+                  </p>
+                  <br />
+                  <a href="https://www.dropbox.com/scl/fi/j8raw1w8fma6y1dclcdp0/plateforme-complet.mp4?rlkey=canq2r20hsma9q4dtzb3406su&e=1&st=bvyvh272&dl=0" target="_blank" class="tm-btn-primary tm-intro-text css_perso">{{ 'video_webtrace.bouton_home' | translate }}</a>  
+                  <br />
+                  <br />
+                </div>
+
+                <div class="col-lg-6 video-container position-relative">
+                  <video #webtraceVideo autoplay muted loop playsinline preload="auto" class="video-demo">
+                    <source src="/assets/videos/webtrace_demo.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture vidéo.
+                  </video>
+                  <button class="sound-toggle" (click)="toggleWebtraceSound()">
+                    {{ webtraceSoundOn ? '🔊' : '🔇' }}
+                  </button>
+                </div>
+              </div>
+            </div>
+            <br />
+            <br />
+          </section>
+          
+
+        <br />
+        <br />    
+
+        </div><!-- first row -->
+
+        <div class="row tm-content-box"><!-- second row -->
+          <div class="col-lg-1">
+            <i class="fas fa-network-wired fa-3x text-center tm-icon"></i>
+          </div>
+          <div class="col-lg-5">
+            <div class="tm-intro-text-container">
+              <h2 class="tm-text-primary mb-4">{{ 'WHATWEDO.TRANSFORMATION.TITLE' | translate }}</h2>
+              <p class="mb-4 tm-intro-text">{{ 'WHATWEDO.TRANSFORMATION.DESCRIPTION' | translate }}</p>
+              <!-- <div class="tm-continue">
+                <a [routerLink]="['/products']" fragment="section-it" class="tm-intro-text tm-btn-primary">{{ 'WHATWEDO.TRANSFORMATION.LINK' | translate }}</a>
+              </div> -->
+            </div>
+          </div>
+          
+          <div class="col-lg-1">
+            <i class="fas fa-laptop-code fa-3x text-center tm-icon"></i>
+          </div>
+          <div class="col-lg-5">
+            <div class="tm-intro-text-container">
+              <h2 class="tm-text-primary mb-4">{{ 'WHATWEDO.IT_SOLUTION.TITLE' | translate }}</h2>
+              <p class="mb-4 tm-intro-text">{{ 'WHATWEDO.IT_SOLUTION.DESCRIPTION' | translate }}</p>
+              <div class="tm-continue">
+                <a [routerLink]="['/products']" fragment="section-it" class="tm-intro-text tm-btn-primary">{{ 'WHATWEDO.TRANSFORMATION.LINK' | translate }}</a>
+              </div>
+            </div>
+          </div>
+        </div><!-- second row -->
+
+        <!-- 👇 Ajout bouton centré entre les deux blocs -->
+        <!-- <div class="row">
+          <div class="col-12 d-flex justify-content-center my-4">
+            <a [routerLink]="['/products']" fragment="section-it" class="tm-intro-text tm-btn-primary">
+              {{ 'WHATWEDO.TRANSFORMATION.LINK' | translate }}
+            </a>
+          </div>
+        </div> -->
+        
+
+        <div class="row tm-content-box"><!-- third row -->
+          <div class="col-lg-1">
+            <i class="fas fa-map-marker-alt fa-3x text-center tm-icon"></i>
+          </div>
+          <div class="col-lg-5">
+            <div class="tm-intro-text-container">
+              <h2 class="tm-text-primary mb-4">{{ 'WHATWEDO.GPS_TRACKING.TITLE' | translate }}</h2>
+              <p class="mb-4 tm-intro-text">{{ 'WHATWEDO.GPS_TRACKING.DESCRIPTION' | translate }}</p>
+              <div class="tm-continue">
+                <a [routerLink]="['/products']" fragment="section-gps" class="tm-intro-text tm-btn-primary">{{ 'WHATWEDO.GPS_TRACKING.LINK' | translate }}</a>
+              </div> 
+            </div>
+          </div>
+          
+          <div class="col-lg-1">
+            <i class="fas fa-cogs fa-3x text-center tm-icon"></i>
+          </div>
+          <div class="col-lg-5">
+            <div class="tm-intro-text-container">
+              <h2 class="tm-text-primary mb-4">{{ 'WHATWEDO.IOT_SOLUTION.TITLE' | translate }}</h2>
+              <p class="mb-4 tm-intro-text">{{ 'WHATWEDO.IOT_SOLUTION.DESCRIPTION' | translate }}</p>
+              <div class="tm-continue">
+                <a [routerLink]="['/products']" fragment="section-iot" class="tm-intro-text tm-btn-primary">{{ 'WHATWEDO.IOT_SOLUTION.LINK' | translate }}</a>
+              </div>
+            </div>
+          </div>
+        </div><!-- third row -->
+
+      </div>
+    </section>
+
+    <section id="testimonials" class="tm-section-pad-top tm-parallax-2">      
+      <div class="container tm-testimonials-content">
+        <div class="row">
+          <div class="col-lg-12 tm-content-box">
+            <h2 class="text-white text-center mb-4 tm-section-title">{{ 'TESTIMONIALS.TITLE' | translate }}</h2>
+            <p class="mx-auto tm-section-desc text-center"></p>
+            <div class="mx-auto tm-gallery-container tm-gallery-container-2">
+              <div class="tm-testimonials-carousel">
+                <figure class="tm-testimonial-item" *ngFor="let testimonial of testimonials">
+                  <!--
+                  <img [src]="testimonial.image" alt="Image" class="img-fluid mx-auto" />
+                -->
+                  <blockquote>{{ testimonial.quote | translate }}</blockquote>
+                  <figcaption>{{ testimonial.author }}</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tm-bg-overlay"></div>
+    </section>
+
+    <section id="gallery" class="tm-section-pad-top">
+      <div class="container tm-container-gallery">
+        <div class="row">
+          <div class="text-center col-12">
+            <h2 class="tm-text-primary tm-section-title mb-4">{{ 'GALLERY.TITLE' | translate }}</h2>
+            <p class="mx-auto tm-section-desc">{{ 'GALLERY.DESCRIPTION' | translate }}</p>
+          </div>            
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="mx-auto tm-gallery-container">
+              <div class="grid tm-gallery">
+                <a *ngFor="let product of products" [href]="product.image">
+                  <figure class="effect-honey tm-gallery-item product-card" style="background-color: white">
+                    <img [src]="product.image" [alt]="product.alt" class="img-fluid" />
+                    <figcaption>
+                      <h2><span><i>{{ product.title | translate }}</i></span></h2>
+                    </figcaption>
+                  </figure>
+                </a>
+              </div>
+            </div>                
+          </div>        
+        </div>
+      </div>
+      <div class="btn-voir-tous-les-produits">
+        <button (click)="goToProductsPage()" class="btn-tous-produits">{{ 'GALLERY.BUTTON' | translate }}</button>
+      </div>
+    </section>
+
+    <!-- Components below -->
+    <app-clients-carousel></app-clients-carousel>
+    <app-chat-bot></app-chat-bot>
+    <app-contact-us></app-contact-us>
+  </body>
+</html>

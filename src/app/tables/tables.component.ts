@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
-declare interface TableData {
-    headerRow: string[];
-    dataRows: string[][];
-}
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { ProduitSansDevisService, ProduitSansDevis } from '../Services/ProduitSansDevisService';
+import { ProduitAvecDevisService, ProduitAvecDevis } from '../Services/ProduitAvecDevisService';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-tables',
@@ -11,34 +11,124 @@ declare interface TableData {
   styleUrls: ['./tables.component.css']
 })
 export class TablesComponent implements OnInit {
-    public tableData1: TableData;
-    public tableData2: TableData;
+  apiBaseUrl = environment.baseUrl
+  produitsIot: ProduitAvecDevis[] = [];
+  produitsGps: ProduitSansDevis[] = [];
 
-  constructor() { }
+  searchTerm: string = '';
+  searchIot: string = '';
+  searchGps: string = '';
 
-  ngOnInit() {
-      this.tableData1 = {
-          headerRow: [ 'ID', 'Name', 'Country', 'City', 'Salary'],
-          dataRows: [
-              ['1', 'Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
-              ['2', 'Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
-              ['3', 'Sage Rodriguez', 'Netherlands', 'Baileux', '$56,142'],
-              ['4', 'Philip Chaney', 'Korea, South', 'Overland Park', '$38,735'],
-              ['5', 'Doris Greene', 'Malawi', 'Feldkirchen in Kärnten', '$63,542'],
-              ['6', 'Mason Porter', 'Chile', 'Gloucester', '$78,615']
-          ]
-      };
-      this.tableData2 = {
-          headerRow: [ 'ID', 'Name',  'Salary', 'Country', 'City' ],
-          dataRows: [
-              ['1', 'Dakota Rice','$36,738', 'Niger', 'Oud-Turnhout' ],
-              ['2', 'Minerva Hooper', '$23,789', 'Curaçao', 'Sinaai-Waas'],
-              ['3', 'Sage Rodriguez', '$56,142', 'Netherlands', 'Baileux' ],
-              ['4', 'Philip Chaney', '$38,735', 'Korea, South', 'Overland Park' ],
-              ['5', 'Doris Greene', '$63,542', 'Malawi', 'Feldkirchen in Kärnten', ],
-              ['6', 'Mason Porter', '$78,615', 'Chile', 'Gloucester' ]
-          ]
-      };
+  constructor(
+    private router: Router,
+    private produitSansDevisService: ProduitSansDevisService,
+    private produitAvecDevisService: ProduitAvecDevisService
+  ) {}
+
+  ngOnInit(): void {
+    this.loadProduitsIot();
+    this.loadProduitsGps();
+  }
+
+  loadProduitsIot(): void {
+    this.produitAvecDevisService.getAllProduits().subscribe({
+      next: (data) => this.produitsIot = data,
+      error: (err) => console.error('Erreur chargement produits IoT :', err)
+    });
+  }
+
+  loadProduitsGps(): void {
+    this.produitSansDevisService.getAllProduits().subscribe({
+      next: (data) => this.produitsGps = data,
+      error: (err) => console.error('Erreur chargement produits GPS :', err)
+    });
+  }
+
+  editIot(id: number) {
+    this.router.navigate(['/update-product', id], { queryParams: { type: 'iot' } });
+  }
+
+editGps(id: number) {
+    this.router.navigate(['/update-product', id], { queryParams: { type: 'gps' } });
+  }
+
+
+  deleteIot(id: number) {
+    Swal.fire({
+      title: 'Êtes-vous sûr ?',
+      text: 'Voulez-vous vraiment supprimer ce produit IoT ?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#369',
+      cancelButtonColor: '#888',
+      confirmButtonText: 'Oui, supprimer !',
+      cancelButtonText: 'Annuler'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.produitAvecDevisService.delete(id).subscribe(() => {
+          this.produitsIot = this.produitsIot.filter(p => p.id !== id);
+          Swal.fire('Supprimé !', 'Le produit IoT a été supprimé.', 'success');
+        });
+      }
+    });
+  }
+
+  deleteGps(id: number) {
+    Swal.fire({
+      title: 'Êtes-vous sûr ?',
+      text: 'Voulez-vous vraiment supprimer ce produit GPS ?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#369',
+      cancelButtonColor: '#888',
+      confirmButtonText: 'Oui, supprimer !',
+      cancelButtonText: 'Annuler'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.produitSansDevisService.delete(id).subscribe(() => {
+          this.produitsGps = this.produitsGps.filter(p => p.id !== id);
+          Swal.fire('Supprimé !', 'Le produit GPS a été supprimé.', 'success');
+        });
+      }
+    });
+  }
+
+  get filteredIot() {
+    const term = this.searchIot || this.searchTerm;
+    if (!term) return this.produitsIot;
+    return this.produitsIot.filter(p =>
+      p.titre.toLowerCase().includes(term.toLowerCase()) ||
+      p.description.toLowerCase().includes(term.toLowerCase())
+    );
+  }
+
+  get filteredGps() {
+    const term = this.searchGps || this.searchTerm;
+    if (!term) return this.produitsGps;
+    return this.produitsGps.filter(p =>
+      p.titre.toLowerCase().includes(term.toLowerCase()) ||
+      p.description.toLowerCase().includes(term.toLowerCase())
+    );
+  }
+
+ getImageUrl(imagePath: string): string {
+  if (imagePath.startsWith('/assets')) {
+    return imagePath;
+  }
+  return this.apiBaseUrl + imagePath;
+}
+
+  ajouterProduit(type: 'iot' | 'gps') {
+    this.router.navigate(['/add-product'], { queryParams: { type } });
+  }
+
+  voirDetailsIot(id: number) {
+    this.router.navigate(['/produit-iot', id]);
+  }
+
+  voirDetailsGps(id: number) {
+    this.router.navigate(['/produit-gps', id]);
   }
 
 }
+

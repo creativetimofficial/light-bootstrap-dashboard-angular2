@@ -1,0 +1,81 @@
+.detail-container {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  padding: 30px;
+  margin: 20px auto;
+  max-width: 1000px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.col-left, .col-right {
+  flex: 1;
+  min-width: 300px;
+}
+
+h4 {
+  margin: 15px 0 5px;
+  font-weight: bold;
+  font-size: x-large;
+  color: #345;
+}
+.titre{
+    font-weight:bold ;
+    color: #00a8e8;
+}
+
+p {
+  margin: 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.iot-badge {
+  background-color: #00a8e8;
+}
+
+.gps-badge {
+  background-color: #00a8e8;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.tag {
+  background-color: #e0f0ff;
+  border-radius: 15px;
+  padding: 5px 12px;
+  font-size: 13px;
+  color: #0074cc;
+  font-weight: 500;
+}
+
+.image-section {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.image-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+

@@ -1,0 +1,96 @@
+<div class="body">
+  <app-header-home-page></app-header-home-page>
+  <br>
+  <div class="container">
+    <div class="partie-informations">
+      <h1 *ngIf="selectedTab === 'iot'">{{ 'SOLUTIONS.IOT.DYNAMIC_TITLE' | translate }}</h1>
+      <h1 *ngIf="selectedTab === 'it'">{{ 'SOLUTIONS.IT.DYNAMIC_TITLE' | translate }}</h1>
+
+      <p class="subtitle" *ngIf="selectedTab === 'iot'">{{ 'SOLUTIONS.IOT.DYNAMIC_SUBTITLE' | translate }}</p>
+      <p class="subtitle" *ngIf="selectedTab === 'it'">{{ 'SOLUTIONS.IT.DYNAMIC_SUBTITLE' | translate }}</p>
+
+
+      <!-- <div class="tabs">
+        <button class="tab" [class.active]="selectedTab === 'iot'" (click)="selectTab('iot')">
+          {{ 'SOLUTIONS.IOT.TAB' | translate }}
+        </button>
+        <button class="tab" [class.active]="selectedTab === 'it'" (click)="selectTab('it')">
+          {{ 'SOLUTIONS.IT.TAB' | translate }}
+        </button>
+      </div> -->
+    </div>
+
+    <div class="partie-formulaire">
+      <!-- IoT Form -->
+      <div *ngIf="selectedTab === 'iot'" class="form-container">
+        <h2> 🌐{{ 'SOLUTIONS.IOT.TITLE' | translate }} 
+          <span *ngIf="produitTitre">- {{ produitTitre }}</span>
+        </h2>
+        <p class="description">
+         <!--
+          <strong>{{ 'SOLUTIONS.IOT.SUBTITLE' | translate }}</strong>
+          --> 
+          <br />
+          {{ 'SOLUTIONS.IOT.DESCRIPTION' | translate }}
+        </p>
+
+        <form [formGroup]="formIot" (ngSubmit)="submitForm('iot')">
+          <label for="nom-iot">{{ 'FORM.NAME' | translate }} *</label>
+          <input id="nom-iot" formControlName="nom" [placeholder]="'FORM.PLACEHOLDER.NAME' | translate" />
+          <label for="prenom-iot">{{ 'FORM.FIRSTNAME' | translate }} *</label>
+          <input id="prenom-iot" formControlName="prenom" [placeholder]="'FORM.PLACEHOLDER.FIRSTNAME' | translate" />
+          <label for="email-iot">Email *</label>
+          <input id="email-iot" formControlName="email" type="email" [placeholder]="'FORM.PLACEHOLDER.EMAIL' | translate" />
+          
+          <label for="quantite-iot">Quantité *</label>
+          <input id="quantite-iot" formControlName="quantite" type="number" min="1" />
+
+          <label for="entreprise-iot">{{ 'FORM.COMPANY' | translate }}</label>
+          <input id="entreprise-iot" formControlName="entreprise" [placeholder]="'FORM.PLACEHOLDER.COMPANY' | translate" />
+
+          <label for="message-iot">{{ 'FORM.IOT_MESSAGE' | translate }} *</label>
+          <textarea id="message-iot" formControlName="message" [placeholder]="'FORM.PLACEHOLDER.IOT_MESSAGE' | translate"></textarea>
+
+          <button type="submit">{{ 'FORM.SUBMIT_IOT' | translate }}</button>
+        </form>
+      </div>
+
+      <!-- IT Form -->
+      <div *ngIf="selectedTab === 'it'" class="form-container">
+        <h2>  💻{{ 'SOLUTIONS.IT.TITLE' | translate }}</h2>
+        <p class="description">
+          <!--
+          <strong>{{ 'SOLUTIONS.IT.SUBTITLE' | translate }}</strong>
+        -->
+          <br />
+          {{ 'SOLUTIONS.IT.DESCRIPTION' | translate }}
+        </p>
+
+        <form [formGroup]="formIt" (ngSubmit)="submitForm('it')">
+          <label for="nom-it">{{ 'FORM.NAME' | translate }} *</label>
+          <input id="nom-it" formControlName="nom" [placeholder]="'FORM.PLACEHOLDER.NAME' | translate" />
+
+          <label for="prenom-it">{{ 'FORM.FIRSTNAME' | translate }} *</label>
+          <input id="prenom-it" formControlName="prenom" [placeholder]="'FORM.PLACEHOLDER.FIRSTNAME' | translate" />
+
+          <label for="email-it">Email *</label>
+          <input id="email-it" formControlName="email" type="email" [placeholder]="'FORM.PLACEHOLDER.EMAIL' | translate" />
+
+          <label for="entreprise-it">{{ 'FORM.COMPANY' | translate }}</label>
+          <input id="entreprise-it" formControlName="entreprise" [placeholder]="'FORM.PLACEHOLDER.COMPANY' | translate" />
+
+          <label for="message-it">{{ 'FORM.IT_MESSAGE' | translate }} *</label>
+          <textarea id="message-it" formControlName="message" [placeholder]="'FORM.PLACEHOLDER.IT_MESSAGE' | translate"></textarea>
+          
+          
+
+          <button type="submit">{{ 'FORM.SUBMIT_IT' | translate }}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <app-footer-home-page></app-footer-home-page>
+</div>

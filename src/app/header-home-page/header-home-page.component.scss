@@ -1,0 +1,87 @@
+.language-switcher {
+  position: relative;
+  z-index: 2;
+
+  .current-language {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .language-menu {
+    display: block; // Par défaut block, mais masqué par *ngIf
+    position: absolute;
+    top: 2rem;
+    left: 0;
+    list-style: none;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    padding: 0.5rem 0;
+    margin: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    li {
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f5f5f5;
+      }
+
+      &.active {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+/* Responsive tablette */
+/* Tablette en mode portrait (768px) à paysage (1024px) */
+@media (min-width: 577px) and (max-width: 1024px) {
+  .language-switcher .current-language {
+    font-size: 1.3rem;
+  }
+
+  .language-switcher .language-menu {
+    top: 1.8rem;
+    min-width: 100px;
+  }
+
+  .language-switcher .language-menu li {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.95rem;
+  }
+}
+@media (min-width: 600px) and (max-width: 900px) {
+  .language-switcher .current-language {
+    font-size: 1.3rem;
+  }
+
+  .language-switcher .language-menu {
+    top: 1.8rem;
+    min-width: 100px;
+  }
+
+  .language-switcher .language-menu li {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Responsive mobile */
+@media (max-width: 576px) {
+  .language-switcher .current-language {
+    font-size: 1.1rem;
+  }
+
+  .language-switcher .language-menu {
+    top: 1.6rem;
+    min-width: 90px;
+  }
+
+  .language-switcher .language-menu li {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.9rem;
+  }
+}

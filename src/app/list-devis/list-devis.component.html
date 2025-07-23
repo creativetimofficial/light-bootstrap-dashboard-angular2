@@ -1,0 +1,46 @@
+<div class="card">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h4 class="title" style="color: #357;">📄 Liste des Devis</h4>
+  </div>
+  <div class="card-body table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Email</th>
+          <th>Entreprise</th>
+          <th>État</th> 
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let devis of devisList">
+          <td>{{ devis.nom }}</td>
+          <td>{{ devis.prenom }}</td>
+          <td>{{ devis.email }}</td>
+          <td>{{ devis.entreprise }}</td>
+
+         <td>
+          <div class="input-group input-group-sm">
+            <select class="form-select"
+                    [ngModel]="devis.etat"
+                    (ngModelChange)="onEtatSelected($event, devis)">
+              <option *ngFor="let etat of etatsDisponibles" [ngValue]="etat">
+                {{ etat }}
+              </option>
+            </select>
+          </div>
+        </td>
+
+
+          <td>
+            <a [routerLink]="['/devis', devis.id]" class="btn btn-sm">
+              🔍 Détails
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

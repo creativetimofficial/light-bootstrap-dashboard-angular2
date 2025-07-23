@@ -1,0 +1,70 @@
+<app-header-home-page></app-header-home-page>
+
+<div class="co-blog-component tm-section-pad-top tm-parallax-2">
+
+  <!-- SVG HEART DEFINITION -->
+  <svg display="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="icon-heart" viewBox="0 0 24 24">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                 2 6 4 4 6.5 4c1.74 0 3.41 1.01 4.5 2.09
+                 C12.09 5.01 13.76 4 15.5 4
+                 18 4 20 6 20 8.5
+                 c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+      </symbol>
+    </defs>
+  </svg>
+<br><br><br><br><br>
+
+  <div *ngFor="let blog of blogPosts; let i = index" class="blog-container">
+    <!-- Blog details -->
+    <div class="blog-header">
+      <div *ngIf="blog.imagePath" class="blog-cover" [ngStyle]="{'background-image': 'url(' + getImageUrl(blog.imagePath) + ')'}">
+      </div>
+    </div>
+  <br><br>
+    <div class="blog-body">
+      <div class="blog-title"><h1>{{ blog.titre }}</h1></div>
+      <br><br>
+      <div class="blog-summary" [innerHTML]="transformNewlines(blog.contenu)">
+      </div>
+      <br><br>
+      <div class="blog-tags">
+        <ul>
+          <li *ngFor="let tag of blog.tags"><a href="#">{{ tag.nom }}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Blog footer avec like -->
+    <div class="blog-footer">
+      <ul>
+        <li class="published-date">{{ blog.datePublication| date: 'dd/MM/yyyy' }}</li>
+
+        <!-- ♥️ Like bouton -->
+        <li class="likes">
+          <button 
+            (click)="onLike(blog,i)" 
+            class="like-button" 
+            [style.fill]="blog.liked ? 'red' : '#aaa'">
+            <svg class="icon-heart">
+              <use xlink:href="#icon-heart"></use>
+            </svg>
+            <span class="numero">{{ blog.likes }}</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+<br><br><br><br>
+<app-footer-home-page></app-footer-home-page>
+</div>
+
+
+
+
+
+
+
+
+
